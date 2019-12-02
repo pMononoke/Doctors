@@ -1,6 +1,6 @@
 <?php
 
-namespace Ben\DoctorsBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Test
  *
  * @ORM\Table(name="test")
- * @ORM\Entity(repositoryClass="Ben\DoctorsBundle\Entity\TestRepository")
+ * @ORM\Entity(repositoryClass="App\Entity\TestRepository")
  */
 class Test
 {
@@ -93,7 +93,7 @@ class Test
     private $result;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Ben\DoctorsBundle\Entity\Consultation", inversedBy="tests")
+    * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="tests")
     * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
     */
     private $consultation;
@@ -146,10 +146,10 @@ class Test
     /**
      * Set consultation
      *
-     * @param \Ben\DoctorsBundle\Entity\Consultation $consultation
+     * @param \App\Entity\Consultation $consultation
      * @return Test
      */
-    public function setConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultation)
+    public function setConsultation(\App\Entity\Consultation $consultation)
     {
         $this->consultation = $consultation;
 
@@ -159,7 +159,7 @@ class Test
     /**
      * Get consultation
      *
-     * @return \Ben\DoctorsBundle\Entity\Consultation 
+     * @return \App\Entity\Consultation 
      */
     public function getConsultation()
     {
