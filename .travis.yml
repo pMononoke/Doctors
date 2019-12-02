@@ -1,0 +1,58 @@
+sudo: required
+
+env:
+  global:
+    #- CC_TEST_REPORTER_ID=xxxxxxx
+
+    - TEST_COVERAGE=true
+
+    - RUN_SONAR_SCANNER=0
+
+language: php
+
+services:
+    - docker
+
+#addons:
+#  sonarcloud:
+#    organization: "pmononoke"
+#    token:
+#      secure: ""
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 7.2
+          env: RUN_SONAR_SCANNER=1
+        - php: 7.3
+
+cache:
+  directories:
+  - $HOME/.composer/cache
+
+.steps:
+  #
+  #   CI STEP
+  #
+  - &add-composer-bin-dir-to-path |
+      export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+  - &disable-xdebug-php-extension |
+      phpenv config-rm xdebug.ini || echo "xdebug not available"
+
+  - &disable-php-memory-limit |
+      echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+  - &app-clear-test-cache |
+      bin/console cache:clear -e test
+
+  - &run-phpunit-tests |
+      bin/phpunit --colors=always --coverage-clover=coverage-report.clover --log-junit=test-report.xml
+
+before_install:
+  - cp ci/.env.test.travis .env.test
+
+install:
+  - docker-compose -f tests/docker/docker-compose.yml up -d
+  - composer install
+  - ./bin/phpunit install
