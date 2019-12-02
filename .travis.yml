@@ -2,10 +2,6 @@ sudo: required
 
 env:
   global:
-    #- CC_TEST_REPORTER_ID=xxxxxxx
-
-    - TEST_COVERAGE=true
-
     - RUN_SONAR_SCANNER=0
 
 language: php
@@ -25,6 +21,8 @@ matrix:
         - php: 7.2
           env: RUN_SONAR_SCANNER=1
         - php: 7.3
+        - php: 7.4snapshot
+
 
 cache:
   directories:
