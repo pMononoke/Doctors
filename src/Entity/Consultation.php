@@ -2,18 +2,22 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Consultation
+ * Consultation.
  *
  * @ORM\Table(name="consultation")
  * @ORM\Entity(repositoryClass="App\Entity\ConsultationRepository")
  */
 class Consultation
 {
+    public static $GENERAL = 'Consultation generale';
+    public static $SPECIAL = 'Consultation spécialisé';
+
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -21,8 +25,6 @@ class Consultation
      */
     private $id;
 
-    public static $GENERAL  = 'Consultation generale';
-    public static $SPECIAL  = 'Consultation spécialisé';
 
     /**
      * @var string
@@ -58,15 +60,15 @@ class Consultation
      * @ORM\Column(name="created", type="date")
      */
     private $created;
-    
-   /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="diagnosis", type="text", nullable=true)
      */
     private $diagnosis;
-    
-   /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="treatment", type="text", nullable=true)
@@ -81,382 +83,198 @@ class Consultation
     private $decision;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="chronic", type="boolean", nullable=true)
      */
     private $chronic;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="consultations")
-    * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="consultations")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     */
     private $person;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consultations")
-    * @ORM\JoinColumn(name="doc_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consultations")
+     * @ORM\JoinColumn(name="doc_id", referencedColumnName="id", nullable=false)
+     */
     private $user;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Test", mappedBy="consultation", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\Test", mappedBy="consultation", cascade={"remove", "persist"})
+     */
     protected $tests;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="consultation", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="consultation", cascade={"remove", "persist"})
+     */
     protected $consultationmeds;
-    
+
     /************ constructeur ************/
-    
+
     public function __construct()
     {
-        $this->created = new \DateTime;
+        $this->created = new \DateTime();
         $this->type = Consultation::$GENERAL;
         $this->tests = new \Doctrine\Common\Collections\ArrayCollection();
         $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /************ getters & setters  ************/
 
-   /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Consultation
-     */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Consultation
-     */
-    public function setCreated($created)
+    public function setCreated(\DateTime $created): void
     {
         $this->created = $created;
-
-        return $this;
     }
 
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
+    public function getCreated(): \DateTime
     {
         return $this->created;
     }
 
-    /**
-     * Set person
-     *
-     * @param \App\Entity\Person $person
-     * @return Consultation
-     */
-    public function setPerson(\App\Entity\Person $person)
+    public function setPerson(Person $person): void
     {
         $this->person = $person;
-
-        return $this;
     }
 
-    /**
-     * Get person
-     *
-     * @return \App\Entity\Person 
-     */
-    public function getPerson()
+    public function getPerson(): Person
     {
         return $this->person;
     }
 
-    /**
-     * Set user
-     *
-     * @param \App\Entity\User $user
-     * @return Consultation
-     */
-    public function setUser(\App\Entity\User $user)
+    public function setUser(User $user): void
     {
         $this->user = $user;
-
-        return $this;
     }
 
-    /**
-     * Get user
-     *
-     * @return \App\Entity\User 
-     */
-    public function getUser()
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    /**
-     * Add tests
-     *
-     * @param \App\Entity\Test $tests
-     * @return Consultation
-     */
-    public function addTest(\App\Entity\Test $tests)
+    public function addTest(Test $tests): void
     {
         $this->tests[] = $tests;
-
-        return $this;
     }
 
-    /**
-     * Remove tests
-     *
-     * @param \App\Entity\Test $tests
-     */
-    public function removeTest(\App\Entity\Test $tests)
+    public function removeTest(Test $tests): void
     {
         $this->tests->removeElement($tests);
     }
 
-    /**
-     * Get tests
-     *
-     * @return \Doctrine\Common\Collections\ArrayCollection 
-     */
-    public function getTests()
+    public function getTests(): Collection
     {
         return $this->tests;
     }
 
-    /**
-     * Add consultationmeds
-     *
-     * @param \App\Entity\ConsultationMeds $consultationmeds
-     * @return Consultation
-     */
-    public function addConsultationmed(\App\Entity\ConsultationMeds $consultationmeds)
+    public function addConsultationmed(ConsultationMeds $consultationmeds): void
     {
         $consultationmeds->setConsultation($this);
         $this->consultationmeds->add($consultationmeds);
-
-        return $this;
     }
 
-    /**
-     * Remove consultationmeds
-     *
-     * @param \App\Entity\ConsultationMeds $consultationmeds
-     */
-    public function removeConsultationmed(\App\Entity\ConsultationMeds $consultationmeds)
+    public function removeConsultationmed(ConsultationMeds $consultationmeds)
     {
         $this->consultationmeds->removeElement($consultationmeds);
     }
 
-    /**
-     * Get consultationmeds
-     *
-     * @return \Doctrine\Common\Collections\ArrayCollection 
-     */
-    public function getConsultationmeds()
+    public function getConsultationmeds(): Collection
     {
         return $this->consultationmeds;
     }
 
-    /**
-     * Set diagnosis
-     *
-     * @param string $diagnosis
-     * @return Consultation
-     */
-    public function setDiagnosis($diagnosis)
+    public function setDiagnosis(string $diagnosis): void
     {
         $this->diagnosis = $diagnosis;
-
-        return $this;
     }
 
-    /**
-     * Get diagnosis
-     *
-     * @return string 
-     */
-    public function getDiagnosis()
+    public function getDiagnosis(): string
     {
         return $this->diagnosis;
     }
 
-    /**
-     * Set treatment
-     *
-     * @param string $treatment
-     * @return Consultation
-     */
-    public function setTreatment($treatment)
+    public function setTreatment(string $treatment): void
     {
         $this->treatment = $treatment;
-
-        return $this;
     }
 
-    /**
-     * Get treatment
-     *
-     * @return string 
-     */
-    public function getTreatment()
+    public function getTreatment(): string
     {
         return $this->treatment;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Consultation
-     */
-    public function setType($type)
+    public function setType(string $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * Set motiftype
-     *
-     * @param string $motiftype
-     * @return Consultation
-     */
-    public function setMotiftype($motiftype)
+    public function setMotiftype(string $motiftype): void
     {
         $this->motiftype = $motiftype;
-
-        return $this;
     }
 
-    /**
-     * Get motiftype
-     *
-     * @return string 
-     */
-    public function getMotiftype()
+    public function getMotiftype(): string
     {
         return $this->motiftype;
     }
 
-    /**
-     * Set infrastructure
-     *
-     * @param string $infrastructure
-     * @return Consultation
-     */
-    public function setInfrastructure($infrastructure)
+    public function setInfrastructure(string $infrastructure): void
     {
         $this->infrastructure = $infrastructure;
-
-        return $this;
     }
 
-    /**
-     * Get infrastructure
-     *
-     * @return string 
-     */
-    public function getInfrastructure()
+    public function getInfrastructure(): string
     {
         return $this->infrastructure;
     }
-    
-    public function isSpecial()
+
+    public function isSpecial(): bool
     {
-        return ($this->type === Consultation::$SPECIAL);
+        return $this->type === Consultation::$SPECIAL;
     }
 
-    /**
-     * Set chronic
-     *
-     * @param boolean $chronic
-     * @return Consultation
-     */
-    public function setChronic($chronic)
+    public function setChronic(bool $chronic): void
     {
         $this->chronic = $chronic;
-
-        return $this;
     }
 
-    /**
-     * Get chronic
-     *
-     * @return boolean 
-     */
-    public function getChronic()
+    public function getChronic(): bool
     {
         return $this->chronic;
     }
-    
-    /**
-     * Set decision
-     *
-     * @param string $decision
-     * @return Consultation
-     */
-    public function setDecision($decision)
+
+    public function setDecision(string $decision): void
     {
         $this->decision = $decision;
-
-        return $this;
     }
 
-    /**
-     * Get decision
-     *
-     * @return string 
-     */
-    public function getDecision()
+    public function getDecision(): string
     {
         return $this->decision;
     }
