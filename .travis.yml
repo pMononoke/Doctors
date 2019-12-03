@@ -9,11 +9,11 @@ language: php
 services:
     - docker
 
-#addons:
-#  sonarcloud:
-#    organization: "pmononoke"
-#    token:
-#      secure: ""
+addons:
+  sonarcloud:
+    organization: "pmononoke"
+    token:
+      secure: "7a509e4bf334ca44fd697d725c627ba40fea6a77"
 
 matrix:
     fast_finish: true
@@ -54,3 +54,11 @@ install:
   - docker-compose -f tests/docker/docker-compose.yml up -d
   - composer install
   - ./bin/phpunit install
+
+script:
+  - *app-clear-test-cache
+  - *run-phpunit-tests
+
+after_success:
+  - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi
+
