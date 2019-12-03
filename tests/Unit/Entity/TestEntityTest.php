@@ -141,7 +141,7 @@ class TestEntityTest extends TestCase
 
         $test->setHasvisualissue(true);
 
-        self::assertTrue($test->getHasvisualissue());
+        self::assertIsBool($test->getHasvisualissue());
     }
 
     /** @test */
@@ -149,8 +149,8 @@ class TestEntityTest extends TestCase
     {
         $test = new Test();
 
-        $test->setFixedvisualissue('irrelevant');
+        $test->setFixedvisualissue(true);
 
-        self::assertEquals('irrelevant', $test->getFixedvisualissue());
+        self::assertIsBool($test->getFixedvisualissue());
     }
 }

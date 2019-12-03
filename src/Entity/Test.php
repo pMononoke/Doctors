@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Test
 {
+    public static $GENERAL  = 'Examen Générale';
+
     /**
      * @var integer
      *
@@ -20,8 +22,6 @@ class Test
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    public static $GENERAL  = 'Examen Générale';
 
     /**
      * @var string
@@ -106,269 +106,122 @@ class Test
     
     /************ getters & setters  ************/
 
-   /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Test
-     */
-    public function setType($type)
+    public function setType(string $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
-    public function isGeneral()
+
+    public function isGeneral(): bool
     {
         return ($this->type === Test::$GENERAL);
     }
 
-    /**
-     * Set consultation
-     *
-     * @param \App\Entity\Consultation $consultation
-     * @return Test
-     */
-    public function setConsultation(\App\Entity\Consultation $consultation)
+    public function setConsultation(Consultation $consultation): void
     {
         $this->consultation = $consultation;
-
-        return $this;
     }
 
-    /**
-     * Get consultation
-     *
-     * @return \App\Entity\Consultation
-     */
-    public function getConsultation()
+    public function getConsultation(): Consultation
     {
         return $this->consultation;
     }
 
-    /**
-     * Set taille
-     *
-     * @param string $taille
-     * @return Test
-     */
-    public function setTaille($taille)
+    public function setTaille(string $taille): void
     {
         $this->taille = $taille;
-
-        return $this;
     }
 
-    /**
-     * Get taille
-     *
-     * @return string 
-     */
-    public function getTaille()
+    public function getTaille(): string
     {
         return $this->taille;
     }
 
-    /**
-     * Set poids
-     *
-     * @param string $poids
-     * @return Test
-     */
-    public function setPoids($poids)
+    public function setPoids(string $poids): void
     {
         $this->poids = $poids;
-
-        return $this;
     }
 
-    /**
-     * Get poids
-     *
-     * @return string 
-     */
-    public function getPoids()
+    public function getPoids(): string
     {
         return $this->poids;
     }
 
-    /**
-     * Set ta
-     *
-     * @param string $ta
-     * @return Test
-     */
-    public function setTa($ta)
+    public function setTa(string $ta): void
     {
         $this->ta = $ta;
-
-        return $this;
     }
 
-    /**
-     * Get ta
-     *
-     * @return string 
-     */
-    public function getTa()
+    public function getTa(): string
     {
         return $this->ta;
     }
 
-    /**
-     * Set od
-     *
-     * @param string $od
-     * @return Test
-     */
-    public function setOd($od)
+    public function setOd(string $od): void
     {
         $this->od = $od;
-
-        return $this;
     }
 
-    /**
-     * Get od
-     *
-     * @return string 
-     */
-    public function getOd()
+    public function getOd(): string
     {
         return $this->od;
     }
 
-    /**
-     * Set og
-     *
-     * @param string $og
-     * @return Test
-     */
-    public function setOg($og)
+    public function setOg(string $og): void
     {
         $this->og = $og;
-
-        return $this;
     }
 
-    /**
-     * Get og
-     *
-     * @return string 
-     */
-    public function getOg()
+    public function getOg(): string
     {
         return $this->og;
     }
 
-    /**
-     * Set request
-     *
-     * @param string $request
-     * @return Test
-     */
-    public function setRequest($request)
+    public function setRequest(string $request): void
     {
         $this->request = $request;
-
-        return $this;
     }
 
-    /**
-     * Get request
-     *
-     * @return string 
-     */
-    public function getRequest()
+    public function getRequest(): string
     {
         return $this->request;
     }
 
-    /**
-     * Set result
-     *
-     * @param string $result
-     * @return Test
-     */
-    public function setResult($result)
+    public function setResult(string $result): void
     {
         $this->result = $result;
-
-        return $this;
     }
 
-    /**
-     * Get result
-     *
-     * @return string 
-     */
-    public function getResult()
+    public function getResult(): string
     {
         return $this->result;
     }
 
-    /**
-     * Set hasvisualissue
-     *
-     * @param boolean $hasvisualissue
-     * @return Test
-     */
-    public function setHasvisualissue($hasvisualissue)
+    public function setHasvisualissue(bool $hasvisualissue): void
     {
         $this->hasvisualissue = $hasvisualissue;
-
-        return $this;
     }
 
-    /**
-     * Get hasvisualissue
-     *
-     * @return boolean 
-     */
-    public function getHasvisualissue()
+    public function getHasvisualissue(): bool
     {
         return $this->hasvisualissue;
     }
 
-    /**
-     * Set fixedvisualissue
-     *
-     * @param string $fixedvisualissue
-     * @return Test
-     */
-    public function setFixedvisualissue($fixedvisualissue)
+    public function setFixedvisualissue(bool $fixedvisualissue): void
     {
         $this->fixedvisualissue = $fixedvisualissue;
-
-        return $this;
     }
 
-    /**
-     * Get fixedvisualissue
-     *
-     * @return string 
-     */
-    public function getFixedvisualissue()
+    public function getFixedvisualissue(): bool
     {
         return $this->fixedvisualissue;
     }
