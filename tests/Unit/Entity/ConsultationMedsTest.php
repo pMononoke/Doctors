@@ -33,7 +33,6 @@ class ConsultationMedsTest extends TestCase
         self::assertEquals(10, $consultationMeds->getCount());
     }
 
-
     /** @test */
     public function a_Consultation_value_can_be_added(): void
     {

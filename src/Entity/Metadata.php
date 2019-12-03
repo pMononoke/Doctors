@@ -1,6 +1,6 @@
 <?php
 
-namespace Ben\DoctorsBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Metadata
  *
  * @ORM\Table(name="metadata")
- * @ORM\Entity(repositoryClass="Ben\DoctorsBundle\Entity\MetadataRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MetadataRepository")
  */
 class Metadata
 {
@@ -36,7 +36,7 @@ class Metadata
     private $thevalue;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Ben\DoctorsBundle\Entity\Test", inversedBy="metadata")
+    * @ORM\ManyToOne(targetEntity="App\Entity\Test", inversedBy="metadata")
     * @ORM\JoinColumn(name="test_id", referencedColumnName="id", nullable=false)
     */
     private $test;
@@ -108,10 +108,10 @@ class Metadata
     /**
      * Set test
      *
-     * @param \Ben\DoctorsBundle\Entity\Test $test
+     * @param \App\Entity\Test $test
      * @return Metadata
      */
-    public function setTest(\Ben\DoctorsBundle\Entity\Test $test)
+    public function setTest(\App\Entity\Test $test)
     {
         $this->test = $test;
 
@@ -121,7 +121,7 @@ class Metadata
     /**
      * Get test
      *
-     * @return \Ben\DoctorsBundle\Entity\Test 
+     * @return \App\Entity\Test
      */
     public function getTest()
     {
