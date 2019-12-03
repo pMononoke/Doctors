@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -86,68 +87,32 @@ class Meds
     /************ getters & setters  ************/
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * toString
-     *
-     * @return string 
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getName();
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Meds
-     */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set count
-     *
-     * @param integer $count
-     * @return Meds
-     */
-    public function setCount($count)
+    public function setCount(int $count): void
     {
         $this->count = $count;
-
-        return $this;
     }
 
-    /**
-     * Get count
-     *
-     * @return integer 
-     */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->count;
     }
@@ -165,133 +130,62 @@ class Meds
         return $this;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Meds
-     */
-    public function setType($type)
+    public function setType(string $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * Set about
-     *
-     * @param string $about
-     * @return Meds
-     */
-    public function setAbout($about)
+    public function setAbout(string $about): void
     {
         $this->about = $about;
-
-        return $this;
     }
 
-    /**
-     * Get about
-     *
-     * @return string 
-     */
-    public function getAbout()
+    public function getAbout(): string
     {
         return $this->about;
     }
 
-    /**
-     * Add consultationmeds
-     *
-     * @param \App\Entity\ConsultationMeds $consultationmeds
-     * @return Meds
-     */
-    public function addConsultationmed(\App\Entity\ConsultationMeds $consultationmeds)
+    public function addConsultationmed(ConsultationMeds $consultationmeds): void
     {
         $this->consultationmeds[] = $consultationmeds;
-
-        return $this;
     }
 
-    /**
-     * Remove consultationmeds
-     *
-     * @param \App\Entity\ConsultationMeds $consultationmeds
-     */
-    public function removeConsultationmed(\App\Entity\ConsultationMeds $consultationmeds)
+    public function removeConsultationmed(ConsultationMeds $consultationmeds): void
     {
         $this->consultationmeds->removeElement($consultationmeds);
     }
 
-    /**
-     * Get consultationmeds
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getConsultationmeds()
+    public function getConsultationmeds(): Collection
     {
         return $this->consultationmeds;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Meds
-     */
-    public function setCreated($created) {
+    public function setCreated(\DateTime $created): void
+    {
         $this->created = $created;
-
-        return $this;
     }
 
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated() {
+    public function getCreated(): \DateTime
+    {
         return $this->created;
     }
 
-    /**
-     * Set expdate
-     *
-     * @param \DateTime $expdate
-     * @return Meds
-     */
-    public function setExpdate($expdate) {
+    public function setExpdate(\DateTime $expdate): void
+    {
         $this->expdate = $expdate;
-
-        return $this;
     }
 
-    /**
-     * Get expdate
-     *
-     * @return \DateTime 
-     */
-    public function getExpdate() {
+    public function getExpdate(): \DateTime
+    {
         return $this->expdate;
     }
 
-    /**
-     * check expiration date
-     *
-     * @return boolean
-     */
-    public function isExpired()
+    public function isExpired(): bool
     {
         return ($this->expdate <= new \DateTime());
     }
