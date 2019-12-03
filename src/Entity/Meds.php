@@ -52,20 +52,20 @@ class Meds
     private $about;
 
 
-    //TODO Gedmo      * @Gedmo\Timestampable(on="create")
     /**
      * @var \DateTime $created
      *
      * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     protected $created;
 
 
-    // Todo      * @Gedmo\Timestampable(on="create")
     /**
      * @var \DateTime $expdate
      *
      * @ORM\Column(name="expdate", type="date")
+     * @Gedmo\Timestampable(on="create")
      */
     protected $expdate;
 
