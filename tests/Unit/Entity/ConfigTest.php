@@ -26,4 +26,15 @@ class ConfigTest extends TestCase
         self::assertEquals('my-value', $configEntity->getTheValue());
     }
 
+    /** @test */
+    public function can_store_config_values(): void
+    {
+        $configEntity = new Config();
+        $configEntity->setTheKey('my-key');
+        $configEntity->setTheValue('my-value');
+
+        self::assertEquals(null, $configEntity->getId());
+        self::assertEquals('my-key', $configEntity->getTheKey());
+        self::assertEquals('my-value', $configEntity->getTheValue());
+    }
 }
