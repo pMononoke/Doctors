@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Config
+ * Config.
  *
  * @ORM\Table(name="config")
  * @ORM\Entity(repositoryClass="App\Entity\ConfigRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Config
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -35,64 +35,33 @@ class Config
      */
     private $theValue;
 
-
-    public function __construct($the_key='', $the_value='') {
+    public function __construct($the_key = '', $the_value = '')
+    {
         $this->the_key = $the_key;
         $this->the_value = $the_value;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set theKey
-     *
-     * @param string $theKey
-     * @return Config
-     */
-    public function setTheKey($theKey)
+    public function setTheKey(string $theKey): void
     {
         $this->theKey = $theKey;
-
-        return $this;
     }
 
-    /**
-     * Get theKey
-     *
-     * @return string 
-     */
-    public function getTheKey()
+    public function getTheKey(): string
     {
         return $this->theKey;
     }
 
-    /**
-     * Set theValue
-     *
-     * @param string $theValue
-     * @return Config
-     */
-    public function setTheValue($theValue)
+    public function setTheValue(string $theValue): void
     {
         $this->theValue = $theValue;
-
-        return $this;
     }
 
-    /**
-     * Get theValue
-     *
-     * @return string 
-     */
-    public function getTheValue()
+    public function getTheValue(): string
     {
         return $this->theValue;
     }

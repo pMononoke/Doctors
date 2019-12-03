@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Antecedent
+ * Antecedent.
  *
  * @ORM\Table(name="antecedent")
  * @ORM\Entity(repositoryClass="App\Entity\AntecedentRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Antecedent
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -55,165 +55,82 @@ class Antecedent
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="antecedents")
-    * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="antecedents")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     */
     private $person;
-    
+
     /************ constructeur ************/
-    
+
     public function __construct()
     {
     }
-    
+
     /************ getters & setters  ************/
 
-   /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set allergies
-     *
-     * @param string $allergies
-     * @return Antecedent
-     */
-    public function setAllergies($allergies)
+    public function setAllergies(string $allergies): void
     {
         $this->allergies = $allergies;
-
-        return $this;
     }
 
-    /**
-     * Get allergies
-     *
-     * @return string 
-     */
-    public function getAllergies()
+    public function getAllergies(): string
     {
         return $this->allergies;
     }
 
-    /**
-     * Set autres
-     *
-     * @param string $autres
-     * @return Antecedent
-     */
-    public function setAutres($autres)
+    public function setAutres(string $autres): void
     {
         $this->autres = $autres;
-
-        return $this;
     }
 
-    /**
-     * Get autres
-     *
-     * @return string 
-     */
-    public function getAutres()
+    public function getAutres(): string
     {
         return $this->autres;
     }
 
-    /**
-     * Set traitement
-     *
-     * @param string $traitement
-     * @return Antecedent
-     */
-    public function setTraitement($traitement)
+    public function setTraitement(string $traitement): void
     {
         $this->traitement = $traitement;
-
-        return $this;
     }
 
-    /**
-     * Get traitement
-     *
-     * @return string 
-     */
-    public function getTraitement()
+    public function getTraitement(): string
     {
         return $this->traitement;
     }
 
-    /**
-     * Set chirurgicaux
-     *
-     * @param string $chirurgicaux
-     * @return Antecedent
-     */
-    public function setChirurgicaux($chirurgicaux)
+    public function setChirurgicaux(string $chirurgicaux): void
     {
         $this->chirurgicaux = $chirurgicaux;
-
-        return $this;
     }
 
-    /**
-     * Get chirurgicaux
-     *
-     * @return string 
-     */
-    public function getChirurgicaux()
+    public function getChirurgicaux(): string
     {
         return $this->chirurgicaux;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Antecedent
-     */
-    public function setType($type)
+    public function setType(string $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * Set person
-     *
-     * @param Person $person
-     * @return Antecedent
-     */
-    public function setPerson(Person $person)
+    public function setPerson(Person $person): void
     {
         $this->person = $person;
-
-        return $this;
     }
 
-    /**
-     * Get person
-     *
-     * @return Person
-     */
-    public function getPerson()
+    public function getPerson(): Person
     {
         return $this->person;
     }
