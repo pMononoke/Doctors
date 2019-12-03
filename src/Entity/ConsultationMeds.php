@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ConsultationMeds
+ * ConsultationMeds.
  *
  * @ORM\Table(name="consultation_meds")
  * @ORM\Entity()
@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ConsultationMeds
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -23,108 +23,64 @@ class ConsultationMeds
     private $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="count", type="integer")
      */
     private $count;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="consultationmeds")
-    * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="consultationmeds")
+     * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
+     */
     protected $consultation;
 
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Meds", inversedBy="consultationmeds")
-    * @ORM\JoinColumn(name="meds_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\Meds", inversedBy="consultationmeds")
+     * @ORM\JoinColumn(name="meds_id", referencedColumnName="id", nullable=false)
+     */
     protected $meds;
-    
+
     /************ constructeur ************/
-    
+
     public function __construct()
     {
         $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /************ getters & setters  ************/
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Set count
-     *
-     * @param integer $count
-     * @return Meds
-     */
-    public function setCount($count)
+    public function setCount(int $count): void
     {
         $this->count = $count;
-
-        return $this;
     }
 
-    /**
-     * Get count
-     *
-     * @return integer 
-     */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->count;
     }
 
-    /**
-     * Set consultation
-     *
-     * @param \App\Entity\Consultation $consultation
-     * @return ConsultationMeds
-     */
-    public function setConsultation(\App\Entity\Consultation $consultation)
+    public function setConsultation(Consultation $consultation): void
     {
         $this->consultation = $consultation;
-
-        return $this;
     }
 
-    /**
-     * Get consultation
-     *
-     * @return \App\Entity\Consultation 
-     */
-    public function getConsultation()
+    public function getConsultation(): Consultation
     {
         return $this->consultation;
     }
 
-    /**
-     * Set meds
-     *
-     * @param \App\Entity\Meds $meds
-     * @return ConsultationMeds
-     */
-    public function setMeds(\App\Entity\Meds $meds)
+    public function setMeds(Meds $meds): void
     {
         $this->meds = $meds;
-
-        return $this;
     }
 
-    /**
-     * Get meds
-     *
-     * @return \App\Entity\Meds 
-     */
-    public function getMeds()
+    public function getMeds(): Meds
     {
         return $this->meds;
     }
@@ -132,7 +88,7 @@ class ConsultationMeds
     /**
      * @ORM\PreRemove()
      */
-    public function updateMeds()
+    public function updateMeds(): void
     {
         $this->meds->minusCount($this->count * (-1));
     }
