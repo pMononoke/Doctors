@@ -184,9 +184,9 @@ class PersonTest extends TestCase
     public function IsHandicap_value_can_be_added(): void
     {
         $person = new Person();
-        $person->setIsHandicap('irrelevant');
+        $person->setIsHandicap(true);
 
-        self::assertEquals('irrelevant', $person->getIsHandicap());
+        self::assertTrue($person->getIsHandicap());
     }
 
     /** @test */

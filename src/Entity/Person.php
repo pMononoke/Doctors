@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Person
+ * Person.
  *
  * @ORM\Table(name="person")
  * @ORM\Entity(repositoryClass="App\Repository\PersonRepository")
@@ -14,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Person
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -163,9 +164,8 @@ class Person
     private $parentFixe;
 
     /**
-     * @var boolean
+     * @var bool
      * @ORM\Column(name="ishandicap", type="boolean", nullable=true)
-     * 
      */
     private $ishandicap;
 
@@ -184,703 +184,333 @@ class Person
     private $needs;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="resident", type="boolean")
      */
     private $resident;
 
     /**
-     * @var \DateTime $created
+     * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime")
      */
     protected $created;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
+     */
     protected $antecedents;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="person", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="person", cascade={"remove", "persist"})
+     */
     protected $consultations;
-    
+
     /************ constructeur ************/
-    
+
     public function __construct()
     {
-        $this->birthday =  new \DateTime;
-        $this->created = new \DateTime;
-        $this->antecedents = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->birthday = new \DateTime();
+        $this->created = new \DateTime();
+        $this->antecedents = new ArrayCollection();
+        $this->consultations = new ArrayCollection();
     }
-    
+
     /************ getters & setters  ************/
 
-   /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Get FullName
-     *
-     * @return string 
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getFullName();
     }
 
-    /**
-     * Set cin
-     *
-     * @param string $cin
-     * @return Person
-     */
-    public function setCin($cin)
+    public function setCin(string $cin): void
     {
         $this->cin = $cin;
-
-        return $this;
     }
 
-    /**
-     * Get cin
-     *
-     * @return string 
-     */
-    public function getCin()
+    public function getCin(): string
     {
         return $this->cin;
     }
 
-    /**
-     * Set cne
-     *
-     * @param string $cne
-     * @return Person
-     */
-    public function setCne($cne)
+    public function setCne(string $cne): void
     {
         $this->cne = $cne;
-
-        return $this;
     }
 
-    /**
-     * Get cne
-     *
-     * @return string 
-     */
-    public function getCne()
+    public function getCne(): string
     {
         return $this->cne;
     }
 
-    /**
-     * Set firstname
-     *
-     * @param string $firstname
-     * @return Person
-     */
-    public function setFirstname($firstname)
+    public function setFirstname(string $firstname): void
     {
         $this->firstname = $firstname;
-
-        return $this;
     }
 
-    /**
-     * Get firstname
-     *
-     * @return string 
-     */
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
 
-    /**
-     * Set familyname
-     *
-     * @param string $familyname
-     * @return Person
-     */
-    public function setFamilyname($familyname)
+    public function setFamilyname(string $familyname): void
     {
         $this->familyname = $familyname;
-
-        return $this;
     }
 
-    /**
-     * Get familyname
-     *
-     * @return string 
-     */
-    public function getFamilyname()
+    public function getFamilyname(): string
     {
         return $this->familyname;
     }
 
-    /**
-     * Get FullName
-     *
-     * @return string 
-     */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->familyname.' '.$this->firstname;
     }
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Person
-     */
-    public function setEmail($email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     * @return Person
-     */
-    public function setBirthday($birthday)
+    public function setBirthday(\DateTime $birthday): void
     {
         $this->birthday = $birthday;
-
-        return $this;
     }
 
-    /**
-     * Get birthday
-     *
-     * @return \DateTime 
-     */
-    public function getBirthday()
+    public function getBirthday(): \DateTime
     {
         return $this->birthday;
     }
 
-    /**
-     * Set birthcity
-     *
-     * @param string $birthcity
-     * @return Person
-     */
-    public function setBirthcity($birthcity)
+    public function setBirthcity(string $birthcity): void
     {
         $this->birthcity = $birthcity;
-
-        return $this;
     }
 
-    /**
-     * Get birthcity
-     *
-     * @return string 
-     */
-    public function getBirthcity()
+    public function getBirthcity(): string
     {
         return $this->birthcity;
     }
 
-    /**
-     * Set gender
-     *
-     * @param string $gender
-     * @return Person
-     */
-    public function setGender($gender)
+    public function setGender(string $gender): void
     {
         $this->gender = $gender;
-
-        return $this;
     }
 
-    /**
-     * Get gender
-     *
-     * @return string 
-     */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->gender;
     }
 
-    /**
-     * Set contry
-     *
-     * @param string $contry
-     * @return Person
-     */
-    public function setContry($contry)
+    public function setContry(string $contry): void
     {
         $this->contry = $contry;
-
-        return $this;
     }
 
-    /**
-     * Get contry
-     *
-     * @return string 
-     */
-    public function getContry()
+    public function getContry(): string
     {
         return $this->contry;
     }
 
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return Person
-     */
-    public function setCity($city)
+    public function setCity(string $city): void
     {
         $this->city = $city;
-
-        return $this;
     }
 
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    /**
-     * Set address
-     *
-     * @param string $address
-     * @return Person
-     */
-    public function setAddress($address)
+    public function setAddress(string $address): void
     {
         $this->address = $address;
-
-        return $this;
     }
 
-    /**
-     * Get address
-     *
-     * @return string 
-     */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
 
-    /**
-     * Set etablissement
-     *
-     * @param string $etablissement
-     * @return Person
-     */
-    public function setEtablissement($etablissement)
+    public function setEtablissement(string $etablissement): void
     {
         $this->etablissement = $etablissement;
-
-        return $this;
     }
 
-    /**
-     * Get etablissement
-     *
-     * @return string 
-     */
-    public function getEtablissement()
+    public function getEtablissement(): string
     {
         return $this->etablissement;
     }
 
-    /**
-     * Set university
-     *
-     * @param string $university
-     * @return Person
-     */
-    public function setUniversity($university)
+    public function setUniversity(string $university): void
     {
         $this->university = $university;
-
-        return $this;
     }
 
-    /**
-     * Get university
-     *
-     * @return string 
-     */
-    public function getUniversity()
+    public function getUniversity(): string
     {
         return $this->university;
     }
 
-    /**
-     * Set gsm
-     *
-     * @param string $gsm
-     * @return Person
-     */
-    public function setGsm($gsm)
+    public function setGsm(string $gsm): void
     {
         $this->gsm = $gsm;
-
-        return $this;
     }
 
-    /**
-     * Get gsm
-     *
-     * @return string 
-     */
-    public function getGsm()
+    public function getGsm(): string
     {
         return $this->gsm;
     }
 
-    /**
-     * Set cnss
-     *
-     * @param string $cnss
-     * @return Person
-     */
-    public function setCnss($cnss)
+    public function setCnss(string $cnss): void
     {
         $this->cnss = $cnss;
-
-        return $this;
     }
 
-    /**
-     * Get cnss
-     *
-     * @return string 
-     */
-    public function getCnss()
+    public function getCnss(): string
     {
         return $this->cnss;
     }
 
-    /**
-     * Set cnsstype
-     *
-     * @param string $cnsstype
-     * @return Person
-     */
-    public function setCnsstype($cnsstype)
+    public function setCnsstype(string $cnsstype): void
     {
         $this->cnsstype = $cnsstype;
-
-        return $this;
     }
 
-    /**
-     * Get cnsstype
-     *
-     * @return string 
-     */
-    public function getCnsstype()
+    public function getCnsstype(): string
     {
         return $this->cnsstype;
     }
-    /**
-     * Set parentName
-     *
-     * @param string $parentName
-     * @return Person
-     */
-    public function setParentName($parentName)
+
+    public function setParentName(string $parentName): void
     {
         $this->parentName = $parentName;
-
-        return $this;
     }
 
-    /**
-     * Get parentName
-     *
-     * @return string 
-     */
-    public function getParentName()
+    public function getParentName(): string
     {
         return $this->parentName;
     }
 
-    /**
-     * Set parentAddress
-     *
-     * @param string $parentAddress
-     * @return Person
-     */
-    public function setParentAddress($parentAddress)
+    public function setParentAddress(string $parentAddress): void
     {
         $this->parentAddress = $parentAddress;
-
-        return $this;
     }
 
-    /**
-     * Get parentAddress
-     *
-     * @return string 
-     */
-    public function getParentAddress()
+    public function getParentAddress(): string
     {
         return $this->parentAddress;
     }
 
-    /**
-     * Set parentGsm
-     *
-     * @param string $parentGsm
-     * @return Person
-     */
-    public function setParentGsm($parentGsm)
+    public function setParentGsm(string $parentGsm): void
     {
         $this->parentGsm = $parentGsm;
-
-        return $this;
     }
 
-    /**
-     * Get parentGsm
-     *
-     * @return string 
-     */
-    public function getParentGsm()
+    public function getParentGsm(): string
     {
         return $this->parentGsm;
     }
 
-    /**
-     * Set parentFixe
-     *
-     * @param string $parentFixe
-     * @return Person
-     */
-    public function setParentFixe($parentFixe)
+    public function setParentFixe(string $parentFixe): void
     {
         $this->parentFixe = $parentFixe;
-
-        return $this;
     }
 
-    /**
-     * Get parentFixe
-     *
-     * @return string 
-     */
-    public function getParentFixe()
+    public function getParentFixe(): string
     {
         return $this->parentFixe;
     }
-    /**
-     * Set resident
-     *
-     * @param boolean $resident
-     * @return Person
-     */
-    public function setResident($resident)
+
+    public function setResident(bool $resident): void
     {
         $this->resident = $resident;
-
-        return $this;
     }
 
-    /**
-     * Get resident
-     *
-     * @return boolean 
-     */
-    public function getResident()
+    public function getResident(): bool
     {
         return $this->resident;
     }
 
-    /**
-     * Add antecedents
-     *
-     * @return Person
-     */
-    public function addAntecedent(Antecedent $antecedents)
+    public function addAntecedent(Antecedent $antecedents): void
     {
         $this->antecedents[] = $antecedents;
-
-        return $this;
     }
 
-    /**
-     * Remove antecedents
-     *
-     */
-    public function removeAntecedent(Antecedent $antecedents)
+    public function removeAntecedent(Antecedent $antecedents): void
     {
         $this->antecedents->removeElement($antecedents);
     }
 
-    /**
-     * Get antecedents
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAntecedents()
+    public function getAntecedents(): Collection
     {
         return $this->antecedents;
     }
 
-    /**
-     * Add consultations
-     *
-
-     * @return Person
-     */
-    public function addConsultation(Consultation $consultations)
+    public function addConsultation(Consultation $consultations): void
     {
         $this->consultations[] = $consultations;
-
-        return $this;
     }
 
-    /**
-     * Remove consultations
-     *
-     * @param Consultation $consultations
-     */
-    public function removeConsultation(Consultation $consultations)
+    public function removeConsultation(Consultation $consultations): void
     {
         $this->consultations->removeElement($consultations);
     }
 
-    /**
-     * Get consultations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getConsultations()
+    public function getConsultations(): Collection
     {
         return $this->consultations;
     }
 
-    /**
-     * Set ishandicap
-     *
-     * @param boolean $ishandicap
-     * @return Person
-     */
-    public function setIshandicap($ishandicap)
+    public function setIshandicap(bool $ishandicap): void
     {
         $this->ishandicap = $ishandicap;
-
-        return $this;
     }
 
-    /**
-     * Get ishandicap
-     *
-     * @return boolean 
-     */
-    public function getIshandicap()
+    public function getIshandicap(): bool
     {
         return $this->ishandicap;
     }
 
-    /**
-     * Set handicap
-     *
-     * @param string $handicap
-     * @return Person
-     */
-    public function setHandicap($handicap)
+    public function setHandicap(string $handicap): void
     {
         $this->handicap = $handicap;
-
-        return $this;
     }
 
-    /**
-     * Get handicap
-     *
-     * @return string 
-     */
-    public function getHandicap()
+    public function getHandicap(): string
     {
         return $this->handicap;
     }
 
-    /**
-     * Set needs
-     *
-     * @param string $needs
-     * @return Person
-     */
-    public function setNeeds($needs)
+    public function setNeeds(string $needs): void
     {
         $this->needs = $needs;
-
-        return $this;
     }
 
-    /**
-     * Get needs
-     *
-     * @return string 
-     */
-    public function getNeeds()
+    public function getNeeds(): string
     {
         return $this->needs;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Person
-     */
-    public function setCreated($created) {
+    public function setCreated(\DateTime $created): void
+    {
         $this->created = $created;
-
-        return $this;
     }
 
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated() {
+    public function getCreated(): \DateTime
+    {
         return $this->created;
     }
 }
