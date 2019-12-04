@@ -87,9 +87,19 @@ class User implements UserInterface
         return (string) $this->password;
     }
 
-    public function setPassword(string $password): self
+//    public function setPassword(string $password): self
+//    {
+//        $this->password = $password;
+//
+//        return $this;
+//    }
+
+    /**
+     * @return User
+     */
+    public function setPassword(callable $encoder, string $plainPassword): self
     {
-        $this->password = $password;
+        $this->password = (string) $encoder($plainPassword);
 
         return $this;
     }
