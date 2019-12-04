@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Antecedent.
  *
  * @ORM\Table(name="antecedent")
- * @ORM\Entity(repositoryClass="App\Entity\AntecedentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AntecedentRepository")
  */
 class Antecedent
 {
@@ -126,9 +126,11 @@ class Antecedent
         return $this->type;
     }
 
-    public function setPerson(Person $person): void
+    public function setPerson(Person $person)//: void
     {
         $this->person = $person;
+
+        //return null;
     }
 
     public function getPerson(): ?Person

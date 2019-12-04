@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Meds
  *
  * @ORM\Table(name="meds")
- * @ORM\Entity(repositoryClass="App\Entity\MedsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MedsRepository")
  */
 class Meds
 {
@@ -125,7 +125,7 @@ class Meds
      * @param string $count
      * @return Meds
      */
-    public function minusCount($count)
+    public function minusCount($count) //TODO param should be INT
     {
         $this->count -= $count;
 
