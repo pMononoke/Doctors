@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "486de6fc6908c8402ec4f2b9f72f57f6",
+    "content-hash": "00bc4c7b63ba469ccf0e58042890b688",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -6648,16 +6648,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "dev-master",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "dab07d5cb40fb989cb6dc58325638d6e4e4a93be"
+                "reference": "1cc06d8493917d16b1742f6c9fd2963c51a4e773"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dab07d5cb40fb989cb6dc58325638d6e4e4a93be",
-                "reference": "dab07d5cb40fb989cb6dc58325638d6e4e4a93be",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1cc06d8493917d16b1742f6c9fd2963c51a4e773",
+                "reference": "1cc06d8493917d16b1742f6c9fd2963c51a4e773",
                 "shasum": ""
             },
             "require": {
@@ -6684,7 +6684,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2019-12-03T14:05:17+00:00"
+            "time": "2019-12-04T00:09:47+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -7211,9 +7211,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phpstan/phpstan": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
