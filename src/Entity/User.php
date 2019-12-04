@@ -59,10 +59,10 @@ class User {
      */
     protected $lastActivity;
     
-    /**
-    * @ORM\OneToOne(targetEntity="App\Entity\image", cascade={"remove", "persist"})
-    */
-    private $image;
+//    /**
+//    * @ORM\OneToOne(targetEntity="App\Entity\image", cascade={"remove", "persist"})
+//    */
+//    private $image;
 
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="user", cascade={"remove", "persist"})
