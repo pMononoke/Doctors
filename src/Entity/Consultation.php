@@ -97,12 +97,14 @@ class Consultation
      */
     private $person;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consultations")
-     * @ORM\JoinColumn(name="doc_id", referencedColumnName="id", nullable=false)
-     * @var User
-     */
-    private $user;
+
+    // TODO Create new User Entity and enable association
+//    /**
+//     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consultations")
+//     * @ORM\JoinColumn(name="doc_id", referencedColumnName="id", nullable=false)
+//     * @var User
+//     */
+//    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Test", mappedBy="consultation", cascade={"remove", "persist"})
@@ -168,15 +170,17 @@ class Consultation
         return $this->person;
     }
 
-    public function setUser(User $user): void
-    {
-        $this->user = $user;
-    }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
+    // TODO Create new User Entity and enable association
+//    public function setUser(User $user): void
+//    {
+//        $this->user = $user;
+//    }
+//
+//    public function getUser(): ?User
+//    {
+//        return $this->user;
+//    }
 
     public function addTest(Test $tests): void
     {
