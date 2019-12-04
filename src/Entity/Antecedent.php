@@ -59,6 +59,7 @@ class Antecedent
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="antecedents")
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     * @var Person
      */
     private $person;
 
@@ -80,7 +81,7 @@ class Antecedent
         $this->allergies = $allergies;
     }
 
-    public function getAllergies(): string
+    public function getAllergies(): ?string
     {
         return $this->allergies;
     }
@@ -90,7 +91,7 @@ class Antecedent
         $this->autres = $autres;
     }
 
-    public function getAutres(): string
+    public function getAutres(): ?string
     {
         return $this->autres;
     }
@@ -100,7 +101,7 @@ class Antecedent
         $this->traitement = $traitement;
     }
 
-    public function getTraitement(): string
+    public function getTraitement(): ?string
     {
         return $this->traitement;
     }
@@ -110,7 +111,7 @@ class Antecedent
         $this->chirurgicaux = $chirurgicaux;
     }
 
-    public function getChirurgicaux(): string
+    public function getChirurgicaux(): ?string
     {
         return $this->chirurgicaux;
     }
@@ -120,7 +121,7 @@ class Antecedent
         $this->type = $type;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -130,7 +131,7 @@ class Antecedent
         $this->person = $person;
     }
 
-    public function getPerson(): Person
+    public function getPerson(): ?Person
     {
         return $this->person;
     }

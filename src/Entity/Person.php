@@ -199,11 +199,13 @@ class Person
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
+     * @var Collection|Antecedent[]
      */
     protected $antecedents;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="person", cascade={"remove", "persist"})
+     * @var Collection|Consultation[]
      */
     protected $consultations;
 
@@ -224,7 +226,7 @@ class Person
         return $this->id;
     }
 
-    public function __toString(): string
+    public function __toString(): ?string
     {
         return $this->getFullName();
     }
@@ -234,7 +236,7 @@ class Person
         $this->cin = $cin;
     }
 
-    public function getCin(): string
+    public function getCin(): ?string
     {
         return $this->cin;
     }
@@ -244,7 +246,7 @@ class Person
         $this->cne = $cne;
     }
 
-    public function getCne(): string
+    public function getCne(): ?string
     {
         return $this->cne;
     }
@@ -254,7 +256,7 @@ class Person
         $this->firstname = $firstname;
     }
 
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -264,12 +266,12 @@ class Person
         $this->familyname = $familyname;
     }
 
-    public function getFamilyname(): string
+    public function getFamilyname(): ?string
     {
         return $this->familyname;
     }
 
-    public function getFullName(): string
+    public function getFullName(): ?string
     {
         return $this->familyname.' '.$this->firstname;
     }
@@ -279,7 +281,7 @@ class Person
         $this->email = $email;
     }
 
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -289,7 +291,7 @@ class Person
         $this->birthday = $birthday;
     }
 
-    public function getBirthday(): \DateTime
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
@@ -299,7 +301,7 @@ class Person
         $this->birthcity = $birthcity;
     }
 
-    public function getBirthcity(): string
+    public function getBirthcity(): ?string
     {
         return $this->birthcity;
     }
@@ -309,7 +311,7 @@ class Person
         $this->gender = $gender;
     }
 
-    public function getGender(): string
+    public function getGender(): ?string
     {
         return $this->gender;
     }
@@ -319,7 +321,7 @@ class Person
         $this->contry = $contry;
     }
 
-    public function getContry(): string
+    public function getContry(): ?string
     {
         return $this->contry;
     }
@@ -329,7 +331,7 @@ class Person
         $this->city = $city;
     }
 
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -339,7 +341,7 @@ class Person
         $this->address = $address;
     }
 
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -349,7 +351,7 @@ class Person
         $this->etablissement = $etablissement;
     }
 
-    public function getEtablissement(): string
+    public function getEtablissement(): ?string
     {
         return $this->etablissement;
     }
@@ -359,7 +361,7 @@ class Person
         $this->university = $university;
     }
 
-    public function getUniversity(): string
+    public function getUniversity(): ?string
     {
         return $this->university;
     }
@@ -369,7 +371,7 @@ class Person
         $this->gsm = $gsm;
     }
 
-    public function getGsm(): string
+    public function getGsm(): ?string
     {
         return $this->gsm;
     }
@@ -379,7 +381,7 @@ class Person
         $this->cnss = $cnss;
     }
 
-    public function getCnss(): string
+    public function getCnss(): ?string
     {
         return $this->cnss;
     }
@@ -389,7 +391,7 @@ class Person
         $this->cnsstype = $cnsstype;
     }
 
-    public function getCnsstype(): string
+    public function getCnsstype(): ?string
     {
         return $this->cnsstype;
     }
@@ -399,7 +401,7 @@ class Person
         $this->parentName = $parentName;
     }
 
-    public function getParentName(): string
+    public function getParentName(): ?string
     {
         return $this->parentName;
     }
@@ -409,7 +411,7 @@ class Person
         $this->parentAddress = $parentAddress;
     }
 
-    public function getParentAddress(): string
+    public function getParentAddress(): ?string
     {
         return $this->parentAddress;
     }
@@ -419,7 +421,7 @@ class Person
         $this->parentGsm = $parentGsm;
     }
 
-    public function getParentGsm(): string
+    public function getParentGsm(): ?string
     {
         return $this->parentGsm;
     }
@@ -429,7 +431,7 @@ class Person
         $this->parentFixe = $parentFixe;
     }
 
-    public function getParentFixe(): string
+    public function getParentFixe(): ?string
     {
         return $this->parentFixe;
     }
@@ -439,7 +441,7 @@ class Person
         $this->resident = $resident;
     }
 
-    public function getResident(): bool
+    public function getResident(): ?bool
     {
         return $this->resident;
     }
@@ -454,7 +456,10 @@ class Person
         $this->antecedents->removeElement($antecedents);
     }
 
-    public function getAntecedents(): Collection
+    /**
+     * @return Collection|Antecedent[]|null
+     */
+    public function getAntecedents(): ?Collection
     {
         return $this->antecedents;
     }
@@ -469,7 +474,10 @@ class Person
         $this->consultations->removeElement($consultations);
     }
 
-    public function getConsultations(): Collection
+    /**
+     * @return Collection|Consultation[]|null
+     */
+    public function getConsultations(): ?Collection
     {
         return $this->consultations;
     }
@@ -489,7 +497,7 @@ class Person
         $this->handicap = $handicap;
     }
 
-    public function getHandicap(): string
+    public function getHandicap(): ?string
     {
         return $this->handicap;
     }
@@ -499,7 +507,7 @@ class Person
         $this->needs = $needs;
     }
 
-    public function getNeeds(): string
+    public function getNeeds(): ?string
     {
         return $this->needs;
     }
@@ -509,7 +517,7 @@ class Person
         $this->created = $created;
     }
 
-    public function getCreated(): \DateTime
+    public function getCreated(): ?\DateTime
     {
         return $this->created;
     }

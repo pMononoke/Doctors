@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,12 +33,14 @@ class ConsultationMeds
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="consultationmeds")
      * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
+     * @var Consultation
      */
     protected $consultation;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Meds", inversedBy="consultationmeds")
      * @ORM\JoinColumn(name="meds_id", referencedColumnName="id", nullable=false)
+     * @var Meds
      */
     protected $meds;
 
@@ -45,7 +48,7 @@ class ConsultationMeds
 
     public function __construct()
     {
-        $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->consultations = new ArrayCollection();
     }
 
     /************ getters & setters  ************/
@@ -60,7 +63,7 @@ class ConsultationMeds
         $this->count = $count;
     }
 
-    public function getCount(): int
+    public function getCount(): ?int
     {
         return $this->count;
     }
@@ -70,7 +73,7 @@ class ConsultationMeds
         $this->consultation = $consultation;
     }
 
-    public function getConsultation(): Consultation
+    public function getConsultation(): ?Consultation
     {
         return $this->consultation;
     }
@@ -80,7 +83,7 @@ class ConsultationMeds
         $this->meds = $meds;
     }
 
-    public function getMeds(): Meds
+    public function getMeds(): ?Meds
     {
         return $this->meds;
     }

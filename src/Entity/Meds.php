@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -71,6 +72,7 @@ class Meds
 
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="meds", cascade={"remove", "persist"})
+    * @var Collection|ConsultationMeds[]
     */
     protected $consultationmeds;
 
@@ -79,7 +81,7 @@ class Meds
     
     public function __construct()
     {
-        $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->consultationmeds = new ArrayCollection();
         $this->created = new \DateTime;
         $this->expdate = new \DateTime;
     }
@@ -92,7 +94,7 @@ class Meds
         return $this->id;
     }
 
-    public function __toString(): string
+    public function __toString(): ?string
     {
         return $this->getName();
     }
@@ -102,7 +104,7 @@ class Meds
         $this->name = $name;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -112,7 +114,7 @@ class Meds
         $this->count = $count;
     }
 
-    public function getCount(): int
+    public function getCount(): ?int
     {
         return $this->count;
     }
@@ -135,7 +137,7 @@ class Meds
         $this->type = $type;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -145,7 +147,7 @@ class Meds
         $this->about = $about;
     }
 
-    public function getAbout(): string
+    public function getAbout(): ?string
     {
         return $this->about;
     }
@@ -160,7 +162,7 @@ class Meds
         $this->consultationmeds->removeElement($consultationmeds);
     }
 
-    public function getConsultationmeds(): Collection
+    public function getConsultationmeds(): ?Collection
     {
         return $this->consultationmeds;
     }
@@ -170,7 +172,7 @@ class Meds
         $this->created = $created;
     }
 
-    public function getCreated(): \DateTime
+    public function getCreated(): ?\DateTime
     {
         return $this->created;
     }
@@ -180,12 +182,12 @@ class Meds
         $this->expdate = $expdate;
     }
 
-    public function getExpdate(): \DateTime
+    public function getExpdate(): ?\DateTime
     {
         return $this->expdate;
     }
 
-    public function isExpired(): bool
+    public function isExpired(): ?bool
     {
         return ($this->expdate <= new \DateTime());
     }

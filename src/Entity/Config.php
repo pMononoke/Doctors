@@ -51,7 +51,7 @@ class Config
         $this->theKey = $theKey;
     }
 
-    public function getTheKey(): string
+    public function getTheKey(): ?string
     {
         return $this->theKey;
     }
@@ -61,7 +61,7 @@ class Config
         $this->theValue = $theValue;
     }
 
-    public function getTheValue(): string
+    public function getTheValue(): ?string
     {
         return $this->theValue;
     }

@@ -116,12 +116,12 @@ class Test
         $this->type = $type;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function isGeneral(): bool
+    public function isGeneral(): ?bool
     {
         return ($this->type === Test::$GENERAL);
     }
@@ -131,7 +131,7 @@ class Test
         $this->consultation = $consultation;
     }
 
-    public function getConsultation(): Consultation
+    public function getConsultation(): ?Consultation
     {
         return $this->consultation;
     }
@@ -141,7 +141,7 @@ class Test
         $this->taille = $taille;
     }
 
-    public function getTaille(): string
+    public function getTaille(): ?string
     {
         return $this->taille;
     }
@@ -151,7 +151,7 @@ class Test
         $this->poids = $poids;
     }
 
-    public function getPoids(): string
+    public function getPoids(): ?string
     {
         return $this->poids;
     }
@@ -161,7 +161,7 @@ class Test
         $this->ta = $ta;
     }
 
-    public function getTa(): string
+    public function getTa(): ?string
     {
         return $this->ta;
     }
@@ -171,7 +171,7 @@ class Test
         $this->od = $od;
     }
 
-    public function getOd(): string
+    public function getOd(): ?string
     {
         return $this->od;
     }
@@ -181,7 +181,7 @@ class Test
         $this->og = $og;
     }
 
-    public function getOg(): string
+    public function getOg(): ?string
     {
         return $this->og;
     }
@@ -191,7 +191,7 @@ class Test
         $this->request = $request;
     }
 
-    public function getRequest(): string
+    public function getRequest(): ?string
     {
         return $this->request;
     }
@@ -201,7 +201,7 @@ class Test
         $this->result = $result;
     }
 
-    public function getResult(): string
+    public function getResult(): ?string
     {
         return $this->result;
     }
@@ -211,7 +211,7 @@ class Test
         $this->hasvisualissue = $hasvisualissue;
     }
 
-    public function getHasvisualissue(): bool
+    public function getHasvisualissue(): ?bool
     {
         return $this->hasvisualissue;
     }
@@ -221,7 +221,7 @@ class Test
         $this->fixedvisualissue = $fixedvisualissue;
     }
 
-    public function getFixedvisualissue(): bool
+    public function getFixedvisualissue(): ?bool
     {
         return $this->fixedvisualissue;
     }

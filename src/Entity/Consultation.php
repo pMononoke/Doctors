@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -92,22 +93,26 @@ class Consultation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="consultations")
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     * @var Person
      */
     private $person;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="consultations")
      * @ORM\JoinColumn(name="doc_id", referencedColumnName="id", nullable=false)
+     * @var User
      */
     private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Test", mappedBy="consultation", cascade={"remove", "persist"})
+     * @var Collection|Test[]
      */
     protected $tests;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="consultation", cascade={"remove", "persist"})
+     * @var Collection|ConsultationMeds[]
      */
     protected $consultationmeds;
 
@@ -117,8 +122,8 @@ class Consultation
     {
         $this->created = new \DateTime();
         $this->type = Consultation::$GENERAL;
-        $this->tests = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tests = new ArrayCollection();
+        $this->consultationmeds = new ArrayCollection();
     }
 
     /************ getters & setters  ************/
@@ -128,7 +133,7 @@ class Consultation
         return $this->id;
     }
 
-    public function __toString(): string
+    public function __toString(): ?string
     {
         return $this->name;
     }
@@ -138,7 +143,7 @@ class Consultation
         $this->name = $name;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -148,7 +153,7 @@ class Consultation
         $this->created = $created;
     }
 
-    public function getCreated(): \DateTime
+    public function getCreated(): ?\DateTime
     {
         return $this->created;
     }
@@ -158,7 +163,7 @@ class Consultation
         $this->person = $person;
     }
 
-    public function getPerson(): Person
+    public function getPerson(): ?Person
     {
         return $this->person;
     }
@@ -168,7 +173,7 @@ class Consultation
         $this->user = $user;
     }
 
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -183,7 +188,11 @@ class Consultation
         $this->tests->removeElement($tests);
     }
 
-    public function getTests(): Collection
+
+    /**
+     * @return Collection|Test[]|null
+     */
+    public function getTests(): ?Collection
     {
         return $this->tests;
     }
@@ -194,12 +203,15 @@ class Consultation
         $this->consultationmeds->add($consultationmeds);
     }
 
-    public function removeConsultationmed(ConsultationMeds $consultationmeds)
+    public function removeConsultationmed(ConsultationMeds $consultationmeds): void
     {
         $this->consultationmeds->removeElement($consultationmeds);
     }
 
-    public function getConsultationmeds(): Collection
+    /**
+     * @return Collection|ConsultationMeds[]|null
+     */
+    public function getConsultationmeds(): ?Collection
     {
         return $this->consultationmeds;
     }
@@ -209,7 +221,7 @@ class Consultation
         $this->diagnosis = $diagnosis;
     }
 
-    public function getDiagnosis(): string
+    public function getDiagnosis(): ?string
     {
         return $this->diagnosis;
     }
@@ -219,7 +231,7 @@ class Consultation
         $this->treatment = $treatment;
     }
 
-    public function getTreatment(): string
+    public function getTreatment(): ?string
     {
         return $this->treatment;
     }
@@ -229,7 +241,7 @@ class Consultation
         $this->type = $type;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -239,7 +251,7 @@ class Consultation
         $this->motiftype = $motiftype;
     }
 
-    public function getMotiftype(): string
+    public function getMotiftype(): ?string
     {
         return $this->motiftype;
     }
@@ -249,12 +261,12 @@ class Consultation
         $this->infrastructure = $infrastructure;
     }
 
-    public function getInfrastructure(): string
+    public function getInfrastructure(): ?string
     {
         return $this->infrastructure;
     }
 
-    public function isSpecial(): bool
+    public function isSpecial(): ?bool
     {
         return $this->type === Consultation::$SPECIAL;
     }
@@ -264,7 +276,7 @@ class Consultation
         $this->chronic = $chronic;
     }
 
-    public function getChronic(): bool
+    public function getChronic(): ?bool
     {
         return $this->chronic;
     }
@@ -274,7 +286,7 @@ class Consultation
         $this->decision = $decision;
     }
 
-    public function getDecision(): string
+    public function getDecision(): ?string
     {
         return $this->decision;
     }
