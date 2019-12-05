@@ -44,6 +44,9 @@ cache:
   - &app-clear-test-cache |
       bin/console cache:clear -e test
 
+  - &app-database-schema-update |
+      bin/console doctrine:schema:update --force --no-interaction -e test
+
   - &run-phpunit-tests |
       bin/phpunit --colors=always --coverage-clover=coverage-report.clover --log-junit=test-report.xml
 
@@ -55,8 +58,14 @@ install:
   - composer install
   - ./bin/phpunit install
 
-script:
+before_script:
+
   - *app-clear-test-cache
+
+  - *app-database-schema-update
+
+
+script:
   - *run-phpunit-tests
 
 after_success:

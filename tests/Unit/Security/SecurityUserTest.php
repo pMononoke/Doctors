@@ -12,7 +12,6 @@ namespace App\Tests\Unit\Security;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-
 class SecurityUserTest extends KernelTestCase
 {
     /** @test */

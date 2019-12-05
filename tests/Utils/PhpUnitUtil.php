@@ -1,18 +1,21 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 /**
- * /src/Utils/Tests/PHPUnitUtil.php
+ * /src/Utils/Tests/PHPUnitUtil.php.
  *
  * @author TLe, Tarmo Leppänen <tarmo.leppanen@protacon.com>
  */
 
 namespace App\Tests\Utils;
 
+use function count;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Type;
 use Exception;
+use function explode;
+use function get_class;
 use LogicException;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -20,23 +23,19 @@ use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 use RegexIterator;
+use function sprintf;
 use stdClass;
+use function strpos;
+use function substr_count;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Throwable;
-use function count;
-use function explode;
-use function get_class;
-use function sprintf;
-use function strpos;
-use function substr_count;
 
 /**
- * Class PHPUnitUtil
+ * Class PHPUnitUtil.
  *
- * @package App\Utils\Tests
  * @author  TLe, Tarmo Leppänen <tarmo.leppanen@protacon.com>
  */
 class PhpUnitUtil
@@ -51,8 +50,6 @@ class PhpUnitUtil
 
     /**
      * @codeCoverageIgnore
-     *
-     * @param KernelInterface $kernel
      *
      * @throws Exception
      */
@@ -75,9 +72,6 @@ class PhpUnitUtil
     /**
      * @codeCoverageIgnore
      *
-     * @param string $folder
-     * @param string $pattern
-     *
      * @return string[]
      */
     public static function recursiveFileSearch(string $folder, string $pattern): array
@@ -90,7 +84,7 @@ class PhpUnitUtil
         $fileList = [];
 
         foreach ($files as $file) {
-            $fileList[] = (string)$file[0];
+            $fileList[] = (string) $file[0];
         }
 
         return $fileList;
@@ -117,7 +111,7 @@ class PhpUnitUtil
      * How to use for MyClass->foo():
      *      $cls = new MyClass();
      *      $foo = PHPUnitUtil::getPrivateMethod($cls, 'foo');
-     *      $foo->invoke($cls, $...);
+     *      $foo->invoke($cls, $...);.
      *
      * @param object $object The instantiated instance of your class
      * @param string $name   The name of your private/protected method
@@ -139,7 +133,6 @@ class PhpUnitUtil
     /**
      * Helper method to get any property value from given class.
      *
-     * @param string $property
      * @param object $object
      *
      * @return mixed
@@ -159,8 +152,6 @@ class PhpUnitUtil
 
     /**
      * @param Type|string|null $type
-     *
-     * @return string
      */
     public static function getType($type): string
     {
@@ -195,7 +186,7 @@ class PhpUnitUtil
             default:
                 $message = sprintf(
                     "Currently type '%s' is not supported within type normalizer",
-                    (string)$type
+                    (string) $type
                 );
 
                 throw new LogicException($message);
@@ -207,7 +198,6 @@ class PhpUnitUtil
     /**
      * Helper method to override any property value within given class.
      *
-     * @param string $property
      * @param mixed  $value
      * @param object $object
      *
@@ -226,7 +216,6 @@ class PhpUnitUtil
     /**
      * Helper method to get valid value for specified type.
      *
-     * @param string       $type
      * @param mixed[]|null $meta
      *
      * @return array<mixed, object|mixed>|int|string|object|true
@@ -239,16 +228,16 @@ class PhpUnitUtil
 
         $class = stdClass::class;
 
-        if (substr_count($type, '\\') > 1 && strpos($type, '|') === false) {
+        if (substr_count($type, '\\') > 1 && false === strpos($type, '|')) {
             /** @var class-string $class */
             $class = count($meta) ? $meta['targetEntity'] : $type;
 
             $type = self::TYPE_CUSTOM_CLASS;
         }
 
-        if (strpos($type, '|') !== false) {
+        if (false !== strpos($type, '|')) {
             $output = self::getValidValueForType(explode('|', $type)[0], $meta);
-        } elseif (strpos($type, '[]') !== false) {
+        } elseif (false !== strpos($type, '[]')) {
             /** @var array<mixed, object> $output */
             $output = self::getValidValueForType(self::TYPE_ARRAY, $meta);
         } else {
@@ -293,21 +282,19 @@ class PhpUnitUtil
     /**
      * Helper method to get invalid value for specified type.
      *
-     * @param string $type
-     *
      * @return stdClass|DateTime|string
      *
      * @throws Throwable
      */
     public static function getInvalidValueForType(string $type)
     {
-        if ($type !== stdClass::class && substr_count($type, '\\') > 1) {
+        if (stdClass::class !== $type && substr_count($type, '\\') > 1) {
             $type = self::TYPE_CUSTOM_CLASS;
         }
 
-        if (strpos($type, '|') !== false) {
+        if (false !== strpos($type, '|')) {
             $output = self::getInvalidValueForType(explode('|', $type)[0]);
-        } elseif (strpos($type, '[]') !== false) {
+        } elseif (false !== strpos($type, '[]')) {
             $output = self::getInvalidValueForType(self::TYPE_ARRAY);
         } else {
             switch ($type) {
