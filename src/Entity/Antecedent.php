@@ -126,11 +126,9 @@ class Antecedent
         return $this->type;
     }
 
-    public function setPerson(Person $person)//: void
+    public function setPerson(Person $person): void
     {
         $this->person = $person;
-
-        //return null;
     }
 
     public function getPerson(): ?Person

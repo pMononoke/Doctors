@@ -28,8 +28,7 @@ class PatientService
         //$this->addFlash('success', 'patient.created');
     }
 
-    // Todo make private
-    public function save(Person $person): void
+    private function save(Person $person): void
     {
         $this->entityManager->persist($person);
         $this->entityManager->flush();

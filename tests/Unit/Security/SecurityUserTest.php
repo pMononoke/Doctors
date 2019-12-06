@@ -28,14 +28,10 @@ class SecurityUserTest extends KernelTestCase
     /** @test */
     public function getPassword_method_returns_expected_value(): void
     {
-        $encoder = static function (string $password): string {
-            return str_rot13($password);
-        };
-
         $user = new User();
-        $user->setPassword($encoder, 'xxx-xxx');
+        $user->setPassword('xxx-xxx');
 
-        static::assertSame('kkk-kkk', $user->getPassword());
+        static::assertSame('xxx-xxx', $user->getPassword());
     }
 
     /** @test */

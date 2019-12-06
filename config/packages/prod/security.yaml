@@ -1,0 +1,6 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: 'sodium'
+            memory_cost: 12
+            time_cost: 4
