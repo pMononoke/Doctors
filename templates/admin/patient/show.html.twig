@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient{% endblock %}
+
+{% block body %}
+    <h1>Patient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ patient.cin }}</td>
+            </tr>
+            <tr>
+                <th>Cne</th>
+                <td>{{ patient.cne }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ patient.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Familyname</th>
+                <td>{{ patient.familyname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ patient.email }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{{ patient.birthday ? patient.birthday|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Birthcity</th>
+                <td>{{ patient.birthcity }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ patient.gender }}</td>
+            </tr>
+            <tr>
+                <th>Contry</th>
+                <td>{{ patient.contry }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ patient.city }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ patient.address }}</td>
+            </tr>
+            <tr>
+                <th>Etablissement</th>
+                <td>{{ patient.etablissement }}</td>
+            </tr>
+            <tr>
+                <th>University</th>
+                <td>{{ patient.university }}</td>
+            </tr>
+            <tr>
+                <th>Gsm</th>
+                <td>{{ patient.gsm }}</td>
+            </tr>
+            <tr>
+                <th>Cnss</th>
+                <td>{{ patient.cnss }}</td>
+            </tr>
+            <tr>
+                <th>Cnsstype</th>
+                <td>{{ patient.cnsstype }}</td>
+            </tr>
+            <tr>
+                <th>ParentName</th>
+                <td>{{ patient.parentName }}</td>
+            </tr>
+            <tr>
+                <th>ParentAddress</th>
+                <td>{{ patient.parentAddress }}</td>
+            </tr>
+            <tr>
+                <th>ParentGsm</th>
+                <td>{{ patient.parentGsm }}</td>
+            </tr>
+            <tr>
+                <th>ParentFixe</th>
+                <td>{{ patient.parentFixe }}</td>
+            </tr>
+            <tr>
+                <th>Ishandicap</th>
+                <td>{{ patient.ishandicap ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Handicap</th>
+                <td>{{ patient.handicap }}</td>
+            </tr>
+            <tr>
+                <th>Needs</th>
+                <td>{{ patient.needs }}</td>
+            </tr>
+            <tr>
+                <th>Resident</th>
+                <td>{{ patient.resident ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ patient.created ? patient.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('patient_index') }}">back to list</a>
+
+    <a href="{{ path('patient_edit', {'id': patient.id}) }}">edit</a>
+
+    {{ include('admin/patient/_delete_form.html.twig') }}
+{% endblock %}

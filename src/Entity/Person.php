@@ -26,14 +26,14 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="cin", type="string", length=255)
+     * @ORM\Column(name="cin", type="string", length=255, nullable=true)
      */
     private $cin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cne", type="string", length=255)
+     * @ORM\Column(name="cne", type="string", length=255, nullable=true)
      */
     private $cne;
 
@@ -61,7 +61,7 @@ class Person
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="date")
+     * @ORM\Column(name="birthday", type="date", nullable=true)
      */
     private $birthday;
 
@@ -75,7 +75,7 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", length=255)
+     * @ORM\Column(name="gender", type="string", length=255, nullable=true)
      */
     private $gender;
 
@@ -124,14 +124,14 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="cnss", type="string", length=255)
+     * @ORM\Column(name="cnss", type="string", length=255, nullable=true)
      */
     private $cnss;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cnsstype", type="string", length=255)
+     * @ORM\Column(name="cnsstype", type="string", length=255, nullable=true)
      */
     private $cnsstype;
 
@@ -186,14 +186,14 @@ class Person
     /**
      * @var bool
      *
-     * @ORM\Column(name="resident", type="boolean")
+     * @ORM\Column(name="resident", type="boolean", nullable=true)
      */
     private $resident;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetime")
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     protected $created;
 
@@ -487,7 +487,7 @@ class Person
         $this->ishandicap = $ishandicap;
     }
 
-    public function getIshandicap(): bool
+    public function getIshandicap(): ?bool
     {
         return $this->ishandicap;
     }
