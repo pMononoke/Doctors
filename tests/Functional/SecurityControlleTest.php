@@ -17,15 +17,16 @@ class SecurityControlleTest extends WebTestCase
         //$kernel = static::bootKernel();
         //$this->client = static::createClient();
     }
+
     /**
      * @test
      * @dataProvider getBackEndUrls
      */
     public function protect_backend_from_anonymus_users_redirect_to_login(string $httpMethod, string $url)
     {
-        //$client = static::createClient();
+        $client = static::createClient();
 
-        $client = $this->createClient();//  static::createClient();
+        //$client = $this->createClient();//  static::createClient();
         $client->request($httpMethod, $url);
 
         $this->assertTrue($client->getResponse()->isRedirect());

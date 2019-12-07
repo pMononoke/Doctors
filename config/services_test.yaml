@@ -13,7 +13,9 @@ services:
         public: true
 
 
+    test.App\Service\UserService: '@App\Service\UserService'
     test.App\Service\PatientService: '@App\Service\PatientService'
     test.App\Repository\PersonRepository: '@App\Repository\PersonRepository'
+    test.App\Repository\UserRepository: '@App\Repository\UserRepository'
 
 

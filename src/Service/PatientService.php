@@ -25,7 +25,6 @@ class PatientService
     public function RegisterPatient(Person $person): void
     {
         $this->save($person);
-        //$this->addFlash('success', 'patient.created');
     }
 
     private function save(Person $person): void
@@ -37,6 +36,5 @@ class PatientService
     public function update(Person $person): void
     {
         $this->save($person);
-        //$this->addFlash('success', 'message.updated');
     }
 }
