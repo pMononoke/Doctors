@@ -496,31 +496,6 @@ parameters:
 			path: src/Security/AppCustomAuthenticator.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\Functional\\\\SecurityControlleTest\\:\\:\\$client has no typehint specified\\.$#"
-			count: 1
-			path: tests/Functional/SecurityControlleTest.php
-
-		-
-			message: "#^Method App\\\\Tests\\\\Functional\\\\SecurityControlleTest\\:\\:setUp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Functional/SecurityControlleTest.php
-
-		-
-			message: "#^Method App\\\\Tests\\\\Functional\\\\SecurityControlleTest\\:\\:protect_backend_from_anonymus_users_redirect_to_login\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Functional/SecurityControlleTest.php
-
-		-
-			message: "#^Method Symfony\\\\Component\\\\BrowserKit\\\\AbstractBrowser\\:\\:followRedirect\\(\\) invoked with 1 parameter, 0 required\\.$#"
-			count: 1
-			path: tests/Functional/SecurityControlleTest.php
-
-		-
-			message: "#^Method App\\\\Tests\\\\Functional\\\\SecurityControlleTest\\:\\:getBackEndUrls\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Functional/SecurityControlleTest.php
-
-		-
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Persistence\\\\Entitiy\\\\Doctrine\\\\EntityTestCase\\:\\:\\$entity has no typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
