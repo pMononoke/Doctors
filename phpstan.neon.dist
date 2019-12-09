@@ -1,15 +1,16 @@
-#includes:
+includes:
+    - phpstan-baseline.neon   # https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff
     #- vendor/phpstan/phpstan-phpunit/extension.neon
     #- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
     level: 7
-    checkGenericClassInNonGenericObjectType: false
-    #autoload_files:
-        #- bin/.phpunit/phpunit-6.5/vendor/autoload.php
+    #checkGenericClassInNonGenericObjectType: false
+    autoload_files:
+        - bin/.phpunit/phpunit-7.5-0/vendor/autoload.php
     paths:
         - src
-        #- tests
+        - tests
 
 
     ignoreErrors:

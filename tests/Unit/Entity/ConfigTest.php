@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Tests\Unit\Entity;
+
 use App\Entity\Config;
 use PHPUnit\Framework\TestCase;
 
