@@ -1,4 +1,4 @@
-{% extends 'admin-base.html.twig' %}
+{% extends 'admin/layout/admin-base.html.twig' %}
 
 {% block title %}Patient index{% endblock %}
 
@@ -67,8 +67,8 @@
                 <td>{{ person.resident ? 'Yes' : 'No' }}</td>
                 <td>{{ person.created ? person.created|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('patient_show', {'id': person.id}) }}">show</a>
-                    <a href="{{ path('patient_edit', {'id': person.id}) }}">edit</a>
+                    <a href="{{ path('admin_patient_show', {'id': person.id}) }}">show</a>
+                    <a href="{{ path('admin_patient_edit', {'id': person.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -79,5 +79,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('patient_new') }}">Create new</a>
+    <a href="{{ path('admin_patient_new') }}">Create new</a>
 {% endblock %}

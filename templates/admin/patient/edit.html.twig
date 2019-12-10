@@ -1,4 +1,4 @@
-{% extends 'admin-base.html.twig' %}
+{% extends 'admin/layout/admin-base.html.twig' %}
 
 {% block title %}Edit Patient{% endblock %}
 
@@ -7,7 +7,7 @@
 
     {{ include('admin/patient/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('patient_index') }}">back to list</a>
+    <a href="{{ path('admin_patient_index') }}">back to list</a>
 
     {{ include('admin/patient/_delete_form.html.twig') }}
 {% endblock %}

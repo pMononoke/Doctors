@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PatientController extends AbstractController
 {
     /**
-     * @Route("/", name="patient_index", methods={"GET"})
+     * @Route("/", name="admin_patient_index", methods={"GET"})
      */
     public function index(PersonRepository $patientRepository): Response
     {
@@ -30,7 +30,7 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="patient_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_patient_new", methods={"GET","POST"})
      */
     public function new(Request $request, PatientService $patientSevice): Response
     {
@@ -50,7 +50,7 @@ class PatientController extends AbstractController
             $patient->setBirthday(new \DateTime('now'));
             $patientSevice->RegisterPatient($patient);
 
-            return $this->redirectToRoute('patient_index');
+            return $this->redirectToRoute('admin_patient_index');
         }
 
         return $this->render('admin/patient/new.html.twig', [
@@ -60,7 +60,7 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="patient_show", methods={"GET"})
+     * @Route("/{id}", name="admin_patient_show", methods={"GET"})
      */
     public function show(Person $patient): Response
     {
@@ -70,7 +70,7 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="patient_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_patient_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, PatientService $patientService, Person $patient): Response
     {
@@ -86,7 +86,7 @@ class PatientController extends AbstractController
             $patient->setBirthday($patientPersonalDataDTO->dateOfBirthday);
             $patientService->update($patient);
 
-            return $this->redirectToRoute('patient_index');
+            return $this->redirectToRoute('admin_patient_index');
         }
 
         return $this->render('admin/patient/edit.html.twig', [
@@ -96,7 +96,7 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="patient_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin_patient_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Person $patient): Response
     {
@@ -106,6 +106,6 @@ class PatientController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('patient_index');
+        return $this->redirectToRoute('admin_patient_index');
     }
 }
