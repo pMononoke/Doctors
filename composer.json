@@ -42,6 +42,7 @@
         "symfony/css-selector": "^5.0",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
+        "symfony/panther": "^1.0@dev",
         "symfony/phpunit-bridge": "^5.0",
         "symfony/profiler-pack": "*"
     },
