@@ -44,7 +44,8 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/panther": "^1.0@dev",
         "symfony/phpunit-bridge": "^5.0",
-        "symfony/profiler-pack": "*"
+        "symfony/profiler-pack": "*",
+        "symfony/web-server-bundle": "^4.4"
     },
     "config": {
         "preferred-install": {

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Dto\RegisterUserDTO;
+use App\Dto\UserDTO;
 use App\Entity\User;
 use App\Form\RegisterUserType;
 use App\Form\UserType;
@@ -109,14 +110,16 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserService $userService): Response
     {
-        $userDTO = PatientPersonalDataDTO::fromPatient($user);
-        $form = $this->createForm(UserType::class, $user);
+        $userDTO = UserDTO::fromUser($user);
+        $form = $this->createForm(UserType::class, $userDTO);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            //$this->getDoctrine()->getManager()->flush();
+            $user->setEmail($userDTO->email);
+            $userService->update($user);
 
             return $this->redirectToRoute('admin_user_index');
         }

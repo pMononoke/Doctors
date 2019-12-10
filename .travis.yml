@@ -1,19 +1,28 @@
 sudo: required
 
+
+dist: trusty
+
+
 env:
   global:
     - RUN_SONAR_SCANNER=0
 
+
 language: php
+
 
 services:
     - docker
 
+
 addons:
+  chrome: stable
   sonarcloud:
     organization: "pmononoke"
     token:
       secure: "7a509e4bf334ca44fd697d725c627ba40fea6a77"
+
 
 matrix:
     fast_finish: true
@@ -25,8 +34,10 @@ matrix:
 
 
 cache:
+  yarn: true
   directories:
   - $HOME/.composer/cache
+
 
 .steps:
   #
@@ -53,13 +64,20 @@ cache:
   - &run-phpstan-tests |
       vendor/bin/phpstan analyse
 
+
 before_install:
   - cp ci/.env.test.travis .env.test
+  - php -v
+  - php -m
+
 
 install:
+  - yarn
+  - yarn run build
   - docker-compose -f tests/docker/docker-compose.yml up -d
   - composer install
   - ./bin/phpunit install
+
 
 before_script:
 
@@ -71,6 +89,7 @@ before_script:
 script:
   - *run-phpstan-tests
   - *run-phpunit-tests
+
 
 after_success:
   - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi

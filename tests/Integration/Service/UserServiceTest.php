@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration\Service;
 
-use App\Dto\PatientDTO;
 use App\Dto\RegisterUserDTO;
 use App\Dto\UserDTO;
 use App\Dto\UserProfileDTO;

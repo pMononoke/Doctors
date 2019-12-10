@@ -1,6 +1,7 @@
 /.idea/
 /extra/
-
+docker-compose.dev.yml
+screen*.png
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -28,3 +29,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###

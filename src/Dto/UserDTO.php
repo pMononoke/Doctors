@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Dto;
 
+use App\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class UserDTO
@@ -34,4 +35,14 @@ class UserDTO
      * @var string
      */
     public $password;
+
+    public static function fromUser(User $user): self
+    {
+        $dto = new self();
+        $dto->email = $user->getEmail();
+        //$dto->roles = $user->getRoles();
+        //$dto->dateOfBirthday = $person->getBirthday();
+
+        return $dto;
+    }
 }
