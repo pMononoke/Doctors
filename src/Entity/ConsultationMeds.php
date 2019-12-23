@@ -33,6 +33,7 @@ class ConsultationMeds
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="consultationmeds")
      * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
+     *
      * @var Consultation
      */
     protected $consultation;
@@ -40,6 +41,7 @@ class ConsultationMeds
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Meds", inversedBy="consultationmeds")
      * @ORM\JoinColumn(name="meds_id", referencedColumnName="id", nullable=false)
+     *
      * @var Meds
      */
     protected $meds;

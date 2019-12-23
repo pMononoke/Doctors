@@ -199,12 +199,14 @@ class Person
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
+     *
      * @var Collection|Antecedent[]
      */
     protected $antecedents;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="person", cascade={"remove", "persist"})
+     *
      * @var Collection|Consultation[]
      */
     protected $consultations;

@@ -26,7 +26,6 @@ class Consultation
      */
     private $id;
 
-
     /**
      * @var string
      *
@@ -93,10 +92,10 @@ class Consultation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="consultations")
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     *
      * @var Person
      */
     private $person;
-
 
     // TODO Create new User Entity and enable association
 //    /**
@@ -108,12 +107,14 @@ class Consultation
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Test", mappedBy="consultation", cascade={"remove", "persist"})
+     *
      * @var Collection|Test[]
      */
     protected $tests;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="consultation", cascade={"remove", "persist"})
+     *
      * @var Collection|ConsultationMeds[]
      */
     protected $consultationmeds;
@@ -170,7 +171,6 @@ class Consultation
         return $this->person;
     }
 
-
     // TODO Create new User Entity and enable association
 //    public function setUser(User $user): void
 //    {
@@ -191,7 +191,6 @@ class Consultation
     {
         $this->tests->removeElement($tests);
     }
-
 
     /**
      * @return Collection|Test[]|null

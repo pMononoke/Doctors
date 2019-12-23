@@ -10,16 +10,16 @@ class imageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder 
+        $builder
             ->add('file')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Ben\DoctorsBundle\Entity\image'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'Ben\DoctorsBundle\Entity\image',
+        ]);
     }
 
     public function getName()

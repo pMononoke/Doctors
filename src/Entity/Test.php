@@ -5,17 +5,17 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Test
+ * Test.
  *
  * @ORM\Table(name="test")
  * @ORM\Entity(repositoryClass="App\Repository\TestRepository")
  */
 class Test
 {
-    public static $GENERAL  = 'Examen Générale';
+    public static $GENERAL = 'Examen Générale';
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -66,14 +66,14 @@ class Test
     private $og;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="hasvisualissue", type="boolean", nullable=true)
      */
     private $hasvisualissue;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="fixedvisualissue", length=255, nullable=true)
      */
@@ -91,19 +91,19 @@ class Test
      * @ORM\Column(name="result", type="text", nullable=true)
      */
     private $result;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="tests")
-    * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="App\Entity\Consultation", inversedBy="tests")
+     * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
+     */
     private $consultation;
-    
+
     /************ constructeur ************/
-    
+
     public function __construct()
     {
     }
-    
+
     /************ getters & setters  ************/
 
     public function getId(): ?int
@@ -123,7 +123,7 @@ class Test
 
     public function isGeneral(): ?bool
     {
-        return ($this->type === Test::$GENERAL);
+        return $this->type === Test::$GENERAL;
     }
 
     public function setConsultation(Consultation $consultation): void

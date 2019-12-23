@@ -2,25 +2,22 @@
 
 namespace Ben\DoctorsBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\SecurityExtraBundle\Annotation\Secure;
-
 use Ben\DoctorsBundle\Entity\Antecedent;
-use Ben\DoctorsBundle\Form\AntecedentType;
 use Ben\DoctorsBundle\Entity\Person;
+use Ben\DoctorsBundle\Form\AntecedentType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Antecedent controller.
- *
  */
 class AntecedentController extends Controller
 {
-
     /**
      * Lists all Antecedent entities.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function indexAction()
     {
@@ -28,14 +25,15 @@ class AntecedentController extends Controller
 
         $entities = $em->getRepository('BenDoctorsBundle:Antecedent')->findAll();
 
-        return $this->render('BenDoctorsBundle:Antecedent:index.html.twig', array(
+        return $this->render('BenDoctorsBundle:Antecedent:index.html.twig', [
             'entities' => $entities,
-        ));
+        ]);
     }
+
     /**
      * Creates a new Antecedent entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function createAction(Request $request)
     {
@@ -48,19 +46,19 @@ class AntecedentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('person_show', array('id' => $entity->getPerson()->getId())));
+            return $this->redirect($this->generateUrl('person_show', ['id' => $entity->getPerson()->getId()]));
         }
 
-        return $this->render('BenDoctorsBundle:Antecedent:new.html.twig', array(
+        return $this->render('BenDoctorsBundle:Antecedent:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
      * Displays a form to create a new Antecedent entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function newAction(Person $person)
     {
@@ -68,16 +66,16 @@ class AntecedentController extends Controller
         $entity->setPerson($person);
         $form = $this->createForm(new AntecedentType(), $entity);
 
-        return $this->render('BenDoctorsBundle:Antecedent:new.html.twig', array(
+        return $this->render('BenDoctorsBundle:Antecedent:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
      * Finds and displays a Antecedent entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function showAction($id)
     {
@@ -91,16 +89,16 @@ class AntecedentController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BenDoctorsBundle:Antecedent:show.html.twig', array(
-            'entity'      => $entity,
+        return $this->render('BenDoctorsBundle:Antecedent:show.html.twig', [
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**
      * Displays a form to edit an existing Antecedent entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function editAction($id)
     {
@@ -115,16 +113,17 @@ class AntecedentController extends Controller
         $editForm = $this->createForm(new AntecedentType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BenDoctorsBundle:Antecedent:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        return $this->render('BenDoctorsBundle:Antecedent:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
+
     /**
      * Edits an existing Antecedent entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function updateAction(Request $request, $id)
     {
@@ -143,19 +142,20 @@ class AntecedentController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('antecedent_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('antecedent_edit', ['id' => $id]));
         }
 
-        return $this->render('BenDoctorsBundle:Antecedent:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        return $this->render('BenDoctorsBundle:Antecedent:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
+
     /**
      * Deletes a Antecedent entity.
-     * @Secure(roles="ROLE_ADMIN")
      *
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -186,7 +186,7 @@ class AntecedentController extends Controller
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder(array('id' => $id))
+        return $this->createFormBuilder(['id' => $id])
             ->add('id', 'hidden')
             ->getForm()
         ;

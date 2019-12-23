@@ -1,19 +1,19 @@
 <?php
 
 namespace Ben\UserBundle\Security\User\Provider;
- 
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
-use \TwitterOAuth;
+
 use FOS\UserBundle\Model\UserManagerInterface;
-use Symfony\Component\Validator\Validator;  
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Validator\Validator;
+use TwitterOAuth;
 
 class TwitterUserProvider implements UserProviderInterface
 {
-    /** 
+    /**
      * @var \Twitter
      */
     protected $twitter_oauth;
@@ -21,25 +21,25 @@ class TwitterUserProvider implements UserProviderInterface
     protected $validator;
     protected $session;
 
-    public function __construct(TwitterOAuth $twitter_oauth, UserManagerInterface  $userManager,Validator $validator, Session $session)
-    {   
+    public function __construct(TwitterOAuth $twitter_oauth, UserManagerInterface $userManager, Validator $validator, Session $session)
+    {
         $this->twitter_oauth = $twitter_oauth;
         $this->userManager = $userManager;
         $this->validator = $validator;
         $this->session = $session;
         $this->twitter_oauth->host = 'https://api.twitter.com/1.1/';
-    }   
+    }
 
     public function supportsClass($class)
-    {   
+    {
         return $this->userManager->supportsClass($class);
-    }   
+    }
 
     public function findUserByTwitterId($twitterID)
-    {   
+    {
 //        return $this->userManager->findUserBy(array('twitterID' => $twitterID));
-        return $this->userManager->findUserBy(array('twitter_username' => $twitterID));
-    }   
+        return $this->userManager->findUserBy(['twitter_username' => $twitterID]);
+    }
 
     public function loadUserByUsername($username)
     {

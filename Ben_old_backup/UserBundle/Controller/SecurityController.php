@@ -1,8 +1,9 @@
 <?php
 
 namespace Ben\UserBundle\Controller;
-use Symfony\Component\Security\Core\SecurityContext;
+
 use FOS\UserBundle\Controller\SecurityController as BaseController;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends BaseController
 {
@@ -30,13 +31,14 @@ class SecurityController extends BaseController
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
-        
+
         $registrationForm = $this->container->get('fos_user.registration.form');
-        return $this->renderLogin(array(
+
+        return $this->renderLogin([
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error' => $error,
             'csrf_token' => $csrfToken,
             'form' => $registrationForm->createView(),
-        ));
+        ]);
     }
 }

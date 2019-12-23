@@ -1,15 +1,16 @@
 <?php
+
 namespace Ben\UserBundle\Controller;
 
+use FOS\UserBundle\Controller\ChangePasswordController as BaseController;
+use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Controller\ChangePasswordController as BaseController;
 
 class ChangePasswordController extends BaseController
 {
     /**
-     * Change user password
+     * Change user password.
      */
     public function changePasswordAction()
     {
@@ -29,12 +30,11 @@ class ChangePasswordController extends BaseController
         }
 
         $form = $this->container->get('fos_user.profile.form');
-        
 
         return $this->container->get('templating')->renderResponse(
             'FOSUserBundle:Profile:edit.html.'.$this->container->getParameter('fos_user.template.engine'),
-            array('form' => $form->createView(),
-                'passwordform' => $passwordform->createView())
+            ['form' => $form->createView(),
+                'passwordform' => $passwordform->createView(), ]
         );
     }
 }

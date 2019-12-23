@@ -2,13 +2,13 @@
 
 namespace Ben\UserBundle\Security\User\Provider;
 
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use BaseFacebook;
 use Facebook;
+use FacebookApiException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
-use \BaseFacebook;
-use \FacebookApiException;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class FacebookProvider implements UserProviderInterface
 {
@@ -40,21 +40,21 @@ class FacebookProvider implements UserProviderInterface
 
     public function findUserByFbId($fbId)
     {
-        return $this->userManager->findUserBy(array('facebookId' => $fbId));
+        return $this->userManager->findUserBy(['facebookId' => $fbId]);
     }
 
     public function findUserByUsername($username)
     {
-        return $this->userManager->findUserBy(array('username' => $username));
+        return $this->userManager->findUserBy(['username' => $username]);
     }
 
     public function connectExistingAccount()
     {
-
         try {
             $fbdata = $this->facebook->api('/me');
         } catch (FacebookApiException $e) {
             $fbdata = null;
+
             return false;
         }
 
@@ -65,7 +65,6 @@ class FacebookProvider implements UserProviderInterface
         }
 
         if (!empty($fbdata)) {
-
             $currentUserObj = $this->container->get('security.context')->getToken()->getUser();
 
             $user = $this->findUserByUsername($currentUserObj->getUsername());
@@ -86,7 +85,6 @@ class FacebookProvider implements UserProviderInterface
         }
 
         return false;
-
     }
 
     public function loadUserByUsername($username)
@@ -101,18 +99,17 @@ class FacebookProvider implements UserProviderInterface
 
         if (!empty($fbdata)) {
             if (empty($user)) {
-				if (!isset($fbdata['email']) || $fbdata['email']== '') {
-				// TODO: the user was found obviously, but doesnt match our expectations, do something smart
-				throw new UsernameNotFoundException('Une erreur est survenue lors de votre connexion...');
-				}
+                if (!isset($fbdata['email']) || '' == $fbdata['email']) {
+                    // TODO: the user was found obviously, but doesnt match our expectations, do something smart
+                    throw new UsernameNotFoundException('Une erreur est survenue lors de votre connexion...');
+                }
                 $user = $this->userManager->createUser();
                 $user->setEnabled(true);
                 $user->setPassword('');
             }
 
-            if($user->getUsername() == '' || $user->getUsername() == null)
-            {
-                $user->setUsername($username . '@facebook.com');
+            if ('' == $user->getUsername() || null == $user->getUsername()) {
+                $user->setUsername($username.'@facebook.com');
             }
 
             $user->setFBData($fbdata);
@@ -125,10 +122,8 @@ class FacebookProvider implements UserProviderInterface
         }
 
         if (empty($user)) {
-
             // TODO: the user was found obviously, but doesnt match our expectations, do something smart
             throw new UsernameNotFoundException('Une erreur est survenue lors de votre connexion...');
-
         }
 
         return $user;

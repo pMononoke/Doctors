@@ -2,27 +2,23 @@
 
 namespace Ben\DoctorsBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Httpfoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\SecurityExtraBundle\Annotation\Secure;
-
 use Ben\DoctorsBundle\Entity\Person;
 use Ben\DoctorsBundle\Form\PersonType;
-
 use Ben\DoctorsBundle\Pagination\Paginator;
+use JMS\SecurityExtraBundle\Annotation\Secure;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Httpfoundation\Response;
 
 /**
  * Person controller.
- *
  */
 class PersonController extends Controller
 {
-
     /**
      * Lists all Person entities.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function indexAction()
     {
@@ -31,13 +27,14 @@ class PersonController extends Controller
         $entitiesLength = $em->getRepository('BenDoctorsBundle:Person')->counter();
         $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
-        return $this->render('BenDoctorsBundle:Person:index.html.twig', array(
+        return $this->render('BenDoctorsBundle:Person:index.html.twig', [
             'cities' => $cities,
-            'entitiesLength' => $entitiesLength));
+            'entitiesLength' => $entitiesLength, ]);
     }
 
     /**
-     * persons list using ajax
+     * persons list using ajax.
+     *
      * @Secure(roles="ROLE_USER")
      */
     public function ajaxListAction(Request $request)
@@ -46,14 +43,15 @@ class PersonController extends Controller
         $searchParam = $request->get('searchParam');
         $entities = $em->getRepository('BenDoctorsBundle:Person')->search($searchParam);
         $pagination = (new Paginator())->setItems(count($entities), $searchParam['perPage'])->setPage($searchParam['page'])->toArray();
-        return $this->render('BenDoctorsBundle:Person:ajax_list.html.twig', array(
+
+        return $this->render('BenDoctorsBundle:Person:ajax_list.html.twig', [
                     'entities' => $entities,
                     'pagination' => $pagination,
-                    ));
+                    ]);
     }
+
     /**
      * Creates a new Person entity.
-     *
      */
     public function createAction(Request $request)
     {
@@ -67,22 +65,24 @@ class PersonController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('info', "L'étudiant a été ajouté avec succès.");
-            return $this->redirect($this->generateUrl('person_show', array('id' => $entity->getId())));
+
+            return $this->redirect($this->generateUrl('person_show', ['id' => $entity->getId()]));
         }
         // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
-        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
-        return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
+        $this->get('session')->getFlashBag()->add('danger', 'Il y a des erreurs dans le formulaire soumis !');
+
+        return $this->render('BenDoctorsBundle:Person:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
             // 'cities' => $cities,
-        ));
+        ]);
     }
 
     /**
      * Displays a form to create a new Person entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function newAction()
     {
@@ -91,17 +91,17 @@ class PersonController extends Controller
         $em = $this->getDoctrine()->getManager();
         // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
-        return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
+        return $this->render('BenDoctorsBundle:Person:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
             // 'cities' => $cities,
-        ));
+        ]);
     }
 
     /**
      * Finds and displays a Person entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function showAction($id)
     {
@@ -115,16 +115,16 @@ class PersonController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BenDoctorsBundle:Person:show.html.twig', array(
-            'entity'      => $entity,
+        return $this->render('BenDoctorsBundle:Person:show.html.twig', [
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**
      * Displays a form to edit an existing Person entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function editAction($id)
     {
@@ -139,17 +139,18 @@ class PersonController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
-        return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        return $this->render('BenDoctorsBundle:Person:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             // 'cities' => $cities,
-        ));
+        ]);
     }
+
     /**
      * Edits an existing Person entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function updateAction(Request $request, $id)
     {
@@ -169,22 +170,25 @@ class PersonController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('info', "L'étudiant a été mis à jour avec succès.");
-            return $this->redirect($this->generateUrl('person_edit', array('id' => $id)));
+
+            return $this->redirect($this->generateUrl('person_edit', ['id' => $id]));
         }
         // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
-        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
-        return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        $this->get('session')->getFlashBag()->add('danger', 'Il y a des erreurs dans le formulaire soumis !');
+
+        return $this->render('BenDoctorsBundle:Person:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             // 'cities' => $cities,
-        ));
+        ]);
     }
+
     /**
      * Deletes a Person entity.
-     * @Secure(roles="ROLE_MANAGER")
      *
+     * @Secure(roles="ROLE_MANAGER")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -201,7 +205,7 @@ class PersonController extends Controller
 
             $em->remove($entity);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('info', "Action effectué avec succès !");
+            $this->get('session')->getFlashBag()->add('info', 'Action effectué avec succès !');
         }
 
         return $this->redirect($this->generateUrl('person'));
@@ -216,22 +220,25 @@ class PersonController extends Controller
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder(array('id' => $id))
+        return $this->createFormBuilder(['id' => $id])
             ->add('id', 'hidden')
             ->getForm()
         ;
     }
 
     /**
-     * Deletes multiple entities
+     * Deletes multiple entities.
+     *
      * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(Request $request)
     {
         $ids = $request->get('entities');
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('BenDoctorsBundle:Person')->search(array('ids'=>$ids));
-        foreach( $entities as $entity) $em->remove($entity);
+        $entities = $em->getRepository('BenDoctorsBundle:Person')->search(['ids' => $ids]);
+        foreach ($entities as $entity) {
+            $em->remove($entity);
+        }
         $em->flush();
 
         return new Response('1');

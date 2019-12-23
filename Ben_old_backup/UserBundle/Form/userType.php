@@ -16,27 +16,29 @@ class userType extends AbstractType
         $this->isAdmin = $isAdmin;
         $this->isOwner = $isOwner;
     }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('family_name')
             ->add('first_name')
             ->add('tel')
-            ->add('image' , new \Ben\DoctorsBundle\Form\imageType())
+            ->add('image', new \Ben\DoctorsBundle\Form\imageType())
             ;
-        if($this->isAdmin)
+        if ($this->isAdmin) {
             $builder
             ->add('username')
             ->add('email')
-            ->add('plainpassword', 'text', array('required' => false))
-            ->add('enabled', 'checkbox', array('required' => false));
+            ->add('plainpassword', 'text', ['required' => false])
+            ->add('enabled', 'checkbox', ['required' => false]);
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Ben\UserBundle\Entity\user'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'Ben\UserBundle\Entity\user',
+        ]);
     }
 
     public function getName()

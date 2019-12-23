@@ -1,18 +1,19 @@
 <?php
+
 namespace Ben\UserBundle\Listener;
- 
+
+use Ben\BlogBundle\Entity\newsletter;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Ben\BlogBundle\Entity\newsletter;
 
 /**
- * Listener responsible to change the redirection at the end of the password resetting
+ * Listener responsible to change the redirection at the end of the password resetting.
  */
 class registerListener implements EventSubscriberInterface
 {
     protected $context;
     protected $em;
- 
+
     public function __construct(SecurityContext $context, EntityManager $em)
     {
         $this->context = $context;
@@ -20,19 +21,19 @@ class registerListener implements EventSubscriberInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             FOSUserEvents::RESETTING_RESET_SUCCESS => 'onRegistrationCompleted',
-        );
+        ];
     }
 
     public function onRegistrationCompleted(FilterUserResponseEvent $event)
     {
         $user = $event->getAuthenticationToken()->getUser();
-        $entity= new newsletter();
+        $entity = new newsletter();
         $entity->setName($user->getUsername());
         $entity->setEmail($user->getEmail());
         $entity->setStatus(true);

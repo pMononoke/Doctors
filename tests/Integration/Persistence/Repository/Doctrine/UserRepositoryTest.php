@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class UserRepositoryTest extends KernelTestCase
 {
-    /** @var UserRepository|null */
+    /** @var mixed|UserRepository */
     private $repository;
 
     protected function setUp(): void

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Meds
+ * Meds.
  *
  * @ORM\Table(name="meds")
  * @ORM\Entity(repositoryClass="App\Repository\MedsRepository")
@@ -16,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Meds
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,7 +32,7 @@ class Meds
     private $name;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="count", type="integer")
      */
@@ -44,26 +44,24 @@ class Meds
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
-    
-   /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="about", type="text", nullable=true)
      */
     private $about;
 
-
     /**
-     * @var \DateTime $created
+     * @var \DateTime
      *
      * @ORM\Column(name="created", type="datetime")
      * @Gedmo\Timestampable(on="create")
      */
     protected $created;
 
-
     /**
-     * @var \DateTime $expdate
+     * @var \DateTime
      *
      * @ORM\Column(name="expdate", type="date")
      * @Gedmo\Timestampable(on="create")
@@ -71,23 +69,22 @@ class Meds
     protected $expdate;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="meds", cascade={"remove", "persist"})
-    * @var Collection|ConsultationMeds[]
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\ConsultationMeds", mappedBy="meds", cascade={"remove", "persist"})
+     *
+     * @var Collection|ConsultationMeds[]
+     */
     protected $consultationmeds;
 
-    
     /************ constructeur ************/
-    
+
     public function __construct()
     {
         $this->consultationmeds = new ArrayCollection();
-        $this->created = new \DateTime;
-        $this->expdate = new \DateTime;
+        $this->created = new \DateTime();
+        $this->expdate = new \DateTime();
     }
-    
-    /************ getters & setters  ************/
 
+    /************ getters & setters  ************/
 
     public function getId(): ?int
     {
@@ -120,9 +117,10 @@ class Meds
     }
 
     /**
-     * minus count
+     * minus count.
      *
      * @param string $count
+     *
      * @return Meds
      */
     public function minusCount($count) //TODO param should be INT
@@ -189,6 +187,6 @@ class Meds
 
     public function isExpired(): ?bool
     {
-        return ($this->expdate <= new \DateTime());
+        return $this->expdate <= new \DateTime();
     }
 }

@@ -1,10 +1,11 @@
 <?php
+
 namespace Ben\UserBundle\Controller;
 
+use FOS\UserBundle\Controller\ProfileController as BaseController;
+use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Controller\ProfileController as BaseController;
 
 class ProfileController extends BaseController
 {
@@ -17,24 +18,25 @@ class ProfileController extends BaseController
 
         $form = $this->container->get('fos_user.profile.form');
         $formHandler = $this->container->get('fos_user.profile.form.handler');
-        
+
         $passwordform = $this->container->get('fos_user.change_password.form');
 
         $process = $formHandler->process($user);
         if ($process) {
             $this->setFlash('fos_user_success', 'profile.flash.updated');
+
             return new RedirectResponse($this->container->get('router')->generate('home'));
         }
-        
+
         // newsletter
         // $em = $this->container->get('doctrine')->getManager();
         // $newsletter = $em->getRepository('BenBlogBundle:newsletter')->findOneByEmail($user->getEmail());
 
         return $this->container->get('templating')->renderResponse(
             'FOSUserBundle:Profile:edit.html.'.$this->container->getParameter('fos_user.template.engine'),
-            array('form' => $form->createView(),
+            ['form' => $form->createView(),
                 //'newsletter' => $newsletter,
-                'passwordform' => $passwordform->createView())
+                'passwordform' => $passwordform->createView(), ]
         );
     }
 }

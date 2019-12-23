@@ -1,17 +1,17 @@
 <?php
+
 namespace Ben\UserBundle\Controller;
 
+use FOS\UserBundle\Controller\GroupController as BaseController;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use FOS\UserBundle\Model\UserInterface;
-use JMS\SecurityExtraBundle\Annotation\Secure;
-use FOS\UserBundle\Controller\GroupController as BaseController;
 
 class GroupController extends BaseController
 {
     /**
-     * Show all groups
+     * Show all groups.
+     *
      * @Secure(roles="ROLE_MANAGER")
      */
     public function listAction()
@@ -20,22 +20,24 @@ class GroupController extends BaseController
         $form = $this->container->get('fos_user.group.form');
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:list.html.'.$this->getEngine(),
-         array('groups' => $groups, 'form' => $form->createview()));
+         ['groups' => $groups, 'form' => $form->createview()]);
     }
 
     /**
-     * Show one group
+     * Show one group.
+     *
      * @Secure(roles="ROLE_MANAGER")
      */
     public function showAction($groupname)
     {
         $group = $this->findGroupBy('name', $groupname);
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:show.html.'.$this->getEngine(), array('group' => $group));
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:show.html.'.$this->getEngine(), ['group' => $group]);
     }
 
     /**
-     * Edit one group, show the edit form
+     * Edit one group, show the edit form.
+     *
      * @Secure(roles="ROLE_MANAGER")
      */
     public function editAction($groupname)
@@ -52,14 +54,15 @@ class GroupController extends BaseController
             return new RedirectResponse($url);
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:edit.html.'.$this->getEngine(), array(
-            'form'      => $form->createview(),
-            'groupname'  => $group->getName(),
-        ));
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:edit.html.'.$this->getEngine(), [
+            'form' => $form->createview(),
+            'groupname' => $group->getName(),
+        ]);
     }
 
     /**
-     * Show the new form
+     * Show the new form.
+     *
      * @Secure(roles="ROLE_MANAGER")
      */
     public function newAction()
@@ -75,13 +78,14 @@ class GroupController extends BaseController
             return new RedirectResponse($url);
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:new.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Group:new.html.'.$this->getEngine(), [
             'form' => $form->createview(),
-        ));
+        ]);
     }
 
     /**
-     * Delete one group
+     * Delete one group.
+     *
      * @Secure(roles="ROLE_MANAGER")
      */
     public function deleteAction($groupname)
@@ -94,12 +98,13 @@ class GroupController extends BaseController
     }
 
     /**
-     * Find a group by a specific property
+     * Find a group by a specific property.
      *
      * @param string $key   property name
      * @param mixed  $value property value
      *
-     * @throws NotFoundException                    if user does not exist
+     * @throws NotFoundException if user does not exist
+     *
      * @return \FOS\UserBundle\Model\GroupInterface
      */
     protected function findGroupBy($key, $value)

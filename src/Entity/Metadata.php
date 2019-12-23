@@ -38,6 +38,7 @@ class Metadata
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Test", inversedBy="metadata")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id", nullable=false)
+     *
      * @var Test
      */
     private $test;

@@ -2,27 +2,24 @@
 
 namespace Ben\DoctorsBundle\Controller;
 
+use Ben\DoctorsBundle\Entity\Consultation;
+use Ben\DoctorsBundle\Entity\Person;
+use Ben\DoctorsBundle\Form\ConsultationType;
+use Ben\DoctorsBundle\Pagination\Paginator;
+use JMS\SecurityExtraBundle\Annotation\Secure;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Httpfoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\SecurityExtraBundle\Annotation\Secure;
-
-use Ben\DoctorsBundle\Entity\Consultation;
-use Ben\DoctorsBundle\Form\ConsultationType;
-use Ben\DoctorsBundle\Entity\Person;
-use Ben\DoctorsBundle\Pagination\Paginator;
 
 /**
  * Consultation controller.
- *
  */
 class ConsultationController extends Controller
 {
-
     /**
      * Lists all Person entities.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function indexAction()
     {
@@ -30,14 +27,15 @@ class ConsultationController extends Controller
         $doctors = $em->getRepository('BenUserBundle:User')->findAll();
         $entitiesLength = $em->getRepository('BenDoctorsBundle:Consultation')->counter();
 
-        return $this->render('BenDoctorsBundle:Consultation:index.html.twig', array(
+        return $this->render('BenDoctorsBundle:Consultation:index.html.twig', [
             'doctors' => $doctors,
-            'entitiesLength' => $entitiesLength));
+            'entitiesLength' => $entitiesLength, ]);
     }
 
     /**
-     * Consultations list using ajax
-     * @Secure(roles="ROLE_USER")     
+     * Consultations list using ajax.
+     *
+     * @Secure(roles="ROLE_USER")
      */
     public function ajaxListAction(Request $request)
     {
@@ -45,16 +43,17 @@ class ConsultationController extends Controller
         $searchParam = $request->get('searchParam');
         $entities = $em->getRepository('BenDoctorsBundle:Consultation')->search($searchParam);
         $pagination = (new Paginator())->setItems(count($entities), $searchParam['perPage'])->setPage($searchParam['page'])->toArray();
-        return $this->render('BenDoctorsBundle:Consultation:ajax_list.html.twig', array(
+
+        return $this->render('BenDoctorsBundle:Consultation:ajax_list.html.twig', [
                     'entities' => $entities,
                     'pagination' => $pagination,
-                    ));
+                    ]);
     }
 
     /**
      * Creates a new Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function createAction(Request $request, $type)
     {
@@ -72,38 +71,41 @@ class ConsultationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('info', "La consultation a été enregistré avec succès.");
-            return $this->redirect($this->generateUrl('consultation_show', array('id' => $entity->getId())));
+            $this->get('session')->getFlashBag()->add('info', 'La consultation a été enregistré avec succès.');
+
+            return $this->redirect($this->generateUrl('consultation_show', ['id' => $entity->getId()]));
         }
 
-        return $this->render('BenDoctorsBundle:Consultation:new.html.twig', array(
+        return $this->render('BenDoctorsBundle:Consultation:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
      * Displays a form to create a new Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function newAction(Person $person, $type)
     {
         $entity = new Consultation();
-        if($type) $entity->setType(Consultation::$SPECIAL);
+        if ($type) {
+            $entity->setType(Consultation::$SPECIAL);
+        }
         $entity->setPerson($person);
-        $form   = $this->createForm(new ConsultationType($entity->getType()), $entity);
+        $form = $this->createForm(new ConsultationType($entity->getType()), $entity);
 
-        return $this->render('BenDoctorsBundle:Consultation:new.html.twig', array(
+        return $this->render('BenDoctorsBundle:Consultation:new.html.twig', [
             'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
      * Finds and displays a Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function showAction($id)
     {
@@ -117,16 +119,16 @@ class ConsultationController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BenDoctorsBundle:Consultation:show.html.twig', array(
-            'entity'      => $entity,
+        return $this->render('BenDoctorsBundle:Consultation:show.html.twig', [
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**
      * Displays a form to edit an existing Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function editAction($id)
     {
@@ -140,16 +142,17 @@ class ConsultationController extends Controller
         $editForm = $this->createForm(new ConsultationType($entity->getType()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BenDoctorsBundle:Consultation:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        return $this->render('BenDoctorsBundle:Consultation:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
+
     /**
      * Edits an existing Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function updateAction(Request $request, $id)
     {
@@ -182,21 +185,24 @@ class ConsultationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('info', "La consultation a été enregistré avec succès.");
-            return $this->redirect($this->generateUrl('consultation_edit', array('id' => $id)));
+            $this->get('session')->getFlashBag()->add('info', 'La consultation a été enregistré avec succès.');
+
+            return $this->redirect($this->generateUrl('consultation_edit', ['id' => $id]));
         }
 
-        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
-        return $this->render('BenDoctorsBundle:Consultation:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+        $this->get('session')->getFlashBag()->add('danger', 'Il y a des erreurs dans le formulaire soumis !');
+
+        return $this->render('BenDoctorsBundle:Consultation:edit.html.twig', [
+            'entity' => $entity,
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
+
     /**
      * Deletes a Consultation entity.
-     * @Secure(roles="ROLE_USER")
      *
+     * @Secure(roles="ROLE_USER")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -206,18 +212,19 @@ class ConsultationController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BenDoctorsBundle:Consultation')->find($id);
-            if (!$entity) 
+            if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Consultation entity.');
-
+            }
             $currentUser = $this->get('security.context')->getToken()->getUser();
-            if ($currentUser != $entity->getUser() && !$this->get('security.context')->isGranted('ROLE_ADMIN'))
-                $this->get('session')->getFlashBag()->add('danger', "Unauthorized access.");
-            else{
+            if ($currentUser != $entity->getUser() && !$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+                $this->get('session')->getFlashBag()->add('danger', 'Unauthorized access.');
+            } else {
                 $em->remove($entity);
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('info', "Action effectué avec succès !");
+                $this->get('session')->getFlashBag()->add('info', 'Action effectué avec succès !');
             }
         }
+
         return $this->redirect($this->generateUrl('consultation'));
     }
 
@@ -230,22 +237,25 @@ class ConsultationController extends Controller
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder(array('id' => $id))
+        return $this->createFormBuilder(['id' => $id])
             ->add('id', 'hidden')
             ->getForm()
         ;
     }
-    
+
     /**
-     * Deletes multiple entities
+     * Deletes multiple entities.
+     *
      * @Secure(roles="ROLE_ADMIN")
      */
     public function removeAction(Request $request)
     {
         $ids = $request->get('entities');
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('BenDoctorsBundle:Consultation')->search(array('ids'=>$ids));
-        foreach( $entities as $entity) $em->remove($entity);
+        $entities = $em->getRepository('BenDoctorsBundle:Consultation')->search(['ids' => $ids]);
+        foreach ($entities as $entity) {
+            $em->remove($entity);
+        }
         $em->flush();
 
         return new Response('1');

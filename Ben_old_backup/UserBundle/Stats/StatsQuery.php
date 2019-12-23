@@ -1,21 +1,23 @@
-<?php 
+<?php
+
 namespace Ben\UserBundle\Stats;
 
-Class StatsQuery{
-    
+class StatsQuery
+{
     private $dateFrom;
     private $dateTo;
     private $rangeDate;
 
-    function __construct($daterange = null){
+    public function __construct($daterange = null)
+    {
         $pattern = '#^[0-9]{4}/[0-9]{1,2}/[0-9]{1,2} - [0-9]{4}/[0-9]{1,2}/[0-9]{1,2}$#';
         $this->rangeDate = '';
-        if (preg_match($pattern, $daterange)) {          
-            $date = explode("-", $daterange);
+        if (preg_match($pattern, $daterange)) {
+            $date = explode('-', $daterange);
             $this->dateFrom = $date[0];
             $this->dateTo = $date[1];
-            $this->rangeDate .= (empty($this->dateFrom)) ? '' : " and c.created >= '".$this->dateFrom."'" ;
-            $this->rangeDate .= (empty($this->dateTo)) ? '' : " and c.created <= '".$this->dateTo."'" ;
+            $this->rangeDate .= (empty($this->dateFrom)) ? '' : " and c.created >= '".$this->dateFrom."'";
+            $this->rangeDate .= (empty($this->dateTo)) ? '' : " and c.created <= '".$this->dateTo."'";
         }
     }
 
@@ -36,18 +38,22 @@ Class StatsQuery{
     {
         return "select c.diagnosis as label, count(*) as data from consultation c where 1=1 {$this->rangeDate} group by label";
     }
+
     public function getStock()
     {
         return "select count(*) as data from meds c where 1=1 {$this->rangeDate}";
     }
+
     public function getGeneral_consultations()
     {
         return "select count(*) as data from consultation c where c.type = 'Consultation generale' {$this->rangeDate}";
     }
+
     public function getSpecial_consultations()
     {
         return "select count(*) as data from consultation c where c.type != 'Consultation generale' {$this->rangeDate}";
     }
+
     public function getOriented()
     {
         return "select count(*) as data from (select id from consultation c where c.type != 'Consultation generale' {$this->rangeDate} group by c.person_id)A";
@@ -112,19 +118,19 @@ Class StatsQuery{
     {
         return "select gender, name as label, count(*) as data from person p inner join consultation c on c.person_id = p.id where type = 'Consultation specialise' {$this->rangeDate} group by name, gender";
     }
-    
+
     /* Nombre  de cas des maladies dépistées */
     public function getConsultations_chronic()
     {
         return "select count(*) as data from consultation c where chronic = 1 {$this->rangeDate}";
     }
-    
+
     /* Nombre  de cas des maladies dépistées */
     public function getConsultations_not_chronic()
     {
         return "select count(*) as data from consultation c where chronic = 0 {$this->rangeDate}";
     }
-    
+
     /* Structures sanitaires de référence par structure */
     public function getConsultations_structures()
     {

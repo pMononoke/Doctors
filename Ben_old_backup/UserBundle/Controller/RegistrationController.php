@@ -2,9 +2,9 @@
 
 namespace Ben\UserBundle\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use Ben\BlogBundle\Entity\newsletter;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class RegistrationController extends BaseController
 {
@@ -18,15 +18,15 @@ class RegistrationController extends BaseController
         if ($process) {
             $user = $form->getData();
 
-            // Add user email to newsletter 
+            // Add user email to newsletter
             $em = $this->container->get('doctrine')->getManager();
-            $newsletter = new Newsletter;
+            $newsletter = new Newsletter();
             $newsletter->setName($user->getUsername());
             $newsletter->setEmail($user->getEmail());
             $newsletter->setStatus(true);
             $em->persist($newsletter);
             $em->flush();
-             // send a welcome message
+            // send a welcome message
             $sender = $this->container->get('fos_user.user_manager')->findUserByUsername('admin');
             $threadBuilder = $this->container->get('fos_message.composer')->newThread();
             $threadBuilder
@@ -54,18 +54,17 @@ class RegistrationController extends BaseController
         }
         //login variables
         $error = '';
-        $lastUsername='';
+        $lastUsername = '';
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
-        
-        
-        return $this->renderLogin(array(
+
+        return $this->renderLogin([
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error' => $error,
             'csrf_token' => $csrfToken,
             'form' => $form->createView(),
-        ));
+        ]);
     }
-    
+
     protected function renderLogin(array $data)
     {
         $template = sprintf('FOSUserBundle:Security:login.html.%s', $this->container->getParameter('fos_user.template.engine'));

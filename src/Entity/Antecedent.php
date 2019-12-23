@@ -59,6 +59,7 @@ class Antecedent
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="antecedents")
      * @ORM\JoinColumn(name="person_id", referencedColumnName="id", nullable=false)
+     *
      * @var Person
      */
     private $person;

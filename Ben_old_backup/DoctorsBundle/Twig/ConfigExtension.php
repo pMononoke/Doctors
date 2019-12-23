@@ -1,10 +1,11 @@
 <?php
 
 namespace Ben\DoctorsBundle\Twig;
+
 use Doctrine\ORM\EntityManager;
 
-class ConfigExtension extends \Twig_Extension {
-
+class ConfigExtension extends \Twig_Extension
+{
     protected $em;
 
     public function __construct(EntityManager $em)
@@ -15,13 +16,14 @@ class ConfigExtension extends \Twig_Extension {
     public function getGlobals()
     {
         $logoConfig = $this->em->getRepository('BenDoctorsBundle:Config')->findAll();
-        $result= [];
+        $result = [];
         foreach ($logoConfig as $cf) {
             $result[$cf->getTheKey()] = $cf->getTheValue();
         }
-      return array(
-        'app_config'=> $result,
-      );
+
+        return [
+        'app_config' => $result,
+      ];
     }
 
     /**
@@ -29,8 +31,8 @@ class ConfigExtension extends \Twig_Extension {
      *
      * @return string The extension name
      */
-    public function getName() {
+    public function getName()
+    {
         return 'config_extension';
     }
-
 }
