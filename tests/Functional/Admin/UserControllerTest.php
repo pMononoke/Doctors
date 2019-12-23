@@ -76,13 +76,10 @@ class UserControllerTest extends PantherTestCase
         $crawler = $this->client->submit($form);
         $this->client->followRedirect();
 
-
-
         $this->assertContains(
             'new@example.com',
             $this->client->getResponse()->getContent()
         );
-
 
 //        $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
 //        $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';

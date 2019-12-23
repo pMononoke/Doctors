@@ -84,7 +84,6 @@ class UserController extends AbstractController
         ]);
     }
 
-
     // TODO original function
 
 //    /**
