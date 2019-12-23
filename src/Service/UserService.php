@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Dto\RegisterUserDTO;
 use App\Entity\User;
 use App\Entity\UserProfile;
+use App\Entity\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -16,14 +17,18 @@ class UserService
     /** @var EntityManagerInterface */
     private $entityManager;
 
+    /** @var UserRepository */
+    private $userRepository;
+
     /** @var LoggerInterface */
     private $logger;
 
     /** @var UserPasswordEncoderInterface */
     private $passwordEncoder;
 
-    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserRepository $userRepository, EntityManagerInterface $entityManager, LoggerInterface $logger, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $this->userRepository = $userRepository;
         $this->entityManager = $entityManager;
         $this->logger = $logger;
         $this->passwordEncoder = $passwordEncoder;
@@ -44,17 +49,17 @@ class UserService
         $user->setRoles(['ROLE_USER']);
         $user->setProfile($profile);
 
-        $this->save($user);
-    }
-
-    private function save(User $user): void
-    {
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
+        //$this->save($user);
+        $this->userRepository->save($user);
     }
 
     public function update(User $user): void
     {
-        $this->save($user);
+        $this->userRepository->update($user);
+    }
+
+    public function delete(User $user): void
+    {
+        $this->userRepository->delete($user);
     }
 }

@@ -49,6 +49,19 @@ class UserServiceTest extends KernelTestCase
         self::assertEquals(1, $this->userRepository->countUsers());
     }
 
+    /** @test */
+    public function can_delete_a_user(): void
+    {
+        $user = $this->createUser();
+        $this->userRepository->save($user);
+
+        //$this->userService->registerUserByAdminWithDtoData($user);
+
+        $this->userService->delete($user);
+
+        self::assertEquals(0, $this->userRepository->countUsers());
+    }
+
     private function createUser(): User
     {
         $user = new User();

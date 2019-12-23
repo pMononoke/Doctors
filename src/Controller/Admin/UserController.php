@@ -132,12 +132,10 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}", name="admin_user_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, User $user): Response
+    public function delete(Request $request, User $user, UserService $userService): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
+            $userService->delete($user);
         }
 
         return $this->redirectToRoute('admin_user_index');

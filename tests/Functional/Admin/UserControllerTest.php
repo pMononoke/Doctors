@@ -60,6 +60,13 @@ class UserControllerTest extends PantherTestCase
     }
 
     /** @test */
+    public function can_show_a_user_detail_page(): void
+    {
+        self::markTestIncomplete('First define UI elements');
+        $this->logIn();
+    }
+
+    /** @test */
     public function can_edit_a_user(): void
     {
         $this->populateDatabase($user = $this->generateAuser());
@@ -96,6 +103,25 @@ class UserControllerTest extends PantherTestCase
 
         //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
         //self::assertPageTitleSame('User Index');
+    }
+
+    /** @test */
+    public function can_delete_a_user(): void
+    {
+        self::markTestIncomplete('First define UI element - btw manual test is ok.');
+        $this->populateDatabase($user = $this->generateAuser());
+
+        $this->logIn();
+
+        //Go to user list page
+        $crawler = $this->client->request('GET', '/admin/user/');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'User index',
+            $this->client->getResponse()->getContent()
+        );
+
+        // Click on button delete (there are multiple button)
     }
 
     private function logIn(): void
