@@ -55,12 +55,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "CompostDDD\\": "lib/compost/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/",
+            "CompostDDD\\Tests\\": "lib/compost/tests/"
         }
     },
     "replace": {

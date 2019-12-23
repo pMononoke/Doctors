@@ -30,6 +30,9 @@
         <testsuite name="e2e">
             <directory>tests/E2E</directory>
         </testsuite>
+        <testsuite name="compost">
+            <directory>lib/compost/tests</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
