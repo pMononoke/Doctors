@@ -40,9 +40,55 @@ class Patient
      */
     private $updatedAt;
 
+    /**
+     * Patient constructor.
+     *
+     * @param PatientPerson $person
+     */
+    public function __construct(PatientPerson $person = null)
+    {
+        $this->person = $person ?? new PatientPerson();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->person = $this->person->setFirstName($firstName);
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->person->getFirstName();
+    }
+
+    public function setMiddleName(string $middleName): self
+    {
+        $this->person = $this->person->setMiddleName($middleName);
+
+        return $this;
+    }
+
+    public function getMiddleName(): ?string
+    {
+        return $this->person->getMiddleName();
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->person->setLastName($lastName);
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->person->getLastName();
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

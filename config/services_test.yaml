@@ -17,5 +17,6 @@ services:
     test.App\Service\PatientService: '@App\Service\PatientService'
     test.App\Repository\PersonRepository: '@App\Repository\PersonRepository'
     test.App\Repository\UserRepository: '@App\Repository\UserRepository'
+    test.App\Repository\PatientRepository: '@App\Repository\PatientRepository'
 
 

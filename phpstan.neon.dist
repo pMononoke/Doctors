@@ -15,6 +15,7 @@ parameters:
 
     ignoreErrors:
         #- '##'
+        - '#Method App\\Repository\\PatientRepository::nextIdentity\(\) should return int but return statement is missing.#'
 
 
 

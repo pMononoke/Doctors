@@ -40,9 +40,11 @@ class PatientPerson
         return $this->firstName;
     }
 
-    public function setFirstName(string $firstName): void
+    public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
+
+        return $this;
     }
 
     public function getMiddleName(): string
@@ -50,9 +52,11 @@ class PatientPerson
         return $this->middleName;
     }
 
-    public function setMiddleName(string $middleName): void
+    public function setMiddleName(string $middleName): self
     {
         $this->middleName = $middleName;
+
+        return $this;
     }
 
     public function getLastName(): string
@@ -60,9 +64,11 @@ class PatientPerson
         return $this->lastName;
     }
 
-    public function setLastName(string $lastName): void
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 
     public function getGender(): string
@@ -70,8 +76,10 @@ class PatientPerson
         return $this->gender;
     }
 
-    public function setGender(string $gender): void
+    public function setGender(string $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
     }
 }
