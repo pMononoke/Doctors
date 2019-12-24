@@ -38,6 +38,7 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "nelmio/alice": "^3.5",
         "phpstan/phpstan": "^0.12",
+        "prolic/fpp": "dev-master",
         "symfony/browser-kit": "^5.0",
         "symfony/css-selector": "^5.0",
         "symfony/debug-pack": "*",
