@@ -14,12 +14,11 @@ class Patient
 {
     // TODO $id should be uuid type
     // @ORM\Column(type="guid")
-
     /**
-     * @var int
+     * @var PatientId
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(type="patient_id")
      */
     private $id;
 
@@ -50,7 +49,14 @@ class Patient
         $this->person = $person ?? new PatientPerson();
     }
 
-    public function getId(): ?int
+    public function setId(PatientId $patientId): self
+    {
+        $this->id = $patientId;
+
+        return $this;
+    }
+
+    public function getId(): ?PatientId
     {
         return $this->id;
     }

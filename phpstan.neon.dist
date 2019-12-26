@@ -26,6 +26,9 @@ parameters:
         - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::databaseSetup\(\) should return App\\Tests\\Support\\Service\\DoctrineDatabaseManager but returns object|null.#'
         - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::findAll\(\) has no return typehint specified.#'
 
+        #
+        - '#Cannot call method __toString() on (object)|string.#'
+
 
     excludes_analyse:
         - '*/vendor/*'

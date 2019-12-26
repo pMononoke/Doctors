@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace App\Tests\Support\Builder;
 
 use App\Entity\Patient;
+use App\Entity\PatientId;
 
 class PatientBuilder implements BuilderInterface
 {
+    /** @var PatientId|null */
+    private $id;
+
     /** @var string|null */
     private $firstName;
 
@@ -32,8 +36,9 @@ class PatientBuilder implements BuilderInterface
     /**
      * PatientBuilder constructor.
      */
-    public function __construct(?string $firstName = null, ?string $middleName = null, ?string $lastName = null)
+    public function __construct(PatientId $patientId = null, ?string $firstName = null, ?string $middleName = null, ?string $lastName = null)
     {
+        $this->id = $patientId;
         $this->firstName = $firstName;
         $this->middleName = $middleName;
         $this->lastName = $lastName;
@@ -53,6 +58,7 @@ class PatientBuilder implements BuilderInterface
     public static function create(): PatientBuilder
     {
         return new self(
+            PatientId::generate(),
             'irrelevant',
             'irrelevant',
             'irrelevant'
@@ -68,6 +74,7 @@ class PatientBuilder implements BuilderInterface
 
         //TODO
         // or $this->firstName ?? $patient->setFirstName($this->firstName);
+        $patient->setId($this->id);
         $patient->setFirstName($this->firstName);
         $patient->setMiddleName($this->middleName);
         $patient->setLastName($this->lastName);
@@ -116,6 +123,7 @@ class PatientBuilder implements BuilderInterface
     private function copy(): PatientBuilder
     {
         return new self(
+            $this->id,
             $this->firstName,
             $this->middleName,
             $this->lastName
