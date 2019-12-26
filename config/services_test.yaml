@@ -12,11 +12,20 @@ services:
         #autoconfigure: false # Automatically registers your services as commands, event subscribers, etc.
         public: true
 
+    test.app.clock.system:
+        class: CompostDDD\Time\TestClock
+        arguments:
+            - '@app.date_time_zone'
 
     test.App\Service\UserService: '@App\Service\UserService'
     test.App\Service\PatientService: '@App\Service\PatientService'
     test.App\Repository\PersonRepository: '@App\Repository\PersonRepository'
     test.App\Repository\UserRepository: '@App\Repository\UserRepository'
     test.App\Repository\PatientRepository: '@App\Repository\PatientRepository'
+
+
+    test.database_manager:
+      class: App\Tests\Support\Service\DoctrineDatabaseManager
+      arguments: ['@doctrine.orm.default_entity_manager']
 
 

@@ -12,13 +12,14 @@ class PatientBuilderTest extends TestCase
     /** @test */
     public function build_a_patient_with_no_data(): void
     {
-        $builder = PatientBuilder::create();
+        $builder = PatientBuilder::create()->withGender('female');
         $patient = $builder->build();
 
         self::assertInstanceOf(Patient::class, $patient);
         self::assertEquals('irrelevant', $patient->getFirstName());
         self::assertEquals('irrelevant', $patient->getMiddleName());
         self::assertEquals('irrelevant', $patient->getLastName());
+        self::assertEquals('female', $patient->getGender());
     }
 
     /** @test */
@@ -27,12 +28,14 @@ class PatientBuilderTest extends TestCase
         $builder = PatientBuilder::create()
             ->withFirstName('joe')
             ->withMiddleName('smith')
-            ->withLastName('doe');
+            ->withLastName('doe')
+            ->withGender('male');
         $patient = $builder->build();
 
         self::assertInstanceOf(Patient::class, $patient);
         self::assertEquals('joe', $patient->getFirstName());
         self::assertEquals('smith', $patient->getMiddleName());
         self::assertEquals('doe', $patient->getLastName());
+        self::assertEquals('male', $patient->getGender());
     }
 }

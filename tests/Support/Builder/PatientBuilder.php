@@ -17,6 +17,18 @@ class PatientBuilder implements BuilderInterface
     /** @var string|null */
     private $lastName;
 
+    /** @var string|null */
+    private $gender;
+
+    /** @var \DateTimeImmutable|null */
+    private $createAt;
+
+    /** @var \DateTimeImmutable|null */
+    private $updateAt;
+
+    /** @var mixed|null */
+    private $clockService;
+
     /**
      * PatientBuilder constructor.
      */
@@ -25,6 +37,14 @@ class PatientBuilder implements BuilderInterface
         $this->firstName = $firstName;
         $this->middleName = $middleName;
         $this->lastName = $lastName;
+    }
+
+    /**
+     * @param mixed $clockService
+     */
+    public function setClockService($clockService): void
+    {
+        $this->clockService = $clockService;
     }
 
     /**
@@ -52,6 +72,12 @@ class PatientBuilder implements BuilderInterface
         $patient->setMiddleName($this->middleName);
         $patient->setLastName($this->lastName);
 
+        $patient->setGender($this->gender);
+
+        $dateNow = new \DateTimeImmutable('now');
+        $this->createAt ? $patient->setCreatedAt($this->createAt) : $patient->setCreatedAt($dateNow);
+        $this->updateAt ? $patient->setUpdatedAt($this->updateAt) : $patient->setUpdatedAt($dateNow);
+
         return $patient;
     }
 
@@ -75,6 +101,14 @@ class PatientBuilder implements BuilderInterface
     {
         $copy = $this->copy();
         $copy->lastName = $lastName;
+
+        return $copy;
+    }
+
+    public function withGender(string $gender): PatientBuilder
+    {
+        $copy = $this->copy();
+        $copy->gender = $gender;
 
         return $copy;
     }

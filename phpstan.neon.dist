@@ -17,6 +17,14 @@ parameters:
         #- '##'
         - '#Method App\\Repository\\PatientRepository::nextIdentity\(\) should return int but return statement is missing.#'
 
+        # tests/Support/Service/DoctrineDatabaseManager.php
+        - '#Method App\\Tests\\Support\\Service\\DoctrineDatabaseManager::save\(\) has no return typehint specified.#'
+        - '#Method App\\Tests\\Support\\Service\\DoctrineDatabaseManager::save\(\) has parameter \$object with no typehint specified.#'
+
+        # tests/Support/TestCase/DatabaseTestCase.php
+        - '#Call to an undefined method object::getManagerForClass\(\).#'
+        - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::databaseSetup\(\) should return App\\Tests\\Support\\Service\\DoctrineDatabaseManager but returns object|null.#'
+        - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::findAll\(\) has no return typehint specified.#'
 
 
     excludes_analyse:

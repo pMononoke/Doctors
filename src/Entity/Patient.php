@@ -86,6 +86,18 @@ class Patient
         return $this;
     }
 
+    public function setGender(string $gender): self
+    {
+        $this->person->setGender($gender);
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->person->getGender();
+    }
+
     public function getLastName(): ?string
     {
         return $this->person->getLastName();
