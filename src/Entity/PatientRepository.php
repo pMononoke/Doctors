@@ -12,5 +12,5 @@ interface PatientRepository
 
     public function delete(Patient $patient): void;
 
-    public function nextIdentity(): int;
+    public function nextIdentity(): PatientId;
 }

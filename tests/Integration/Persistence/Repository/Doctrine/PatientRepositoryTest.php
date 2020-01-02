@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Integration\Persistence\Repository\Doctrine;
 
 use App\Entity\Patient;
+use App\Entity\PatientId;
 use App\Entity\PatientRepository;
 use App\Tests\Support\Builder\PatientBuilder;
 use App\Tests\Support\TestCase\DatabaseTestCase;
@@ -39,10 +40,11 @@ class PatientRepositoryTest extends DatabaseTestCase
     public function can_persist_multiple_patients(): void
     {
         $firstPatient = $this->createPatient();
-        $this->repository->save($firstPatient);
         $secondPatient = $this->createPatient();
-        $this->repository->save($secondPatient);
         $thridPatient = $this->createPatient();
+
+        $this->repository->save($firstPatient);
+        $this->repository->save($secondPatient);
         $this->repository->save($thridPatient);
 
         self::assertEquals(3, $this->countItem(Patient::class));
@@ -57,7 +59,10 @@ class PatientRepositoryTest extends DatabaseTestCase
         $newPatient->setLastName('new lastname');
         $this->repository->update($newPatient);
 
+        /** @var Patient $patientFromDatabase */
+        $patientFromDatabase = $this->find(Patient::class, $newPatient->getId());
         self::assertEquals(1, $this->countItem(Patient::class));
+        self::assertEquals('new lastname', $patientFromDatabase->getLastName());
     }
 
     /** @test */
@@ -69,6 +74,14 @@ class PatientRepositoryTest extends DatabaseTestCase
 
         $this->repository->delete($newPatient);
         self::assertEquals(0, $this->countItem(Patient::class));
+    }
+
+    /** @test */
+    public function can_generate_a_new_identity_for_patient(): void
+    {
+        $identity = $this->repository->nextIdentity();
+
+        self::assertInstanceOf(PatientId::class, $identity);
     }
 
     private function createPatient(): Patient

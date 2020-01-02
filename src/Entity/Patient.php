@@ -18,7 +18,7 @@ class Patient
      * @var PatientId
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\Column(type="patient_id")
+     * @ORM\Column(type="patientId")
      */
     private $id;
 
@@ -46,6 +46,7 @@ class Patient
      */
     public function __construct(PatientPerson $person = null)
     {
+        $this->id = $this->id ?? PatientId::generate();
         $this->person = $person ?? new PatientPerson();
     }
 
@@ -92,6 +93,11 @@ class Patient
         return $this;
     }
 
+    public function getLastName(): ?string
+    {
+        return $this->person->getLastName();
+    }
+
     public function setGender(string $gender): self
     {
         $this->person->setGender($gender);
@@ -104,9 +110,16 @@ class Patient
         return $this->person->getGender();
     }
 
-    public function getLastName(): ?string
+    public function getDateOfBirth(): ?\DateTimeImmutable
     {
-        return $this->person->getLastName();
+        return $this->person->getDateOfBirth();
+    }
+
+    public function setDateOfBirth(\DateTimeImmutable $dateOfBirth): self
+    {
+        $this->person->setDateOfBirth($dateOfBirth);
+
+        return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

@@ -42,6 +42,7 @@ class UserServiceTest extends KernelTestCase
     /** @test */
     public function can_update_a_user(): void
     {
+        //TODO fragile test -
         $user = $this->createUser();
 
         $this->userService->update($user);
@@ -54,8 +55,7 @@ class UserServiceTest extends KernelTestCase
     {
         $user = $this->createUser();
         $this->userRepository->save($user);
-
-        //$this->userService->registerUserByAdminWithDtoData($user);
+        self::assertEquals(1, $this->userRepository->countUsers());
 
         $this->userService->delete($user);
 

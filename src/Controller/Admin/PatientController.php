@@ -4,11 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Dto\PatientPersonalDataDTO;
 use App\Dto\RegisterPatientDTO;
-use App\Entity\Person;
+use App\Entity\Patient;
+use App\Entity\PatientRepository;
 use App\Form\PatientPersonalDataFormDTOType;
 use App\Form\RegisterPatientType;
-use App\Repository\PersonRepository;
 use App\Service\PatientService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +23,7 @@ class PatientController extends AbstractController
     /**
      * @Route("/", name="admin_patient_index", methods={"GET"})
      */
-    public function index(PersonRepository $patientRepository): Response
+    public function index(PatientRepository $patientRepository): Response
     {
         return $this->render('admin/patient/index.html.twig', [
             'people' => $patientRepository->findAll(),
@@ -44,10 +45,12 @@ class PatientController extends AbstractController
             $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData;
 
             // form is valid, transform from dto to entity
-            $patient = new Person();
+            $patient = new Patient();
             $patient->setFirstname($patientPersonalDataDTO->firstName);
-            $patient->setFamilyname($patientPersonalDataDTO->lastName);
-            $patient->setBirthday(new \DateTime('now'));
+            !(null === $patientPersonalDataDTO->middleName) ?? $patient->setMiddleName($patientPersonalDataDTO->middleName);
+            $patient->setLastName($patientPersonalDataDTO->lastName);
+            $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
+
             $patientSevice->RegisterPatient($patient);
 
             return $this->redirectToRoute('admin_patient_index');
@@ -61,8 +64,9 @@ class PatientController extends AbstractController
 
     /**
      * @Route("/{id}", name="admin_patient_show", methods={"GET"})
+     * @Entity("patient", expr="repository.findByUuidString(id)")
      */
-    public function show(Person $patient): Response
+    public function show(Patient $patient): Response
     {
         return $this->render('admin/patient/show.html.twig', [
             'patient' => $patient,
@@ -71,8 +75,9 @@ class PatientController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="admin_patient_edit", methods={"GET","POST"})
+     * @Entity("patient", expr="repository.findByUuidString(id)")
      */
-    public function edit(Request $request, PatientService $patientService, Person $patient): Response
+    public function edit(Request $request, PatientService $patientService, Patient $patient): Response
     {
         $patientPersonalDataDTO = PatientPersonalDataDTO::fromPatient($patient);
         $form = $this->createForm(PatientPersonalDataFormDTOType::class, $patientPersonalDataDTO);
@@ -80,10 +85,10 @@ class PatientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // form is valid, update the patient entity with the new data from dto
-            $patient = new Person();
             $patient->setFirstname($patientPersonalDataDTO->firstName);
-            $patient->setFamilyname($patientPersonalDataDTO->lastName);
-            $patient->setBirthday($patientPersonalDataDTO->dateOfBirthday);
+            !(null === $patientPersonalDataDTO->middleName) ?? $patient->setMiddleName($patientPersonalDataDTO->middleName);
+            $patient->setLastName($patientPersonalDataDTO->lastName);
+            $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
             $patientService->update($patient);
 
             return $this->redirectToRoute('admin_patient_index');
@@ -97,13 +102,12 @@ class PatientController extends AbstractController
 
     /**
      * @Route("/{id}", name="admin_patient_delete", methods={"DELETE"})
+     * @Entity("patient", expr="repository.findByUuidString(id)")
      */
-    public function delete(Request $request, Person $patient): Response
+    public function delete(Request $request, PatientService $patientService, Patient $patient): Response
     {
         if ($this->isCsrfTokenValid('delete'.$patient->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($patient);
-            $entityManager->flush();
+            $patientService->delete($patient);
         }
 
         return $this->redirectToRoute('admin_patient_index');

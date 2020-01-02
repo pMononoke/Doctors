@@ -18,10 +18,13 @@ services:
             - '@app.date_time_zone'
 
     test.App\Service\UserService: '@App\Service\UserService'
-    test.App\Service\PatientService: '@App\Service\PatientService'
-    test.App\Repository\PersonRepository: '@App\Repository\PersonRepository'
     test.App\Repository\UserRepository: '@App\Repository\UserRepository'
+
+    test.App\Service\PatientService: '@App\Service\PatientService'
     test.App\Repository\PatientRepository: '@App\Repository\PatientRepository'
+
+    test.App\Repository\PersonRepository: '@App\Repository\PersonRepository'
+
 
 
     test.database_manager:

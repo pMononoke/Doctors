@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Patient;
+use App\Entity\PatientId;
 use App\Entity\PatientRepository as PatientRepositoryPort;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -23,6 +24,7 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
     public function save(Patient $patient): void
     {
         // TODO: check if exist throw exception if exist
+        $patient = $this->touch($patient);
         $this->_em->persist($patient);
         $this->_em->flush();
     }
@@ -30,6 +32,7 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
     public function update(Patient $patient): void
     {
         // TODO: check if exist throw exception if not exist
+        $patient = $this->touch($patient);
         $this->_em->persist($patient);
         $this->_em->flush();
     }
@@ -40,9 +43,27 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
         $this->_em->flush();
     }
 
-    public function nextIdentity(): int
+    public function nextIdentity(): PatientId
     {
-        // TODO: Implement nextIdentity() when uuid capability is ready (PatientId)
+        return PatientId::generate();
+    }
+
+    private function touch(Patient $patient): Patient
+    {
+        $now = new \DateTimeImmutable('now');
+        if (!$patient->getCreatedAt()) {
+            $patient->setCreatedAt($now);
+            $patient->setUpdatedAt($now);
+
+            // TODO remove
+            $patient->setGender('male');
+
+            return $patient;
+        }
+
+        $patient->setUpdatedAt($now);
+
+        return $patient;
     }
 
     // /**
@@ -73,4 +94,24 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
         ;
     }
     */
+
+    public function findByUuidString(string $uuid): ?Patient
+    {
+        $patietId = PatientId::fromString($uuid);
+
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :patientId')
+            ->setParameter('patientId', $patietId)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+//    public function countPatients(): int
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->select('count(p.id)')
+//            ->getQuery()
+//            ->getSingleScalarResult();
+//    }
 }

@@ -54,14 +54,18 @@ class PatientIdType extends UuidType
             return null;
         }
 
-        if (
-            $value instanceof PatientId
-            || (
-                (is_string($value) || method_exists($value, '__toString'))
-                && Uuid::isValid((string) $value)
-            )
-        ) {
-            return (string) $value->toString();
+//        if (
+//            $value instanceof PatientId
+//            || (
+//                (is_string($value) || method_exists($value, '__toString'))
+//                && Uuid::isValid((string) $value)
+//            )
+//        ) {
+//            return (string) $value->toString();
+//        }
+
+        if ($value instanceof PatientId) {
+            return  $value->toString();
         }
 
         throw ConversionException::conversionFailed($value, static::NAME);

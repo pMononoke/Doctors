@@ -47,3 +47,11 @@ services:
     App\Service\UserService:
       arguments:
         - '@App\Repository\UserRepository'
+
+    App\Repository\PatientRepository: ~
+
+    App\Entity\PatientRepository: '@App\Repository\PatientRepository'
+
+    App\Service\PatientService:
+      arguments:
+        - '@App\Repository\PatientRepository'

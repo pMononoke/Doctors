@@ -46,6 +46,11 @@ abstract class DatabaseTestCase extends KernelTestCase
         return $this->getContainer()->get('test.database_manager');
     }
 
+    protected function databaseManager(): DoctrineDatabaseManager
+    {
+        return $this->getContainer()->get('test.database_manager');
+    }
+
     protected function getContainer(): ContainerInterface
     {
         return $this->containerTest;

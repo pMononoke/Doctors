@@ -38,7 +38,7 @@ class DoctrineDatabaseManager
         $this->entityManager->getConnection()->executeQuery('SET FOREIGN_KEY_CHECKS = 1;');
     }
 
-    private function save($object)
+    public function save($object)
     {
         $this->entityManager->persist($object);
         $this->entityManager->flush();

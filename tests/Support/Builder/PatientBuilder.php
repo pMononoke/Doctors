@@ -25,6 +25,9 @@ class PatientBuilder implements BuilderInterface
     private $gender;
 
     /** @var \DateTimeImmutable|null */
+    private $dateOfBirth;
+
+    /** @var \DateTimeImmutable|null */
     private $createAt;
 
     /** @var \DateTimeImmutable|null */
@@ -36,12 +39,24 @@ class PatientBuilder implements BuilderInterface
     /**
      * PatientBuilder constructor.
      */
-    public function __construct(PatientId $patientId = null, ?string $firstName = null, ?string $middleName = null, ?string $lastName = null)
-    {
+    public function __construct(
+        PatientId $patientId = null,
+        ?string $firstName = null,
+        ?string $middleName = null,
+        ?string $lastName = null,
+        ?string $gender = null,
+        \DateTimeImmutable $createdAt = null,
+        \DateTimeImmutable $updatedAt = null,
+        \DateTimeImmutable $dateOfBirth = null
+    ) {
         $this->id = $patientId;
         $this->firstName = $firstName;
         $this->middleName = $middleName;
         $this->lastName = $lastName;
+        $this->gender = $gender;
+        $this->createAt = $createdAt;
+        $this->updateAt = $updatedAt;
+        $this->dateOfBirth = $dateOfBirth;
     }
 
     /**
@@ -79,9 +94,10 @@ class PatientBuilder implements BuilderInterface
         $patient->setMiddleName($this->middleName);
         $patient->setLastName($this->lastName);
 
-        $patient->setGender($this->gender);
+        $this->gender ? $patient->setGender($this->gender) : $patient->setGender('female');
 
         $dateNow = new \DateTimeImmutable('now');
+        $this->dateOfBirth ? $patient->setDateOfBirth($this->dateOfBirth) : $patient->setDateOfBirth($dateNow);
         $this->createAt ? $patient->setCreatedAt($this->createAt) : $patient->setCreatedAt($dateNow);
         $this->updateAt ? $patient->setUpdatedAt($this->updateAt) : $patient->setUpdatedAt($dateNow);
 
@@ -120,13 +136,25 @@ class PatientBuilder implements BuilderInterface
         return $copy;
     }
 
+    public function withDateOfBirth(\DateTimeImmutable $dateOfBirth): PatientBuilder
+    {
+        $copy = $this->copy();
+        $copy->dateOfBirth = $dateOfBirth;
+
+        return $copy;
+    }
+
     private function copy(): PatientBuilder
     {
         return new self(
             $this->id,
             $this->firstName,
             $this->middleName,
-            $this->lastName
+            $this->lastName,
+            $this->gender,
+            $this->createAt,
+            $this->updateAt,
+            $this->dateOfBirth
         );
     }
 }

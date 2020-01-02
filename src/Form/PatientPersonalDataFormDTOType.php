@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Dto\PatientPersonalDataDTO;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,8 +14,10 @@ class PatientPersonalDataFormDTOType extends AbstractType
     {
         $builder
             ->add('firstName')
+            ->add('middleName')
             ->add('lastName')
-            ->add('dateOfBirthday', DateType::class)
+            ->add('dateOfBirth', DateTimeType::class, [
+                'input' => 'datetime_immutable', ])
         ;
     }
 

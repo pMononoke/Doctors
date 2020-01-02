@@ -111,17 +111,7 @@ parameters:
 			path: src/Entity/ConsultationMeds.php
 
 		-
-			message: "#^Parameter \\#1 \\$count of method App\\\\Entity\\\\Meds\\:\\:minusCount\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: src/Entity/ConsultationMeds.php
-
-		-
 			message: "#^Property App\\\\Entity\\\\Meds\\:\\:\\$consultationmeds with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Meds.php
-
-		-
-			message: "#^Binary operation \"\\-\\=\" between int and string results in an error\\.$#"
 			count: 1
 			path: src/Entity/Meds.php
 
@@ -501,33 +491,13 @@ parameters:
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
 
 		-
-			message: "#^Parameter \\#1 \\$function of function call_user_func expects callable\\(\\)\\: mixed, array\\(mixed, string\\) given\\.$#"
-			count: 1
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
 			message: "#^Method App\\\\Tests\\\\Integration\\\\Persistence\\\\Entitiy\\\\Doctrine\\\\EntityTestCase\\:\\:testThatManyToManyAssociationMethodsWorksAsExpected\\(\\) has parameter \\$mappings with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
 
 		-
-			message: "#^Parameter \\#1 \\$function of function call_user_func expects callable\\(\\)\\: mixed, array\\(mixed, bool\\|string\\) given\\.$#"
-			count: 6
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$collection contains generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection but does not specify its types\\: TKey, T$#"
 			count: 7
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
-			message: "#^Parameter \\#1 \\$function of function call_user_func expects callable\\(\\)\\: mixed, array\\(mixed, string\\|true\\) given\\.$#"
-			count: 3
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
-			message: "#^Parameter \\#1 \\$object of function get_class expects object, bool\\|string given\\.$#"
-			count: 2
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
 
 		-
@@ -561,89 +531,9 @@ parameters:
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Persistence\\\\Entitiy\\\\Doctrine\\\\EntityTestCase\\:\\:\\$entityManager \\(Doctrine\\\\ORM\\\\EntityManager\\) does not accept object\\|null\\.$#"
-			count: 1
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:getRepository\\(\\)\\.$#"
 			count: 1
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Persistence\\\\Entitiy\\\\Doctrine\\\\EntityTestCase\\:\\:\\$entityManager \\(Doctrine\\\\ORM\\\\EntityManager\\) does not accept null\\.$#"
-			count: 1
-			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
-
-		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\PatientServiceTest\\:\\:\\$personRepository has no typehint specified\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Method App\\\\Tests\\\\Integration\\\\Service\\\\PatientServiceTest\\:\\:setUp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\PatientServiceTest\\:\\:\\$patientService \\(App\\\\Service\\\\PatientService\\) does not accept object\\|null\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Return typehint of method App\\\\Tests\\\\Integration\\\\Service\\\\PatientServiceTest\\:\\:createPatientDTO\\(\\) has invalid type App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Instantiated class App\\\\Dto\\\\PatientDTO not found\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$firstName on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$lastName on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$cin on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$cne on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$gender on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$cnss on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$cnsstype on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Access to property \\$resident on an unknown class App\\\\Dto\\\\PatientDTO\\.$#"
-			count: 2
-			path: tests/Integration/Service/PatientServiceTest.php
-
-		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\PatientServiceTest\\:\\:\\$patientService \\(App\\\\Service\\\\PatientService\\) does not accept null\\.$#"
-			count: 1
-			path: tests/Integration/Service/PatientServiceTest.php
 
 		-
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
@@ -656,21 +546,6 @@ parameters:
 			path: tests/Integration/Service/UserServiceTest.php
 
 		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userService \\(App\\\\Service\\\\UserService\\) does not accept object\\|null\\.$#"
-			count: 1
-			path: tests/Integration/Service/UserServiceTest.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\UserDTO\\:\\:\\$roles \\(string\\) does not accept array\\<int, string\\>\\.$#"
-			count: 1
-			path: tests/Integration/Service/UserServiceTest.php
-
-		-
-			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userService \\(App\\\\Service\\\\UserService\\) does not accept null\\.$#"
-			count: 1
-			path: tests/Integration/Service/UserServiceTest.php
-
-		-
 			message: "#^Call to an undefined method App\\\\Entity\\\\Consultation\\:\\:setUser\\(\\)\\.$#"
 			count: 1
 			path: tests/Unit/Entity/ConsultationTest.php
@@ -679,9 +554,4 @@ parameters:
 			message: "#^Call to an undefined method App\\\\Entity\\\\Consultation\\:\\:getUser\\(\\)\\.$#"
 			count: 1
 			path: tests/Unit/Entity/ConsultationTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$count of method App\\\\Entity\\\\Meds\\:\\:minusCount\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: tests/Unit/Entity/MedsTest.php
 

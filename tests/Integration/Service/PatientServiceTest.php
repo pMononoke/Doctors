@@ -4,27 +4,26 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration\Service;
 
-use App\Dto\PatientDTO;
-use App\Entity\Person;
+use App\Entity\Patient;
+use App\Entity\PatientRepository;
 use App\Service\PatientService;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Tests\Support\Builder\PatientBuilder;
+use App\Tests\Support\TestCase\DatabaseTestCase;
 
-class PatientServiceTest extends KernelTestCase
+class PatientServiceTest extends DatabaseTestCase
 {
-    private const IRRELEVANT_STRING = 'irrelevant';
-
     /** @var PatientService */
     private $patientService;
 
-    /** var PersonRepository */
-    private $personRepository;
+    /** @var PatientRepository */
+    private $patientRepository;
 
-    protected function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    protected function setUp(): void
     {
-        parent::setUp();
         self::bootKernel();
         $this->patientService = self::$container->get('test.App\Service\PatientService');
-        $this->personRepository = self::$container->get('test.App\Repository\PersonRepository');
+        $this->patientRepository = self::$container->get('test.App\Repository\PatientRepository');
+        parent::setUp();
     }
 
     /** @test */
@@ -34,38 +33,49 @@ class PatientServiceTest extends KernelTestCase
 
         $this->patientService->RegisterPatient($patient);
 
-        self::assertEquals(1, $this->personRepository->counter());
+        self::assertEquals(1, $this->countItem(Patient::class));
     }
 
-    private function createPatient(): Person
+    /** @test */
+    public function can_update_a_patient(): void
     {
-        $patient = new Person();
-        $patient->setFirstname(self::IRRELEVANT_STRING);
-        $patient->setFamilyname(self::IRRELEVANT_STRING);
-        $patient->setBirthday(new \DateTime());
+        $patient = $this->createPatient();
+        $this->databaseManager()->save($patient);
+
+        $patient->setLastName('new lastname');
+        $this->patientService->update($patient);
+
+        /** @var Patient $patientFromDatabase */
+        $patientFromDatabase = $this->find(Patient::class, $patient->getId());
+        self::assertEquals(1, $this->countItem(Patient::class));
+        self::assertEquals('new lastname', $patientFromDatabase->getLastName());
+    }
+
+    private function createPatient(): Patient
+    {
+        $patientBuilder = PatientBuilder::create();
+
+        $patient = $patientBuilder
+            ->build();
 
         return $patient;
     }
 
-    private function createPatientDTO(): PatientDTO
+    /** @test */
+    public function can_delete_a_patient(): void
     {
-        $patientDTO = new PatientDTO();
-        $patientDTO->firstName = self::IRRELEVANT_STRING;
-        $patientDTO->lastName = self::IRRELEVANT_STRING;
-        $patientDTO->cin = self::IRRELEVANT_STRING;
-        $patientDTO->cne = self::IRRELEVANT_STRING;
-        $patientDTO->gender = self::IRRELEVANT_STRING;
-        $patientDTO->cnss = self::IRRELEVANT_STRING;
-        $patientDTO->cnsstype = self::IRRELEVANT_STRING;
-        $patientDTO->resident = true;
+        $patient = $this->createPatient();
+        $this->databaseManager()->save($patient);
 
-        return $patientDTO;
+        $this->patientService->delete($patient);
+
+        self::assertEquals(0, $this->countItem(Patient::class));
     }
 
     protected function tearDown(): void
     {
         $this->patientService = null;
-        $this->personRepository = null;
+        $this->patientRepository = null;
         parent::tearDown();
     }
 }

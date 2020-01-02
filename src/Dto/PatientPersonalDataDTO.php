@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Dto;
 
-use App\Entity\Person;
+use App\Entity\Patient;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class PatientPersonalDataDTO
@@ -19,6 +19,11 @@ class PatientPersonalDataDTO
     public $firstName;
 
     /**
+     * @var string
+     */
+    public $middleName;
+
+    /**
      * @Assert\NotBlank()
      * @Assert\Length(min="1", max="100")
      *
@@ -26,15 +31,17 @@ class PatientPersonalDataDTO
      */
     public $lastName;
 
-    /** @var \DateTime */
-    public $dateOfBirthday;
+    /** @var \DateTimeImmutable */
+    public $dateOfBirth;
 
-    public static function fromPatient(Person $person): self
+    public static function fromPatient(Patient $patient): self
     {
         $dto = new self();
-        $dto->firstName = $person->getFirstname();
-        $dto->lastName = $person->getFamilyname();
-        $dto->dateOfBirthday = $person->getBirthday();
+        $dto->firstName = $patient->getFirstname();
+        $dto->middleName = $patient->getMiddleName();
+        $dto->lastName = $patient->getLastName();
+        //TODO remove
+        $dto->dateOfBirth = $patient->getDateOfBirth();
 
         return $dto;
     }

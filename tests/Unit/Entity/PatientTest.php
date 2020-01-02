@@ -46,4 +46,34 @@ class PatientTest extends TestCase
 
         self::assertEquals('irrelevat', $patient->getLastName());
     }
+
+    /** @test */
+    public function can_change_date_of_birth(): void
+    {
+        $patient = new Patient();
+        $now = new \DateTimeImmutable('now');
+        $patient->setDateOfBirth($now);
+
+        self::assertEquals($now, $patient->getDateOfBirth());
+    }
+
+    /** @test */
+    public function can_change_date_of_creation(): void
+    {
+        $patient = new Patient();
+        $now = new \DateTimeImmutable('now');
+        $patient->setCreatedAt($now);
+
+        self::assertEquals($now, $patient->getCreatedAt());
+    }
+
+    /** @test */
+    public function can_change_date_of_last_update(): void
+    {
+        $patient = new Patient();
+        $now = new \DateTimeImmutable('now');
+        $patient->setUpdatedAt($now);
+
+        self::assertEquals($now, $patient->getUpdatedAt());
+    }
 }
