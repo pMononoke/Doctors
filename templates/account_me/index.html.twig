@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Account{% endblock %}
+
+{% block body %}
+    <h1>My Account</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Roles</th>
+            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ user.profile ? user.profile.firstName : '' }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ user.profile ? user.profile.lastName : '' }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

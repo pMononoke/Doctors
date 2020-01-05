@@ -1,0 +1,49 @@
+{% extends 'admin/layout/admin-base.html.twig' %}
+
+{% block title %}Patient{% endblock %}
+
+{% block body %}
+    <h1>Patient</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ patient.id }}</td>
+        </tr>
+        <tr>
+            <th>CreatedAt</th>
+            <td>{{ patient.createdAt ? patient.createdAt|date('Y-m-d H:i:s T') : '' }}</td>
+        </tr>
+        <tr>
+            <th>UpdatedAt</th>
+            <td>{{ patient.updatedAt ? patient.updatedAt|date('Y-m-d H:i:s T') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Person.firstName</th>
+            <td>{{ patient.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Person.middleName</th>
+            <td>{{ patient.middleName }}</td>
+        </tr>
+        <tr>
+            <th>Person.lastName</th>
+            <td>{{ patient.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Person.gender</th>
+            <td>{{ patient.gender }}</td>
+        </tr>
+        <tr>
+            <th>Person.dateOfBirth</th>
+            <td>{{ patient.dateOfBirth ? patient.dateOfBirth|date('Y-m-d H:i:s') : ''  }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('admin_patient_index') }}">back to list</a>
+
+    <a href="{{ path('admin_patient_edit', {'id': patient.id}) }}">edit</a>
+
+    {{ include('admin/patient/_delete_form.html.twig') }}
+{% endblock %}

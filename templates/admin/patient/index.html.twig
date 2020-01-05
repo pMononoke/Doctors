@@ -1,0 +1,89 @@
+{% extends 'admin/layout/admin-base.html.twig' %}
+
+{% block title %}Patient index{% endblock %}
+
+{% block body %}
+    <h1>Patient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+
+                <th>Firstname</th>
+                <th>Middlename</th>
+                <th>Lastname</th>
+
+                {#<th>Familyname</th>#}
+                {#<th>Email</th>#}
+                {#<th>Birthday</th>#}
+                {#<th>Birthcity</th>#}
+                <th>Gender</th>
+                <th>Dob</th>
+                {#<th>Contry</th>#}
+                {#<th>City</th>#}
+                {#<th>Address</th>#}
+                {#<th>Etablissement</th>#}
+                {#<th>University</th>#}
+                {#<th>Gsm</th>#}
+                {#<th>Cnss</th>#}
+                {#<th>Cnsstype</th>#}
+                {#<th>ParentName</th>#}
+                {#<th>ParentAddress</th>#}
+                {#<th>ParentGsm</th>#}
+                {#<th>ParentFixe</th>#}
+                {#<th>Ishandicap</th>#}
+                {#<th>Handicap</th>#}
+                {#<th>Needs</th>#}
+                {#<th>Resident</th>#}
+                <th>Created</th>
+                <th>Updated</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstname }}</td>
+                <td>{{ person.middlename }}</td>
+                <td>{{ person.lastname }}</td>
+                {#<td>{{ person.familyname }}</td>#}
+                {#<td>{{ person.email }}</td>#}
+                {#<td>{{ person.birthday ? person.birthday|date('Y-m-d') : '' }}</td>#}
+                {#<td>{{ person.birthcity }}</td>#}
+                <td>{{ person.gender }}</td>
+                <td>{{ person.dateOfBirth ? person.dateOfBirth|date('Y-m-d H:i:s') : '' }}</td>
+                {#<td>{{ person.contry }}</td>#}
+                {#<td>{{ person.city }}</td>#}
+                {#<td>{{ person.address }}</td>#}
+                {#<td>{{ person.etablissement }}</td>#}
+                {#<td>{{ person.university }}</td>#}
+                {#<td>{{ person.gsm }}</td>#}
+                {#<td>{{ person.cnss }}</td>#}
+                {#<td>{{ person.cnsstype }}</td>#}
+                {#<td>{{ person.parentName }}</td>#}
+                {#<td>{{ person.parentAddress }}</td>#}
+                {#<td>{{ person.parentGsm }}</td>#}
+                {#<td>{{ person.parentFixe }}</td>#}
+                {#<td>{{ person.ishandicap ? 'Yes' : 'No' }}</td>#}
+                {#<td>{{ person.handicap }}</td>#}
+                {#<td>{{ person.needs }}</td>#}
+                {#<td>{{ person.resident ? 'Yes' : 'No' }}</td>#}
+                <td>{{ person.createdAt ? person.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ person.updatedAt ? person.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_patient_show', {'id': person.id}) }}">show</a>
+                    <a href="{{ path('admin_patient_edit', {'id': person.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="27">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_patient_new') }}">Create new</a>
+{% endblock %}

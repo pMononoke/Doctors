@@ -1,0 +1,43 @@
+includes:
+    - phpstan-baseline.neon   # https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff ### vendor/bin/phpstan analyse --level 7     --configuration phpstan.neon.dist     --error-format baselineNeon     src/ tests/ > phpstan-baseline.neon
+    #- vendor/phpstan/phpstan-phpunit/extension.neon
+    #- vendor/phpstan/phpstan-strict-rules/rules.neon
+
+parameters:
+    level: 7
+    #checkGenericClassInNonGenericObjectType: false
+    autoload_files:
+        - bin/.phpunit/phpunit-7.5-0/vendor/autoload.php
+    paths:
+        - src
+        - tests
+
+
+    ignoreErrors:
+        #- '##'
+        - '#Call to an undefined method App\\Entity\\PatientRepository\:\:findAll\(\).#'
+
+        # tests/Support/Service/DoctrineDatabaseManager.php
+        - '#Method App\\Tests\\Support\\Service\\DoctrineDatabaseManager::save\(\) has no return typehint specified.#'
+        - '#Method App\\Tests\\Support\\Service\\DoctrineDatabaseManager::save\(\) has parameter \$object with no typehint specified.#'
+
+        # tests/Support/TestCase/DatabaseTestCase.php
+        - '#Call to an undefined method object::getManagerForClass\(\).#'
+        - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::databaseSetup\(\) should return App\\Tests\\Support\\Service\\DoctrineDatabaseManager but returns object|null.#'
+        - '#Method App\\Tests\\Support\\TestCase\\DatabaseTestCase::findAll\(\) has no return typehint specified.#'
+
+        #
+        - '#Cannot call method __toString() on (object)|string.#'
+
+
+    excludes_analyse:
+        - '*/vendor/*'
+        - '*/Spec/*'
+        - '*/Migrations/*'
+        - 'tests/Integration/Persistence/Repository/Doctrine/Type/*'
+
+        # REMOVE  User class is FosUserBundle
+        - 'src/Entity/User.php'
+
+        # REMOVE  User class is FosUserBundle
+        - 'src/Entity/Image.php'

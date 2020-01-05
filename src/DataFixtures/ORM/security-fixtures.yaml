@@ -1,0 +1,10 @@
+App\Entity\User:
+    user0:
+        email: admin@example.org
+        roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
+        password: "1$30MBjEOA9HeVazxEtsyd3Q$5LJrlAKkh1Od0dwbZOIlJlpjWw4YHl4vFdSk8ncIu3A"
+
+    user1:
+        email: user@example.org
+        roles: [ROLE_USER]
+        password: '1$8nSh8UXrwrtVQnIbSI5S7g$4evvD2Cx60ACvLdnI20WlRIgnPwUCJggybNzjxl4Khs'
