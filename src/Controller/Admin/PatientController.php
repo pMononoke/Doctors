@@ -26,7 +26,7 @@ class PatientController extends AbstractController
     public function index(PatientRepository $patientRepository): Response
     {
         return $this->render('admin/patient/index.html.twig', [
-            'people' => $patientRepository->findAll(),
+            'patients' => $patientRepository->findAll(),
         ]);
     }
 
