@@ -71,6 +71,9 @@ cache:
   - &run-phpstan-tests |
       vendor/bin/phpstan analyse
 
+  - &run-code-style-check |
+      ./vendor/bin/php-cs-fixer fix --dry-run -v
+
 
 #before_install:
 #  - cp ci/.env.test.travis .env.test
@@ -127,6 +130,7 @@ jobs:
         - *clear-test-app-cache
         - *app-database-schema-update
       script:
+        - *run-code-style-check
         - *run-phpstan-tests
         - *run-phpunit-tests
       after_success:
@@ -147,6 +151,7 @@ jobs:
         - *clear-test-app-cache
         - *app-database-schema-update
       script:
+        - *run-code-style-check
         - *run-phpstan-tests
         - *run-phpunit-tests
 
@@ -165,5 +170,6 @@ jobs:
         - *clear-test-app-cache
         - *app-database-schema-update
       script:
+        - *run-code-style-check
         - *run-phpstan-tests
         - *run-phpunit-tests
