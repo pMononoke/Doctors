@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Patient;
 
-use App\Dto\PatientContactDetailDTO;
+use App\Dto\RegisterPatientDTO;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PatientContactDetailType extends AbstractType
+class RegisterPatientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('phoneNumber')
-        ;
+            ->add('patientPersonalData', PatientPersonalDataFormDTOType::class)
+            ->add('confirm', CheckboxType::class, ['required' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PatientContactDetailDTO::class,
+            'data_class' => RegisterPatientDTO::class,
         ]);
     }
 }

@@ -40,7 +40,6 @@ class PatientPersonalDataDTO
         $dto->firstName = $patient->getFirstname();
         $dto->middleName = $patient->getMiddleName();
         $dto->lastName = $patient->getLastName();
-        //TODO remove
         $dto->dateOfBirth = $patient->getDateOfBirth();
 
         return $dto;

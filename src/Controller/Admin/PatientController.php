@@ -6,8 +6,8 @@ use App\Dto\PatientPersonalDataDTO;
 use App\Dto\RegisterPatientDTO;
 use App\Entity\Patient;
 use App\Entity\PatientRepository;
-use App\Form\PatientPersonalDataFormDTOType;
-use App\Form\RegisterPatientType;
+use App\Form\Patient\PatientPersonalDataFormDTOType;
+use App\Form\Patient\RegisterPatientType;
 use App\Service\PatientService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,12 +42,12 @@ class PatientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // get personal data dto from form
-            $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData;
+            $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData; //var_dump($patientPersonalDataDTO->middleName);die();
 
             // form is valid, transform from dto to entity
             $patient = new Patient();
             $patient->setFirstname($patientPersonalDataDTO->firstName);
-            !(null === $patientPersonalDataDTO->middleName) ?? $patient->setMiddleName($patientPersonalDataDTO->middleName);
+            null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
             $patient->setLastName($patientPersonalDataDTO->lastName);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
 
@@ -86,7 +86,7 @@ class PatientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // form is valid, update the patient entity with the new data from dto
             $patient->setFirstname($patientPersonalDataDTO->firstName);
-            !(null === $patientPersonalDataDTO->middleName) ?? $patient->setMiddleName($patientPersonalDataDTO->middleName);
+            null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
             $patient->setLastName($patientPersonalDataDTO->lastName);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
             $patientService->update($patient);

@@ -171,89 +171,44 @@ parameters:
 			path: src/Entity/UserProfile.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientContactDetailType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/PatientContactDetailType.php
+			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientContactDetailType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/PatientContactDetailType.php
+			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientContactDetailType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/PatientContactDetailType.php
+			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientContactDetailType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/PatientContactDetailType.php
+			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/RegisterPatientType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/RegisterPatientType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/RegisterPatientType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\PatientPersonalDataFormDTOType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/PatientPersonalDataFormDTOType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\PatientType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/PatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\PatientType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
-			count: 1
-			path: src/Form/PatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\PatientType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/PatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\PatientType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/PatientType.php
-
-		-
-			message: "#^Class App\\\\Dto\\\\PatientDTO not found\\.$#"
-			count: 1
-			path: src/Form/PatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterPatientType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/RegisterPatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterPatientType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
-			count: 1
-			path: src/Form/RegisterPatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterPatientType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/RegisterPatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterPatientType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/RegisterPatientType.php
+			path: src/Form/Patient/RegisterPatientType.php
 
 		-
 			message: "#^Method App\\\\Form\\\\RegisterUserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
