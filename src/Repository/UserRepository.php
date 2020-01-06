@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserId;
 use App\Entity\UserRepository as UserRepositoryPort;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -39,6 +40,11 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryPo
     {
         $this->_em->remove($user);
         $this->_em->flush();
+    }
+
+    public function nextIdentity(): UserId
+    {
+        return UserId::generate();
     }
 
     /**

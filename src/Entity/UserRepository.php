@@ -11,4 +11,6 @@ interface UserRepository
     public function update(User $user): void;
 
     public function delete(User $user): void;
+
+    public function nextIdentity(): UserId;
 }

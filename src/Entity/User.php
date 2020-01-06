@@ -11,10 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     /**
+     * @var UserId
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(type="userId")     */
     private $id;
 
     /**
@@ -38,7 +38,19 @@ class User implements UserInterface
      */
     private $profile;
 
-    public function getId(): ?int
+    public function __construct()
+    {
+        $this->id = $this->id ?? UserId::generate();
+    }
+
+    public function setId(UserId $userId): self
+    {
+        $this->id = $userId;
+
+        return $this;
+    }
+
+    public function getId(): UserId
     {
         return $this->id;
     }

@@ -2,299 +2,129 @@
 
 namespace App\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
-////////////// * @ORM\Entity(repositoryClass="UserRepository"))
- * @ORM\Table(name="user")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User {
-
+class User implements UserInterface
+{
     /**
-     * @ORM\Id
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var string $family_name
-     *
-     * @ORM\Column(name="family_name", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $family_name;
+    private $email;
 
     /**
-     * @var string $first_name
-     *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $first_name;
+    private $roles = [];
 
     /**
-     * @var string $tel
-     *
-     * @ORM\Column(name="tel", type="string", length=45, nullable=true)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
-    private $tel;
-
-//TODO Gedmo * @Gedmo\Timestampable(on="create")
-    /**
-     * @var \DateTime $created
-     *
-     * @ORM\Column(name="created", type="datetime")
-
-     */
-    protected $created;
-
-
-//TODO Gedmo * @Gedmo\Timestampable(on="create")
-    /**
-     * @var \DateTime $lastActivity
-     *
-     * @ORM\Column(name="lastActivity", type="datetime")
-     */
-    protected $lastActivity;
-    
-//    /**
-//    * @ORM\OneToOne(targetEntity="App\Entity\image", cascade={"remove", "persist"})
-//    */
-//    private $image;
+    private $password;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="user", cascade={"remove", "persist"})
-    */
-    protected $consultations;
+     * @ORM\OneToOne(targetEntity="App\Entity\UserProfile", cascade={"persist", "remove"})
+     */
+    private $profile;
 
-    
-    /************ constructeur ************/
-    
-    public function __construct()
+    public function getId(): ?int
     {
-        parent::__construct();
-        $this->created = new \DateTime;
-        $this->lastActivity = new \DateTime;
-        $this->image= new \App\Entity\image();
-        $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /************ getters & setters  ************/
-
-    /**
-     * Get fullname
-     *
-     * @return string 
-     */
-    public function getFullName()
-    {
-        return $this->family_name.' '.$this->first_name;
+        return $this->id;
     }
 
-    /**
-     * Set family_name
-     *
-     * @param string $familyName
-     * @return profile
-     */
-    public function setFamilyName($familyName)
+    public function getEmail(): ?string
     {
-        $this->family_name = $familyName;
-    
-        return $this;
+        return $this->email;
     }
 
-    /**
-     * Get family_name
-     *
-     * @return string 
-     */
-    public function getFamilyName()
+    public function setEmail(string $email): self
     {
-        return $this->family_name;
-    }
-
-    /**
-     * Set first_name
-     *
-     * @param string $firstName
-     * @return profile
-     */
-    public function setFirstName($firstName)
-    {
-        $this->first_name = $firstName;
-    
-        return $this;
-    }
-
-    /**
-     * Get first_name
-     *
-     * @return string 
-     */
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    /**
-     * Set tel
-     *
-     * @param string $tel
-     * @return profile
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
-    
-        return $this;
-    }
-
-    /**
-     * Get tel
-     *
-     * @return string 
-     */
-    public function getTel()
-    {
-        return $this->tel;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return User
-     */
-    public function setCreated($created) {
-        $this->created = $created;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get created
+     * A visual identifier that represents this user.
      *
-     * @return \DateTime 
+     * @see UserInterface
      */
-    public function getCreated() {
-        return $this->created;
+    public function getUsername(): string
+    {
+        return (string) $this->email;
     }
 
     /**
-     * Set lastActivity
-     *
-     * @param \DateTime $lastActivity
-     * @return User
+     * @see UserInterface
      */
-    public function setLastActivity($lastActivity) {
-        $this->lastActivity = $lastActivity;
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get lastActivity
-     *
-     * @return \DateTime 
+     * @see UserInterface
      */
-    public function getLastActivity() {
-        return $this->lastActivity;
+    public function getPassword(): string
+    {
+        return (string) $this->password;
     }
 
-    /**
-     * Set lastActivity
-     *
-     * @param \DateTime $lastActivity
-     * @return User
-     */
-    public function isActiveNow() {
-        $this->lastActivity = new \DateTime();
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Set image
-     *
-     * @param \App\Entity\image $image
-     * @return profile
+     * @see UserInterface
      */
-    public function setImage(\App\Entity\image $image = null)
+    public function getSalt()
     {
-        $this->image = $image;
-    
-        return $this;
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
-     * Get image
-     *
-     * @return \App\Entity\image 
+     * @see UserInterface
      */
-    public function getImage()
+    public function eraseCredentials()
     {
-        return $this->image;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
-    /**
-     * Get avatar
-     *
-     * @return string 
-     */
-    public function getAvatar() {
-
-        return $this->image->getWebPath();
+    public function getProfile(): ?UserProfile
+    {
+        return $this->profile;
     }
 
-    /**
-     * Get the most significant role
-     *
-     * @return string 
-     */
-    public function getRole()
+    public function setProfile(?UserProfile $profile): self
     {
-        if(in_array('ROLE_ADMIN', $this->roles)) $role = 'Administrateur';
-        else if(in_array('ROLE_MANAGER', $this->roles)) $role = 'Manager';
-        else $role = 'utilisateur';
-        return $role;
-    }
-
-
-    /**
-     * Add consultations
-     *
-     * @param \App\Entity\Consultation $consultations
-     * @return User
-     */
-    public function addConsultation(\App\Entity\Consultation $consultations)
-    {
-        $this->consultations[] = $consultations;
+        $this->profile = $profile;
 
         return $this;
-    }
-
-    /**
-     * Remove consultations
-     *
-     * @param \App\Entity\Consultation $consultations
-     */
-    public function removeConsultation(\App\Entity\Consultation $consultations)
-    {
-        $this->consultations->removeElement($consultations);
-    }
-
-    /**
-     * Get consultations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getConsultations()
-    {
-        return $this->consultations;
     }
 }
-
-?>
