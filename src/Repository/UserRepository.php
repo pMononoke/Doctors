@@ -61,6 +61,18 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryPo
         $this->_em->flush();
     }
 
+    public function findByUuidString(string $uuid): ?User
+    {
+        $userId = UserId::fromString($uuid);
+
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.id = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
     public function countUsers()
     {
         return $this->createQueryBuilder('u')

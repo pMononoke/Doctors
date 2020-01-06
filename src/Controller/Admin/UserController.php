@@ -9,6 +9,7 @@ use App\Form\RegisterUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Service\UserService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -76,6 +77,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}", name="admin_user_show", methods={"GET"})
+     * @Entity("user", expr="repository.findByUuidString(id)")
      */
     public function show(User $user): Response
     {
@@ -108,6 +110,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="admin_user_edit", methods={"GET","POST"})
+     * @Entity("user", expr="repository.findByUuidString(id)")
      */
     public function edit(Request $request, User $user, UserService $userService): Response
     {
