@@ -88,19 +88,6 @@ class UserControllerTest extends PantherTestCase
             $this->client->getResponse()->getContent()
         );
 
-//        $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
-//        $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';
-//        $form['register_user[confirm]'] = true;
-
-//        $crawler = $this->client->submit($form);
-//        $this->assertTrue($this->client->getResponse()->isRedirect());
-//        $this->client->followRedirect();
-//
-//        $this->assertContains(
-//            'fake-user@example.com',
-//            $this->client->getResponse()->getContent()
-//        );
-
         //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
         //self::assertPageTitleSame('User Index');
     }
@@ -108,20 +95,42 @@ class UserControllerTest extends PantherTestCase
     /** @test */
     public function can_delete_a_user(): void
     {
-        self::markTestIncomplete('First define UI element - btw manual test is ok.');
         $this->populateDatabase($user = $this->generateAuser());
-
         $this->logIn();
 
         //Go to user list page
-        $crawler = $this->client->request('GET', '/admin/user/');
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'User',
+            $this->client->getResponse()->getContent()
+        );
+
+        // check if there are multiple button
+        $this->assertEquals(
+            1,
+            $crawler->filter('html:contains("Delete")')->count()
+        );
+        // Click on button delete
+
+        $buttonCrawlerNode = $crawler->selectButton('Delete');
+        $form = $buttonCrawlerNode->form([]);
+        $this->client->submit($form);
+        $this->client->followRedirect();
+
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
             'User index',
             $this->client->getResponse()->getContent()
         );
-
-        // Click on button delete (there are multiple button)
+        $this->assertNotContains(
+            $user->getId()->toString(),
+            $this->client->getResponse()->getContent()
+        );
+        $this->assertNotContains(
+            $user->getEmail(),
+            $this->client->getResponse()->getContent()
+        );
     }
 
     private function logIn(): void

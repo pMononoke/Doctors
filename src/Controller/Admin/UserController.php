@@ -30,30 +30,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    // TODO original function
-//    /**
-//     * @Route("/new", name="user_new", methods={"GET","POST"})
-//     */
-//    public function new(Request $request): Response
-//    {
-//        $user = new User();
-//        $form = $this->createForm(UserType::class, $user);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($user);
-//            $entityManager->flush();
-//
-//            return $this->redirectToRoute('user_index');
-//        }
-//
-//        return $this->render('admin/user/new.html.twig', [
-//            'user' => $user,
-//            'form' => $form->createView(),
-//        ]);
-//    }
-
     /**
      * @Route("/new", name="admin_user_new", methods={"GET","POST"})
      */
@@ -86,28 +62,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    // TODO original function
-
-//    /**
-//     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
-//     */
-//    public function edit(Request $request, User $user): Response
-//    {
-//        $form = $this->createForm(UserType::class, $user);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $this->getDoctrine()->getManager()->flush();
-//
-//            return $this->redirectToRoute('user_index');
-//        }
-//
-//        return $this->render('admin/user/edit.html.twig', [
-//            'user' => $user,
-//            'form' => $form->createView(),
-//        ]);
-//    }
-
     /**
      * @Route("/{id}/edit", name="admin_user_edit", methods={"GET","POST"})
      * @Entity("user", expr="repository.findByUuidString(id)")
@@ -134,6 +88,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/{id}", name="admin_user_delete", methods={"DELETE"})
+     * @Entity("user", expr="repository.findByUuidString(id)")
      */
     public function delete(Request $request, User $user, UserService $userService): Response
     {
