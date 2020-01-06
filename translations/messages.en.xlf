@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="WrACbQw" resname="menu.catalog">
+        <source>menu.catalog</source>
+        <target>Catalog</target>
+      </trans-unit>
+      <trans-unit id="LRhYNBg" resname="menu.add_new">
+        <source>menu.add_new</source>
+        <target>Add new</target>
+      </trans-unit>
+      <trans-unit id="hWmLfWx" resname="menu.add_new.user">
+        <source>menu.add_new.user</source>
+        <target>User</target>
+      </trans-unit>
+      <trans-unit id="Wz5BlN6" resname="menu.add_new.patient">
+        <source>menu.add_new.patient</source>
+        <target>Patient</target>
+      </trans-unit>
+      <trans-unit id="HKoxlI." resname="menu.application_name">
+        <source>menu.application_name</source>
+        <target>Doctors</target>
+      </trans-unit>
+      <trans-unit id="vLWpzeo" resname="menu.dashboard">
+        <source>menu.dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+      <trans-unit id="i5Xfn4O" resname="menu.catalog.users">
+        <source>menu.catalog.users</source>
+        <target>Users</target>
+      </trans-unit>
+      <trans-unit id="ad2j0yj" resname="menu.catalog.patients">
+        <source>menu.catalog.patients</source>
+        <target>Patients</target>
+      </trans-unit>
+      <trans-unit id="Ui6l9jx" resname="menu.account">
+        <source>menu.account</source>
+        <target>Account</target>
+      </trans-unit>
+      <trans-unit id="jTreAYW" resname="menu.account.user_profile">
+        <source>menu.account.user_profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="QdimO5U" resname="menu.account.logout">
+        <source>menu.account.logout</source>
+        <target>Logout</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

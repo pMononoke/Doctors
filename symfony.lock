@@ -184,6 +184,9 @@
     "nikic/php-parser": {
         "version": "v4.3.0"
     },
+    "nyholm/nsa": {
+        "version": "1.1.0"
+    },
     "ocramius/package-versions": {
         "version": "1.4.2"
     },
@@ -195,6 +198,30 @@
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
+    },
+    "php-translation/common": {
+        "version": "3.0.0"
+    },
+    "php-translation/extractor": {
+        "version": "2.0-dev"
+    },
+    "php-translation/symfony-bundle": {
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.4",
+            "ref": "ee15ad002114fba7b694a7fe429419b518d43bc4"
+        },
+        "files": [
+            "config/packages/dev/php_translation.yaml",
+            "config/packages/php_translation.yaml",
+            "config/routes/dev/php_translation.yaml",
+            "config/routes/php_translation.yaml"
+        ]
+    },
+    "php-translation/symfony-storage": {
+        "version": "2.1-dev"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
