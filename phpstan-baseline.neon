@@ -56,106 +56,6 @@ parameters:
 			path: src/Dto/UserDTO.php
 
 		-
-			message: "#^Method App\\\\Entity\\\\Config\\:\\:__construct\\(\\) has parameter \\$the_key with no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Config.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Config\\:\\:__construct\\(\\) has parameter \\$the_value with no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Config.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Entity\\\\Config\\:\\:\\$the_key\\.$#"
-			count: 1
-			path: src/Entity/Config.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Entity\\\\Config\\:\\:\\$the_value\\.$#"
-			count: 1
-			path: src/Entity/Config.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Consultation\\:\\:\\$GENERAL has no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Consultation\\:\\:\\$SPECIAL has no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Consultation\\:\\:\\$tests with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Consultation\\:\\:\\$consultationmeds with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Consultation\\:\\:getTests\\(\\) return type with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Consultation\\:\\:getConsultationmeds\\(\\) return type with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Consultation.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Entity\\\\ConsultationMeds\\:\\:\\$consultations\\.$#"
-			count: 1
-			path: src/Entity/ConsultationMeds.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Meds\\:\\:\\$consultationmeds with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Meds.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Meds\\:\\:getConsultationmeds\\(\\) return type has no value type specified in iterable type Doctrine\\\\Common\\\\Collections\\\\Collection\\.$#"
-			count: 1
-			path: src/Entity/Meds.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Meds\\:\\:getConsultationmeds\\(\\) return type with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Meds.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Person\\:\\:\\$antecedents with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Person.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Person\\:\\:\\$consultations with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Person.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Person\\:\\:getAntecedents\\(\\) return type with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Person.php
-
-		-
-			message: "#^Method App\\\\Entity\\\\Person\\:\\:getConsultations\\(\\) return type with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: src/Entity/Person.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Test\\:\\:\\$GENERAL has no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Test.php
-
-		-
-			message: "#^Property App\\\\Entity\\\\Test\\:\\:\\$consultation has no typehint specified\\.$#"
-			count: 1
-			path: src/Entity/Test.php
-
-		-
 			message: "#^Property App\\\\Entity\\\\UserProfile\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: src/Entity/UserProfile.php
@@ -346,6 +246,11 @@ parameters:
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
 
 		-
+			message: "#^PHPDoc tag @var for variable \\$collection has no value type specified in iterable type Doctrine\\\\Common\\\\Collections\\\\ArrayCollection\\.$#"
+			count: 7
+			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
+
+		-
 			message: "#^Method App\\\\Tests\\\\Integration\\\\Persistence\\\\Entitiy\\\\Doctrine\\\\EntityTestCase\\:\\:dataProviderTestThatSetterAndGettersWorks\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Integration/Persistence/Entitiy/Doctrine/EntityTestCase.php
@@ -384,14 +289,4 @@ parameters:
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Service/UserServiceTest.php
-
-		-
-			message: "#^Call to an undefined method App\\\\Entity\\\\Consultation\\:\\:setUser\\(\\)\\.$#"
-			count: 1
-			path: tests/Unit/Entity/ConsultationTest.php
-
-		-
-			message: "#^Call to an undefined method App\\\\Entity\\\\Consultation\\:\\:getUser\\(\\)\\.$#"
-			count: 1
-			path: tests/Unit/Entity/ConsultationTest.php
 

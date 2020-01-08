@@ -37,9 +37,9 @@ class PatientService
         $this->patientRepository->save($patient);
     }
 
-    private function save(Person $person): void
+    private function save(Patient $patient): void
     {
-        $this->entityManager->persist($person);
+        $this->entityManager->persist($patient);
         $this->entityManager->flush();
     }
 
