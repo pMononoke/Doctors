@@ -66,35 +66,6 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
         return $patient;
     }
 
-    // /**
-    //  * @return Patient[] Returns an array of Patient objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Patient
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
-
     public function findByUuidString(string $uuid): ?Patient
     {
         $patietId = PatientId::fromString($uuid);
@@ -106,12 +77,4 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
             ->getOneOrNullResult()
             ;
     }
-
-//    public function countPatients(): int
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->select('count(p.id)')
-//            ->getQuery()
-//            ->getSingleScalarResult();
-//    }
 }
