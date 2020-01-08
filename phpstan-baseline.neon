@@ -231,6 +231,26 @@ parameters:
 			path: src/Form/RegisterUserType.php
 
 		-
+			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Form/User/ChangeUserPasswordType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			count: 1
+			path: src/Form/User/ChangeUserPasswordType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Form/User/ChangeUserPasswordType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Form/User/ChangeUserPasswordType.php
+
+		-
 			message: "#^Method App\\\\Form\\\\UserProfileType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Form/UserProfileType.php
@@ -362,11 +382,6 @@ parameters:
 
 		-
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
-			count: 1
-			path: tests/Integration/Service/UserServiceTest.php
-
-		-
-			message: "#^Method App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:setUp\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Service/UserServiceTest.php
 

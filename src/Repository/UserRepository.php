@@ -47,6 +47,11 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryPo
         return UserId::generate();
     }
 
+    public function ofId(UserId $userId): ?User
+    {
+        return $this->find($userId);
+    }
+
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
      */

@@ -8,10 +8,11 @@ use App\Dto\RegisterUserDTO;
 use App\Dto\UserDTO;
 use App\Dto\UserProfileDTO;
 use App\Entity\User;
+use App\Form\User\Dto\ChangeUserPasswordDTO;
 use App\Service\UserService;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Tests\Support\TestCase\DatabaseTestCase;
 
-class UserServiceTest extends KernelTestCase
+class UserServiceTest extends DatabaseTestCase
 {
     private const IRRELEVANT_STRING = 'irrelevant';
 
@@ -21,12 +22,12 @@ class UserServiceTest extends KernelTestCase
     /** var UserRepository */
     private $userRepository;
 
-    protected function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    protected function setUp(): void
     {
-        parent::setUp();
         self::bootKernel();
         $this->userService = self::$container->get('test.App\Service\UserService');
         $this->userRepository = self::$container->get('test.App\Repository\UserRepository');
+        parent::setUp();
     }
 
     /** @test */
@@ -35,6 +36,28 @@ class UserServiceTest extends KernelTestCase
         $user = $this->createRegisterUserDto();
 
         $this->userService->registerUserByAdminWithDtoData($user);
+
+        self::assertEquals(1, $this->userRepository->countUsers());
+    }
+
+    /** @test */
+    public function can_change_a_user_password_from_dto_data(): void
+    {
+        $user = $this->createUser();
+        $this->userRepository->save($user);
+        self::assertEquals(1, $this->userRepository->countUsers());
+
+        $changeUserPasswordDTO = new ChangeUserPasswordDTO();
+        $changeUserPasswordDTO->id = $user->getId();
+        $changeUserPasswordDTO->plainPassword = 'pippoxxxx';
+
+        $this->userService->changePassword($changeUserPasswordDTO);
+
+        /** @var User $userFromDatabase */
+        $userFromDatabase = $this->find(User::class, $user->getId());
+
+        //TODO it works, but how to assert.
+        //self::assertNotEquals($user->getPassword(), $userFromDatabase->getPassword());
 
         self::assertEquals(1, $this->userRepository->countUsers());
     }

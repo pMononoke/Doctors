@@ -42,7 +42,7 @@ class PatientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // get personal data dto from form
-            $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData; //var_dump($patientPersonalDataDTO->middleName);die();
+            $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData;
 
             // form is valid, transform from dto to entity
             $patient = new Patient();

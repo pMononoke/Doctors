@@ -40,8 +40,6 @@ class UserDTO
     {
         $dto = new self();
         $dto->email = $user->getEmail();
-        //$dto->roles = $user->getRoles();
-        //$dto->dateOfBirthday = $person->getBirthday();
 
         return $dto;
     }

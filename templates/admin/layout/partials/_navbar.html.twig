@@ -57,7 +57,7 @@
                 {{ 'menu.account'|trans }}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{#{{ path('admin_user_edit', {id: app.user.id}) }}#}">
+                <a class="dropdown-item" href="{{ path('app_account_me') }}">
                     {{ 'menu.account.user_profile'|trans }}
                 </a>
                 <div class="dropdown-divider"></div>

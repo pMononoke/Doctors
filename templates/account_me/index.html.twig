@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout/admin-base.html.twig' %}
 
 {% block title %}Account{% endblock %}
 
@@ -29,4 +29,7 @@
         </tr>
         </tbody>
     </table>
+
+    {{ include('account_me/_form-modal.html.twig', {'button_label': 'Update password'}) }}
+
 {% endblock %}

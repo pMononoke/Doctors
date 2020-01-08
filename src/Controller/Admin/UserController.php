@@ -73,7 +73,6 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //$this->getDoctrine()->getManager()->flush();
             $user->setEmail($userDTO->email);
             $userService->update($user);
 

@@ -8,8 +8,10 @@ use App\Dto\RegisterUserDTO;
 use App\Entity\User;
 use App\Entity\UserProfile;
 use App\Entity\UserRepository;
+use App\Form\User\Dto\ChangeUserPasswordDTO;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
+use RuntimeException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserService
@@ -51,6 +53,20 @@ class UserService
 
         //$this->save($user);
         $this->userRepository->save($user);
+    }
+
+    public function changePassword(ChangeUserPasswordDTO $changeUserPasswordDTO): void
+    {
+        /** @var User $user */
+        $user = $this->userRepository->ofId($changeUserPasswordDTO->id);
+        if (!$user = $this->userRepository->ofId($changeUserPasswordDTO->id)) {
+            //TODO custom exception
+            throw new RuntimeException('User not found');
+        }
+
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $changeUserPasswordDTO->plainPassword));
+
+        $this->userRepository->update($user);
     }
 
     public function update(User $user): void

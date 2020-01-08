@@ -13,4 +13,6 @@ interface UserRepository
     public function delete(User $user): void;
 
     public function nextIdentity(): UserId;
+
+    public function ofId(UserId $userId): ?User;
 }
