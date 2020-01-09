@@ -12,7 +12,9 @@ class RegisterPatientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('patientPersonalData', PatientPersonalDataFormDTOType::class)
+            ->add('patientPersonalData', PatientPersonalDataFormDTOType::class, [
+                'label' => false,
+            ])
         ;
     }
 
@@ -20,6 +22,7 @@ class RegisterPatientType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => RegisterPatientDTO::class,
+            'translation_domain' => 'messages',
         ]);
     }
 }

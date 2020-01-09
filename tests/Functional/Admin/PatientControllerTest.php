@@ -175,7 +175,7 @@ class PatientControllerTest extends PantherTestCase
             $this->client->getResponse()->getContent()
         );
         $this->assertContains(
-            'no records found',
+            'No records found.',
             $this->client->getResponse()->getContent()
         );
     }

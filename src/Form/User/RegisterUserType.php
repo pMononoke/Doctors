@@ -12,8 +12,12 @@ class RegisterUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', UserType::class)
-            ->add('profile', UserProfileType::class)
+            ->add('user', UserType::class, [
+                'label' => false,
+            ])
+            ->add('profile', UserProfileType::class, [
+                'label' => false,
+            ])
         ;
     }
 
@@ -21,6 +25,7 @@ class RegisterUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => RegisterUserDTO::class,
+            'translation_domain' => 'messages',
         ]);
     }
 }

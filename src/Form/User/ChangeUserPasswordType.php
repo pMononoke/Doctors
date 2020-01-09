@@ -28,6 +28,7 @@ class ChangeUserPasswordType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ChangeUserPasswordDTO::class,
+            'translation_domain' => 'messages',
         ]);
     }
 }

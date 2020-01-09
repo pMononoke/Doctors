@@ -4,21 +4,22 @@
 
 {% block body %}
     <h1>Patient index</h1>
+    <div class="container-lg">
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>{{ 'patient.id'|trans }}</th>
 
-                <th>Firstname</th>
-                <th>Middlename</th>
-                <th>Lastname</th>
-                <th>Gender</th>
-                <th>Dob</th>
+                <th>{{ 'patient.firstname'|trans }}</th>
+                <th>{{ 'patient.middlename'|trans }}</th>
+                <th>{{ 'patient.lastname'|trans }}</th>
+                <th>{{ 'patient.gender'|trans }}</th>
+                <th>{{ 'patient.date-of-birth'|trans }}</th>
                 {#<th>Resident</th>#}
-                <th>Created</th>
-                <th>Updated</th>
-                <th>actions</th>
+                <th>{{ 'common.created'|trans }}</th>
+                <th>{{ 'common.updated'|trans }}</th>
+                <th>{{ 'common.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -34,17 +35,18 @@
                 <td>{{ patient.createdAt ? patient.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ patient.updatedAt ? patient.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('admin_patient_show', {'id': patient.id}) }}">show</a>
-                    <a href="{{ path('admin_patient_edit', {'id': patient.id}) }}">edit</a>
+                    <a href="{{ path('admin_patient_show', {'id': patient.id}) }}">{{ 'common.actions.show'|trans }}</a>
+                    <a href="{{ path('admin_patient_edit', {'id': patient.id}) }}">{{ 'common.actions.edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="27">no records found</td>
+                <td colspan="27">{{ 'common.no_record_found'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_patient_new') }}">Create new</a>
+    <a href="{{ path('admin_patient_new') }}">{{ 'common.actions.create_new'|trans }}</a>
+    </div>
 {% endblock %}

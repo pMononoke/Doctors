@@ -175,5 +175,107 @@
         <target>Cognome</target>
       </segment>
     </unit>
+    <unit id="bhrOZmH" name="patient.id">
+      <segment>
+        <source>patient.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="Yk.nBEd" name="patient.firstname">
+      <segment>
+        <source>patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="brijivJ" name="patient.middlename">
+      <segment>
+        <source>patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="6lpAmEz" name="patient.lastname">
+      <segment>
+        <source>patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="GBfQA7V" name="patient.gender">
+      <segment>
+        <source>patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="7KVtOJM" name="patient.date-of-birth">
+      <segment>
+        <source>patient.date-of-birth</source>
+        <target>Data Nascita</target>
+      </segment>
+    </unit>
+    <unit id="0HbnRBX" name="common.created">
+      <segment>
+        <source>common.created</source>
+        <target>Creato</target>
+      </segment>
+    </unit>
+    <unit id="xsi.xAt" name="common.updated">
+      <segment>
+        <source>common.updated</source>
+        <target>Aggiornato</target>
+      </segment>
+    </unit>
+    <unit id="qos8nJp" name="label.patient.firstname">
+      <segment>
+        <source>label.patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="ovsEL88" name="label.patient.middlename">
+      <segment>
+        <source>label.patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="yVwiOyO" name="label.patient.lastname">
+      <segment>
+        <source>label.patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="8AEEFcS" name="label.patient.gender">
+      <segment>
+        <source>label.patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="7lVk2g5" name="label.patient.gender.unassigned">
+      <segment>
+        <source>label.patient.gender.unassigned</source>
+        <target>Non assegnato</target>
+      </segment>
+    </unit>
+    <unit id="FDcT.5B" name="label.patient.gender.male">
+      <segment>
+        <source>label.patient.gender.male</source>
+        <target>maschio</target>
+      </segment>
+    </unit>
+    <unit id="ulLLPz4" name="label.patient.gender.female">
+      <segment>
+        <source>label.patient.gender.female</source>
+        <target>femmina</target>
+      </segment>
+    </unit>
+    <unit id="Vh0uyD_" name="label.patient.date_of_birth">
+      <segment>
+        <source>label.patient.date_of_birth</source>
+        <target>Data di nascita</target>
+      </segment>
+    </unit>
+    <unit id="MzLLBWW" name="common.actions.save">
+      <segment>
+        <source>common.actions.save</source>
+        <target>Salva</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
