@@ -55,9 +55,6 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
             $patient->setCreatedAt($now);
             $patient->setUpdatedAt($now);
 
-            // TODO remove
-            $patient->setGender('male');
-
             return $patient;
         }
 

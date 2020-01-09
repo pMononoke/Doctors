@@ -31,6 +31,13 @@ class PatientPersonalDataDTO
      */
     public $lastName;
 
+    /**
+     * @Assert\NotBlank()
+     *
+     * @var string
+     */
+    public $gender;
+
     /** @var \DateTimeImmutable */
     public $dateOfBirth;
 
@@ -40,6 +47,7 @@ class PatientPersonalDataDTO
         $dto->firstName = $patient->getFirstname();
         $dto->middleName = $patient->getMiddleName();
         $dto->lastName = $patient->getLastName();
+        $dto->gender = $patient->getGender();
         $dto->dateOfBirth = $patient->getDateOfBirth();
 
         return $dto;

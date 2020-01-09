@@ -49,6 +49,7 @@ class PatientController extends AbstractController
             $patient->setFirstname($patientPersonalDataDTO->firstName);
             null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
             $patient->setLastName($patientPersonalDataDTO->lastName);
+            $patient->setGender($patientPersonalDataDTO->gender);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
 
             $patientSevice->RegisterPatient($patient);
@@ -88,6 +89,7 @@ class PatientController extends AbstractController
             $patient->setFirstname($patientPersonalDataDTO->firstName);
             null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
             $patient->setLastName($patientPersonalDataDTO->lastName);
+            $patient->setGender($patientPersonalDataDTO->gender);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
             $patientService->update($patient);
 

@@ -4,6 +4,7 @@ namespace App\Form\Patient;
 
 use App\Dto\PatientPersonalDataDTO;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,6 +17,13 @@ class PatientPersonalDataFormDTOType extends AbstractType
             ->add('firstName')
             ->add('middleName')
             ->add('lastName')
+            ->add('gender', ChoiceType::class, [
+                'choices' => [
+                    'Unassigned' => null,
+                    'Male' => 'male',
+                    'Female' => 'female',
+                ],
+            ])
             ->add('dateOfBirth', DateType::class,
                 [
                     'required' => true,

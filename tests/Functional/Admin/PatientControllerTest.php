@@ -16,7 +16,11 @@ class PatientControllerTest extends PantherTestCase
     private const PATIENT_MIDDLE_NAME = 'Alberto';
     private const PATIENT_LAST_NAME = 'Alberto';
     private const PATIENT_GENDER = 'male';
+    private const PATIENT_GENDER_MALE = 'male';
+    private const PATIENT_GENDER_FEMALE = 'female';
     private const PATIENT_DATE_OF_BIRTH = '1950-01-01';
+    private const FORM_VALUE_GENDER_MALE = 1; // VALUE DEFINED IN CHOICE FORM FIELD
+    private const FORM_VALUE_GENDER_FEMALE = 2; // VALUE DEFINED IN CHOICE FORM FIELD
 
     /** @var mixed */
     private $client = null;
@@ -61,6 +65,7 @@ class PatientControllerTest extends PantherTestCase
         $form['register_patient[patientPersonalData][firstName]'] = self::PATIENT_FIRST_NAME;
         $form['register_patient[patientPersonalData][middleName]'] = self::PATIENT_MIDDLE_NAME;
         $form['register_patient[patientPersonalData][lastName]'] = self::PATIENT_LAST_NAME;
+        $form['register_patient[patientPersonalData][gender]'] = self::FORM_VALUE_GENDER_MALE;
         $dateOfBirth = new \DateTimeImmutable(self::PATIENT_DATE_OF_BIRTH);
         $form['register_patient[patientPersonalData][dateOfBirth][year]'] = (int) $dateOfBirth->format('Y');
         $form['register_patient[patientPersonalData][dateOfBirth][month]'] = (int) $dateOfBirth->format('m');
@@ -119,6 +124,7 @@ class PatientControllerTest extends PantherTestCase
         $form['patient_personal_data_form_dto[firstName]'] = $newFirstName;
         $form['patient_personal_data_form_dto[middleName]'] = $newMiddleName;
         $form['patient_personal_data_form_dto[lastName]'] = $newLastName;
+        $form['patient_personal_data_form_dto[gender]'] = self::FORM_VALUE_GENDER_FEMALE;
         $form['patient_personal_data_form_dto[dateOfBirth][year]'] = (int) $newDateOfBirth->format('Y');
         $form['patient_personal_data_form_dto[dateOfBirth][month]'] = (int) $newDateOfBirth->format('m');
         $form['patient_personal_data_form_dto[dateOfBirth][day]'] = (int) $newDateOfBirth->format('d');
@@ -134,6 +140,7 @@ class PatientControllerTest extends PantherTestCase
         $this->assertSelectorTextContains('html', $newFirstName);
         $this->assertSelectorTextContains('html', $newMiddleName);
         $this->assertSelectorTextContains('html', $newLastName);
+        $this->assertSelectorTextContains('html', self::PATIENT_GENDER_FEMALE);
         $this->assertSelectorTextContains('html', $newDateOfBirth->format('Y-m-d'));
     }
 
