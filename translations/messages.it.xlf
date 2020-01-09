@@ -1,54 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="it" target-language="it" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="WrACbQw" resname="menu.catalog">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="it" trgLang="it">
+  <file id="messages.it">
+    <unit id="WrACbQw" name="menu.catalog">
+      <segment>
         <source>menu.catalog</source>
         <target>Catalogo</target>
-      </trans-unit>
-      <trans-unit id="LRhYNBg" resname="menu.add_new">
+      </segment>
+    </unit>
+    <unit id="LRhYNBg" name="menu.add_new">
+      <segment>
         <source>menu.add_new</source>
         <target>Aggiungi</target>
-      </trans-unit>
-      <trans-unit id="hWmLfWx" resname="menu.add_new.user">
+      </segment>
+    </unit>
+    <unit id="hWmLfWx" name="menu.add_new.user">
+      <segment>
         <source>menu.add_new.user</source>
         <target>utente</target>
-      </trans-unit>
-      <trans-unit id="Wz5BlN6" resname="menu.add_new.patient">
+      </segment>
+    </unit>
+    <unit id="Wz5BlN6" name="menu.add_new.patient">
+      <segment>
         <source>menu.add_new.patient</source>
         <target>paziente</target>
-      </trans-unit>
-      <trans-unit id="HKoxlI." resname="menu.application_name">
+      </segment>
+    </unit>
+    <unit id="HKoxlI." name="menu.application_name">
+      <segment>
         <source>menu.application_name</source>
         <target>Doctors (temp. name)</target>
-      </trans-unit>
-      <trans-unit id="vLWpzeo" resname="menu.dashboard">
+      </segment>
+    </unit>
+    <unit id="vLWpzeo" name="menu.dashboard">
+      <segment>
         <source>menu.dashboard</source>
         <target>Dashboard</target>
-      </trans-unit>
-      <trans-unit id="i5Xfn4O" resname="menu.catalog.users">
+      </segment>
+    </unit>
+    <unit id="i5Xfn4O" name="menu.catalog.users">
+      <segment>
         <source>menu.catalog.users</source>
         <target>Utenti</target>
-      </trans-unit>
-      <trans-unit id="ad2j0yj" resname="menu.catalog.patients">
+      </segment>
+    </unit>
+    <unit id="ad2j0yj" name="menu.catalog.patients">
+      <segment>
         <source>menu.catalog.patients</source>
         <target>Pazienti</target>
-      </trans-unit>
-      <trans-unit id="Ui6l9jx" resname="menu.account">
+      </segment>
+    </unit>
+    <unit id="Ui6l9jx" name="menu.account">
+      <segment>
         <source>menu.account</source>
         <target>Account</target>
-      </trans-unit>
-      <trans-unit id="jTreAYW" resname="menu.account.user_profile">
+      </segment>
+    </unit>
+    <unit id="jTreAYW" name="menu.account.user_profile">
+      <segment>
         <source>menu.account.user_profile</source>
         <target>Profilo</target>
-      </trans-unit>
-      <trans-unit id="QdimO5U" resname="menu.account.logout">
+      </segment>
+    </unit>
+    <unit id="QdimO5U" name="menu.account.logout">
+      <segment>
         <source>menu.account.logout</source>
         <target>Logout</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
+    <unit id="9PCVAdj" name="user.id">
+      <segment>
+        <source>user.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="YfUYcGV" name="user.email">
+      <segment>
+        <source>user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="AGWtOG4" name="user.roles">
+      <segment>
+        <source>user.roles</source>
+        <target>Ruoli</target>
+      </segment>
+    </unit>
+    <unit id="Hfoseqh" name="user.firstname">
+      <segment>
+        <source>user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="JPNb_dA" name="user.lastname">
+      <segment>
+        <source>user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="Othoi_9" name="user.action.change-password">
+      <segment>
+        <source>user.action.change-password</source>
+        <target>Cambia password</target>
+      </segment>
+    </unit>
+    <unit id="9pvowqn" name="label.password">
+      <segment>
+        <source>label.password</source>
+        <target>Password</target>
+      </segment>
+    </unit>
+    <unit id="s4twL3g" name="label.repeat-password">
+      <segment>
+        <source>label.repeat-password</source>
+        <target>Ripeti password</target>
+      </segment>
+    </unit>
+    <unit id="YKjOueU" name="common.actions">
+      <segment>
+        <source>common.actions</source>
+        <target>Azioni</target>
+      </segment>
+    </unit>
+    <unit id="r9QV4Ef" name="common.actions.show">
+      <segment>
+        <source>common.actions.show</source>
+        <target>Visualizza</target>
+      </segment>
+    </unit>
+    <unit id="pM26GDe" name="common.actions.edit">
+      <segment>
+        <source>common.actions.edit</source>
+        <target>Modifica</target>
+      </segment>
+    </unit>
+    <unit id="32zP36x" name="common.no_record_found">
+      <segment>
+        <source>common.no_record_found</source>
+        <target>Nessun risultato trovato.</target>
+      </segment>
+    </unit>
+    <unit id="07HE5eJ" name="common.actions.create_new">
+      <segment>
+        <source>common.actions.create_new</source>
+        <target>Crea nuovo</target>
+      </segment>
+    </unit>
+    <unit id="7TmszIs" name="common.actions.back_to_list">
+      <segment>
+        <source>common.actions.back_to_list</source>
+        <target>Torna alla lista</target>
+      </segment>
+    </unit>
+    <unit id="sk7DMib" name="common.actions.delete">
+      <segment>
+        <source>common.actions.delete</source>
+        <target>Elimina</target>
+      </segment>
+    </unit>
+    <unit id="PpgEgiq" name="label.user.email">
+      <segment>
+        <source>label.user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="8VgEQDR" name="label.user.firstname">
+      <segment>
+        <source>label.user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="7B8Sfge" name="label.user.lastname">
+      <segment>
+        <source>label.user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

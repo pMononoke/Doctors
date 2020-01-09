@@ -4,35 +4,37 @@
 
 {% block body %}
     <h1>User</h1>
+    <div class="container-lg">
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'user.id'|trans }}</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>{{ 'user.email'|trans }}</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Roles</th>
+                <th>{{ 'user.roles'|trans }}</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>{{ 'user.firstname'|trans }}</th>
                 <td>{{ user.profile ? user.profile.firstName : '' }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>{{ 'user.lastname'|trans }}</th>
                 <td>{{ user.profile ? user.profile.lastName : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_user_index') }}">back to list</a>
+    <a href="{{ path('admin_user_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
 
-    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">{{ 'common.actions.edit'|trans }}</a>
 
     {{ include('admin/user/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

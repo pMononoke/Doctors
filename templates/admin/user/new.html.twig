@@ -5,7 +5,9 @@
 {% block body %}
     <h1>Create new User</h1>
 
+    <div class="container-lg">
     {{ include('admin/user/_form.html.twig') }}
 
-    <a href="{{ path('admin_user_index') }}">back to list</a>
+    <a href="{{ path('admin_user_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
+    </div>
 {% endblock %}

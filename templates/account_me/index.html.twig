@@ -5,31 +5,34 @@
 {% block body %}
     <h1>My Account</h1>
 
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ user.id }}</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>{{ user.email }}</td>
-        </tr>
-        <tr>
-            <th>Roles</th>
-            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-        </tr>
-        <tr>
-            <th>Firstname</th>
-            <td>{{ user.profile ? user.profile.firstName : '' }}</td>
-        </tr>
-        <tr>
-            <th>Lastname</th>
-            <td>{{ user.profile ? user.profile.lastName : '' }}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="container-lg">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'user.id'|trans }}</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'user.email'|trans }}</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'user.roles'|trans }}</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'user.firstname'|trans }}</th>
+                <td>{{ user.profile ? user.profile.firstName : '' }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'user.lastname'|trans }}</th>
+                <td>{{ user.profile ? user.profile.lastName : '' }}</td>
+            </tr>
+            </tbody>
+        </table>
 
-    {{ include('account_me/_form-modal.html.twig', {'button_label': 'Update password'}) }}
+        {{ include('account_me/_form-modal.html.twig', {'button_label': 'user.action.change-password'|trans }) }}
+    </div>
+
 
 {% endblock %}
