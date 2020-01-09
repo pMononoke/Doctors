@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Dto;
+namespace App\Form\Patient\Dto;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
 class RegisterPatientDTO
 {
-    /** @Assert\Valid() */
+    /**
+     * @Assert\Valid()
+     *
+     * @var PatientPersonalDataDTO
+     */
     public $patientPersonalData;
-
-    /** @Assert\IsTrue() */
-    public $confirm;
 }

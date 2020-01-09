@@ -21,21 +21,6 @@ parameters:
 			path: src/DataFixtures/SecurityFixtures.php
 
 		-
-			message: "#^Property App\\\\Dto\\\\PatientPersonalDataDTO\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/PatientPersonalDataDTO.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\RegisterPatientDTO\\:\\:\\$patientPersonalData has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/RegisterPatientDTO.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\RegisterPatientDTO\\:\\:\\$confirm has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/RegisterPatientDTO.php
-
-		-
 			message: "#^Property App\\\\Entity\\\\UserProfile\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: src/Entity/UserProfile.php

@@ -70,7 +70,6 @@ class PatientControllerTest extends PantherTestCase
         $form['register_patient[patientPersonalData][dateOfBirth][year]'] = (int) $dateOfBirth->format('Y');
         $form['register_patient[patientPersonalData][dateOfBirth][month]'] = (int) $dateOfBirth->format('m');
         $form['register_patient[patientPersonalData][dateOfBirth][day]'] = (int) $dateOfBirth->format('d');
-        $form['register_patient[confirm]'] = true;
 
         $crawler = $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect());
@@ -145,7 +144,7 @@ class PatientControllerTest extends PantherTestCase
     }
 
     /** @test */
-    public function can_delete_a_user(): void
+    public function can_delete_a_patient(): void
     {
         $this->populateDatabase($patient = $this->generateApatient());
         $this->logInAsAdminUser();

@@ -2,10 +2,10 @@
 
 namespace App\Controller\Admin;
 
-use App\Dto\PatientPersonalDataDTO;
-use App\Dto\RegisterPatientDTO;
 use App\Entity\Patient;
 use App\Entity\PatientRepository;
+use App\Form\Patient\Dto\PatientPersonalDataDTO;
+use App\Form\Patient\Dto\RegisterPatientDTO;
 use App\Form\Patient\PatientPersonalDataFormDTOType;
 use App\Form\Patient\RegisterPatientType;
 use App\Service\PatientService;
