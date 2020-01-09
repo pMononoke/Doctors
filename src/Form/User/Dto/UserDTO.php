@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Dto;
+namespace App\Form\User\Dto;
 
 use App\Entity\User;
+use App\Entity\UserId;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class UserDTO
 {
+    /** @var UserId */
     public $id;
     /**
      * @Assert\NotBlank()

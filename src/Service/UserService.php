@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Dto\RegisterUserDTO;
 use App\Entity\User;
 use App\Entity\UserProfile;
 use App\Entity\UserRepository;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
+use App\Form\User\Dto\RegisterUserDTO;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;

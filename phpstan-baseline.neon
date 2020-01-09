@@ -36,26 +36,6 @@ parameters:
 			path: src/Dto/RegisterPatientDTO.php
 
 		-
-			message: "#^Property App\\\\Dto\\\\RegisterUserDTO\\:\\:\\$user has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/RegisterUserDTO.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\RegisterUserDTO\\:\\:\\$profile has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/RegisterUserDTO.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\RegisterUserDTO\\:\\:\\$confirm has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/RegisterUserDTO.php
-
-		-
-			message: "#^Property App\\\\Dto\\\\UserDTO\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: src/Dto/UserDTO.php
-
-		-
 			message: "#^Property App\\\\Entity\\\\UserProfile\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: src/Entity/UserProfile.php
@@ -111,26 +91,6 @@ parameters:
 			path: src/Form/Patient/RegisterPatientType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\RegisterUserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/RegisterUserType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterUserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
-			count: 1
-			path: src/Form/RegisterUserType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterUserType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/RegisterUserType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\RegisterUserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/RegisterUserType.php
-
-		-
 			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Form/User/ChangeUserPasswordType.php
@@ -151,44 +111,64 @@ parameters:
 			path: src/Form/User/ChangeUserPasswordType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserProfileType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/UserProfileType.php
+			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/UserProfileType.php
+			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/UserProfileType.php
+			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserProfileType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/UserProfileType.php
+			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/UserType.php
+			path: src/Form/User/UserProfileType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/UserType.php
+			path: src/Form/User/UserProfileType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/UserType.php
+			path: src/Form/User/UserProfileType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\UserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/UserType.php
+			path: src/Form/User/UserProfileType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Form/User/UserType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			count: 1
+			path: src/Form/User/UserType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Form/User/UserType.php
+
+		-
+			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Form/User/UserType.php
 
 		-
 			message: "#^Method App\\\\Repository\\\\UserRepository\\:\\:countUsers\\(\\) has no return typehint specified\\.$#"

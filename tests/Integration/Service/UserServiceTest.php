@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration\Service;
 
-use App\Dto\RegisterUserDTO;
-use App\Dto\UserDTO;
-use App\Dto\UserProfileDTO;
 use App\Entity\User;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
+use App\Form\User\Dto\RegisterUserDTO;
+use App\Form\User\Dto\UserDTO;
+use App\Form\User\Dto\UserProfileDTO;
 use App\Service\UserService;
 use App\Tests\Support\TestCase\DatabaseTestCase;
 

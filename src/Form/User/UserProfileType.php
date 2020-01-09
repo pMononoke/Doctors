@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\User;
 
-use App\Dto\UserProfileDTO;
+use App\Form\User\Dto\UserProfileDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

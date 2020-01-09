@@ -43,8 +43,6 @@ class UserControllerTest extends PantherTestCase
         $form['register_user[user][email]'] = 'fake-user@example.com';
         $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
         $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';
-        $form['register_user[confirm]'] = true;
-        //$crawler = $this->client->submit($form);
 
         $crawler = $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect());

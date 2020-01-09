@@ -2,11 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Dto\RegisterUserDTO;
-use App\Dto\UserDTO;
 use App\Entity\User;
-use App\Form\RegisterUserType;
-use App\Form\UserType;
+use App\Form\User\Dto\RegisterUserDTO;
+use App\Form\User\Dto\UserDTO;
+use App\Form\User\RegisterUserType;
+use App\Form\User\UserType;
 use App\Repository\UserRepository;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;

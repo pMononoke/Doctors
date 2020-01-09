@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\User;
 
-use App\Dto\RegisterUserDTO;
+use App\Form\User\Dto\RegisterUserDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +15,7 @@ class RegisterUserType extends AbstractType
         $builder
             ->add('user', UserType::class)
             ->add('profile', UserProfileType::class)
-            ->add('confirm', CheckboxType::class, ['required' => true]);
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
