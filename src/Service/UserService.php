@@ -51,14 +51,11 @@ class UserService
         $user->setRoles(['ROLE_USER']);
         $user->setProfile($profile);
 
-        //$this->save($user);
         $this->userRepository->save($user);
     }
 
     public function changePassword(ChangeUserPasswordDTO $changeUserPasswordDTO): void
     {
-        /** @var User $user */
-        $user = $this->userRepository->ofId($changeUserPasswordDTO->id);
         if (!$user = $this->userRepository->ofId($changeUserPasswordDTO->id)) {
             //TODO custom exception
             throw new RuntimeException('User not found');

@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\Entity\Patient;
 use App\Entity\PatientRepository;
-use App\Entity\Person;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -28,10 +27,6 @@ class PatientService
         $this->logger = $logger;
     }
 
-//    public function RegisterPatient(Person $person): void
-//    {
-//        $this->save($person);
-//    }
     public function RegisterPatient(Patient $patient): void
     {
         $this->patientRepository->save($patient);
@@ -42,11 +37,6 @@ class PatientService
         $this->entityManager->persist($patient);
         $this->entityManager->flush();
     }
-
-//    public function update(Person $person): void
-//    {
-//        $this->save($person);
-//    }
 
     public function update(Patient $patient): void
     {

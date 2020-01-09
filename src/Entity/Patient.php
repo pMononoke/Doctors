@@ -12,8 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Patient
 {
-    // TODO $id should be uuid type
-    // @ORM\Column(type="guid")
     /**
      * @var PatientId
      * @ORM\Id()
