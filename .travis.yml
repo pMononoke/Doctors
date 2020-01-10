@@ -176,3 +176,26 @@ jobs:
         - *run-code-style-check
         - *run-phpstan-tests
         - *run-phpunit-tests
+
+
+    - name: '(PHP 8-nightly)'
+      php: 'nightly'
+      before_install:
+        - *disable-xdebug-php-extension
+        - *disable-php-memory-limit
+      install:
+        - yarn
+        - yarn run build
+        #- *install-project-dependencies
+        - composer update
+        - ./bin/phpunit install
+      before_script:
+        - *clear-test-app-cache
+        - *app-database-schema-update
+      script:
+        - *run-code-style-check
+        - *run-phpstan-tests
+        - *run-phpunit-tests
+
+  allow_failures:
+    - name: '(PHP 8-nightly)'
