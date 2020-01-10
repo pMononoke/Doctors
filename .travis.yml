@@ -74,6 +74,8 @@ cache:
   - &run-code-style-check |
       ./vendor/bin/php-cs-fixer fix --dry-run -v
 
+  - &run-security-check |
+      ./bin/console security:check
 
 #before_install:
 #  - cp ci/.env.test.travis .env.test
@@ -130,6 +132,7 @@ jobs:
         - *clear-test-app-cache
         - *app-database-schema-update
       script:
+        - *run-security-check
         - *run-code-style-check
         - *run-phpstan-tests
         - *run-phpunit-tests
