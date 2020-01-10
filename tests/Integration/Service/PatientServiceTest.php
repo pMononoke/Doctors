@@ -12,10 +12,10 @@ use App\Tests\Support\TestCase\DatabaseTestCase;
 
 class PatientServiceTest extends DatabaseTestCase
 {
-    /** @var PatientService */
+    /** @var PatientService|mixed */
     private $patientService;
 
-    /** @var PatientRepository */
+    /** @var PatientRepository|mixed */
     private $patientRepository;
 
     protected function setUp(): void

@@ -12,6 +12,12 @@ use App\Tests\Support\TestCase\DatabaseTestCase;
 
 class PatientRepositoryTest extends DatabaseTestCase
 {
+    private const FIRST_NAME = 'Arthur';
+    private const MIDDLE_NAME = 'C.';
+    private const LAST_NAME = 'Clark';
+    private const GENDER = 'male';
+    private const DATE_OF_BIRTH = '16-12-1917';
+
     /** @var mixed|PatientRepository */
     private $repository;
 
@@ -29,11 +35,18 @@ class PatientRepositoryTest extends DatabaseTestCase
     /** @test */
     public function can_persist_a_patient(): void
     {
-        $newPatient = $this->createPatient();
+        $newPatient = $this->createPatientArthurClarke();
 
-        $this->repository->save($newPatient);
+        $this->databaseManager()->save($newPatient);
 
+        /** @var Patient $patientFromDatabase */
+        $patientFromDatabase = $this->find(Patient::class, $newPatient->getId());
         self::assertEquals(1, $this->countItem(Patient::class));
+        self::assertEquals($newPatient->getFirstName(), $patientFromDatabase->getFirstName());
+        self::assertEquals($newPatient->getMiddleName(), $patientFromDatabase->getMiddleName());
+        self::assertEquals($newPatient->getLastName(), $patientFromDatabase->getLastName());
+        self::assertEquals($newPatient->getGender(), $patientFromDatabase->getGender());
+        self::assertEquals($newPatient->getDateOfBirth(), $patientFromDatabase->getDateOfBirth());
     }
 
     /** @test */
@@ -54,22 +67,30 @@ class PatientRepositoryTest extends DatabaseTestCase
     public function can_update_a_patient(): void
     {
         $newPatient = $this->createPatient();
-        $this->repository->save($newPatient);
+        $this->databaseManager()->save($newPatient);
+        $newPatient->setFirstName(self::FIRST_NAME);
+        $newPatient->setMiddleName(self::MIDDLE_NAME);
+        $newPatient->setLastName(self::LAST_NAME);
+        $newPatient->setGender(self::GENDER);
+        $newPatient->setDateOfBirth(new \DateTimeImmutable(self::DATE_OF_BIRTH));
 
-        $newPatient->setLastName('new lastname');
         $this->repository->update($newPatient);
 
         /** @var Patient $patientFromDatabase */
         $patientFromDatabase = $this->find(Patient::class, $newPatient->getId());
         self::assertEquals(1, $this->countItem(Patient::class));
-        self::assertEquals('new lastname', $patientFromDatabase->getLastName());
+        self::assertEquals($newPatient->getFirstName(), $patientFromDatabase->getFirstName());
+        self::assertEquals($newPatient->getMiddleName(), $patientFromDatabase->getMiddleName());
+        self::assertEquals($newPatient->getLastName(), $patientFromDatabase->getLastName());
+        self::assertEquals($newPatient->getGender(), $patientFromDatabase->getGender());
+        self::assertEquals($newPatient->getDateOfBirth(), $patientFromDatabase->getDateOfBirth());
     }
 
     /** @test */
     public function can_delete_a_patient(): void
     {
         $newPatient = $this->createPatient();
-        $this->repository->save($newPatient);
+        $this->databaseManager()->save($newPatient);
         self::assertEquals(1, $this->countItem(Patient::class));
 
         $this->repository->delete($newPatient);
@@ -88,6 +109,18 @@ class PatientRepositoryTest extends DatabaseTestCase
     {
         $builder = PatientBuilder::create()
             ->withGender('male');
+
+        return $builder->build();
+    }
+
+    private function createPatientArthurClarke(): Patient
+    {
+        $builder = PatientBuilder::create()
+            ->withFirstName(self::FIRST_NAME)
+            ->withMiddleName(self::MIDDLE_NAME)
+            ->withLastName(self::LAST_NAME)
+            ->withGender('male')
+            ->withDateOfBirth(new \DateTimeImmutable(self::DATE_OF_BIRTH));
 
         return $builder->build();
     }

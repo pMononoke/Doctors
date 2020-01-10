@@ -27,10 +27,12 @@ class UserRepositoryTest extends DatabaseTestCase
     public function can_persist_a_user(): void
     {
         $newUser = $this->createUser();
-
         $this->repository->save($newUser);
 
+        /** @var User $userFromDatabase */
+        $userFromDatabase = $this->find(User::class, $newUser->getId());
         self::assertEquals(1, $this->countItem(User::class));
+        self::assertEquals($newUser->getEmail(), $userFromDatabase->getEmail());
     }
 
     /** @test */
@@ -51,7 +53,7 @@ class UserRepositoryTest extends DatabaseTestCase
     public function can_update_a_user(): void
     {
         $newUser = $this->createUser();
-        $this->repository->save($newUser);
+        $this->databaseManager()->save($newUser);
 
         $newUser->setEmail('new-email@example.com');
         $this->repository->update($newUser);
@@ -66,7 +68,7 @@ class UserRepositoryTest extends DatabaseTestCase
     public function can_delete_a_user(): void
     {
         $newUser = $this->createUser();
-        $this->repository->save($newUser);
+        $this->databaseManager()->save($newUser);
         self::assertEquals(1, $this->countItem(User::class));
 
         $this->repository->delete($newUser);

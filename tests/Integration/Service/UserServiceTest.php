@@ -16,10 +16,10 @@ class UserServiceTest extends DatabaseTestCase
 {
     private const IRRELEVANT_STRING = 'irrelevant';
 
-    /** @var UserService */
+    /** @var UserService|mixed */
     private $userService;
 
-    /** var UserRepository */
+    /** var UserRepository|null */
     private $userRepository;
 
     protected function setUp(): void

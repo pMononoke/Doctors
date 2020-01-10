@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91c170aa6736ccc1bf108b8ba115dc0b",
+    "content-hash": "efc8dc620982b53c3672b2ac765cc778",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -7621,6 +7621,70 @@
             "time": "2019-12-04T00:09:47+00:00"
         },
         {
+            "name": "phpstan/phpstan-doctrine",
+            "version": "0.12.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-doctrine.git",
+                "reference": "a497a383bd970117b0680557ae12444d72d09095"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/a497a383bd970117b0680557ae12444d72d09095",
+                "reference": "a497a383bd970117b0680557ae12444d72d09095",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^4.0",
+                "php": "~7.1",
+                "phpstan/phpstan": "^0.12"
+            },
+            "conflict": {
+                "doctrine/collections": "<1.0",
+                "doctrine/common": "<2.7",
+                "doctrine/mongodb-odm": "<1.2",
+                "doctrine/orm": "<2.5"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "^3.0.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.7",
+                "doctrine/mongodb-odm": "^1.2",
+                "doctrine/orm": "^2.5",
+                "jakub-onderka/php-parallel-lint": "^1.0",
+                "phing/phing": "^2.16.0",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^7.0",
+                "ramsey/uuid-doctrine": "^1.5.0",
+                "slevomat/coding-standard": "^4.5.2"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                },
+                "phpstan": {
+                    "includes": [
+                        "extension.neon",
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Doctrine extensions for PHPStan",
+            "time": "2019-12-13T18:24:11+00:00"
+        },
+        {
             "name": "prolic/fpp",
             "version": "dev-master",
             "source": {
@@ -8536,6 +8600,7 @@
     "stability-flags": {
         "php-translation/symfony-bundle": 20,
         "sensiolabs/security-checker": 20,
+        "phpstan/phpstan-doctrine": 20,
         "prolic/fpp": 20,
         "symfony/panther": 20
     },
