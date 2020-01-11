@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="it" trgLang="it">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="it">
   <file id="messages.it">
     <unit id="WrACbQw" name="menu.catalog">
       <segment>
@@ -275,6 +275,120 @@
       <segment>
         <source>common.actions.save</source>
         <target>Salva</target>
+      </segment>
+    </unit>
+    <unit id="LoR5_19" name="user.index_title">
+      <segment>
+        <source>user.index_title</source>
+        <target>Utenti</target>
+      </segment>
+    </unit>
+    <unit id="MTm5T.E" name="user.index_header">
+      <segment>
+        <source>user.index_header</source>
+        <target>Lista utenti</target>
+      </segment>
+    </unit>
+    <unit id="f_Ezw.0" name="user.show_title">
+      <segment>
+        <source>user.show_title</source>
+        <target>Visualizza utente</target>
+      </segment>
+    </unit>
+    <unit id="IV04FUP" name="user.show_header">
+      <segment>
+        <source>user.show_header</source>
+        <target>Dettaglio utente</target>
+      </segment>
+    </unit>
+    <unit id="Vzuy0U3" name="user.edit_title">
+      <segment>
+        <source>user.edit_title</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="nUxlrXY" name="user.edit_header">
+      <segment>
+        <source>user.edit_header</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="J7K1y7z" name="patient.index_title">
+      <segment>
+        <source>patient.index_title</source>
+        <target>Pazienti</target>
+      </segment>
+    </unit>
+    <unit id="kwni9mG" name="patient.index_header">
+      <segment>
+        <source>patient.index_header</source>
+        <target>Lista pazienti</target>
+      </segment>
+    </unit>
+    <unit id="cYQ7iNA" name="patient.new_title">
+      <segment>
+        <source>patient.new_title</source>
+        <target>Nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="cVfKh2d" name="patient.new_header">
+      <segment>
+        <source>patient.new_header</source>
+        <target>Crea nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="YCT2JDE" name="patient.edit_title">
+      <segment>
+        <source>patient.edit_title</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="hsJBPTS" name="patient.edit_header">
+      <segment>
+        <source>patient.edit_header</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="lvn_5Cn" name="account.index_title">
+      <segment>
+        <source>account.index_title</source>
+        <target>Profilo</target>
+      </segment>
+    </unit>
+    <unit id="_fK4Sou" name="account.index_header">
+      <segment>
+        <source>account.index_header</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="emOv0ZH" name="patient.show_title">
+      <segment>
+        <source>patient.show_title</source>
+        <target>Paziente</target>
+      </segment>
+    </unit>
+    <unit id="WNhBnJz" name="patient.show_header">
+      <segment>
+        <source>patient.show_header</source>
+        <target>Visualizza paziente</target>
+      </segment>
+    </unit>
+    <unit id="ZzrLz_I" name="application.name">
+      <segment>
+        <source>application.name</source>
+        <target>__application.name</target>
+      </segment>
+    </unit>
+    <unit id="pDfvE3a" name="user.new_title">
+      <segment>
+        <source>user.new_title</source>
+        <target>Nuovo utente</target>
+      </segment>
+    </unit>
+    <unit id="IlWwKpl" name="user.new_header">
+      <segment>
+        <source>user.new_header</source>
+        <target>Crea nuovo utente</target>
       </segment>
     </unit>
   </file>

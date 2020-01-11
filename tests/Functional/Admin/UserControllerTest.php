@@ -39,7 +39,7 @@ class UserControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/user/new');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
 
-        $form = $crawler->selectButton('Save')->form();
+        $form = $crawler->selectButton('common.actions.save')->form();
         $form['register_user[user][email]'] = 'fake-user@example.com';
         $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
         $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';
@@ -73,7 +73,7 @@ class UserControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId().'/edit');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'Edit User',
+            'user.edit_header',
             $this->client->getResponse()->getContent()
         );
         $form = $crawler->selectButton('Update')->form();
@@ -100,25 +100,25 @@ class UserControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'User',
+            'user.show_header',
             $this->client->getResponse()->getContent()
         );
 
         // check if there are multiple button
         $this->assertEquals(
             1,
-            $crawler->filter('html:contains("Delete")')->count()
+            $crawler->filter('html:contains("common.actions.delete")')->count()
         );
         // Click on button delete
 
-        $buttonCrawlerNode = $crawler->selectButton('Delete');
+        $buttonCrawlerNode = $crawler->selectButton('common.actions.delete');
         $form = $buttonCrawlerNode->form([]);
         $this->client->submit($form);
         $this->client->followRedirect();
 
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'User index',
+            'user.index_header',
             $this->client->getResponse()->getContent()
         );
         $this->assertNotContains(

@@ -1,41 +1,44 @@
 {% extends 'admin/layout/admin-base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}
+    {{ parent() }} | {{ 'user.index_title'|trans }}
+{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+
 
     <div class="container-lg">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'user.id'|trans }}</th>
-                <th>{{ 'user.email'|trans }}</th>
-                <th>{{ 'user.roles'|trans }}</th>
-                {#<th>Password</th>#}
-                <th>{{ 'common.actions'|trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">{{ 'common.actions.show'|trans }}</a>
-                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">{{ 'common.actions.edit'|trans }}</a>
-                    {{ include('admin/user/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">{{ 'common.no_record_found'|trans }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <h1>{{ 'user.index_header'|trans }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'user.id'|trans }}</th>
+                    <th>{{ 'user.email'|trans }}</th>
+                    <th>{{ 'user.roles'|trans }}</th>
+                    {#<th>Password</th>#}
+                    <th>{{ 'common.actions'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>
+                        <a href="{{ path('admin_user_show', {'id': user.id}) }}">{{ 'common.actions.show'|trans }}</a>
+                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}">{{ 'common.actions.edit'|trans }}</a>
+                        {{ include('admin/user/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">{{ 'common.no_record_found'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('admin_user_new') }}">{{ 'common.actions.create_new'|trans }}</a>
+        <a href="{{ path('admin_user_new') }}">{{ 'common.actions.create_new'|trans }}</a>
     </div>
 {% endblock %}

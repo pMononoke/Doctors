@@ -1,11 +1,13 @@
 {% extends 'admin/layout/admin-base.html.twig' %}
 
-{% block title %}Account{% endblock %}
+{% block title %}
+    {{ parent() }} | {{ 'account.index_title'|trans }}
+{% endblock %}
 
 {% block body %}
-    <h1>My Account</h1>
 
     <div class="container-lg">
+        <h1>{{ 'account.index_header'|trans }}</h1>
         <table class="table">
             <tbody>
             <tr>
@@ -33,6 +35,4 @@
 
         {{ include('account_me/_form-modal.html.twig', {'button_label': 'user.action.change-password'|trans }) }}
     </div>
-
-
 {% endblock %}

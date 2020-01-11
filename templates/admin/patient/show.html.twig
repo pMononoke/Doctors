@@ -1,11 +1,12 @@
 {% extends 'admin/layout/admin-base.html.twig' %}
 
-{% block title %}Patient{% endblock %}
+{% block title %}
+    {{ parent() }} | {{ 'patient.show_title'|trans }}
+{% endblock %}
 
 {% block body %}
-    <h1>Patient</h1>
-
     <div class="container-lg">
+        <h1>{{ 'patient.show_header'|trans }}</h1>
         <table class="table">
             <tbody>
             <tr>

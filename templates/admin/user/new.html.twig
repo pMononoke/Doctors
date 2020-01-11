@@ -1,13 +1,14 @@
 {% extends 'admin/layout/admin-base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}
+    {{ parent() }} | {{ 'user.new_title'|trans }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
-
     <div class="container-lg">
-    {{ include('admin/user/_form.html.twig') }}
+        <h1>{{ 'user.new_header'|trans }}</h1>
+        {{ include('admin/user/_form.html.twig') }}
 
-    <a href="{{ path('admin_user_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
+        <a href="{{ path('admin_user_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
     </div>
 {% endblock %}

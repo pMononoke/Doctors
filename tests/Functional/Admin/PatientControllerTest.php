@@ -57,11 +57,11 @@ class PatientControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/patient/new');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'Create new Patient',
+            'patient.new_header',
             $this->client->getResponse()->getContent()
         );
 
-        $form = $crawler->selectButton('Save')->form();
+        $form = $crawler->selectButton('common.actions.save')->form();
         $form['register_patient[patientPersonalData][firstName]'] = self::PATIENT_FIRST_NAME;
         $form['register_patient[patientPersonalData][middleName]'] = self::PATIENT_MIDDLE_NAME;
         $form['register_patient[patientPersonalData][lastName]'] = self::PATIENT_LAST_NAME;
@@ -76,7 +76,7 @@ class PatientControllerTest extends PantherTestCase
         $this->client->followRedirect();
 
         $this->assertContains(
-            'Patient index',
+            'patient.index_header',
             $this->client->getResponse()->getContent()
         );
 
@@ -115,7 +115,7 @@ class PatientControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/patient/'.$patient->getId()->toString().'/edit');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'Edit Patient',
+            'patient.edit_header',
             $this->client->getResponse()->getContent()
         );
         $form = $crawler->selectButton('Update')->form();
@@ -132,7 +132,7 @@ class PatientControllerTest extends PantherTestCase
         $this->client->followRedirect();
 
         $this->assertContains(
-            'Patient index',
+            'patient.index_header',
             $this->client->getResponse()->getContent()
         );
 
@@ -152,30 +152,30 @@ class PatientControllerTest extends PantherTestCase
         $crawler = $this->client->request('GET', '/admin/patient/'.$patient->getId()->toString());
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'Patient',
+            'patient.show_header',
             $this->client->getResponse()->getContent()
         );
 
         // check if there are multiple button
         $this->assertEquals(
             1,
-            $crawler->filter('html:contains("Delete")')->count()
+            $crawler->filter('html:contains("common.actions.delete")')->count()
         );
 
         // Click on button delete
 
-        $buttonCrawlerNode = $crawler->selectButton('Delete');
+        $buttonCrawlerNode = $crawler->selectButton('common.actions.delete');
         $form = $buttonCrawlerNode->form([]);
         $this->client->submit($form);
         $this->client->followRedirect();
 
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
         $this->assertContains(
-            'Patient index',
+            'patient.index_header',
             $this->client->getResponse()->getContent()
         );
         $this->assertContains(
-            'No records found.',
+            'common.no_record_found',
             $this->client->getResponse()->getContent()
         );
     }

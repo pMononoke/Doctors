@@ -319,15 +319,6 @@
         <target>Logout</target>
       </segment>
     </unit>
-    <unit id="JBC9o.B" name="patientPersonalData">
-      <notes>
-        <note category="file-source" priority="1">Doctors/src/Form/Patient/RegisterPatientType.php:14</note>
-      </notes>
-      <segment>
-        <source>patientPersonalData</source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="7lVk2g5" name="label.patient.gender.unassigned">
       <notes>
         <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:29</note>
@@ -400,24 +391,6 @@
         <target>Date of birth</target>
       </segment>
     </unit>
-    <unit id="GQDqtsA" name="profile">
-      <notes>
-        <note category="file-source" priority="1">Doctors/src/Form/User/RegisterUserType.php:14</note>
-      </notes>
-      <segment>
-        <source>profile</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="BPiZbad" name="user">
-      <notes>
-        <note category="file-source" priority="1">Doctors/src/Form/User/RegisterUserType.php:14</note>
-      </notes>
-      <segment>
-        <source>user</source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="PpgEgiq" name="label.user.email">
       <notes>
         <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:15</note>
@@ -463,15 +436,6 @@
         <target>Repeat Password</target>
       </segment>
     </unit>
-    <unit id="Knrm5Px" name="plainPassword">
-      <notes>
-        <note category="file-source" priority="1">Doctors/src/Form/User/ChangeUserPasswordType.php:18</note>
-      </notes>
-      <segment>
-        <source>plainPassword</source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="RdPvTg5" name="user.last">
       <notes>
         <note category="state" priority="1">obsolete</note>
@@ -485,6 +449,120 @@
       <segment>
         <source>common.actions.save</source>
         <target>Save</target>
+      </segment>
+    </unit>
+    <unit id="lvn_5Cn" name="account.index_title">
+      <segment>
+        <source>account.index_title</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="_fK4Sou" name="account.index_header">
+      <segment>
+        <source>account.index_header</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="ZzrLz_I" name="application.name">
+      <segment>
+        <source>application.name</source>
+        <target>Doctors</target>
+      </segment>
+    </unit>
+    <unit id="LoR5_19" name="user.index_title">
+      <segment>
+        <source>user.index_title</source>
+        <target>User index</target>
+      </segment>
+    </unit>
+    <unit id="MTm5T.E" name="user.index_header">
+      <segment>
+        <source>user.index_header</source>
+        <target>User index</target>
+      </segment>
+    </unit>
+    <unit id="f_Ezw.0" name="user.show_title">
+      <segment>
+        <source>user.show_title</source>
+        <target>User</target>
+      </segment>
+    </unit>
+    <unit id="IV04FUP" name="user.show_header">
+      <segment>
+        <source>user.show_header</source>
+        <target>User</target>
+      </segment>
+    </unit>
+    <unit id="IlWwKpl" name="user.new_header">
+      <segment>
+        <source>user.new_header</source>
+        <target>Create new user</target>
+      </segment>
+    </unit>
+    <unit id="pDfvE3a" name="user.new_title">
+      <segment>
+        <source>user.new_title</source>
+        <target>New user</target>
+      </segment>
+    </unit>
+    <unit id="Vzuy0U3" name="user.edit_title">
+      <segment>
+        <source>user.edit_title</source>
+        <target>Edit user</target>
+      </segment>
+    </unit>
+    <unit id="nUxlrXY" name="user.edit_header">
+      <segment>
+        <source>user.edit_header</source>
+        <target>Edit user</target>
+      </segment>
+    </unit>
+    <unit id="cYQ7iNA" name="patient.new_title">
+      <segment>
+        <source>patient.new_title</source>
+        <target>New title</target>
+      </segment>
+    </unit>
+    <unit id="cVfKh2d" name="patient.new_header">
+      <segment>
+        <source>patient.new_header</source>
+        <target>Create new patient</target>
+      </segment>
+    </unit>
+    <unit id="J7K1y7z" name="patient.index_title">
+      <segment>
+        <source>patient.index_title</source>
+        <target>Patients</target>
+      </segment>
+    </unit>
+    <unit id="kwni9mG" name="patient.index_header">
+      <segment>
+        <source>patient.index_header</source>
+        <target>Patient index</target>
+      </segment>
+    </unit>
+    <unit id="emOv0ZH" name="patient.show_title">
+      <segment>
+        <source>patient.show_title</source>
+        <target>Patient show</target>
+      </segment>
+    </unit>
+    <unit id="WNhBnJz" name="patient.show_header">
+      <segment>
+        <source>patient.show_header</source>
+        <target>Patient</target>
+      </segment>
+    </unit>
+    <unit id="YCT2JDE" name="patient.edit_title">
+      <segment>
+        <source>patient.edit_title</source>
+        <target>Patient Edit</target>
+      </segment>
+    </unit>
+    <unit id="hsJBPTS" name="patient.edit_header">
+      <segment>
+        <source>patient.edit_header</source>
+        <target>Edit Patient</target>
       </segment>
     </unit>
   </file>
