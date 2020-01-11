@@ -46,6 +46,7 @@ class PatientPersonalDataDTO
     public static function fromPatient(Patient $patient): self
     {
         $dto = new self();
+        $dto->id = $patient->getId();
         $dto->firstName = $patient->getFirstname();
         $dto->middleName = $patient->getMiddleName();
         $dto->lastName = $patient->getLastName();

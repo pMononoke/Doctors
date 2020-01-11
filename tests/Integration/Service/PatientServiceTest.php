@@ -6,6 +6,8 @@ namespace App\Tests\Integration\Service;
 
 use App\Entity\Patient;
 use App\Entity\PatientRepository;
+use App\Form\Patient\Dto\PatientPersonalDataDTO;
+use App\Form\Patient\Dto\RegisterPatientDTO;
 use App\Service\PatientService;
 use App\Tests\Support\Builder\PatientBuilder;
 use App\Tests\Support\TestCase\DatabaseTestCase;
@@ -34,6 +36,26 @@ class PatientServiceTest extends DatabaseTestCase
         $this->patientService->RegisterPatient($patient);
 
         self::assertEquals(1, $this->countItem(Patient::class));
+    }
+
+    /** @test */
+    public function can_register_a_patient_from_dto(): void
+    {
+        $newPatient = $this->createPatient();
+        $registerPatientDTO = new RegisterPatientDTO();
+        $patientPersonalDataDTO = PatientPersonalDataDTO::fromPatient($newPatient);
+        $registerPatientDTO->patientPersonalData = $patientPersonalDataDTO;
+
+        $this->patientService->RegisterPatientWithData($newPatient->getId(), $registerPatientDTO);
+
+        /** @var Patient $patientFromDatabase */
+        $patientFromDatabase = $this->find(Patient::class, $newPatient->getId());
+        self::assertEquals(1, $this->countItem(Patient::class));
+        self::assertEquals($newPatient->getFirstName(), $patientFromDatabase->getFirstName());
+        self::assertEquals($newPatient->getMiddleName(), $patientFromDatabase->getMiddleName());
+        self::assertEquals($newPatient->getLastName(), $patientFromDatabase->getLastName());
+        self::assertEquals($newPatient->getGender(), $patientFromDatabase->getGender());
+        self::assertEquals($newPatient->getDateOfBirth(), $patientFromDatabase->getDateOfBirth());
     }
 
     /** @test */

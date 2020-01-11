@@ -5,25 +5,22 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\Patient;
+use App\Entity\PatientId;
 use App\Entity\PatientRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\Patient\Dto\RegisterPatientDTO;
 use Psr\Log\LoggerInterface;
 
 class PatientService
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
-
     /** @var LoggerInterface */
     private $logger;
 
     /** @var PatientRepository */
     private $patientRepository;
 
-    public function __construct(PatientRepository $patientRepository, EntityManagerInterface $entityManager, LoggerInterface $logger)
+    public function __construct(PatientRepository $patientRepository, LoggerInterface $logger)
     {
         $this->patientRepository = $patientRepository;
-        $this->entityManager = $entityManager;
         $this->logger = $logger;
     }
 
@@ -32,10 +29,28 @@ class PatientService
         $this->patientRepository->save($patient);
     }
 
+    public function RegisterPatientWithData(PatientId $patientId, RegisterPatientDTO $registerPatientDTO): void
+    {
+        $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData;
+        $patient = new Patient();
+        $patient->setId($patientId);
+        $patient->setFirstname($patientPersonalDataDTO->firstName);
+        null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
+        $patient->setLastName($patientPersonalDataDTO->lastName);
+        $patient->setGender($patientPersonalDataDTO->gender);
+        $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
+
+        $this->save($patient);
+    }
+
+    public function generateNewIdentity(): PatientId
+    {
+        return $this->patientRepository->nextIdentity();
+    }
+
     private function save(Patient $patient): void
     {
-        $this->entityManager->persist($patient);
-        $this->entityManager->flush();
+        $this->patientRepository->save($patient);
     }
 
     public function update(Patient $patient): void

@@ -35,24 +35,13 @@ class PatientController extends AbstractController
      */
     public function new(Request $request, PatientService $patientSevice): Response
     {
-        // create an empty instance of an RegisterPatientDTO
         $registerPatientDTO = new RegisterPatientDTO();
         $form = $this->createForm(RegisterPatientType::class, $registerPatientDTO);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // get personal data dto from form
-            $patientPersonalDataDTO = $registerPatientDTO->patientPersonalData;
-
-            // form is valid, transform from dto to entity
-            $patient = new Patient();
-            $patient->setFirstname($patientPersonalDataDTO->firstName);
-            null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
-            $patient->setLastName($patientPersonalDataDTO->lastName);
-            $patient->setGender($patientPersonalDataDTO->gender);
-            $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
-
-            $patientSevice->RegisterPatient($patient);
+            $newIdentity = $patientSevice->generateNewIdentity();
+            $patientSevice->RegisterPatientWithData($newIdentity, $registerPatientDTO);
 
             return $this->redirectToRoute('admin_patient_index');
         }
