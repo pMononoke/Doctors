@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="it">
+  <file id="messages.it">
+    <unit id="WrACbQw" name="menu.catalog">
+      <segment>
+        <source>menu.catalog</source>
+        <target>Catalogo</target>
+      </segment>
+    </unit>
+    <unit id="LRhYNBg" name="menu.add_new">
+      <segment>
+        <source>menu.add_new</source>
+        <target>Aggiungi</target>
+      </segment>
+    </unit>
+    <unit id="hWmLfWx" name="menu.add_new.user">
+      <segment>
+        <source>menu.add_new.user</source>
+        <target>utente</target>
+      </segment>
+    </unit>
+    <unit id="Wz5BlN6" name="menu.add_new.patient">
+      <segment>
+        <source>menu.add_new.patient</source>
+        <target>paziente</target>
+      </segment>
+    </unit>
+    <unit id="HKoxlI." name="menu.application_name">
+      <segment>
+        <source>menu.application_name</source>
+        <target>Doctors (temp. name)</target>
+      </segment>
+    </unit>
+    <unit id="vLWpzeo" name="menu.dashboard">
+      <segment>
+        <source>menu.dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="i5Xfn4O" name="menu.catalog.users">
+      <segment>
+        <source>menu.catalog.users</source>
+        <target>Utenti</target>
+      </segment>
+    </unit>
+    <unit id="ad2j0yj" name="menu.catalog.patients">
+      <segment>
+        <source>menu.catalog.patients</source>
+        <target>Pazienti</target>
+      </segment>
+    </unit>
+    <unit id="Ui6l9jx" name="menu.account">
+      <segment>
+        <source>menu.account</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="jTreAYW" name="menu.account.user_profile">
+      <segment>
+        <source>menu.account.user_profile</source>
+        <target>Profilo</target>
+      </segment>
+    </unit>
+    <unit id="QdimO5U" name="menu.account.logout">
+      <segment>
+        <source>menu.account.logout</source>
+        <target>Logout</target>
+      </segment>
+    </unit>
+    <unit id="9PCVAdj" name="user.id">
+      <segment>
+        <source>user.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="YfUYcGV" name="user.email">
+      <segment>
+        <source>user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="AGWtOG4" name="user.roles">
+      <segment>
+        <source>user.roles</source>
+        <target>Ruoli</target>
+      </segment>
+    </unit>
+    <unit id="Hfoseqh" name="user.firstname">
+      <segment>
+        <source>user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="JPNb_dA" name="user.lastname">
+      <segment>
+        <source>user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="Othoi_9" name="user.action.change-password">
+      <segment>
+        <source>user.action.change-password</source>
+        <target>Cambia password</target>
+      </segment>
+    </unit>
+    <unit id="9pvowqn" name="label.password">
+      <segment>
+        <source>label.password</source>
+        <target>Password</target>
+      </segment>
+    </unit>
+    <unit id="s4twL3g" name="label.repeat-password">
+      <segment>
+        <source>label.repeat-password</source>
+        <target>Ripeti password</target>
+      </segment>
+    </unit>
+    <unit id="YKjOueU" name="common.actions">
+      <segment>
+        <source>common.actions</source>
+        <target>Azioni</target>
+      </segment>
+    </unit>
+    <unit id="r9QV4Ef" name="common.actions.show">
+      <segment>
+        <source>common.actions.show</source>
+        <target>Visualizza</target>
+      </segment>
+    </unit>
+    <unit id="pM26GDe" name="common.actions.edit">
+      <segment>
+        <source>common.actions.edit</source>
+        <target>Modifica</target>
+      </segment>
+    </unit>
+    <unit id="32zP36x" name="common.no_record_found">
+      <segment>
+        <source>common.no_record_found</source>
+        <target>Nessun risultato trovato.</target>
+      </segment>
+    </unit>
+    <unit id="07HE5eJ" name="common.actions.create_new">
+      <segment>
+        <source>common.actions.create_new</source>
+        <target>Crea nuovo</target>
+      </segment>
+    </unit>
+    <unit id="7TmszIs" name="common.actions.back_to_list">
+      <segment>
+        <source>common.actions.back_to_list</source>
+        <target>Torna alla lista</target>
+      </segment>
+    </unit>
+    <unit id="sk7DMib" name="common.actions.delete">
+      <segment>
+        <source>common.actions.delete</source>
+        <target>Elimina</target>
+      </segment>
+    </unit>
+    <unit id="PpgEgiq" name="label.user.email">
+      <segment>
+        <source>label.user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="8VgEQDR" name="label.user.firstname">
+      <segment>
+        <source>label.user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="7B8Sfge" name="label.user.lastname">
+      <segment>
+        <source>label.user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="bhrOZmH" name="patient.id">
+      <segment>
+        <source>patient.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="Yk.nBEd" name="patient.firstname">
+      <segment>
+        <source>patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="brijivJ" name="patient.middlename">
+      <segment>
+        <source>patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="6lpAmEz" name="patient.lastname">
+      <segment>
+        <source>patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="GBfQA7V" name="patient.gender">
+      <segment>
+        <source>patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="7KVtOJM" name="patient.date-of-birth">
+      <segment>
+        <source>patient.date-of-birth</source>
+        <target>Data Nascita</target>
+      </segment>
+    </unit>
+    <unit id="0HbnRBX" name="common.created">
+      <segment>
+        <source>common.created</source>
+        <target>Creato</target>
+      </segment>
+    </unit>
+    <unit id="xsi.xAt" name="common.updated">
+      <segment>
+        <source>common.updated</source>
+        <target>Aggiornato</target>
+      </segment>
+    </unit>
+    <unit id="qos8nJp" name="label.patient.firstname">
+      <segment>
+        <source>label.patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="ovsEL88" name="label.patient.middlename">
+      <segment>
+        <source>label.patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="yVwiOyO" name="label.patient.lastname">
+      <segment>
+        <source>label.patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="8AEEFcS" name="label.patient.gender">
+      <segment>
+        <source>label.patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="7lVk2g5" name="label.patient.gender.unassigned">
+      <segment>
+        <source>label.patient.gender.unassigned</source>
+        <target>Non assegnato</target>
+      </segment>
+    </unit>
+    <unit id="FDcT.5B" name="label.patient.gender.male">
+      <segment>
+        <source>label.patient.gender.male</source>
+        <target>maschio</target>
+      </segment>
+    </unit>
+    <unit id="ulLLPz4" name="label.patient.gender.female">
+      <segment>
+        <source>label.patient.gender.female</source>
+        <target>femmina</target>
+      </segment>
+    </unit>
+    <unit id="Vh0uyD_" name="label.patient.date_of_birth">
+      <segment>
+        <source>label.patient.date_of_birth</source>
+        <target>Data di nascita</target>
+      </segment>
+    </unit>
+    <unit id="MzLLBWW" name="common.actions.save">
+      <segment>
+        <source>common.actions.save</source>
+        <target>Salva</target>
+      </segment>
+    </unit>
+    <unit id="LoR5_19" name="user.index_title">
+      <segment>
+        <source>user.index_title</source>
+        <target>Utenti</target>
+      </segment>
+    </unit>
+    <unit id="MTm5T.E" name="user.index_header">
+      <segment>
+        <source>user.index_header</source>
+        <target>Lista utenti</target>
+      </segment>
+    </unit>
+    <unit id="f_Ezw.0" name="user.show_title">
+      <segment>
+        <source>user.show_title</source>
+        <target>Visualizza utente</target>
+      </segment>
+    </unit>
+    <unit id="IV04FUP" name="user.show_header">
+      <segment>
+        <source>user.show_header</source>
+        <target>Dettaglio utente</target>
+      </segment>
+    </unit>
+    <unit id="Vzuy0U3" name="user.edit_title">
+      <segment>
+        <source>user.edit_title</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="nUxlrXY" name="user.edit_header">
+      <segment>
+        <source>user.edit_header</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="J7K1y7z" name="patient.index_title">
+      <segment>
+        <source>patient.index_title</source>
+        <target>Pazienti</target>
+      </segment>
+    </unit>
+    <unit id="kwni9mG" name="patient.index_header">
+      <segment>
+        <source>patient.index_header</source>
+        <target>Lista pazienti</target>
+      </segment>
+    </unit>
+    <unit id="cYQ7iNA" name="patient.new_title">
+      <segment>
+        <source>patient.new_title</source>
+        <target>Nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="cVfKh2d" name="patient.new_header">
+      <segment>
+        <source>patient.new_header</source>
+        <target>Crea nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="YCT2JDE" name="patient.edit_title">
+      <segment>
+        <source>patient.edit_title</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="hsJBPTS" name="patient.edit_header">
+      <segment>
+        <source>patient.edit_header</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="lvn_5Cn" name="account.index_title">
+      <segment>
+        <source>account.index_title</source>
+        <target>Profilo</target>
+      </segment>
+    </unit>
+    <unit id="_fK4Sou" name="account.index_header">
+      <segment>
+        <source>account.index_header</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="emOv0ZH" name="patient.show_title">
+      <segment>
+        <source>patient.show_title</source>
+        <target>Paziente</target>
+      </segment>
+    </unit>
+    <unit id="WNhBnJz" name="patient.show_header">
+      <segment>
+        <source>patient.show_header</source>
+        <target>Visualizza paziente</target>
+      </segment>
+    </unit>
+    <unit id="ZzrLz_I" name="application.name">
+      <segment>
+        <source>application.name</source>
+        <target>__application.name</target>
+      </segment>
+    </unit>
+    <unit id="pDfvE3a" name="user.new_title">
+      <segment>
+        <source>user.new_title</source>
+        <target>Nuovo utente</target>
+      </segment>
+    </unit>
+    <unit id="IlWwKpl" name="user.new_header">
+      <segment>
+        <source>user.new_header</source>
+        <target>Crea nuovo utente</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

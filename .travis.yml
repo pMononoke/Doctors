@@ -1,0 +1,201 @@
+sudo: required
+
+
+dist: trusty
+
+
+env:
+  global:
+    - RUN_SONAR_SCANNER=0
+    - PHPUNIT_COVERAGE_FLAGS=--coverage-clover=coverage-report.clover --log-junit=test-report.xml
+
+
+language: php
+
+
+#matrix:
+#    fast_finish: true
+#    include:
+#        - php: 7.2
+#          env: RUN_SONAR_SCANNER=1
+#        - php: 7.3
+#        - php: 7.4snapshot
+
+
+services:
+    - docker
+
+
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: "pmononoke"
+    token:
+      secure: "7a509e4bf334ca44fd697d725c627ba40fea6a77"
+
+
+cache:
+  yarn: true
+  directories:
+  - $HOME/.composer/cache
+
+
+.steps:
+  #
+  #   CI STEP
+  #
+  - &add-composer-bin-dir-to-path |
+      export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+  - &disable-xdebug-php-extension |
+      phpenv config-rm xdebug.ini || echo "xdebug not available"
+
+  - &disable-php-memory-limit |
+      echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+  - &install-project-dependencies |
+      composer install --no-progress --no-suggest --ansi
+
+  - &update-project-dependencies |
+      composer update --no-progress --no-suggest --ansi
+
+  - &app-clear-test-cache |
+      bin/console cache:clear -e test
+
+  - &app-database-schema-update |
+      bin/console doctrine:schema:update --force --no-interaction -e test
+
+  - &run-phpunit-tests |
+      bin/phpunit --colors=always --coverage-clover=coverage-report.clover --log-junit=test-report.xml
+
+  - &run-phpstan-tests |
+      vendor/bin/phpstan analyse
+
+  - &run-code-style-check |
+      ./vendor/bin/php-cs-fixer fix --dry-run -v
+
+  - &run-security-check |
+      ./bin/console security:check
+
+#before_install:
+#  - cp ci/.env.test.travis .env.test
+#  - php -v
+#  - php -m
+#
+#
+#install:
+#  - yarn
+#  - yarn run build
+#  - docker-compose -f tests/docker/docker-compose.yml up -d
+#  - composer install
+#  - ./bin/phpunit install
+#
+#
+#before_script:
+#
+#  - *app-clear-test-cache
+#
+#  - *app-database-schema-update
+#
+#
+#script:
+#  - *run-phpstan-tests
+#  - *run-phpunit-tests
+#
+#
+#after_success:
+#  - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi
+
+
+before_install:
+  - cp ci/.env.test.travis .env.test
+install:
+#  - yarn
+#  - yarn run build
+  - docker-compose -f tests/docker/docker-compose.yml up -d
+
+
+jobs:
+  include:
+    - name: '(PHP 7.2)'
+      php: '7.2'
+      env: RUN_SONAR_SCANNER=1
+      before_install:
+        - *disable-php-memory-limit
+      install:
+        - yarn
+        - yarn run build
+        - *install-project-dependencies
+        - ./bin/phpunit install
+
+      before_script:
+        - *clear-test-app-cache
+        - *app-database-schema-update
+      script:
+        - *run-security-check
+        - *run-code-style-check
+        - *run-phpstan-tests
+        - *run-phpunit-tests
+      after_success:
+        - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi
+
+
+    - name: '(PHP 7.3)'
+      php: '7.3'
+      before_install:
+        - *disable-xdebug-php-extension
+        - *disable-php-memory-limit
+      install:
+        - yarn
+        - yarn run build
+        - *install-project-dependencies
+        - ./bin/phpunit install
+      before_script:
+        - *clear-test-app-cache
+        - *app-database-schema-update
+      script:
+        - *run-code-style-check
+        - *run-phpstan-tests
+        - *run-phpunit-tests
+
+
+    - name: '(PHP 7.4)'
+      php: '7.4snapshot'
+      before_install:
+        - *disable-xdebug-php-extension
+        - *disable-php-memory-limit
+      install:
+        - yarn
+        - yarn run build
+        - *install-project-dependencies
+        - ./bin/phpunit install
+      before_script:
+        - *clear-test-app-cache
+        - *app-database-schema-update
+      script:
+        - *run-code-style-check
+        - *run-phpstan-tests
+        - *run-phpunit-tests
+
+
+    - name: '(PHP 8-nightly)'
+      php: 'nightly'
+      before_install:
+        - *disable-xdebug-php-extension
+        - *disable-php-memory-limit
+      install:
+        - yarn
+        - yarn run build
+        #- *install-project-dependencies
+        - composer update
+        - ./bin/phpunit install
+      before_script:
+        - *clear-test-app-cache
+        - *app-database-schema-update
+      script:
+        - *run-code-style-check
+        - *run-phpstan-tests
+        - *run-phpunit-tests
+
+  allow_failures:
+    - name: '(PHP 8-nightly)'

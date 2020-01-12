@@ -1,33 +1,35 @@
-/web/bundles/
-/app/bootstrap.php.cache
-/app/cache/*
-/app/config/parameters.yml
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
-/build/
-/vendor/
-/bin/
-/composer.phar
-
-.php~
-
 /.idea/
 /extra/
+docker-compose.dev.yml
+screen*.png
 
-# cache files for sublime text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 
-# workspace files are user-specific
-*.sublime-workspace
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
 
-# project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using SublimeText
-# *.sublime-project
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
 
-# sftp configuration file
-sftp-config.json
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
 
-
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###

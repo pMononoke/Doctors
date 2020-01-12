@@ -1,0 +1,53 @@
+{% extends 'admin/layout/admin-base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | {{ 'patient.show_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-lg">
+        <h1>{{ 'patient.show_header'|trans }}</h1>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'patient.id'|trans }}</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'patient.firstname'|trans }}</th>
+                <td>{{ patient.firstName }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'patient.middlename'|trans }}</th>
+                <td>{{ patient.middleName }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'patient.lastname'|trans }}</th>
+                <td>{{ patient.lastName }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'patient.gender'|trans }}</th>
+                <td>{{ patient.gender }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'patient.date-of-birth'|trans }}</th>
+                <td>{{ patient.dateOfBirth ? patient.dateOfBirth|date('Y-m-d') : ''  }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'common.created'|trans }}</th>
+                <td>{{ patient.createdAt ? patient.createdAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'common.updated'|trans }}</th>
+                <td>{{ patient.updatedAt ? patient.updatedAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <a href="{{ path('admin_patient_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
+
+        <a href="{{ path('admin_patient_edit', {'id': patient.id}) }}">{{ 'common.actions.edit'|trans }}</a>
+
+        {{ include('admin/patient/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

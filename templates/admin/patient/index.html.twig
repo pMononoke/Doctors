@@ -1,0 +1,53 @@
+{% extends 'admin/layout/admin-base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | {{ 'patient.index_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-lg">
+        <h1>{{ 'patient.index_header'|trans }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'patient.id'|trans }}</th>
+
+                    <th>{{ 'patient.firstname'|trans }}</th>
+                    <th>{{ 'patient.middlename'|trans }}</th>
+                    <th>{{ 'patient.lastname'|trans }}</th>
+                    <th>{{ 'patient.gender'|trans }}</th>
+                    <th>{{ 'patient.date-of-birth'|trans }}</th>
+                    {#<th>Resident</th>#}
+                    <th>{{ 'common.created'|trans }}</th>
+                    <th>{{ 'common.updated'|trans }}</th>
+                    <th>{{ 'common.actions'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td>{{ patient.firstname }}</td>
+                    <td>{{ patient.middlename }}</td>
+                    <td>{{ patient.lastname }}</td>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.dateOfBirth ? patient.dateOfBirth|date('Y-m-d') : '' }}</td>
+                    {#<td>{{ patient.resident ? 'Yes' : 'No' }}</td>#}
+                    <td>{{ patient.createdAt ? patient.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ patient.updatedAt ? patient.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('admin_patient_show', {'id': patient.id}) }}">{{ 'common.actions.show'|trans }}</a>
+                        <a href="{{ path('admin_patient_edit', {'id': patient.id}) }}">{{ 'common.actions.edit'|trans }}</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="27">{{ 'common.no_record_found'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('admin_patient_new') }}">{{ 'common.actions.create_new'|trans }}</a>
+    </div>
+{% endblock %}

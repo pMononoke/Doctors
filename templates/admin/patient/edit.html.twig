@@ -1,0 +1,15 @@
+{% extends 'admin/layout/admin-base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | {{ 'patient.edit_title'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-lg">
+        <h1>{{ 'patient.edit_header'|trans }}</h1>
+        {{ include('admin/patient/_form.html.twig', {'button_label': 'Update'}) }}
+        <a href="{{ path('admin_patient_index') }}">back to list</a>
+        {{ include('admin/patient/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
