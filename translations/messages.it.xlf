@@ -1,394 +1,713 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="it">
   <file id="messages.it">
-    <unit id="WrACbQw" name="menu.catalog">
-      <segment>
-        <source>menu.catalog</source>
-        <target>Catalogo</target>
-      </segment>
-    </unit>
-    <unit id="LRhYNBg" name="menu.add_new">
-      <segment>
-        <source>menu.add_new</source>
-        <target>Aggiungi</target>
-      </segment>
-    </unit>
-    <unit id="hWmLfWx" name="menu.add_new.user">
-      <segment>
-        <source>menu.add_new.user</source>
-        <target>utente</target>
-      </segment>
-    </unit>
-    <unit id="Wz5BlN6" name="menu.add_new.patient">
-      <segment>
-        <source>menu.add_new.patient</source>
-        <target>paziente</target>
-      </segment>
-    </unit>
-    <unit id="HKoxlI." name="menu.application_name">
-      <segment>
-        <source>menu.application_name</source>
-        <target>Doctors (temp. name)</target>
-      </segment>
-    </unit>
-    <unit id="vLWpzeo" name="menu.dashboard">
-      <segment>
-        <source>menu.dashboard</source>
-        <target>Dashboard</target>
-      </segment>
-    </unit>
-    <unit id="i5Xfn4O" name="menu.catalog.users">
-      <segment>
-        <source>menu.catalog.users</source>
-        <target>Utenti</target>
-      </segment>
-    </unit>
-    <unit id="ad2j0yj" name="menu.catalog.patients">
-      <segment>
-        <source>menu.catalog.patients</source>
-        <target>Pazienti</target>
-      </segment>
-    </unit>
-    <unit id="Ui6l9jx" name="menu.account">
-      <segment>
-        <source>menu.account</source>
-        <target>Account</target>
-      </segment>
-    </unit>
-    <unit id="jTreAYW" name="menu.account.user_profile">
-      <segment>
-        <source>menu.account.user_profile</source>
-        <target>Profilo</target>
-      </segment>
-    </unit>
-    <unit id="QdimO5U" name="menu.account.logout">
-      <segment>
-        <source>menu.account.logout</source>
-        <target>Logout</target>
-      </segment>
-    </unit>
-    <unit id="9PCVAdj" name="user.id">
-      <segment>
-        <source>user.id</source>
-        <target>Id</target>
-      </segment>
-    </unit>
-    <unit id="YfUYcGV" name="user.email">
-      <segment>
-        <source>user.email</source>
-        <target>Email</target>
-      </segment>
-    </unit>
-    <unit id="AGWtOG4" name="user.roles">
-      <segment>
-        <source>user.roles</source>
-        <target>Ruoli</target>
-      </segment>
-    </unit>
-    <unit id="Hfoseqh" name="user.firstname">
-      <segment>
-        <source>user.firstname</source>
-        <target>Nome</target>
-      </segment>
-    </unit>
-    <unit id="JPNb_dA" name="user.lastname">
-      <segment>
-        <source>user.lastname</source>
-        <target>Cognome</target>
-      </segment>
-    </unit>
-    <unit id="Othoi_9" name="user.action.change-password">
-      <segment>
-        <source>user.action.change-password</source>
-        <target>Cambia password</target>
-      </segment>
-    </unit>
-    <unit id="9pvowqn" name="label.password">
-      <segment>
-        <source>label.password</source>
-        <target>Password</target>
-      </segment>
-    </unit>
-    <unit id="s4twL3g" name="label.repeat-password">
-      <segment>
-        <source>label.repeat-password</source>
-        <target>Ripeti password</target>
-      </segment>
-    </unit>
-    <unit id="YKjOueU" name="common.actions">
-      <segment>
-        <source>common.actions</source>
-        <target>Azioni</target>
-      </segment>
-    </unit>
-    <unit id="r9QV4Ef" name="common.actions.show">
-      <segment>
-        <source>common.actions.show</source>
-        <target>Visualizza</target>
-      </segment>
-    </unit>
-    <unit id="pM26GDe" name="common.actions.edit">
-      <segment>
-        <source>common.actions.edit</source>
-        <target>Modifica</target>
-      </segment>
-    </unit>
-    <unit id="32zP36x" name="common.no_record_found">
-      <segment>
-        <source>common.no_record_found</source>
-        <target>Nessun risultato trovato.</target>
-      </segment>
-    </unit>
-    <unit id="07HE5eJ" name="common.actions.create_new">
-      <segment>
-        <source>common.actions.create_new</source>
-        <target>Crea nuovo</target>
-      </segment>
-    </unit>
-    <unit id="7TmszIs" name="common.actions.back_to_list">
-      <segment>
-        <source>common.actions.back_to_list</source>
-        <target>Torna alla lista</target>
-      </segment>
-    </unit>
-    <unit id="sk7DMib" name="common.actions.delete">
-      <segment>
-        <source>common.actions.delete</source>
-        <target>Elimina</target>
-      </segment>
-    </unit>
-    <unit id="PpgEgiq" name="label.user.email">
-      <segment>
-        <source>label.user.email</source>
-        <target>Email</target>
-      </segment>
-    </unit>
-    <unit id="8VgEQDR" name="label.user.firstname">
-      <segment>
-        <source>label.user.firstname</source>
-        <target>Nome</target>
-      </segment>
-    </unit>
-    <unit id="7B8Sfge" name="label.user.lastname">
-      <segment>
-        <source>label.user.lastname</source>
-        <target>Cognome</target>
-      </segment>
-    </unit>
-    <unit id="bhrOZmH" name="patient.id">
-      <segment>
-        <source>patient.id</source>
-        <target>Id</target>
-      </segment>
-    </unit>
-    <unit id="Yk.nBEd" name="patient.firstname">
-      <segment>
-        <source>patient.firstname</source>
-        <target>Nome</target>
-      </segment>
-    </unit>
-    <unit id="brijivJ" name="patient.middlename">
-      <segment>
-        <source>patient.middlename</source>
-        <target>Secondo nome</target>
-      </segment>
-    </unit>
-    <unit id="6lpAmEz" name="patient.lastname">
-      <segment>
-        <source>patient.lastname</source>
-        <target>Cognome</target>
-      </segment>
-    </unit>
-    <unit id="GBfQA7V" name="patient.gender">
-      <segment>
-        <source>patient.gender</source>
-        <target>Sesso</target>
-      </segment>
-    </unit>
-    <unit id="7KVtOJM" name="patient.date-of-birth">
-      <segment>
-        <source>patient.date-of-birth</source>
-        <target>Data Nascita</target>
-      </segment>
-    </unit>
-    <unit id="0HbnRBX" name="common.created">
-      <segment>
-        <source>common.created</source>
-        <target>Creato</target>
-      </segment>
-    </unit>
-    <unit id="xsi.xAt" name="common.updated">
-      <segment>
-        <source>common.updated</source>
-        <target>Aggiornato</target>
-      </segment>
-    </unit>
-    <unit id="qos8nJp" name="label.patient.firstname">
-      <segment>
-        <source>label.patient.firstname</source>
-        <target>Nome</target>
-      </segment>
-    </unit>
-    <unit id="ovsEL88" name="label.patient.middlename">
-      <segment>
-        <source>label.patient.middlename</source>
-        <target>Secondo nome</target>
-      </segment>
-    </unit>
-    <unit id="yVwiOyO" name="label.patient.lastname">
-      <segment>
-        <source>label.patient.lastname</source>
-        <target>Cognome</target>
-      </segment>
-    </unit>
-    <unit id="8AEEFcS" name="label.patient.gender">
-      <segment>
-        <source>label.patient.gender</source>
-        <target>Sesso</target>
-      </segment>
-    </unit>
-    <unit id="7lVk2g5" name="label.patient.gender.unassigned">
-      <segment>
-        <source>label.patient.gender.unassigned</source>
-        <target>Non assegnato</target>
-      </segment>
-    </unit>
-    <unit id="FDcT.5B" name="label.patient.gender.male">
-      <segment>
-        <source>label.patient.gender.male</source>
-        <target>maschio</target>
-      </segment>
-    </unit>
-    <unit id="ulLLPz4" name="label.patient.gender.female">
-      <segment>
-        <source>label.patient.gender.female</source>
-        <target>femmina</target>
-      </segment>
-    </unit>
-    <unit id="Vh0uyD_" name="label.patient.date_of_birth">
-      <segment>
-        <source>label.patient.date_of_birth</source>
-        <target>Data di nascita</target>
-      </segment>
-    </unit>
-    <unit id="MzLLBWW" name="common.actions.save">
-      <segment>
-        <source>common.actions.save</source>
-        <target>Salva</target>
-      </segment>
-    </unit>
-    <unit id="LoR5_19" name="user.index_title">
-      <segment>
-        <source>user.index_title</source>
-        <target>Utenti</target>
-      </segment>
-    </unit>
-    <unit id="MTm5T.E" name="user.index_header">
-      <segment>
-        <source>user.index_header</source>
-        <target>Lista utenti</target>
-      </segment>
-    </unit>
-    <unit id="f_Ezw.0" name="user.show_title">
-      <segment>
-        <source>user.show_title</source>
-        <target>Visualizza utente</target>
-      </segment>
-    </unit>
-    <unit id="IV04FUP" name="user.show_header">
-      <segment>
-        <source>user.show_header</source>
-        <target>Dettaglio utente</target>
-      </segment>
-    </unit>
-    <unit id="Vzuy0U3" name="user.edit_title">
-      <segment>
-        <source>user.edit_title</source>
-        <target>Modifica utente</target>
-      </segment>
-    </unit>
-    <unit id="nUxlrXY" name="user.edit_header">
-      <segment>
-        <source>user.edit_header</source>
-        <target>Modifica utente</target>
-      </segment>
-    </unit>
-    <unit id="J7K1y7z" name="patient.index_title">
-      <segment>
-        <source>patient.index_title</source>
-        <target>Pazienti</target>
-      </segment>
-    </unit>
-    <unit id="kwni9mG" name="patient.index_header">
-      <segment>
-        <source>patient.index_header</source>
-        <target>Lista pazienti</target>
-      </segment>
-    </unit>
-    <unit id="cYQ7iNA" name="patient.new_title">
-      <segment>
-        <source>patient.new_title</source>
-        <target>Nuovo paziente</target>
-      </segment>
-    </unit>
-    <unit id="cVfKh2d" name="patient.new_header">
-      <segment>
-        <source>patient.new_header</source>
-        <target>Crea nuovo paziente</target>
-      </segment>
-    </unit>
-    <unit id="YCT2JDE" name="patient.edit_title">
-      <segment>
-        <source>patient.edit_title</source>
-        <target>Modifica paziente</target>
-      </segment>
-    </unit>
-    <unit id="hsJBPTS" name="patient.edit_header">
-      <segment>
-        <source>patient.edit_header</source>
-        <target>Modifica paziente</target>
-      </segment>
-    </unit>
     <unit id="lvn_5Cn" name="account.index_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:4</note>
+      </notes>
       <segment>
         <source>account.index_title</source>
         <target>Profilo</target>
       </segment>
     </unit>
     <unit id="_fK4Sou" name="account.index_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:10</note>
+      </notes>
       <segment>
         <source>account.index_header</source>
         <target>Account</target>
       </segment>
     </unit>
+    <unit id="9PCVAdj" name="user.id">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:14</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:15</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:17</note>
+      </notes>
+      <segment>
+        <source>user.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="YfUYcGV" name="user.email">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:18</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:16</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:21</note>
+      </notes>
+      <segment>
+        <source>user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="AGWtOG4" name="user.roles">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:22</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:17</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:25</note>
+      </notes>
+      <segment>
+        <source>user.roles</source>
+        <target>Ruoli</target>
+      </segment>
+    </unit>
+    <unit id="Hfoseqh" name="user.firstname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:26</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:29</note>
+      </notes>
+      <segment>
+        <source>user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="JPNb_dA" name="user.lastname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:30</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:33</note>
+      </notes>
+      <segment>
+        <source>user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="Othoi_9" name="user.action.change-password">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/index.html.twig:36</note>
+        <note category="file-source" priority="1">Doctors/templates/account_me/_form-modal.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/account_me/_form-modal.html.twig:11</note>
+      </notes>
+      <segment>
+        <source>user.action.change-password</source>
+        <target>Cambia password</target>
+      </segment>
+    </unit>
+    <unit id="MzLLBWW" name="common.actions.save">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/account_me/_form-modal.html.twig:23</note>
+        <note category="file-source" priority="1">Doctors/templates/account_me/_form-modal.html.twig:23</note>
+        <note category="file-source" priority="1">Doctors/templates/account_me/_form-modal.html.twig:23</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/_form.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/_form.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/_form.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_form.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_form.html.twig:3</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_form.html.twig:3</note>
+      </notes>
+      <segment>
+        <source>common.actions.save</source>
+        <target>Salva</target>
+      </segment>
+    </unit>
+    <unit id="J7K1y7z" name="patient.index_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>patient.index_title</source>
+        <target>Pazienti</target>
+      </segment>
+    </unit>
+    <unit id="kwni9mG" name="patient.index_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:9</note>
+      </notes>
+      <segment>
+        <source>patient.index_header</source>
+        <target>Lista pazienti</target>
+      </segment>
+    </unit>
+    <unit id="bhrOZmH" name="patient.id">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:13</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:13</note>
+      </notes>
+      <segment>
+        <source>patient.id</source>
+        <target>Id</target>
+      </segment>
+    </unit>
+    <unit id="Yk.nBEd" name="patient.firstname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:15</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:17</note>
+      </notes>
+      <segment>
+        <source>patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="brijivJ" name="patient.middlename">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:16</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:21</note>
+      </notes>
+      <segment>
+        <source>patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="6lpAmEz" name="patient.lastname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:17</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:25</note>
+      </notes>
+      <segment>
+        <source>patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="GBfQA7V" name="patient.gender">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:18</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:29</note>
+      </notes>
+      <segment>
+        <source>patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="7KVtOJM" name="patient.date-of-birth">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:19</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:33</note>
+      </notes>
+      <segment>
+        <source>patient.date-of-birth</source>
+        <target>Data Nascita</target>
+      </segment>
+    </unit>
+    <unit id="0HbnRBX" name="common.created">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:21</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:37</note>
+      </notes>
+      <segment>
+        <source>common.created</source>
+        <target>Creato</target>
+      </segment>
+    </unit>
+    <unit id="xsi.xAt" name="common.updated">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:22</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:41</note>
+      </notes>
+      <segment>
+        <source>common.updated</source>
+        <target>Aggiornato</target>
+      </segment>
+    </unit>
+    <unit id="YKjOueU" name="common.actions">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:23</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:19</note>
+      </notes>
+      <segment>
+        <source>common.actions</source>
+        <target>Azioni</target>
+      </segment>
+    </unit>
+    <unit id="r9QV4Ef" name="common.actions.show">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:39</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:29</note>
+      </notes>
+      <segment>
+        <source>common.actions.show</source>
+        <target>Visualizza</target>
+      </segment>
+    </unit>
+    <unit id="pM26GDe" name="common.actions.edit">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:40</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:49</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:30</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:41</note>
+      </notes>
+      <segment>
+        <source>common.actions.edit</source>
+        <target>Modifica</target>
+      </segment>
+    </unit>
+    <unit id="32zP36x" name="common.no_record_found">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:45</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:36</note>
+      </notes>
+      <segment>
+        <source>common.no_record_found</source>
+        <target>Nessun risultato trovato.</target>
+      </segment>
+    </unit>
+    <unit id="07HE5eJ" name="common.actions.create_new">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/index.html.twig:51</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:42</note>
+      </notes>
+      <segment>
+        <source>common.actions.create_new</source>
+        <target>Crea nuovo</target>
+      </segment>
+    </unit>
     <unit id="emOv0ZH" name="patient.show_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:4</note>
+      </notes>
       <segment>
         <source>patient.show_title</source>
         <target>Paziente</target>
       </segment>
     </unit>
     <unit id="WNhBnJz" name="patient.show_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:9</note>
+      </notes>
       <segment>
         <source>patient.show_header</source>
         <target>Visualizza paziente</target>
       </segment>
     </unit>
+    <unit id="7TmszIs" name="common.actions.back_to_list">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/show.html.twig:47</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/edit.html.twig:12</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/new.html.twig:12</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:39</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/edit.html.twig:12</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/new.html.twig:12</note>
+      </notes>
+      <segment>
+        <source>common.actions.back_to_list</source>
+        <target>Torna alla lista</target>
+      </segment>
+    </unit>
+    <unit id="YCT2JDE" name="patient.edit_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/edit.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>patient.edit_title</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="hsJBPTS" name="patient.edit_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/edit.html.twig:10</note>
+      </notes>
+      <segment>
+        <source>patient.edit_header</source>
+        <target>Modifica paziente</target>
+      </segment>
+    </unit>
+    <unit id="cYQ7iNA" name="patient.new_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/new.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>patient.new_title</source>
+        <target>Nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="cVfKh2d" name="patient.new_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/new.html.twig:9</note>
+      </notes>
+      <segment>
+        <source>patient.new_header</source>
+        <target>Crea nuovo paziente</target>
+      </segment>
+    </unit>
+    <unit id="sk7DMib" name="common.actions.delete">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/patient/_delete_form.html.twig:4</note>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_delete_form.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>common.actions.delete</source>
+        <target>Elimina</target>
+      </segment>
+    </unit>
+    <unit id="HKoxlI." name="menu.application_name">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:3</note>
+      </notes>
+      <segment>
+        <source>menu.application_name</source>
+        <target>Doctors (temp. name)</target>
+      </segment>
+    </unit>
+    <unit id="vLWpzeo" name="menu.dashboard">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:12</note>
+      </notes>
+      <segment>
+        <source>menu.dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="WrACbQw" name="menu.catalog">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:18</note>
+      </notes>
+      <segment>
+        <source>menu.catalog</source>
+        <target>Catalogo</target>
+      </segment>
+    </unit>
+    <unit id="i5Xfn4O" name="menu.catalog.users">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:21</note>
+      </notes>
+      <segment>
+        <source>menu.catalog.users</source>
+        <target>Utenti</target>
+      </segment>
+    </unit>
+    <unit id="ad2j0yj" name="menu.catalog.patients">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:22</note>
+      </notes>
+      <segment>
+        <source>menu.catalog.patients</source>
+        <target>Pazienti</target>
+      </segment>
+    </unit>
+    <unit id="LRhYNBg" name="menu.add_new">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:41</note>
+      </notes>
+      <segment>
+        <source>menu.add_new</source>
+        <target>Aggiungi</target>
+      </segment>
+    </unit>
+    <unit id="hWmLfWx" name="menu.add_new.user">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:45</note>
+      </notes>
+      <segment>
+        <source>menu.add_new.user</source>
+        <target>utente</target>
+      </segment>
+    </unit>
+    <unit id="Wz5BlN6" name="menu.add_new.patient">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:46</note>
+      </notes>
+      <segment>
+        <source>menu.add_new.patient</source>
+        <target>paziente</target>
+      </segment>
+    </unit>
+    <unit id="Ui6l9jx" name="menu.account">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:57</note>
+      </notes>
+      <segment>
+        <source>menu.account</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id="jTreAYW" name="menu.account.user_profile">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:61</note>
+      </notes>
+      <segment>
+        <source>menu.account.user_profile</source>
+        <target>Profilo</target>
+      </segment>
+    </unit>
+    <unit id="QdimO5U" name="menu.account.logout">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/partials/_navbar.html.twig:65</note>
+      </notes>
+      <segment>
+        <source>menu.account.logout</source>
+        <target>Logout</target>
+      </segment>
+    </unit>
     <unit id="ZzrLz_I" name="application.name">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/layout/admin-base.html.twig:6</note>
+      </notes>
       <segment>
         <source>application.name</source>
         <target>__application.name</target>
       </segment>
     </unit>
+    <unit id="ZP5wsEK" name="user.actions.enable_account">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_enable_account_form.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>user.actions.enable_account</source>
+        <target>Abilita account</target>
+      </segment>
+    </unit>
+    <unit id="LoR5_19" name="user.index_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>user.index_title</source>
+        <target>Utenti</target>
+      </segment>
+    </unit>
+    <unit id="MTm5T.E" name="user.index_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/index.html.twig:11</note>
+      </notes>
+      <segment>
+        <source>user.index_header</source>
+        <target>Lista utenti</target>
+      </segment>
+    </unit>
+    <unit id="f_Ezw.0" name="user.show_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>user.show_title</source>
+        <target>Visualizza utente</target>
+      </segment>
+    </unit>
+    <unit id="IV04FUP" name="user.show_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:9</note>
+      </notes>
+      <segment>
+        <source>user.show_header</source>
+        <target>Dettaglio utente</target>
+      </segment>
+    </unit>
+    <unit id="8HSWx6u" name="user.account_status">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:13</note>
+      </notes>
+      <segment>
+        <source>user.account_status</source>
+        <target>Account status</target>
+      </segment>
+    </unit>
+    <unit id="3SPa37_" name="user.account_status.enabled">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:14</note>
+      </notes>
+      <segment>
+        <source>user.account_status.enabled</source>
+        <target>Abilitato</target>
+      </segment>
+    </unit>
+    <unit id="ciW8kfK" name="user.account_status.disabled">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/show.html.twig:14</note>
+      </notes>
+      <segment>
+        <source>user.account_status.disabled</source>
+        <target>Disabilitato</target>
+      </segment>
+    </unit>
+    <unit id="Vzuy0U3" name="user.edit_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/edit.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>user.edit_title</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="nUxlrXY" name="user.edit_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/edit.html.twig:9</note>
+      </notes>
+      <segment>
+        <source>user.edit_header</source>
+        <target>Modifica utente</target>
+      </segment>
+    </unit>
+    <unit id="knT2Xq3" name="user.actions.disable_account">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/_disable_account_form.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>user.actions.disable_account</source>
+        <target>Disabilita account</target>
+      </segment>
+    </unit>
     <unit id="pDfvE3a" name="user.new_title">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/new.html.twig:4</note>
+      </notes>
       <segment>
         <source>user.new_title</source>
         <target>Nuovo utente</target>
       </segment>
     </unit>
     <unit id="IlWwKpl" name="user.new_header">
+      <notes>
+        <note category="file-source" priority="1">Doctors/templates/admin/user/new.html.twig:9</note>
+      </notes>
       <segment>
         <source>user.new_header</source>
         <target>Crea nuovo utente</target>
+      </segment>
+    </unit>
+    <unit id="7lVk2g5" name="label.patient.gender.unassigned">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:29</note>
+      </notes>
+      <segment>
+        <source>label.patient.gender.unassigned</source>
+        <target>Non assegnato</target>
+      </segment>
+    </unit>
+    <unit id="FDcT.5B" name="label.patient.gender.male">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:29</note>
+      </notes>
+      <segment>
+        <source>label.patient.gender.male</source>
+        <target>maschio</target>
+      </segment>
+    </unit>
+    <unit id="ulLLPz4" name="label.patient.gender.female">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:29</note>
+      </notes>
+      <segment>
+        <source>label.patient.gender.female</source>
+        <target>femmina</target>
+      </segment>
+    </unit>
+    <unit id="qos8nJp" name="label.patient.firstname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:18</note>
+      </notes>
+      <segment>
+        <source>label.patient.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="ovsEL88" name="label.patient.middlename">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:21</note>
+      </notes>
+      <segment>
+        <source>label.patient.middlename</source>
+        <target>Secondo nome</target>
+      </segment>
+    </unit>
+    <unit id="yVwiOyO" name="label.patient.lastname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:24</note>
+      </notes>
+      <segment>
+        <source>label.patient.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="8AEEFcS" name="label.patient.gender">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:27</note>
+      </notes>
+      <segment>
+        <source>label.patient.gender</source>
+        <target>Sesso</target>
+      </segment>
+    </unit>
+    <unit id="Vh0uyD_" name="label.patient.date_of_birth">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/Patient/PatientPersonalDataFormDTOType.php:36</note>
+      </notes>
+      <segment>
+        <source>label.patient.date_of_birth</source>
+        <target>Data di nascita</target>
+      </segment>
+    </unit>
+    <unit id="8wKFJ0f" name="label.user.account_status.enable">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:26</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>label.user.account_status.enable</source>
+        <target>Abilitato</target>
+      </segment>
+    </unit>
+    <unit id="rEp.hbl" name="label.user.account_status.disabled">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:26</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>label.user.account_status.disabled</source>
+        <target>Disabilitato</target>
+      </segment>
+    </unit>
+    <unit id="PpgEgiq" name="label.user.email">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:17</note>
+      </notes>
+      <segment>
+        <source>label.user.email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="zR.EbZe" name="label.user.account_status">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:22</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>label.user.account_status</source>
+        <target>Account Status</target>
+      </segment>
+    </unit>
+    <unit id="Pt0_TaL" name="placeholder.user.account_status.unassigned">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserType.php:30</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>placeholder.user.account_status.unassigned</source>
+        <target>Non assegnato</target>
+      </segment>
+    </unit>
+    <unit id="8VgEQDR" name="label.user.firstname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserProfileType.php:16</note>
+      </notes>
+      <segment>
+        <source>label.user.firstname</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="7B8Sfge" name="label.user.lastname">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/UserProfileType.php:19</note>
+      </notes>
+      <segment>
+        <source>label.user.lastname</source>
+        <target>Cognome</target>
+      </segment>
+    </unit>
+    <unit id="9pvowqn" name="label.password">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/ChangeUserPasswordType.php:23</note>
+      </notes>
+      <segment>
+        <source>label.password</source>
+        <target>Password</target>
+      </segment>
+    </unit>
+    <unit id="s4twL3g" name="label.repeat-password">
+      <notes>
+        <note category="file-source" priority="1">Doctors/src/Form/User/ChangeUserPasswordType.php:24</note>
+      </notes>
+      <segment>
+        <source>label.repeat-password</source>
+        <target>Ripeti password</target>
       </segment>
     </unit>
   </file>

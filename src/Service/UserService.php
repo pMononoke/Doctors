@@ -51,6 +51,7 @@ class UserService
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
         $user->setProfile($profile);
+        $user->setAccountStatus($registerUserDTO->user->accountStatus);
 
         $this->userRepository->save($user);
     }

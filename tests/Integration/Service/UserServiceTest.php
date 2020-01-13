@@ -34,6 +34,7 @@ class UserServiceTest extends DatabaseTestCase
     public function can_register_a_user_from_dto_data(): void
     {
         $user = $this->createRegisterUserDto();
+        //$user->setAccountStatus(true);
 
         $this->userService->registerUserByAdminWithDtoData($user);
 
@@ -132,6 +133,7 @@ class UserServiceTest extends DatabaseTestCase
         $userDTO->email = self::IRRELEVANT_STRING.'@example.com';
         $userDTO->password = self::IRRELEVANT_STRING;
         $userDTO->roles = ['ROLE_USER'];
+        $userDTO->accountStatus = true;
         $profileDTO = new UserProfileDTO();
         $profileDTO->firstName = self::IRRELEVANT_STRING;
         $profileDTO->lastName = self::IRRELEVANT_STRING;

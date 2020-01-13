@@ -74,6 +74,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setEmail($userDTO->email);
+            $user->setAccountStatus($userDTO->accountStatus);
             $userService->update($user);
 
             return $this->redirectToRoute('admin_user_index');
@@ -93,6 +94,32 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userService->delete($user);
+        }
+
+        return $this->redirectToRoute('admin_user_index');
+    }
+
+    /**
+     * @Route("/{id}/enable-account", name="admin_user_enable_account", methods={"POST"})
+     * @Entity("user", expr="repository.findByUuidString(id)")
+     */
+    public function enableAccount(Request $request, User $user, UserService $userService): Response
+    {
+        if ($this->isCsrfTokenValid('enableAccount'.$user->getId(), $request->request->get('_token'))) {
+            $userService->enableAccount($user->getId());
+        }
+
+        return $this->redirectToRoute('admin_user_index');
+    }
+
+    /**
+     * @Route("/{id}/disable-account", name="admin_user_disable_account", methods={"POST"})
+     * @Entity("user", expr="repository.findByUuidString(id)")
+     */
+    public function disableAccount(Request $request, User $user, UserService $userService): Response
+    {
+        if ($this->isCsrfTokenValid('disableAccount'.$user->getId(), $request->request->get('_token'))) {
+            $userService->disableAccount($user->getId());
         }
 
         return $this->redirectToRoute('admin_user_index');
