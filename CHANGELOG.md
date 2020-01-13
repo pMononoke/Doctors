@@ -5,7 +5,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - user role management feature
 - user enable/disable capability feature
 
-## [0.1.0] - 2019-10-31
+## [0.1.2] - 2020-01-13
+### (maintenance release)
+
+## [0.1.1] - 2020-01-13
+### (maintenance release) 
+
+## [0.1.0] - 2020-01-12
 ### Added 
 - Basic user management.
 - Basic patient management.
