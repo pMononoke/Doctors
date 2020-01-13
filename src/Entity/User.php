@@ -38,9 +38,16 @@ class User implements UserInterface
      */
     private $profile;
 
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean")
+     */
+    private $accountStatus;
+
     public function __construct()
     {
         $this->id = $this->id ?? UserId::generate();
+        $this->accountStatus = $this->accountStatus ?? false;
     }
 
     public function setId(UserId $userId): self
@@ -138,5 +145,15 @@ class User implements UserInterface
         $this->profile = $profile;
 
         return $this;
+    }
+
+    public function isActiveAccount(): bool
+    {
+        return $this->accountStatus;
+    }
+
+    public function setAccountStatus(bool $accountStatus): void
+    {
+        $this->accountStatus = $accountStatus;
     }
 }

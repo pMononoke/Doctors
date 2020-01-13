@@ -27,6 +27,7 @@ class SecurityFixtures extends Fixture
         $adminUser->setEmail('admin@example.com');
         $adminUser->setPassword($this->passwordEncoder->encodePassword($adminUser, self::DEVELOP_ADMIN_PASSWORD));
         $adminUser->setRoles(['ROLE_ADMIN']);
+        $adminUser->setAccountStatus(true);
         $manager->persist($adminUser);
         $manager->flush();
 
@@ -34,6 +35,7 @@ class SecurityFixtures extends Fixture
         $user->setEmail('user@example.com');
         $user->setPassword($this->passwordEncoder->encodePassword($user, self::DEVELOP_USER_PASSWORD));
         $user->setRoles(['ROLE_USER']);
+        $user->setAccountStatus(true);
         $manager->persist($user);
         $manager->flush();
     }

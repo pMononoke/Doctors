@@ -38,10 +38,18 @@ class UserDTO
      */
     public $password;
 
+    /**
+     * Assert\NotBlank().
+     *
+     * @var bool
+     */
+    public $accountStatus;
+
     public static function fromUser(User $user): self
     {
         $dto = new self();
         $dto->email = $user->getEmail();
+        $dto->accountStatus = $user->isActiveAccount();
 
         return $dto;
     }

@@ -16,6 +16,7 @@ class UserTypeTest extends TypeTestCase
         //self::markTestSkipped();
         $formData = [
             'email' => 'test@example.it',
+            'accountStatus' => true,
         ];
 
         $objectToCompare = new UserDTO();
@@ -25,6 +26,7 @@ class UserTypeTest extends TypeTestCase
         // ...populate $object properties with the data stored in $formData
         $object = new UserDTO();
         $object->email = 'test@example.it';
+        $object->accountStatus = true;
 
         // submit the data to the form directly
         $form->submit($formData);

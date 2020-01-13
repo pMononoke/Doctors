@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\User;
+use App\Entity\UserId;
 use App\Entity\UserProfile;
 use App\Entity\UserRepository;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
@@ -50,6 +51,7 @@ class UserService
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
         $user->setProfile($profile);
+        $user->setAccountStatus($registerUserDTO->user->accountStatus);
 
         $this->userRepository->save($user);
     }
@@ -62,6 +64,30 @@ class UserService
         }
 
         $user->setPassword($this->passwordEncoder->encodePassword($user, $changeUserPasswordDTO->plainPassword));
+
+        $this->userRepository->update($user);
+    }
+
+    public function enableAccount(UserId $userId): void
+    {
+        if (!$user = $this->userRepository->ofId($userId)) {
+            //TODO custom exception
+            throw new RuntimeException('User not found');
+        }
+
+        $user->setAccountStatus(true);
+
+        $this->userRepository->update($user);
+    }
+
+    public function disableAccount(UserId $userId): void
+    {
+        if (!$user = $this->userRepository->ofId($userId)) {
+            //TODO custom exception
+            throw new RuntimeException('User not found');
+        }
+
+        $user->setAccountStatus(false);
 
         $this->userRepository->update($user);
     }

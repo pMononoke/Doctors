@@ -9,6 +9,6 @@
         <h1>{{ 'user.new_header'|trans }}</h1>
         {{ include('admin/user/_form.html.twig') }}
 
-        <a href="{{ path('admin_user_index') }}">{{ 'common.actions.back_to_list'|trans }}</a>
+        <a href="{{ path('admin_user_index') }}" class="btn btn-info" role="button">{{ 'common.actions.back_to_list'|trans }}</a>
     </div>
 {% endblock %}

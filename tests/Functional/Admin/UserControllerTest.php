@@ -43,6 +43,7 @@ class UserControllerTest extends PantherTestCase
         $form['register_user[user][email]'] = 'fake-user@example.com';
         $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
         $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';
+        $form['register_user[user][accountStatus]'] = true;
 
         $crawler = $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect());
@@ -78,14 +79,25 @@ class UserControllerTest extends PantherTestCase
         );
         $form = $crawler->selectButton('Update')->form();
         $form['user[email]'] = 'new@example.com';
+        $form['user[accountStatus]'] = '0';
         $crawler = $this->client->submit($form);
         $this->client->followRedirect();
 
+        // go to show page
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.show_header',
+            $this->client->getResponse()->getContent()
+        );
         $this->assertContains(
             'new@example.com',
             $this->client->getResponse()->getContent()
         );
-
+        $this->assertContains(
+            'user.account_status.disabled',
+            $this->client->getResponse()->getContent()
+        );
         //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
         //self::assertPageTitleSame('User Index');
     }
@@ -131,6 +143,106 @@ class UserControllerTest extends PantherTestCase
         );
     }
 
+    /** @test */
+    public function can_enable_a_user_account(): void
+    {
+        $this->populateDatabase($user = $this->generateDisabledUser());
+        $this->logIn();
+
+        //Go to user show page
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.show_header',
+            $this->client->getResponse()->getContent()
+        );
+        $this->assertContains(
+            'user.account_status.disabled',
+            $this->client->getResponse()->getContent()
+        );
+
+        // check if there one button "enable account"
+        $this->assertEquals(
+            1,
+            $crawler->filter('html:contains("user.actions.enable_account")')->count()
+        );
+
+        // Click on button "enable account"
+        $buttonCrawlerNode = $crawler->selectButton('user.actions.enable_account');
+        $form = $buttonCrawlerNode->form([]);
+        $this->client->submit($form);
+        $this->client->followRedirect();
+
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.index_header',
+            $this->client->getResponse()->getContent()
+        );
+
+        //Go to user show page
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.show_header',
+            $this->client->getResponse()->getContent()
+        );
+        // check if there one string "account enable"
+        $this->assertEquals(
+            1,
+            $crawler->filter('html:contains("user.account_status.enabled")')->count()
+        );
+    }
+
+    /** @test */
+    public function can_disable_a_user_account(): void
+    {
+        $this->populateDatabase($user = $this->generateAuser());
+        $this->logIn();
+
+        //Go to user show page
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.show_header',
+            $this->client->getResponse()->getContent()
+        );
+        $this->assertContains(
+            'user.account_status.enabled',
+            $this->client->getResponse()->getContent()
+        );
+
+        // check if there one button "disable account"
+        $this->assertEquals(
+            1,
+            $crawler->filter('html:contains("user.actions.disable_account")')->count()
+        );
+
+        // Click on button disable account
+        $buttonCrawlerNode = $crawler->selectButton('user.actions.disable_account');
+        $form = $buttonCrawlerNode->form([]);
+        $this->client->submit($form);
+        $this->client->followRedirect();
+
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.index_header',
+            $this->client->getResponse()->getContent()
+        );
+
+        //Go to user show page
+        $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertContains(
+            'user.show_header',
+            $this->client->getResponse()->getContent()
+        );
+        // check if there one string "account disabled"
+        $this->assertEquals(
+            1,
+            $crawler->filter('html:contains("user.account_status.disabled")')->count()
+        );
+    }
+
     private function logIn(): void
     {
         $session = $this->client->getContainer()->get('session');
@@ -166,6 +278,15 @@ class UserControllerTest extends PantherTestCase
         $user->setEmail('irrelevant@example.com');
         $user->setPassword('irrelevant');
         $user->setRoles(['ROLE_USER']);
+        $user->setAccountStatus(true);
+
+        return $user;
+    }
+
+    private function generateDisabledUser(): User
+    {
+        $user = $this->generateAuser();
+        $user->setAccountStatus(false);
 
         return $user;
     }
