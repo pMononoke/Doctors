@@ -34,6 +34,7 @@ class UserServiceTest extends DatabaseTestCase
     public function can_register_a_user_from_dto_data(): void
     {
         $user = $this->createRegisterUserDto();
+        //$user->setAccountStatus(true);
 
         $this->userService->registerUserByAdminWithDtoData($user);
 
@@ -85,6 +86,38 @@ class UserServiceTest extends DatabaseTestCase
         self::assertEquals(0, $this->userRepository->countUsers());
     }
 
+    /** @test */
+    public function user_account_can_be_disabled(): void
+    {
+        $user = $this->createUser();
+        $user->setAccountStatus(true);
+        $this->userRepository->save($user);
+        self::assertEquals(1, $this->userRepository->countUsers());
+
+        $this->userService->disableAccount($user->getId());
+
+        /** @var User $userFromDatabase */
+        $userFromDatabase = $this->find(User::class, $user->getId());
+        self::assertEquals(1, $this->userRepository->countUsers());
+        self::assertFalse($userFromDatabase->isActiveAccount());
+    }
+
+    /** @test */
+    public function user_account_can_be_enabled(): void
+    {
+        $user = $this->createUser();
+        $user->setAccountStatus(false);
+        $this->userRepository->save($user);
+        self::assertEquals(1, $this->userRepository->countUsers());
+
+        $this->userService->enableAccount($user->getId());
+
+        /** @var User $userFromDatabase */
+        $userFromDatabase = $this->find(User::class, $user->getId());
+        self::assertEquals(1, $this->userRepository->countUsers());
+        self::assertTrue($userFromDatabase->isActiveAccount());
+    }
+
     private function createUser(): User
     {
         $user = new User();
@@ -100,6 +133,7 @@ class UserServiceTest extends DatabaseTestCase
         $userDTO->email = self::IRRELEVANT_STRING.'@example.com';
         $userDTO->password = self::IRRELEVANT_STRING;
         $userDTO->roles = ['ROLE_USER'];
+        $userDTO->accountStatus = true;
         $profileDTO = new UserProfileDTO();
         $profileDTO->firstName = self::IRRELEVANT_STRING;
         $profileDTO->lastName = self::IRRELEVANT_STRING;
