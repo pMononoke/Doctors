@@ -65,6 +65,15 @@ cache:
   - &app-database-schema-update |
       bin/console doctrine:schema:update --force --no-interaction -e test
 
+  - &app-lint-container |
+      bin/console lint:container
+
+  - &app-lint-yaml |
+      bin/console lint:yaml config src translations
+
+  - &app-lint-twig |
+      bin/console lint:twig templates
+
   - &run-phpunit-tests |
       bin/phpunit --colors=always --coverage-clover=coverage-report.clover --log-junit=test-report.xml
 
@@ -131,6 +140,9 @@ jobs:
       before_script:
         - *clear-test-app-cache
         - *app-database-schema-update
+        - *app-lint-container
+        - *app-lint-yaml
+        - *app-lint-twig
       script:
         - *run-security-check
         - *run-code-style-check
