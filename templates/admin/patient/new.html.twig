@@ -5,10 +5,26 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-lg">
-        <h1>{{ 'patient.new_header'|trans }}</h1>
-        {{ include('admin/patient/_form.html.twig') }}
-
-        <a href="{{ path('admin_patient_index') }}" class="btn btn-info" role="button">{{ 'common.actions.back_to_list'|trans }}</a>
+    <div class="container pt-3 border">
+        <div class="row">
+            <div class="container">
+                <h1>{{ 'patient.new_header'|trans }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ include('admin/patient/_form.html.twig') }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="d-inline-flex pt-3 ">
+                    <div class="p-2">
+                        <a href="{{ path('admin_patient_index') }}" class="btn btn-info" role="button">{{ 'common.actions.back_to_list'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

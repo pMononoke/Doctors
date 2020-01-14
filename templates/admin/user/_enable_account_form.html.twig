@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('admin_user_enable_account', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to enable this account?');">
     <input type="hidden" name="_method" value="POST">
     <input type="hidden" name="_token" value="{{ csrf_token('enableAccount' ~ user.id) }}">
-    <button class="btn btn-primary">{{ 'user.actions.enable_account'|trans }}</button>
+    <button class="btn btn-primary btn-block" role="button">{{ 'user.actions.enable_account'|trans }}</button>
 </form>
