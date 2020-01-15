@@ -39,4 +39,15 @@ class UserBuilderTest extends TestCase
         self::assertTrue($user->isActiveAccount());
         //self::assertFalse($user->isActiveAccount());
     }
+
+    /** @test */
+    public function missing_parameter_AccountStatus_set_disabled_account_as_default(): void
+    {
+        $builder = UserBuilder::create();
+
+        /** @var User $user */
+        $user = $builder->build();
+
+        self::assertFalse($user->isActiveAccount());
+    }
 }
