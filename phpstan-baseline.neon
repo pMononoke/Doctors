@@ -36,24 +36,24 @@ parameters:
 			path: src/Entity/UserProfile.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
 			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"

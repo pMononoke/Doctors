@@ -12,7 +12,7 @@ class RegisterPatientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('patientPersonalData', PatientPersonalDataFormDTOType::class, [
+            ->add('patientPersonalData', PatientPersonalDataType::class, [
                 'label' => false,
             ])
         ;

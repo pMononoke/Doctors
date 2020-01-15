@@ -120,13 +120,13 @@ class PatientControllerTest extends PantherTestCase
         );
         $form = $crawler->selectButton('Update')->form();
 
-        $form['patient_personal_data_form_dto[firstName]'] = $newFirstName;
-        $form['patient_personal_data_form_dto[middleName]'] = $newMiddleName;
-        $form['patient_personal_data_form_dto[lastName]'] = $newLastName;
-        $form['patient_personal_data_form_dto[gender]'] = self::FORM_VALUE_GENDER_FEMALE;
-        $form['patient_personal_data_form_dto[dateOfBirth][year]'] = (int) $newDateOfBirth->format('Y');
-        $form['patient_personal_data_form_dto[dateOfBirth][month]'] = (int) $newDateOfBirth->format('m');
-        $form['patient_personal_data_form_dto[dateOfBirth][day]'] = (int) $newDateOfBirth->format('d');
+        $form['patient_personal_data[firstName]'] = $newFirstName;
+        $form['patient_personal_data[middleName]'] = $newMiddleName;
+        $form['patient_personal_data[lastName]'] = $newLastName;
+        $form['patient_personal_data[gender]'] = self::FORM_VALUE_GENDER_FEMALE;
+        $form['patient_personal_data[dateOfBirth][year]'] = (int) $newDateOfBirth->format('Y');
+        $form['patient_personal_data[dateOfBirth][month]'] = (int) $newDateOfBirth->format('m');
+        $form['patient_personal_data[dateOfBirth][day]'] = (int) $newDateOfBirth->format('d');
 
         $crawler = $this->client->submit($form);
         $this->client->followRedirect();
