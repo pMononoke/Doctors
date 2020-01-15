@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "207b34732067fb94daaa6a89a3c36494",
+    "content-hash": "810b960acd59d0a681528437d2377b04",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -1790,7 +1790,7 @@
         },
         {
             "name": "php-translation/extractor",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/extractor.git",
@@ -1842,23 +1842,23 @@
         },
         {
             "name": "php-translation/symfony-bundle",
-            "version": "dev-master",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/symfony-bundle.git",
-                "reference": "151f3dbf90a31934f5ca87f6537bc4e9d03e5804"
+                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/151f3dbf90a31934f5ca87f6537bc4e9d03e5804",
-                "reference": "151f3dbf90a31934f5ca87f6537bc4e9d03e5804",
+                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/e32091bd8bfd971b0f455b7489903e08b18b5887",
+                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887",
                 "shasum": ""
             },
             "require": {
                 "nyholm/nsa": "^1.1",
                 "php": "^7.1",
                 "php-translation/extractor": "^2.0",
-                "php-translation/symfony-storage": "^2.1",
+                "php-translation/symfony-storage": "^2.0",
                 "symfony/finder": "^3.4 || ^4.3 || ^5.0",
                 "symfony/framework-bundle": "^3.4 || ^4.3 || ^5.0",
                 "symfony/intl": "^3.4 || ^4.3 || ^5.0",
@@ -1914,11 +1914,11 @@
                     "email": "tobias.nyholm@gmail.com"
                 }
             ],
-            "time": "2020-01-06T18:38:42+00:00"
+            "time": "2019-12-26T15:54:38+00:00"
         },
         {
             "name": "php-translation/symfony-storage",
-            "version": "dev-master",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/symfony-storage.git",
@@ -8598,12 +8598,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-translation/symfony-bundle": 20,
+        "php-translation/extractor": 20,
+        "php-translation/symfony-storage": 20,
         "sensiolabs/security-checker": 20,
         "phpstan/phpstan-doctrine": 20,
         "prolic/fpp": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2.5",
