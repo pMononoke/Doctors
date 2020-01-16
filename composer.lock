@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d53feea2dcc315366afa59397bc931",
+    "content-hash": "4157c87dc4f9b9a5d057346f2cb9e6b7",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -2575,16 +2575,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "dev-master",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "8e652a38ff7b0a96acad23c11774d0567bd909a6"
+                "reference": "a576c01520d9761901f269c4934ba55448be4a54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/8e652a38ff7b0a96acad23c11774d0567bd909a6",
-                "reference": "8e652a38ff7b0a96acad23c11774d0567bd909a6",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/a576c01520d9761901f269c4934ba55448be4a54",
+                "reference": "a576c01520d9761901f269c4934ba55448be4a54",
                 "shasum": ""
             },
             "require": {
@@ -2619,7 +2619,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2020-01-01T17:13:57+00:00"
+            "time": "2019-11-01T13:20:14+00:00"
         },
         {
             "name": "symfony/asset",
@@ -8598,7 +8598,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sensiolabs/security-checker": 20,
         "phpstan/phpstan-doctrine": 20,
         "prolic/fpp": 20
     },
