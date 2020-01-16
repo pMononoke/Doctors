@@ -47,6 +47,7 @@ services:
     App\Service\UserService:
       arguments:
         - '@App\Repository\UserRepository'
+        - '@App\Infrastructure\Security\PasswordGenerator'
 
     App\Repository\PatientRepository: ~
 
@@ -55,3 +56,5 @@ services:
     App\Service\PatientService:
       arguments:
         - '@App\Repository\PatientRepository'
+
+    App\Infrastructure\Security\PasswordGenerator: ~

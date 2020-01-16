@@ -156,6 +156,31 @@ parameters:
 			path: src/Form/User/UserType.php
 
 		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$DIGITS has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$LETTERS has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$STRONG_THRESHOLD has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$SYMBOLS has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$VERY_STRONG_THRESHOLD has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
 			message: "#^Method App\\\\Repository\\\\UserRepository\\:\\:countUsers\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Repository/UserRepository.php
