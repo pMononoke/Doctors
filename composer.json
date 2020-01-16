@@ -7,6 +7,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "antishov/doctrine-extensions-bundle": "^1.4",
+        "ircmaxell/random-lib": "^1.2",
         "php-translation/extractor": "^2.0",
         "php-translation/symfony-bundle": "^0.10",
         "php-translation/symfony-storage": "^2.1",
