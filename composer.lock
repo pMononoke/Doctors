@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "810b960acd59d0a681528437d2377b04",
+    "content-hash": "30d53feea2dcc315366afa59397bc931",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -8598,8 +8598,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-translation/extractor": 20,
-        "php-translation/symfony-storage": 20,
         "sensiolabs/security-checker": 20,
         "phpstan/phpstan-doctrine": 20,
         "prolic/fpp": 20
