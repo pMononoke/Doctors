@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4157c87dc4f9b9a5d057346f2cb9e6b7",
+    "content-hash": "c8ead99dcdd532efb1435535991c0221",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -8598,7 +8598,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpstan/phpstan-doctrine": 20,
         "prolic/fpp": 20
     },
     "prefer-stable": true,
