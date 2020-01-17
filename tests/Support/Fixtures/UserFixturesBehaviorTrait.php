@@ -13,7 +13,9 @@ trait UserFixturesBehaviorTrait
     {
         /** @var UserBuilder $builder */
         $builder = UserBuilder::create()
-            ->withEnabledAccount();
+            ->withEnabledAccount()
+            ->withRoles(['ROLE_USER'])
+            ->withEmail('irrelevant@example.com');
 
         return $builder->build();
     }
@@ -23,7 +25,7 @@ trait UserFixturesBehaviorTrait
         /** @var UserBuilder $builder */
         $builder = UserBuilder::create()
             ->withEnabledAccount()
-            //TODO set role admin
+            ->withRoles(['ROLE_ADMIN'])
             ->withEmail('admin@example.com');
 
         return $builder->build();
@@ -34,15 +36,9 @@ trait UserFixturesBehaviorTrait
         /** @var UserBuilder $builder */
         $builder = UserBuilder::create()
             ->withEnabledAccount()
-            //TODO set role physician
-            ->withEmail('admin@example.com');
+            ->withRoles(['ROLE_PHYSICIAN'])
+            ->withEmail('physician@example.com');
 
         return $builder->build();
-    }
-
-    public function createMultipleIrrelevantUser(int $numberOfUsers = 0): User
-    {
-        //TODO
-        //$builder = UserBuilder::create();
     }
 }
