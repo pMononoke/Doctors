@@ -20,6 +20,7 @@ class UserBuilderTest extends TestCase
         self::assertInstanceOf(User::class, $user);
         self::assertNotNull($user->getId());
         self::assertNull($user->getEmail());
+        self::assertContains('ROLE_USER', $user->getRoles());
     }
 
     /** @test */
@@ -29,6 +30,7 @@ class UserBuilderTest extends TestCase
             ->withEmail('example@example.com')
             ->withEnabledAccount()
             //->withDisabledAccount()
+            ->withRoles(['ROLE_ADMIN', 'ROLE_ACCOUNTANT'])
         ;
 
         /** @var User $user */
@@ -38,6 +40,8 @@ class UserBuilderTest extends TestCase
         self::assertEquals('example@example.com', $user->getEmail());
         self::assertTrue($user->isActiveAccount());
         //self::assertFalse($user->isActiveAccount());
+        self::assertContains('ROLE_ADMIN', $user->getRoles());
+        self::assertContains('ROLE_ACCOUNTANT', $user->getRoles());
     }
 
     /** @test */
@@ -49,5 +53,16 @@ class UserBuilderTest extends TestCase
         $user = $builder->build();
 
         self::assertFalse($user->isActiveAccount());
+    }
+
+    /** @test */
+    public function missing_parameter_Roles_set_ROLE_USER_as_default(): void
+    {
+        $builder = UserBuilder::create();
+
+        /** @var User $user */
+        $user = $builder->build();
+
+        self::assertContains('ROLE_USER', $user->getRoles());
     }
 }

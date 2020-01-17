@@ -22,6 +22,9 @@ class UserBuilder implements BuilderInterface
     /** @var bool|null */
     private $accountStatus;
 
+    /** @var array|null */
+    private $roles = [];
+
     /** @var \DateTimeImmutable|null */
     private $createAt;
 
@@ -32,12 +35,14 @@ class UserBuilder implements BuilderInterface
         UserId $userId = null,
         ?string $email = null,
         bool $accountStatus = null,
+        array $roles = null,
         \DateTimeImmutable $createdAt = null,
         \DateTimeImmutable $updatedAt = null
     ) {
         $this->id = $userId;
         $this->email = $email;
         $this->accountStatus = $accountStatus;
+        $this->roles = $roles;
         $this->createAt = $createdAt;
         $this->updateAt = $updatedAt;
     }
@@ -61,10 +66,11 @@ class UserBuilder implements BuilderInterface
     {
         $user = new User();
         $this->email ? $user->setEmail($this->email) : '';
-        //TODO enabled doset work
+        //TODO enabled doesn't work
         //!(null === $this->accountStatus) ?? $user->setAccountStatus($this->accountStatus);
         // default account status false
         $this->accountStatus ? $user->setAccountStatus($this->accountStatus) : $user->setAccountStatus(false);
+        $this->roles ? $user->setRoles((array) $this->roles) : $user->setRoles((array) ['ROLE_USER']);
 
         return $user;
     }
@@ -93,12 +99,21 @@ class UserBuilder implements BuilderInterface
         return $copy;
     }
 
+    public function withRoles(array $roles): UserBuilder
+    {
+        $copy = $this->copy();
+        $copy->roles = $roles;
+
+        return $copy;
+    }
+
     private function copy(): UserBuilder
     {
         return new self(
             $this->id,
             $this->email,
             $this->accountStatus,
+            $this->roles,
             $this->createAt,
             $this->updateAt
         );
