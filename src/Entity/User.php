@@ -135,12 +135,12 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getProfile(): ?UserProfile
+    private function getProfile(): ?UserProfile
     {
         return $this->profile;
     }
 
-    public function setProfile(?UserProfile $profile): self
+    private function setProfile(?UserProfile $profile): self
     {
         $this->profile = $profile;
 
@@ -155,5 +155,49 @@ class User implements UserInterface
     public function setAccountStatus(bool $accountStatus): void
     {
         $this->accountStatus = $accountStatus;
+    }
+
+    public function setFirstName(string $firstName): void
+    {
+        if (!$this->getProfile()) {
+            $profile = new UserProfile();
+            $profile->setFirstName($firstName);
+        } else {
+            $profile = $this->getProfile();
+            $profile->setFirstName($firstName);
+        }
+        $this->setProfile($profile);
+    }
+
+    public function getFirstName(): ?string
+    {
+        if (!$this->profile) {
+            return null;
+        }
+        $profile = $this->getProfile();
+
+        return $profile->getFirstName();
+    }
+
+    public function setLastName(string $lastName): void
+    {
+        if (!$this->getProfile()) {
+            $profile = new UserProfile();
+            $profile->setLastName($lastName);
+        } else {
+            $profile = $this->getProfile();
+            $profile->setLastName($lastName);
+        }
+        $this->setProfile($profile);
+    }
+
+    public function getLastName(): ?string
+    {
+        if (!$this->profile) {
+            return null;
+        }
+        $profile = $this->getProfile();
+
+        return $profile->getLastName();
     }
 }

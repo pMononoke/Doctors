@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Entity\UserId;
-use App\Entity\UserProfile;
 use App\Entity\UserRepository;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
 use App\Form\User\Dto\RegisterUserDTO;
@@ -44,11 +43,8 @@ class UserService
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
         $user->setAccountStatus($registerUserDTO->user->accountStatus);
-        $profile = new UserProfile();
-        $profile->setFirstName($registerUserDTO->profile->firstName);
-        $profile->setLastName($registerUserDTO->profile->lastName);
-
-        $user->setProfile($profile);
+        $user->setFirstName($registerUserDTO->profile->firstName);
+        $user->setLastName($registerUserDTO->profile->lastName);
 
         $this->userRepository->save($user);
     }

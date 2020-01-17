@@ -20,6 +20,7 @@ class UserTest extends TestCase
         self::assertInstanceOf(User::class, $user);
         self::assertInstanceOf(UserId::class, $user->getId());
         self::assertContains('ROLE_USER', $user->getRoles());
+        //self::assertNull($user->getProfile());
     }
 
     /** @test */
@@ -30,6 +31,26 @@ class UserTest extends TestCase
         $user->setAccountStatus(true);
 
         self::assertTrue($user->isActiveAccount());
+    }
+
+    /** @test */
+    public function can_assign_a_firstname(): void
+    {
+        $user = new User();
+
+        $user->setFirstName(self::IRRELEVANT);
+
+        self::assertEquals(self::IRRELEVANT, $user->getFirstName());
+    }
+
+    /** @test */
+    public function can_assign_a_lastname(): void
+    {
+        $user = new User();
+
+        $user->setLastName(self::IRRELEVANT);
+
+        self::assertEquals(self::IRRELEVANT, $user->getLastName());
     }
 
     /** @test */
