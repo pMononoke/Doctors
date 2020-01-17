@@ -1,9 +1,8 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\Tests\Support\Fixtures;
 
 use App\Entity\User;
-use App\Tests\Support\Fixtures\UserFixturesBehaviorTrait;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\Persistence\ObjectManager;

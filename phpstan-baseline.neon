@@ -16,11 +16,6 @@ parameters:
 			path: src/DataFixtures/AppFixtures.php
 
 		-
-			message: "#^Method App\\\\DataFixtures\\\\SecurityFixtures\\:\\:load\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/DataFixtures/SecurityFixtures.php
-
-		-
 			message: "#^Property App\\\\Entity\\\\UserProfile\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: src/Entity/UserProfile.php
@@ -219,4 +214,34 @@ parameters:
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Service/UserServiceTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:\\$roles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:__construct\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:withRoles\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createIrrelevantUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createAdminUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createPhysicianUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
 
