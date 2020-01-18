@@ -17,6 +17,12 @@ class UserType extends AbstractType
             ->add('email', TextType::class, [
                 'label' => 'label.user.email',
             ])
+            ->add('firstName', TextType::class, [
+                'label' => 'label.user.first_name',
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'label.user.last_name',
+            ])
             //->add('roles')
             //->add('password')
             ->add('accountStatus', ChoiceType::class, [

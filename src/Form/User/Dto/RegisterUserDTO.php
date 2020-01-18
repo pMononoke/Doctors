@@ -15,10 +15,10 @@ class RegisterUserDTO
      */
     public $user;
 
-    /**
-     * @Assert\Valid()
-     *
-     * @var UserProfileDTO
-     */
-    public $profile;
+//    /**
+//     * @Assert\Valid()
+//     *
+//     * @var UserProfileDTO
+//     */
+//    public $profile;
 }
