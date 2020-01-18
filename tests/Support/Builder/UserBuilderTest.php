@@ -31,6 +31,7 @@ class UserBuilderTest extends TestCase
         $builder = UserBuilder::create()
             ->withEmail('example@example.com')
             ->withFirstName('joe')
+            ->withLastName('doe')
             ->withEnabledAccount()
             //->withDisabledAccount()
             ->withRoles(['ROLE_ADMIN', 'ROLE_ACCOUNTANT'])
@@ -42,6 +43,7 @@ class UserBuilderTest extends TestCase
         self::assertInstanceOf(User::class, $user);
         self::assertEquals('example@example.com', $user->getEmail());
         self::assertEquals('joe', $user->getFirstName());
+        self::assertEquals('doe', $user->getLastName());
         self::assertTrue($user->isActiveAccount());
         //self::assertFalse($user->isActiveAccount());
         self::assertContains('ROLE_ADMIN', $user->getRoles());
