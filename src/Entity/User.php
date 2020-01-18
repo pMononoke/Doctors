@@ -174,9 +174,9 @@ class User implements UserInterface
         if (!$this->profile) {
             return null;
         }
-        $profile = $this->getProfile();
+        $userProfile = $this->getProfile();
 
-        return $profile->getFirstName();
+        return $userProfile->getFirstName();
     }
 
     public function setLastName(string $lastName): void
@@ -196,8 +196,8 @@ class User implements UserInterface
         if (!$this->profile) {
             return null;
         }
-        $profile = $this->getProfile();
+        $userProfile = $this->getProfile();
 
-        return $profile->getLastName();
+        return $userProfile->getLastName();
     }
 }
