@@ -131,16 +131,18 @@ class UserServiceTest extends DatabaseTestCase
     {
         $userDTO = new UserDTO();
         $userDTO->email = self::IRRELEVANT_STRING.'@example.com';
+        $userDTO->firstName = self::IRRELEVANT_STRING;
+        $userDTO->lastName = self::IRRELEVANT_STRING;
         $userDTO->password = self::IRRELEVANT_STRING;
         $userDTO->roles = ['ROLE_USER'];
         $userDTO->accountStatus = true;
-        $profileDTO = new UserProfileDTO();
-        $profileDTO->firstName = self::IRRELEVANT_STRING;
-        $profileDTO->lastName = self::IRRELEVANT_STRING;
+//        $profileDTO = new UserProfileDTO();
+//        $profileDTO->firstName = self::IRRELEVANT_STRING;
+//        $profileDTO->lastName = self::IRRELEVANT_STRING;
 
         $registerUserDTO = new RegisterUserDTO();
         $registerUserDTO->user = $userDTO;
-        $registerUserDTO->profile = $profileDTO;
+//        $registerUserDTO->profile = $profileDTO;
 
         return $registerUserDTO;
     }

@@ -19,6 +19,12 @@ class UserBuilder implements BuilderInterface
     /** @var string|null */
     private $email;
 
+    /** @var string|null */
+    private $firstName;
+
+    /** @var string|null */
+    private $lastName;
+
     /** @var bool|null */
     private $accountStatus;
 
@@ -34,6 +40,8 @@ class UserBuilder implements BuilderInterface
     public function __construct(
         UserId $userId = null,
         ?string $email = null,
+        ?string $firstName = null,
+        ?string $lastName = null,
         bool $accountStatus = null,
         array $roles = null,
         \DateTimeImmutable $createdAt = null,
@@ -41,6 +49,8 @@ class UserBuilder implements BuilderInterface
     ) {
         $this->id = $userId;
         $this->email = $email;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->accountStatus = $accountStatus;
         $this->roles = $roles;
         $this->createAt = $createdAt;
@@ -66,9 +76,9 @@ class UserBuilder implements BuilderInterface
     {
         $user = new User();
         $this->email ? $user->setEmail($this->email) : '';
-        //TODO enabled doesn't work
-        //!(null === $this->accountStatus) ?? $user->setAccountStatus($this->accountStatus);
-        // default account status false
+        $this->firstName ? $user->setFirstName($this->firstName) : '';
+        $this->lastName ? $user->setLastName($this->lastName) : '';
+        // default account status is disabled/false
         $this->accountStatus ? $user->setAccountStatus($this->accountStatus) : $user->setAccountStatus(false);
         $this->roles ? $user->setRoles((array) $this->roles) : $user->setRoles((array) ['ROLE_USER']);
 
@@ -79,6 +89,22 @@ class UserBuilder implements BuilderInterface
     {
         $copy = $this->copy();
         $copy->email = $email;
+
+        return $copy;
+    }
+
+    public function withFirstName(string $firstName): UserBuilder
+    {
+        $copy = $this->copy();
+        $copy->firstName = $firstName;
+
+        return $copy;
+    }
+
+    public function withLastName(string $lastName): UserBuilder
+    {
+        $copy = $this->copy();
+        $copy->lastName = $lastName;
 
         return $copy;
     }
@@ -112,6 +138,8 @@ class UserBuilder implements BuilderInterface
         return new self(
             $this->id,
             $this->email,
+            $this->firstName,
+            $this->lastName,
             $this->accountStatus,
             $this->roles,
             $this->createAt,

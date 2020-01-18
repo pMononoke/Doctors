@@ -43,8 +43,8 @@ class UserService
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
         $user->setAccountStatus($registerUserDTO->user->accountStatus);
-        $user->setFirstName($registerUserDTO->profile->firstName);
-        $user->setLastName($registerUserDTO->profile->lastName);
+        $user->setFirstName($registerUserDTO->user->firstName);
+        $user->setLastName($registerUserDTO->user->lastName);
 
         $this->userRepository->save($user);
     }

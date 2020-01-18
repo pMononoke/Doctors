@@ -15,9 +15,6 @@ class RegisterUserType extends AbstractType
             ->add('user', UserType::class, [
                 'label' => false,
             ])
-            ->add('profile', UserProfileType::class, [
-                'label' => false,
-            ])
         ;
     }
 

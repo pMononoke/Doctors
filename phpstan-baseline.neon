@@ -111,26 +111,6 @@ parameters:
 			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
 			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Form/User/UserType.php

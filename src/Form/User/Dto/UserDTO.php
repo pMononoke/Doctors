@@ -12,6 +12,7 @@ class UserDTO
 {
     /** @var UserId */
     public $id;
+
     /**
      * @Assert\NotBlank()
      * @Assert\Length(min="1", max="100")
@@ -19,6 +20,22 @@ class UserDTO
      * @var string
      */
     public $email;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min="1", max="255")
+     *
+     * @var string
+     */
+    public $firstName;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min="1", max="255")
+     *
+     * @var string
+     */
+    public $lastName;
 
     /**
      * Assert\NotBlank().
@@ -49,6 +66,8 @@ class UserDTO
     {
         $dto = new self();
         $dto->email = $user->getEmail();
+        $dto->firstName = $user->getFirstName();
+        $dto->lastName = $user->getLastName();
         $dto->accountStatus = $user->isActiveAccount();
 
         return $dto;

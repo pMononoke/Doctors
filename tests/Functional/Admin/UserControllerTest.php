@@ -41,8 +41,8 @@ class UserControllerTest extends PantherTestCase
 
         $form = $crawler->selectButton('common.actions.save')->form();
         $form['register_user[user][email]'] = 'fake-user@example.com';
-        $form['register_user[profile][firstName]'] = 'xxxxxxxxxxx';
-        $form['register_user[profile][lastName]'] = 'xxxxxxxxxxx';
+        $form['register_user[user][firstName]'] = 'xxxxxxxxxxx';
+        $form['register_user[user][lastName]'] = 'xxxxxxxxxxx';
         $form['register_user[user][accountStatus]'] = true;
 
         $crawler = $this->client->submit($form);
@@ -79,6 +79,8 @@ class UserControllerTest extends PantherTestCase
         );
         $form = $crawler->selectButton('Update')->form();
         $form['user[email]'] = 'new@example.com';
+        $form['user[firstName]'] = 'joe';
+        $form['user[lastName]'] = 'doe';
         $form['user[accountStatus]'] = '0';
         $crawler = $this->client->submit($form);
         $this->client->followRedirect();

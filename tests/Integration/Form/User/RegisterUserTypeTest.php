@@ -6,7 +6,6 @@ namespace App\Tests\Integration\Form\User;
 
 use App\Form\User\Dto\RegisterUserDTO;
 use App\Form\User\Dto\UserDTO;
-use App\Form\User\Dto\UserProfileDTO;
 use App\Form\User\RegisterUserType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
@@ -20,11 +19,12 @@ class RegisterUserTypeTest extends TypeTestCase
             'email' => 'test@example.it',
             'firstName' => 'joe',
             'lastName' => 'doe',
+            'accountStatus' => true,
         ];
 
         $objectToCompare = new RegisterUserDTO();
         $objectToCompare->user = new UserDTO();
-        $objectToCompare->profile = new UserProfileDTO();
+
         // $objectToCompare will retrieve data from the form submission; pass it as the second argument
         $form = $this->factory->create(RegisterUserType::class, $objectToCompare);
 
@@ -32,14 +32,14 @@ class RegisterUserTypeTest extends TypeTestCase
 
         $user = new UserDTO();
         $user->email = 'test@example.it';
+        $user->firstName = 'joe';
+        $user->lastName = 'doe';
+        $user->accountStatus = true;
 
-        $profile = new UserProfileDTO();
-        $profile->firstName = 'joe';
-        $profile->lastName = 'doe';
+        $registerUserDTO = new RegisterUserDTO();
+        $registerUserDTO->user = $user;
 
-        $object = new RegisterUserDTO();
-        $object->user = $user;
-        $object->profile = $profile;
+        $object = $registerUserDTO;
 
         // submit the data to the form directly
         $form->submit($formData);
