@@ -2,14 +2,13 @@
 
 namespace App\Tests\Functional;
 
-use Symfony\Component\Panther\PantherTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class SecurityControllerTest extends PantherTestCase
+class SecurityControllerTest extends WebTestCase
 {
     public function login_page_is_accesible_for_visitor(): void
     {
-        //$client = static::createPantherClient('127.0.0.1', '9001');
-        $client = static::createPantherClient();
+        $client = static::createClient();
 
         $crawler = $client->request('GET', '/login');
 
@@ -19,22 +18,34 @@ class SecurityControllerTest extends PantherTestCase
     /** @test */
     public function a_visitor_with_wrong_credentials_cant_logged_in(): void
     {
-        $client = static::createPantherClient();
+        $client = static::createClient();
         $crawler = $client->request('GET', '/login');
+
         $form = $crawler->selectButton('Sign in')->form();
         $form['email'] = 'fake-user@example.com';
         $form['password'] = 'password';
         $crawler = $client->submit($form);
+        $crawler = $client->followRedirect();
 
-        $this->assertSame(self::$baseUri.'/login', $client->getCurrentURL());
-        // TODO assert form error message is visible.
-        $client->takeScreenshot('screen-login.png');
+        $this->assertPageTitleContains('Log in!');
+        $this->assertTrue($crawler->filter('html:contains("Email could not be found.")')->count() > 0);
     }
 
     /** @test */
     public function a_visitor_with_credentials_can_logged_in(): void
     {
-        self::markTestSkipped();
+        self::markTestIncomplete('No Fixture. TODO Populate database with user');
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/login');
+
+        $form = $crawler->selectButton('Sign in')->form();
+        $form['email'] = 'admin@example.com';
+        $form['password'] = 'admin';
+        $crawler = $client->submit($form);
+        $crawler = $client->followRedirect();
+
+        $this->assertTrue($client->getResponse()->isRedirect(), 'Error: No redirect after login form.');
+        $this->assertTrue($crawler->filter('html:contains("Account")')->count() > 0);
     }
 
     /**

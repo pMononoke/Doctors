@@ -191,6 +191,26 @@ parameters:
 			path: src/Security/AppCustomAuthenticator.php
 
 		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\EndToEndTestCase\\:\\:persistenceManager\\(\\) should return App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager but returns object\\|null\\.$#"
+			count: 1
+			path: tests/E2E/EndToEndTestCase.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:defaultFixtures\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:setFixtures\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:save\\(\\) has parameter \\$object with no typehint specified\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Service/UserServiceTest.php
