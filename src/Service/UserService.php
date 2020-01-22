@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Entity\UserId;
 use App\Entity\UserRepository;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
-use App\Form\User\Dto\RegisterUserDTO;
+use App\Form\User\Dto\UserDTO;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -35,16 +35,16 @@ class UserService
         $this->logger = $logger;
     }
 
-    public function registerUserByAdminWithDtoData(RegisterUserDTO $registerUserDTO): void
+    public function registerUserByAdminWithDtoData(UserDTO $registerUserDTO): void
     {
         $user = new User();
-        $user->setEmail($registerUserDTO->user->email);
+        $user->setEmail($registerUserDTO->email);
         $generatedPassword = $this->passwordGenerator->generatepassword();
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
-        $user->setAccountStatus($registerUserDTO->user->accountStatus);
-        $user->setFirstName($registerUserDTO->user->firstName);
-        $user->setLastName($registerUserDTO->user->lastName);
+        $user->setAccountStatus($registerUserDTO->accountStatus);
+        $user->setFirstName($registerUserDTO->firstName);
+        $user->setLastName($registerUserDTO->lastName);
 
         $this->userRepository->save($user);
     }
