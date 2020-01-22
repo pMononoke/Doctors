@@ -100,6 +100,17 @@ class UserControllerTest extends PantherTestCase
             'user.account_status.disabled',
             $this->client->getResponse()->getContent()
         );
+
+        $this->assertContains(
+            'joe',
+            $this->client->getResponse()->getContent()
+        );
+
+        $this->assertContains(
+            'doe',
+            $this->client->getResponse()->getContent()
+        );
+
         //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
         //self::assertPageTitleSame('User Index');
     }

@@ -73,6 +73,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setEmail($userDTO->email);
+            $user->setFirstName($userDTO->firstName);
+            $user->setLastName($userDTO->lastName);
             $user->setAccountStatus($userDTO->accountStatus);
             $userService->update($user);
 
