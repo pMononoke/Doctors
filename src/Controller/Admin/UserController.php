@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use App\Form\User\Dto\RegisterUserDTO;
 use App\Form\User\Dto\UserDTO;
 use App\Form\User\RegisterUserType;
 use App\Form\User\UserType;
@@ -35,7 +34,7 @@ class UserController extends AbstractController
      */
     public function new(Request $request, UserService $userService): Response
     {
-        $user = new RegisterUserDTO();
+        $user = new UserDTO();
         $form = $this->createForm(RegisterUserType::class, $user);
         $form->handleRequest($request);
 
@@ -74,6 +73,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setEmail($userDTO->email);
+            $user->setFirstName($userDTO->firstName);
+            $user->setLastName($userDTO->lastName);
             $user->setAccountStatus($userDTO->accountStatus);
             $userService->update($user);
 

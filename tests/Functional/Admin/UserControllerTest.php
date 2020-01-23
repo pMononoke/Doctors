@@ -40,10 +40,10 @@ class UserControllerTest extends PantherTestCase
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
 
         $form = $crawler->selectButton('common.actions.save')->form();
-        $form['register_user[user][email]'] = 'fake-user@example.com';
-        $form['register_user[user][firstName]'] = 'xxxxxxxxxxx';
-        $form['register_user[user][lastName]'] = 'xxxxxxxxxxx';
-        $form['register_user[user][accountStatus]'] = true;
+        $form['register_user[email]'] = 'fake-user@example.com';
+        $form['register_user[firstName]'] = 'xxxxxxxxxxx';
+        $form['register_user[lastName]'] = 'xxxxxxxxxxx';
+        $form['register_user[accountStatus]'] = true;
 
         $crawler = $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect());
@@ -100,6 +100,17 @@ class UserControllerTest extends PantherTestCase
             'user.account_status.disabled',
             $this->client->getResponse()->getContent()
         );
+
+        $this->assertContains(
+            'joe',
+            $this->client->getResponse()->getContent()
+        );
+
+        $this->assertContains(
+            'doe',
+            $this->client->getResponse()->getContent()
+        );
+
         //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
         //self::assertPageTitleSame('User Index');
     }
