@@ -12,6 +12,7 @@
             <directory name="src/DataFixtures" />
             <directory name="src/Migrations" />
             <directory name="src/Form/*/Dto" />
+            <file name="src/Infrastructure/Persistence/DoctrineType/*Type.php" />
             <directory name="Ben_old_backup" />
             <directory name="tests" />
             <directory name="vendor" />

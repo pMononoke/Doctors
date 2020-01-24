@@ -28,7 +28,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string|null The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
@@ -44,10 +44,10 @@ class User implements UserInterface
      */
     private $accountStatus;
 
-    public function __construct()
+    public function __construct(?UserId $userId = null)
     {
-        $this->id = $this->id ?? UserId::generate();
-        $this->accountStatus = $this->accountStatus ?? false;
+        $this->id = $userId ?? UserId::generate();
+        $this->accountStatus = false;
     }
 
     public function setId(UserId $userId): self
@@ -129,7 +129,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
@@ -159,13 +159,8 @@ class User implements UserInterface
 
     public function setFirstName(string $firstName): void
     {
-        if (!$this->getProfile()) {
-            $profile = new UserProfile();
-            $profile->setFirstName($firstName);
-        } else {
-            $profile = $this->getProfile();
-            $profile->setFirstName($firstName);
-        }
+        $profile = $this->getProfile() ?? new UserProfile();
+        $profile->setFirstName($firstName);
         $this->setProfile($profile);
     }
 
@@ -181,13 +176,8 @@ class User implements UserInterface
 
     public function setLastName(string $lastName): void
     {
-        if (!$this->getProfile()) {
-            $profile = new UserProfile();
-            $profile->setLastName($lastName);
-        } else {
-            $profile = $this->getProfile();
-            $profile->setLastName($lastName);
-        }
+        $profile = $this->getProfile() ?? new UserProfile();
+        $profile->setLastName($lastName);
         $this->setProfile($profile);
     }
 
