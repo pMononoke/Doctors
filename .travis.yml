@@ -80,6 +80,9 @@ cache:
   - &run-phpstan-tests |
       vendor/bin/phpstan analyse
 
+  - &run-php-psalm-check |
+      vendor/bin/psalm
+
   - &run-code-style-check |
       ./vendor/bin/php-cs-fixer fix --dry-run -v
 
@@ -147,6 +150,7 @@ jobs:
         - *run-security-check
         - *run-code-style-check
         - *run-phpstan-tests
+        - *run-php-psalm-check
         - *run-phpunit-tests
       after_success:
         - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi

@@ -15,7 +15,6 @@
             <directory name="Ben_old_backup" />
             <directory name="tests" />
             <directory name="vendor" />
-            <directory name="extra" />
         </ignoreFiles>
     </projectFiles>
 
