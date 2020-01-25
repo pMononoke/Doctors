@@ -1,4 +1,10 @@
 {
+    "amphp/amp": {
+        "version": "v2.4.0"
+    },
+    "amphp/byte-stream": {
+        "version": "v1.7.1"
+    },
     "antishov/doctrine-extensions-bundle": {
         "version": "1.4",
         "recipe": {
@@ -141,6 +147,12 @@
     "facebook/webdriver": {
         "version": "1.8.x-dev"
     },
+    "felixfbecker/advanced-json-rpc": {
+        "version": "v3.0.4"
+    },
+    "felixfbecker/language-server-protocol": {
+        "version": "v1.4.0"
+    },
     "friendsofphp/php-cs-fixer": {
         "version": "2.2",
         "recipe": {
@@ -158,6 +170,12 @@
     },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.38"
+    },
+    "ircmaxell/random-lib": {
+        "version": "v1.2.0"
+    },
+    "ircmaxell/security-lib": {
+        "version": "v1.1.0"
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
@@ -181,6 +199,9 @@
             "config/packages/test/nelmio_alice.yaml"
         ]
     },
+    "netresearch/jsonmapper": {
+        "version": "v1.6.0"
+    },
     "nikic/php-parser": {
         "version": "v4.3.0"
     },
@@ -192,6 +213,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.3"
+    },
+    "openlss/lib-array2xml": {
+        "version": "1.0.0"
     },
     "php": {
         "version": "7.2"
@@ -222,6 +246,9 @@
     },
     "php-translation/symfony-storage": {
         "version": "2.1-dev"
+    },
+    "php-webdriver/webdriver": {
+        "version": "1.8.x-dev"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -710,8 +737,17 @@
     "twig/twig": {
         "version": "v3.0.0"
     },
+    "vimeo/psalm": {
+        "version": "3.8.3"
+    },
     "webmozart/assert": {
         "version": "1.6.0"
+    },
+    "webmozart/glob": {
+        "version": "4.1.0"
+    },
+    "webmozart/path-util": {
+        "version": "2.3.0"
     },
     "zendframework/zend-code": {
         "version": "3.4.0"

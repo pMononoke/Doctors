@@ -9,15 +9,21 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegisterPatientType extends AbstractType
 {
+    /**
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('patientPersonalData', PatientPersonalDataFormDTOType::class, [
+            ->add('patientPersonalData', PatientPersonalDataType::class, [
                 'label' => false,
             ])
         ;
     }
 
+    /**
+     * @return void
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

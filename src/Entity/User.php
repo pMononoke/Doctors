@@ -28,7 +28,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string|null The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
@@ -44,10 +44,10 @@ class User implements UserInterface
      */
     private $accountStatus;
 
-    public function __construct()
+    public function __construct(?UserId $userId = null)
     {
-        $this->id = $this->id ?? UserId::generate();
-        $this->accountStatus = $this->accountStatus ?? false;
+        $this->id = $userId ?? UserId::generate();
+        $this->accountStatus = false;
     }
 
     public function setId(UserId $userId): self
@@ -129,18 +129,18 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
-    public function getProfile(): ?UserProfile
+    private function getProfile(): ?UserProfile
     {
         return $this->profile;
     }
 
-    public function setProfile(?UserProfile $profile): self
+    private function setProfile(?UserProfile $profile): self
     {
         $this->profile = $profile;
 
@@ -155,5 +155,39 @@ class User implements UserInterface
     public function setAccountStatus(bool $accountStatus): void
     {
         $this->accountStatus = $accountStatus;
+    }
+
+    public function setFirstName(string $firstName): void
+    {
+        $profile = $this->getProfile() ?? new UserProfile();
+        $profile->setFirstName($firstName);
+        $this->setProfile($profile);
+    }
+
+    public function getFirstName(): ?string
+    {
+        if (!$this->profile) {
+            return null;
+        }
+        $userProfile = $this->getProfile();
+
+        return $userProfile->getFirstName();
+    }
+
+    public function setLastName(string $lastName): void
+    {
+        $profile = $this->getProfile() ?? new UserProfile();
+        $profile->setLastName($lastName);
+        $this->setProfile($profile);
+    }
+
+    public function getLastName(): ?string
+    {
+        if (!$this->profile) {
+            return null;
+        }
+        $userProfile = $this->getProfile();
+
+        return $userProfile->getLastName();
     }
 }

@@ -6,7 +6,7 @@ use App\Entity\Patient;
 use App\Entity\PatientRepository;
 use App\Form\Patient\Dto\PatientPersonalDataDTO;
 use App\Form\Patient\Dto\RegisterPatientDTO;
-use App\Form\Patient\PatientPersonalDataFormDTOType;
+use App\Form\Patient\PatientPersonalDataType;
 use App\Form\Patient\RegisterPatientType;
 use App\Service\PatientService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
@@ -70,7 +70,7 @@ class PatientController extends AbstractController
     public function edit(Request $request, PatientService $patientService, Patient $patient): Response
     {
         $patientPersonalDataDTO = PatientPersonalDataDTO::fromPatient($patient);
-        $form = $this->createForm(PatientPersonalDataFormDTOType::class, $patientPersonalDataDTO);
+        $form = $this->createForm(PatientPersonalDataType::class, $patientPersonalDataDTO);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

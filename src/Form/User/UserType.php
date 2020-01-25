@@ -11,11 +11,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
+    /**
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('email', TextType::class, [
                 'label' => 'label.user.email',
+            ])
+            ->add('firstName', TextType::class, [
+                'label' => 'label.user.first_name',
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'label.user.last_name',
             ])
             //->add('roles')
             //->add('password')
@@ -32,6 +41,9 @@ class UserType extends AbstractType
         ;
     }
 
+    /**
+     * @return void
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

@@ -17,7 +17,7 @@ class AccountMeController extends AbstractController
     /**
      * @Route("/account/me", name="app_account_me")
      */
-    public function index()
+    public function index(): Response
     {
         $user = $this->getUser();
         $changeUserPasswordDTO = new ChangeUserPasswordDTO();

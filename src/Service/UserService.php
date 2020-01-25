@@ -6,52 +6,45 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Entity\UserId;
-use App\Entity\UserProfile;
 use App\Entity\UserRepository;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
-use App\Form\User\Dto\RegisterUserDTO;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\User\Dto\UserDTO;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserService
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
-
     /** @var UserRepository */
     private $userRepository;
 
-    /** @var LoggerInterface */
-    private $logger;
+    /** @var PasswordGenerator */
+    private $passwordGenerator;
 
     /** @var UserPasswordEncoderInterface */
     private $passwordEncoder;
 
-    public function __construct(UserRepository $userRepository, EntityManagerInterface $entityManager, LoggerInterface $logger, UserPasswordEncoderInterface $passwordEncoder)
+    /** @var LoggerInterface */
+    private $logger;
+
+    public function __construct(UserRepository $userRepository, PasswordGenerator $passwordGenerator, UserPasswordEncoderInterface $passwordEncoder, LoggerInterface $logger)
     {
         $this->userRepository = $userRepository;
-        $this->entityManager = $entityManager;
-        $this->logger = $logger;
+        $this->passwordGenerator = $passwordGenerator;
         $this->passwordEncoder = $passwordEncoder;
+        $this->logger = $logger;
     }
 
-    public function registerUserByAdminWithDtoData(RegisterUserDTO $registerUserDTO): void
+    public function registerUserByAdminWithDtoData(UserDTO $registerUserDTO): void
     {
-        $profile = new UserProfile();
-        $profile->setFirstName($registerUserDTO->profile->firstName);
-        $profile->setLastName($registerUserDTO->profile->lastName);
-
         $user = new User();
-        // TODO use a random password generator
-        $generatedPassword = 'random';
-
-        $user->setEmail($registerUserDTO->user->email);
+        $user->setEmail($registerUserDTO->email);
+        $generatedPassword = $this->passwordGenerator->generatepassword();
         $user->setPassword($this->passwordEncoder->encodePassword($user, $generatedPassword));
         $user->setRoles(['ROLE_USER']);
-        $user->setProfile($profile);
-        $user->setAccountStatus($registerUserDTO->user->accountStatus);
+        $user->setAccountStatus($registerUserDTO->accountStatus);
+        $user->setFirstName($registerUserDTO->firstName);
+        $user->setLastName($registerUserDTO->lastName);
 
         $this->userRepository->save($user);
     }

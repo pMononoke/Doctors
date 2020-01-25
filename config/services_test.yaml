@@ -29,3 +29,7 @@ services:
       arguments: ['@doctrine.orm.default_entity_manager']
 
 
+    test.persistence_manager:
+      class: App\Tests\E2E\PersistenceDatabaseManager
+      arguments: ['@doctrine.orm.default_entity_manager','@security.user_password_encoder.generic']
+

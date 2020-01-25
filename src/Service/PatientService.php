@@ -35,7 +35,7 @@ class PatientService
         $patient = new Patient();
         $patient->setId($patientId);
         $patient->setFirstname($patientPersonalDataDTO->firstName);
-        null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
+        '' === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
         $patient->setLastName($patientPersonalDataDTO->lastName);
         $patient->setGender($patientPersonalDataDTO->gender);
         $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);

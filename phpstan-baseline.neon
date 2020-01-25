@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method App\\\\Controller\\\\AccountMeController\\:\\:index\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Controller/AccountMeController.php
-
-		-
 			message: "#^Method App\\\\Controller\\\\SecurityController\\:\\:logout\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Controller/SecurityController.php
@@ -14,11 +9,6 @@ parameters:
 			message: "#^Method App\\\\DataFixtures\\\\AppFixtures\\:\\:load\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/DataFixtures/AppFixtures.php
-
-		-
-			message: "#^Method App\\\\DataFixtures\\\\SecurityFixtures\\:\\:load\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/DataFixtures/SecurityFixtures.php
 
 		-
 			message: "#^Property App\\\\Entity\\\\UserProfile\\:\\:\\$id has no typehint specified\\.$#"
@@ -36,29 +26,14 @@ parameters:
 			path: src/Entity/UserProfile.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
+			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\PatientPersonalDataFormDTOType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/Patient/PatientPersonalDataFormDTOType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/Patient/RegisterPatientType.php
+			path: src/Form/Patient/PatientPersonalDataType.php
 
 		-
 			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
@@ -71,16 +46,6 @@ parameters:
 			path: src/Form/Patient/RegisterPatientType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Patient\\\\RegisterPatientType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/Patient/RegisterPatientType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/ChangeUserPasswordType.php
-
-		-
 			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
 			path: src/Form/User/ChangeUserPasswordType.php
@@ -89,16 +54,6 @@ parameters:
 			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Form/User/ChangeUserPasswordType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\ChangeUserPasswordType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/ChangeUserPasswordType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/RegisterUserType.php
 
 		-
 			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
@@ -111,36 +66,6 @@ parameters:
 			path: src/Form/User/RegisterUserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\User\\\\RegisterUserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/RegisterUserType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserProfileType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/UserProfileType.php
-
-		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Form/User/UserType.php
-
-		-
 			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:buildForm\\(\\) has parameter \\$builder with no value type specified in iterable type Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\.$#"
 			count: 1
 			path: src/Form/User/UserType.php
@@ -151,14 +76,29 @@ parameters:
 			path: src/Form/User/UserType.php
 
 		-
-			message: "#^Method App\\\\Form\\\\User\\\\UserType\\:\\:configureOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$DIGITS has no typehint specified\\.$#"
 			count: 1
-			path: src/Form/User/UserType.php
+			path: src/Infrastructure/Security/PasswordGenerator.php
 
 		-
-			message: "#^Method App\\\\Repository\\\\UserRepository\\:\\:countUsers\\(\\) has no return typehint specified\\.$#"
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$LETTERS has no typehint specified\\.$#"
 			count: 1
-			path: src/Repository/UserRepository.php
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$STRONG_THRESHOLD has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$SYMBOLS has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
+
+		-
+			message: "#^Property App\\\\Infrastructure\\\\Security\\\\PasswordGenerator\\:\\:\\$VERY_STRONG_THRESHOLD has no typehint specified\\.$#"
+			count: 1
+			path: src/Infrastructure/Security/PasswordGenerator.php
 
 		-
 			message: "#^Property App\\\\Security\\\\AppCustomAuthenticator\\:\\:\\$entityManager has no typehint specified\\.$#"
@@ -191,7 +131,57 @@ parameters:
 			path: src/Security/AppCustomAuthenticator.php
 
 		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\EndToEndTestCase\\:\\:persistenceManager\\(\\) should return App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager but returns object\\|null\\.$#"
+			count: 1
+			path: tests/E2E/EndToEndTestCase.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:defaultFixtures\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:setFixtures\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\E2E\\\\PersistenceDatabaseManager\\:\\:save\\(\\) has parameter \\$object with no typehint specified\\.$#"
+			count: 1
+			path: tests/E2E/PersistenceDatabaseManager.php
+
+		-
 			message: "#^Property App\\\\Tests\\\\Integration\\\\Service\\\\UserServiceTest\\:\\:\\$userRepository has no typehint specified\\.$#"
 			count: 1
 			path: tests/Integration/Service/UserServiceTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:\\$roles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:__construct\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Support\\\\Builder\\\\UserBuilder\\:\\:withRoles\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Support/Builder/UserBuilder.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createIrrelevantUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createAdminUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createPhysicianUser\\(\\)\\.$#"
+			count: 1
+			path: tests/Support/Fixtures/UserFixturesBehaviorTraitTest.php
 

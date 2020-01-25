@@ -6,9 +6,7 @@ namespace App\Tests\Integration\Service;
 
 use App\Entity\User;
 use App\Form\User\Dto\ChangeUserPasswordDTO;
-use App\Form\User\Dto\RegisterUserDTO;
 use App\Form\User\Dto\UserDTO;
-use App\Form\User\Dto\UserProfileDTO;
 use App\Service\UserService;
 use App\Tests\Support\TestCase\DatabaseTestCase;
 
@@ -34,7 +32,6 @@ class UserServiceTest extends DatabaseTestCase
     public function can_register_a_user_from_dto_data(): void
     {
         $user = $this->createRegisterUserDto();
-        //$user->setAccountStatus(true);
 
         $this->userService->registerUserByAdminWithDtoData($user);
 
@@ -127,22 +124,17 @@ class UserServiceTest extends DatabaseTestCase
         return $user;
     }
 
-    private function createRegisterUserDto(): RegisterUserDTO
+    private function createRegisterUserDto(): UserDTO
     {
         $userDTO = new UserDTO();
         $userDTO->email = self::IRRELEVANT_STRING.'@example.com';
+        $userDTO->firstName = self::IRRELEVANT_STRING;
+        $userDTO->lastName = self::IRRELEVANT_STRING;
         $userDTO->password = self::IRRELEVANT_STRING;
         $userDTO->roles = ['ROLE_USER'];
         $userDTO->accountStatus = true;
-        $profileDTO = new UserProfileDTO();
-        $profileDTO->firstName = self::IRRELEVANT_STRING;
-        $profileDTO->lastName = self::IRRELEVANT_STRING;
 
-        $registerUserDTO = new RegisterUserDTO();
-        $registerUserDTO->user = $userDTO;
-        $registerUserDTO->profile = $profileDTO;
-
-        return $registerUserDTO;
+        return $userDTO;
     }
 
     protected function tearDown(): void

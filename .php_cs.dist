@@ -3,11 +3,15 @@
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('var')
+    ->exclude('extra')
+    ->exclude('Ben_old_backup')
 ;
 
 return PhpCsFixer\Config::create()
     ->setRules([
-        '@Symfony' => true,
+        '@PSR2'                                     => true,
+        '@Symfony'                                  => true,
+        //'@Symfony:risky'                            => true,
         'array_syntax' => ['syntax' => 'short'],
     ])
     ->setFinder($finder)
