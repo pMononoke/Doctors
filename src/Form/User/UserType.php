@@ -26,8 +26,6 @@ class UserType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'label.user.last_name',
             ])
-            //->add('roles')
-            //->add('password')
             ->add('accountStatus', ChoiceType::class, [
                 //'label' => 'label.user.email',
                 'label' => 'label.user.account_status',

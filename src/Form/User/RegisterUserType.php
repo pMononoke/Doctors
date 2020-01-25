@@ -2,7 +2,6 @@
 
 namespace App\Form\User;
 
-use App\Form\User\Dto\RegisterUserDTO;
 use App\Form\User\Dto\UserDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -12,23 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegisterUserType extends AbstractType
 {
-//    public function buildForm(FormBuilderInterface $builder, array $options)
-//    {
-//        $builder
-//            ->add('user', UserType::class, [
-//                'label' => false,
-//            ])
-//        ;
-//    }
-//
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//        $resolver->setDefaults([
-//            'data_class' => RegisterUserDTO::class,
-//            'translation_domain' => 'messages',
-//        ]);
-//    }
-
     /**
      * @return void
      */
@@ -44,8 +26,6 @@ class RegisterUserType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'label.user.last_name',
             ])
-            //->add('roles')
-            //->add('password')
             ->add('accountStatus', ChoiceType::class, [
                 //'label' => 'label.user.email',
                 'label' => 'label.user.account_status',
