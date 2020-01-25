@@ -42,9 +42,9 @@ class Patient
      *
      * @param PatientPerson $person
      */
-    public function __construct(PatientPerson $person = null)
+    public function __construct(?PatientId $patientId = null, PatientPerson $person = null)
     {
-        $this->id = $this->id ?? PatientId::generate();
+        $this->id = $patientId ?? PatientId::generate();
         $this->person = $person ?? new PatientPerson();
     }
 

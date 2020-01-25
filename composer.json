@@ -54,7 +54,8 @@
         "symfony/panther": "^0.6",
         "symfony/phpunit-bridge": "^5.0",
         "symfony/profiler-pack": "*",
-        "symfony/web-server-bundle": "^4.4"
+        "symfony/web-server-bundle": "^4.4",
+        "vimeo/psalm": "^3.8"
     },
     "config": {
         "preferred-install": {

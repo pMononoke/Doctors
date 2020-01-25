@@ -78,7 +78,7 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryPo
             ;
     }
 
-    public function countUsers()
+    public function countUsers(): int
     {
         return $this->createQueryBuilder('u')
             ->select('count(u.id)')
