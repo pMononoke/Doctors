@@ -3,6 +3,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - user role management feature
+
+
+## [0.1.4] [Unreleased] - 2020-xx-xx
+### (maintenance release)
+### Added
 - user enable/disable capability feature
 
 ## [0.1.3] - 2020-01-14
