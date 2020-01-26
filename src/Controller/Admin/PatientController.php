@@ -42,6 +42,10 @@ class PatientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $newIdentity = $patientSevice->generateNewIdentity();
             $patientSevice->RegisterPatientWithData($newIdentity, $registerPatientDTO);
+            $this->addFlash(
+                'success',
+                'flash.patient.was.created'
+            );
 
             return $this->redirectToRoute('admin_patient_index');
         }
@@ -81,6 +85,10 @@ class PatientController extends AbstractController
             $patient->setGender($patientPersonalDataDTO->gender);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);
             $patientService->update($patient);
+            $this->addFlash(
+                'success',
+                'flash.patient.changes.was.saved'
+            );
 
             return $this->redirectToRoute('admin_patient_index');
         }
@@ -99,6 +107,10 @@ class PatientController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$patient->getId(), $request->request->get('_token'))) {
             $patientService->delete($patient);
+            $this->addFlash(
+                'success',
+                'flash.patient.was.deleted'
+            );
         }
 
         return $this->redirectToRoute('admin_patient_index');

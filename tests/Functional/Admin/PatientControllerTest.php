@@ -43,11 +43,11 @@ class PatientControllerTest extends PantherTestCase
         $this->logInAsAdminUser();
         $crawler = $this->client->request('GET', '/admin/patient/');
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_GENDER);
-        $this->assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_GENDER);
+        self::assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
     }
 
     /** @test */
@@ -55,8 +55,9 @@ class PatientControllerTest extends PantherTestCase
     {
         $this->logInAsAdminUser();
         $crawler = $this->client->request('GET', '/admin/patient/new');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'patient.new_header',
             $this->client->getResponse()->getContent()
         );
@@ -72,18 +73,23 @@ class PatientControllerTest extends PantherTestCase
         $form['register_patient[patientPersonalData][dateOfBirth][day]'] = (int) $dateOfBirth->format('d');
 
         $crawler = $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect());
+
+        self::assertTrue($this->client->getResponse()->isRedirect());
+
         $this->client->followRedirect();
 
-        $this->assertContains(
+        self::assertFlashMessage(
+            'flash.patient.was.created',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertContains(
             'patient.index_header',
             $this->client->getResponse()->getContent()
         );
-
-        $this->assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_GENDER);
-        $this->assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
+        self::assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_GENDER);
+        self::assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
     }
 
     /** @test */
@@ -93,12 +99,12 @@ class PatientControllerTest extends PantherTestCase
         $this->logInAsAdminUser();
 
         $crawler = $this->client->request('GET', '/admin/patient/'.$patient->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
 
-        $this->assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
-        $this->assertSelectorTextContains('html', self::PATIENT_GENDER);
-        $this->assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertSelectorTextContains('html', self::PATIENT_FIRST_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_MIDDLE_NAME);
+        self::assertSelectorTextContains('html', self::PATIENT_GENDER);
+        self::assertSelectorTextContains('html', self::PATIENT_DATE_OF_BIRTH);
     }
 
     /** @test */
@@ -113,13 +119,14 @@ class PatientControllerTest extends PantherTestCase
         $this->logInAsAdminUser();
 
         $crawler = $this->client->request('GET', '/admin/patient/'.$patient->getId()->toString().'/edit');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'patient.edit_header',
             $this->client->getResponse()->getContent()
         );
-        $form = $crawler->selectButton('Update')->form();
 
+        $form = $crawler->selectButton('Update')->form();
         $form['patient_personal_data[firstName]'] = $newFirstName;
         $form['patient_personal_data[middleName]'] = $newMiddleName;
         $form['patient_personal_data[lastName]'] = $newLastName;
@@ -127,20 +134,22 @@ class PatientControllerTest extends PantherTestCase
         $form['patient_personal_data[dateOfBirth][year]'] = (int) $newDateOfBirth->format('Y');
         $form['patient_personal_data[dateOfBirth][month]'] = (int) $newDateOfBirth->format('m');
         $form['patient_personal_data[dateOfBirth][day]'] = (int) $newDateOfBirth->format('d');
-
         $crawler = $this->client->submit($form);
         $this->client->followRedirect();
 
-        $this->assertContains(
+        self::assertContains(
             'patient.index_header',
             $this->client->getResponse()->getContent()
         );
-
-        $this->assertSelectorTextContains('html', $newFirstName);
-        $this->assertSelectorTextContains('html', $newMiddleName);
-        $this->assertSelectorTextContains('html', $newLastName);
-        $this->assertSelectorTextContains('html', self::PATIENT_GENDER_FEMALE);
-        $this->assertSelectorTextContains('html', $newDateOfBirth->format('Y-m-d'));
+        self::assertFlashMessage(
+            'flash.patient.changes.was.saved',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertSelectorTextContains('html', $newFirstName);
+        self::assertSelectorTextContains('html', $newMiddleName);
+        self::assertSelectorTextContains('html', $newLastName);
+        self::assertSelectorTextContains('html', self::PATIENT_GENDER_FEMALE);
+        self::assertSelectorTextContains('html', $newDateOfBirth->format('Y-m-d'));
     }
 
     /** @test */
@@ -150,31 +159,34 @@ class PatientControllerTest extends PantherTestCase
         $this->logInAsAdminUser();
 
         $crawler = $this->client->request('GET', '/admin/patient/'.$patient->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'patient.show_header',
             $this->client->getResponse()->getContent()
         );
-
         // check if there are multiple button
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("common.actions.delete")')->count()
         );
 
         // Click on button delete
-
         $buttonCrawlerNode = $crawler->selectButton('common.actions.delete');
         $form = $buttonCrawlerNode->form([]);
         $this->client->submit($form);
         $this->client->followRedirect();
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertFlashMessage(
+            'flash.patient.was.deleted',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertContains(
             'patient.index_header',
             $this->client->getResponse()->getContent()
         );
-        $this->assertContains(
+        self::assertContains(
             'common.no_record_found',
             $this->client->getResponse()->getContent()
         );
@@ -223,5 +235,14 @@ class PatientControllerTest extends PantherTestCase
             ;
 
         return $patient;
+    }
+
+    private static function assertFlashMessage(string $message, string $htmlCode): void
+    {
+        self::assertContains(
+            $message,
+            $htmlCode,
+            'Flash message don\'t contain '.$message
+        );
     }
 }
