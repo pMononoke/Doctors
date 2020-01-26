@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - user role management feature
 
 
-## [0.x.x] [Unreleased] - 2020-xx-xx
+## [0.1.5] - 2020-01-26
 ### (maintenance release)
 
 ## [0.1.4] - 2020-01-25
