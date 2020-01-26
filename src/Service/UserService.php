@@ -52,7 +52,6 @@ class UserService
     public function changePassword(ChangeUserPasswordDTO $changeUserPasswordDTO): void
     {
         if (!$user = $this->userRepository->ofId($changeUserPasswordDTO->id)) {
-            //TODO custom exception
             throw new RuntimeException('User not found');
         }
 
@@ -64,7 +63,6 @@ class UserService
     public function enableAccount(UserId $userId): void
     {
         if (!$user = $this->userRepository->ofId($userId)) {
-            //TODO custom exception
             throw new RuntimeException('User not found');
         }
 
@@ -76,7 +74,6 @@ class UserService
     public function disableAccount(UserId $userId): void
     {
         if (!$user = $this->userRepository->ofId($userId)) {
-            //TODO custom exception
             throw new RuntimeException('User not found');
         }
 

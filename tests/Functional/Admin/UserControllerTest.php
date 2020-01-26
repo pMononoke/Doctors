@@ -29,7 +29,7 @@ class UserControllerTest extends PantherTestCase
         $this->logIn();
         $crawler = $this->client->request('GET', '/admin/user/');
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
     }
 
     /** @test */
@@ -37,7 +37,8 @@ class UserControllerTest extends PantherTestCase
     {
         $this->logIn();
         $crawler = $this->client->request('GET', '/admin/user/new');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
 
         $form = $crawler->selectButton('common.actions.save')->form();
         $form['register_user[email]'] = 'fake-user@example.com';
@@ -46,16 +47,19 @@ class UserControllerTest extends PantherTestCase
         $form['register_user[accountStatus]'] = true;
 
         $crawler = $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect());
+
+        self::assertTrue($this->client->getResponse()->isRedirect());
+
         $this->client->followRedirect();
 
-        $this->assertContains(
+        self::assertContains(
             'fake-user@example.com',
             $this->client->getResponse()->getContent()
         );
-
-        //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
-        //self::assertPageTitleSame('User Index');
+        self::assertFlashMessage(
+            'flash.user.was.created',
+            $this->client->getResponse()->getContent()
+        );
     }
 
     /** @test */
@@ -72,11 +76,13 @@ class UserControllerTest extends PantherTestCase
 
         $this->logIn();
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId().'/edit');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.edit_header',
             $this->client->getResponse()->getContent()
         );
+
         $form = $crawler->selectButton('Update')->form();
         $form['user[email]'] = 'new@example.com';
         $form['user[firstName]'] = 'joe';
@@ -87,32 +93,29 @@ class UserControllerTest extends PantherTestCase
 
         // go to show page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
-        $this->assertContains(
+        self::assertContains(
             'new@example.com',
             $this->client->getResponse()->getContent()
         );
-        $this->assertContains(
+        self::assertContains(
             'user.account_status.disabled',
             $this->client->getResponse()->getContent()
         );
-
-        $this->assertContains(
+        self::assertContains(
             'joe',
             $this->client->getResponse()->getContent()
         );
 
-        $this->assertContains(
+        self::assertContains(
             'doe',
             $this->client->getResponse()->getContent()
         );
-
-        //$this->assertSame(self::$baseUri.'/admin/user/', $this->client->getCurrentURL());
-        //self::assertPageTitleSame('User Index');
     }
 
     /** @test */
@@ -123,34 +126,33 @@ class UserControllerTest extends PantherTestCase
 
         //Go to user list page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
-
         // check if there are multiple button
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("common.actions.delete")')->count()
         );
-        // Click on button delete
 
         $buttonCrawlerNode = $crawler->selectButton('common.actions.delete');
         $form = $buttonCrawlerNode->form([]);
         $this->client->submit($form);
         $this->client->followRedirect();
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertFlashMessage(
+            'flash.user.was.deleted',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertContains(
             'user.index_header',
             $this->client->getResponse()->getContent()
         );
-        $this->assertNotContains(
-            $user->getId()->toString(),
-            $this->client->getResponse()->getContent()
-        );
-        $this->assertNotContains(
+        self::assertNotContains(
             $user->getEmail(),
             $this->client->getResponse()->getContent()
         );
@@ -164,18 +166,18 @@ class UserControllerTest extends PantherTestCase
 
         //Go to user show page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
-        $this->assertContains(
+        self::assertContains(
             'user.account_status.disabled',
             $this->client->getResponse()->getContent()
         );
-
         // check if there one button "enable account"
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("user.actions.enable_account")')->count()
         );
@@ -186,21 +188,26 @@ class UserControllerTest extends PantherTestCase
         $this->client->submit($form);
         $this->client->followRedirect();
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertFlashMessage(
+            'flash.user.was.enabled',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertContains(
             'user.index_header',
             $this->client->getResponse()->getContent()
         );
 
         //Go to user show page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
         // check if there one string "account enable"
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("user.account_status.enabled")')->count()
         );
@@ -214,18 +221,19 @@ class UserControllerTest extends PantherTestCase
 
         //Go to user show page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
-        $this->assertContains(
+        self::assertContains(
             'user.account_status.enabled',
             $this->client->getResponse()->getContent()
         );
 
         // check if there one button "disable account"
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("user.actions.disable_account")')->count()
         );
@@ -236,21 +244,26 @@ class UserControllerTest extends PantherTestCase
         $this->client->submit($form);
         $this->client->followRedirect();
 
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertFlashMessage(
+            'flash.user.was.disabled',
+            $this->client->getResponse()->getContent()
+        );
+        self::assertContains(
             'user.index_header',
             $this->client->getResponse()->getContent()
         );
 
         //Go to user show page
         $crawler = $this->client->request('GET', '/admin/user/'.$user->getId()->toString());
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertContains(
+
+        self::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        self::assertContains(
             'user.show_header',
             $this->client->getResponse()->getContent()
         );
         // check if there one string "account disabled"
-        $this->assertEquals(
+        self::assertEquals(
             1,
             $crawler->filter('html:contains("user.account_status.disabled")')->count()
         );
@@ -302,5 +315,14 @@ class UserControllerTest extends PantherTestCase
         $user->setAccountStatus(false);
 
         return $user;
+    }
+
+    private static function assertFlashMessage(string $message, string $htmlCode): void
+    {
+        self::assertContains(
+            $message,
+            $htmlCode,
+            'Flash message don\'t contain '.$message
+        );
     }
 }

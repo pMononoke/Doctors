@@ -40,6 +40,10 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userService->registerUserByAdminWithDtoData($user);
+            $this->addFlash(
+                'success',
+                'flash.user.was.created'
+            );
 
             return $this->redirectToRoute('admin_user_index');
         }
@@ -77,6 +81,10 @@ class UserController extends AbstractController
             $user->setLastName($userDTO->lastName);
             $user->setAccountStatus($userDTO->accountStatus);
             $userService->update($user);
+            $this->addFlash(
+                'success',
+                'flash.user.changes.was.saved'
+            );
 
             return $this->redirectToRoute('admin_user_index');
         }
@@ -95,6 +103,10 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userService->delete($user);
+            $this->addFlash(
+                'success',
+                'flash.user.was.deleted'
+            );
         }
 
         return $this->redirectToRoute('admin_user_index');
@@ -108,6 +120,10 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('enableAccount'.$user->getId(), $request->request->get('_token'))) {
             $userService->enableAccount($user->getId());
+            $this->addFlash(
+                'success',
+                'flash.user.was.enabled'
+            );
         }
 
         return $this->redirectToRoute('admin_user_index');
@@ -121,6 +137,10 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('disableAccount'.$user->getId(), $request->request->get('_token'))) {
             $userService->disableAccount($user->getId());
+            $this->addFlash(
+                'success',
+                'flash.user.was.disabled'
+            );
         }
 
         return $this->redirectToRoute('admin_user_index');

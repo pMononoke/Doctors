@@ -13,15 +13,6 @@ env:
 language: php
 
 
-#matrix:
-#    fast_finish: true
-#    include:
-#        - php: 7.2
-#          env: RUN_SONAR_SCANNER=1
-#        - php: 7.3
-#        - php: 7.4snapshot
-
-
 services:
     - docker
 
@@ -88,35 +79,6 @@ cache:
 
   - &run-security-check |
       ./bin/console security:check
-
-#before_install:
-#  - cp ci/.env.test.travis .env.test
-#  - php -v
-#  - php -m
-#
-#
-#install:
-#  - yarn
-#  - yarn run build
-#  - docker-compose -f tests/docker/docker-compose.yml up -d
-#  - composer install
-#  - ./bin/phpunit install
-#
-#
-#before_script:
-#
-#  - *app-clear-test-cache
-#
-#  - *app-database-schema-update
-#
-#
-#script:
-#  - *run-phpstan-tests
-#  - *run-phpunit-tests
-#
-#
-#after_success:
-#  - if [[ $RUN_SONAR_SCANNER == "1" ]]; then sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.projectVersion=$TRAVIS_TAG; fi
 
 
 before_install:
