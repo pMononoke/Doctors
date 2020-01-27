@@ -3,8 +3,10 @@
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('var')
+    ->exclude('vendor')
     ->exclude('extra')
     ->exclude('Ben_old_backup')
+    ->exclude('node_modules')
 ;
 
 return PhpCsFixer\Config::create()
