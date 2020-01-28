@@ -66,13 +66,15 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "CompostDDD\\": "lib/compost/src/"
+            "CompostDDD\\": "lib/compost/src/",
+            "MedicalMundi\\Icd\\": "lib/icd/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/",
-            "CompostDDD\\Tests\\": "lib/compost/tests/"
+            "CompostDDD\\Tests\\": "lib/compost/tests/",
+            "MedicalMundi\\Icd\\Tests\\": "lib/icd/tests/"
         }
     },
     "replace": {
