@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Medicalmundi\Icd\Contract;
+namespace MedicalMundi\Icd\Contract;
 
 interface IcdCodeInterface
 {
