@@ -175,5 +175,25 @@ jobs:
         - *run-phpstan-tests
         - *run-phpunit-tests
 
+
+    - name: '(Dead code finder on PHP 7.2)'
+      php: '7.2'
+      env: RUN_SONAR_SCANNER=0
+      before_install:
+        - *disable-php-memory-limit
+      install:
+        #- yarn
+        #- yarn run build
+        - *install-project-dependencies
+        #- ./bin/phpunit install
+
+      before_script:
+        - mv -f psalm.xml.dead_code.dist psalm.xml
+      script:
+        - ./vendor/bin/psalm --find-dead-code
+
+
+
   allow_failures:
     - name: '(PHP 8-nightly)'
+    - name: '(Dead code finder on PHP 7.2)'
