@@ -55,7 +55,7 @@ class Patient
         return $this;
     }
 
-    public function getId(): ?PatientId
+    public function getId(): PatientId
     {
         return $this->id;
     }
