@@ -56,6 +56,9 @@ cache:
   - &app-database-schema-update |
       bin/console doctrine:schema:update --force --no-interaction -e test
 
+  - &validate-composer |
+      composer validate --strict --ansi -vvv
+
   - &app-lint-container |
       bin/console lint:container
 
@@ -103,6 +106,7 @@ jobs:
         - ./bin/phpunit install
 
       before_script:
+        - *validate-composer
         - *clear-test-app-cache
         - *app-database-schema-update
         - *app-lint-container
