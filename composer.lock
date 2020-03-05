@@ -6494,16 +6494,16 @@
         },
         {
             "name": "symfony/web-link",
-            "version": "v5.0.2",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-link.git",
-                "reference": "572ab541ec2ca2e0d0f76fd08da006805e4db157"
+                "reference": "78dd64d9f666550f4f7d9e64b59337e7f274389d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-link/zipball/572ab541ec2ca2e0d0f76fd08da006805e4db157",
-                "reference": "572ab541ec2ca2e0d0f76fd08da006805e4db157",
+                "url": "https://api.github.com/repos/symfony/web-link/zipball/78dd64d9f666550f4f7d9e64b59337e7f274389d",
+                "reference": "78dd64d9f666550f4f7d9e64b59337e7f274389d",
                 "shasum": ""
             },
             "require": {
@@ -6565,7 +6565,7 @@
                 "psr13",
                 "push"
             ],
-            "time": "2019-11-18T17:27:11+00:00"
+            "time": "2020-01-04T14:08:26+00:00"
         },
         {
             "name": "symfony/webpack-encore-bundle",
@@ -8113,12 +8113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prolic/fpp.git",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6"
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prolic/fpp/zipball/820a64e2b9d935a9241b604e009549d4b6c164b6",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6",
+                "url": "https://api.github.com/repos/prolic/fpp/zipball/a072d07d103aaae989b63a6a4dc3e1004e716b81",
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81",
                 "shasum": ""
             },
             "require": {
@@ -8151,7 +8151,7 @@
                 }
             ],
             "description": "Functional PHP Preprocessor",
-            "time": "2019-12-09T17:58:54+00:00"
+            "time": "2020-02-14T02:47:06+00:00"
         },
         {
             "name": "sebastian/comparator",
