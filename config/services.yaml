@@ -58,3 +58,5 @@ services:
         - '@App\Repository\PatientRepository'
 
     App\Infrastructure\Security\PasswordGenerator: ~
+
+    App\Repository\DiseaseRepository: ~

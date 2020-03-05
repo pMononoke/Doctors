@@ -31,6 +31,12 @@ parameters:
 
         #
         - '#Cannot call method __toString() on (object)|string.#'
+        -
+            message: "#^Call to an undefined method MedicalMundi\\\\Icd\\\\Contract\\\\IcdCodeInterface\\:\\:toString\\(\\).#"
+            path:  src/Entity/Icd9/
+        -
+            message: "#^Call to an undefined method MedicalMundi\\\\Icd\\\\Contract\\\\IcdCodeDescriptionInterface\\:\\:toString\\(\\).#"
+            path:  src/Entity/Icd9/
 
 
     excludes_analyse:
