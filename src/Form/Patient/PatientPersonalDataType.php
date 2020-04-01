@@ -23,6 +23,7 @@ class PatientPersonalDataType extends AbstractType
             ])
             ->add('middleName', TextType::class, [
                 'label' => 'label.patient.middlename',
+                'required' => false,
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'label.patient.lastname',
