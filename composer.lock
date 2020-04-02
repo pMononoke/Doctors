@@ -1850,16 +1850,16 @@
         },
         {
             "name": "php-translation/common",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/common.git",
-                "reference": "dbf73744a22121b85e369ac73ae658c80dd888b7"
+                "reference": "b786f49d7f222ca345b0e4c32d4a205a845b0e27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/common/zipball/dbf73744a22121b85e369ac73ae658c80dd888b7",
-                "reference": "dbf73744a22121b85e369ac73ae658c80dd888b7",
+                "url": "https://api.github.com/repos/php-translation/common/zipball/b786f49d7f222ca345b0e4c32d4a205a845b0e27",
+                "reference": "b786f49d7f222ca345b0e4c32d4a205a845b0e27",
                 "shasum": ""
             },
             "require": {
@@ -1887,7 +1887,7 @@
                 }
             ],
             "description": "Common translation stuff",
-            "time": "2019-12-30T10:58:18+00:00"
+            "time": "2020-01-18T09:48:23+00:00"
         },
         {
             "name": "php-translation/extractor",
@@ -2019,16 +2019,16 @@
         },
         {
             "name": "php-translation/symfony-storage",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/symfony-storage.git",
-                "reference": "7ace69c5e9bc2744d121012fa2bb658477e673c5"
+                "reference": "9d6e34d6ed662a6438365bc891768b701fdd6c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/symfony-storage/zipball/7ace69c5e9bc2744d121012fa2bb658477e673c5",
-                "reference": "7ace69c5e9bc2744d121012fa2bb658477e673c5",
+                "url": "https://api.github.com/repos/php-translation/symfony-storage/zipball/9d6e34d6ed662a6438365bc891768b701fdd6c24",
+                "reference": "9d6e34d6ed662a6438365bc891768b701fdd6c24",
                 "shasum": ""
             },
             "require": {
@@ -2044,7 +2044,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
@@ -2063,7 +2063,7 @@
                 }
             ],
             "description": "A translation file storage using Symfony translation component.",
-            "time": "2019-12-30T11:41:01+00:00"
+            "time": "2020-02-11T12:49:11+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -8113,12 +8113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prolic/fpp.git",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6"
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prolic/fpp/zipball/820a64e2b9d935a9241b604e009549d4b6c164b6",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6",
+                "url": "https://api.github.com/repos/prolic/fpp/zipball/a072d07d103aaae989b63a6a4dc3e1004e716b81",
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81",
                 "shasum": ""
             },
             "require": {
@@ -8151,7 +8151,7 @@
                 }
             ],
             "description": "Functional PHP Preprocessor",
-            "time": "2019-12-09T17:58:54+00:00"
+            "time": "2020-02-14T02:47:06+00:00"
         },
         {
             "name": "sebastian/comparator",
