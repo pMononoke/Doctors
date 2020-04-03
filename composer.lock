@@ -7619,16 +7619,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.0",
+            "version": "v1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "27a216cbe72327b2d6369fab721a5843be71e57d"
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/27a216cbe72327b2d6369fab721a5843be71e57d",
-                "reference": "27a216cbe72327b2d6369fab721a5843be71e57d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
                 "shasum": ""
             },
             "require": {
@@ -7641,7 +7641,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -7663,20 +7665,20 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2019-11-14T13:13:06+00:00"
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.3",
+            "version": "1.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea"
+                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/007c053ae6f31bba39dfa19a7726f56e9763bbea",
-                "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
                 "shasum": ""
             },
             "require": {
@@ -7711,27 +7713,27 @@
                 "object",
                 "object graph"
             ],
-            "time": "2019-08-09T12:45:53+00:00"
+            "time": "2020-01-17T21:11:47+00:00"
         },
         {
             "name": "nelmio/alice",
-            "version": "v3.5.8",
+            "version": "v3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "4a8d15ea1b70869a8b5eaaf3bf6d68b228322bc4"
+                "reference": "1cfaca8e8c798796b3dfe1f55e4e25dee965ffb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/4a8d15ea1b70869a8b5eaaf3bf6d68b228322bc4",
-                "reference": "4a8d15ea1b70869a8b5eaaf3bf6d68b228322bc4",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/1cfaca8e8c798796b3dfe1f55e4e25dee965ffb6",
+                "reference": "1cfaca8e8c798796b3dfe1f55e4e25dee965ffb6",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "^1.6",
                 "myclabs/deep-copy": "^1.5.2",
                 "php": "^7.1",
-                "sebastian/comparator": "^3.0",
+                "sebastian/comparator": "^3.0 || ^4.0",
                 "symfony/property-access": "^2.8 || ^3.4 || ^4.0 || ^5.0",
                 "symfony/yaml": "^2.8 || ^3.4 || ^4.0 || ^5.0"
             },
@@ -7742,7 +7744,7 @@
                 "bamarni/composer-bin-plugin": "^1.1.0",
                 "php-mock/php-mock": "^2.0",
                 "phpspec/prophecy": "^1.6",
-                "phpunit/phpunit": "^7.0",
+                "phpunit/phpunit": "^7.0 || ^8.5",
                 "symfony/phpunit-bridge": "^3.4.5 || ^4.0.5 || ^5.0",
                 "symfony/var-dumper": "^3.4 || ^4.0 || ^5.0"
             },
@@ -7791,7 +7793,7 @@
                 "faker",
                 "test"
             ],
-            "time": "2019-12-04T08:34:42+00:00"
+            "time": "2020-03-08T23:24:35+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -8113,12 +8115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/prolic/fpp.git",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6"
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prolic/fpp/zipball/820a64e2b9d935a9241b604e009549d4b6c164b6",
-                "reference": "820a64e2b9d935a9241b604e009549d4b6c164b6",
+                "url": "https://api.github.com/repos/prolic/fpp/zipball/a072d07d103aaae989b63a6a4dc3e1004e716b81",
+                "reference": "a072d07d103aaae989b63a6a4dc3e1004e716b81",
                 "shasum": ""
             },
             "require": {
@@ -8151,7 +8153,7 @@
                 }
             ],
             "description": "Functional PHP Preprocessor",
-            "time": "2019-12-09T17:58:54+00:00"
+            "time": "2020-02-14T02:47:06+00:00"
         },
         {
             "name": "sebastian/comparator",
