@@ -20,7 +20,7 @@ services:
 addons:
   chrome: stable
   sonarcloud:
-    organization: "pmononoke"
+    organization: "pMononoke"
     token:
       secure: "7a509e4bf334ca44fd697d725c627ba40fea6a77"
 
