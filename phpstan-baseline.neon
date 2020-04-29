@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method App\\\\Controller\\\\SecurityController\\:\\:logout\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Controller/SecurityController.php
-
-		-
 			message: "#^Method App\\\\DataFixtures\\\\AppFixtures\\:\\:load\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/DataFixtures/AppFixtures.php

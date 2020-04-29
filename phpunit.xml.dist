@@ -36,6 +36,9 @@
         <testsuite name="compost">
             <directory>lib/compost/tests</directory>
         </testsuite>
+        <testsuite name="icd">
+            <directory>lib/icd/tests</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
@@ -45,6 +48,7 @@
                 <file>src/Kernel.php</file>
                 <directory>src/DataFixtures</directory>
             </exclude>
+            <directory>lib/icd/src</directory>
         </whitelist>
     </filter>
 

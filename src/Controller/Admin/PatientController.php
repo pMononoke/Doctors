@@ -80,7 +80,7 @@ class PatientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // form is valid, update the patient entity with the new data from dto
             $patient->setFirstname($patientPersonalDataDTO->firstName);
-            null === $patientPersonalDataDTO->middleName ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
+            empty($patientPersonalDataDTO->middleName) ? $patient->setMiddleName('') : $patient->setMiddleName($patientPersonalDataDTO->middleName);
             $patient->setLastName($patientPersonalDataDTO->lastName);
             $patient->setGender($patientPersonalDataDTO->gender);
             $patient->setDateOfBirth($patientPersonalDataDTO->dateOfBirth);

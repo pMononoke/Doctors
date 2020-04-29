@@ -9,13 +9,22 @@
     <projectFiles>
         <directory name="src/" />
         <ignoreFiles>
+            <file name="src/Kernel.php" />
             <directory name="src/DataFixtures" />
             <directory name="src/Migrations" />
             <directory name="src/Form/*/Dto" />
+            <directory name="src/Entity/Common/Person" />
             <file name="src/Infrastructure/Persistence/DoctrineType/*Type.php" />
-            <directory name="Ben_old_backup" />
+            <file name="src/Infrastructure/Security/PasswordGenerator.php" />
+
             <directory name="tests" />
             <directory name="vendor" />
+            <directory name="var" />
+            <directory name="node_modules" />
+            <directory name="ci" />
+
+            <directory name="Ben_old_backup" />
+
         </ignoreFiles>
     </projectFiles>
 

@@ -56,6 +56,9 @@ cache:
   - &app-database-schema-update |
       bin/console doctrine:schema:update --force --no-interaction -e test
 
+  - &validate-composer |
+      composer validate --strict --ansi -vvv
+
   - &app-lint-container |
       bin/console lint:container
 
@@ -103,6 +106,7 @@ jobs:
         - ./bin/phpunit install
 
       before_script:
+        - *validate-composer
         - *clear-test-app-cache
         - *app-database-schema-update
         - *app-lint-container
@@ -175,5 +179,25 @@ jobs:
         - *run-phpstan-tests
         - *run-phpunit-tests
 
+
+    - name: '(Dead code finder on PHP 7.2)'
+      php: '7.2'
+      env: RUN_SONAR_SCANNER=0
+      before_install:
+        - *disable-php-memory-limit
+      install:
+        #- yarn
+        #- yarn run build
+        - *install-project-dependencies
+        #- ./bin/phpunit install
+
+      before_script:
+        - mv -f psalm.xml.dead_code.dist psalm.xml
+      script:
+        - ./vendor/bin/psalm --find-dead-code
+
+
+
   allow_failures:
     - name: '(PHP 8-nightly)'
+    - name: '(Dead code finder on PHP 7.2)'

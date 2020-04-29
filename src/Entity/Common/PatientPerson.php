@@ -42,7 +42,7 @@ class PatientPerson
      */
     private $dateOfBirth;
 
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -66,7 +66,7 @@ class PatientPerson
         return $this;
     }
 
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }

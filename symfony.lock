@@ -144,9 +144,6 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
-    "facebook/webdriver": {
-        "version": "1.8.x-dev"
-    },
     "felixfbecker/advanced-json-rpc": {
         "version": "v3.0.4"
     },
