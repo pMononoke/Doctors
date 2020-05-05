@@ -1636,16 +1636,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.3.0",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc"
+                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
                 "shasum": ""
             },
             "require": {
@@ -1684,7 +1684,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-11-08T13:50:10+00:00"
+            "time": "2020-04-10T16:34:50+00:00"
         },
         {
             "name": "nyholm/nsa",
@@ -1896,16 +1896,16 @@
         },
         {
             "name": "php-translation/extractor",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/extractor.git",
-                "reference": "439717ddc43a333ce49feb99074df2db8ba93071"
+                "reference": "598bbe72bb3a6336c28ed8d75b67de310c2c9743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/extractor/zipball/439717ddc43a333ce49feb99074df2db8ba93071",
-                "reference": "439717ddc43a333ce49feb99074df2db8ba93071",
+                "url": "https://api.github.com/repos/php-translation/extractor/zipball/598bbe72bb3a6336c28ed8d75b67de310c2c9743",
+                "reference": "598bbe72bb3a6336c28ed8d75b67de310c2c9743",
                 "shasum": ""
             },
             "require": {
@@ -1944,7 +1944,7 @@
                 }
             ],
             "description": "Extract translations form the source code",
-            "time": "2019-12-26T14:02:26+00:00"
+            "time": "2020-01-23T09:12:12+00:00"
         },
         {
             "name": "php-translation/symfony-bundle",
