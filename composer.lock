@@ -8954,16 +8954,16 @@
         },
         {
             "name": "symfony/web-server-bundle",
-            "version": "v4.4.7",
+            "version": "v4.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-server-bundle.git",
-                "reference": "41cefc83e42a1600c9230b1c28b0e162c2a560ed"
+                "reference": "a7fc347f104cf763c7bae568902223e5f918af9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-server-bundle/zipball/41cefc83e42a1600c9230b1c28b0e162c2a560ed",
-                "reference": "41cefc83e42a1600c9230b1c28b0e162c2a560ed",
+                "url": "https://api.github.com/repos/symfony/web-server-bundle/zipball/a7fc347f104cf763c7bae568902223e5f918af9e",
+                "reference": "a7fc347f104cf763c7bae568902223e5f918af9e",
                 "shasum": ""
             },
             "require": {
@@ -9009,7 +9009,7 @@
             ],
             "description": "Symfony WebServerBundle",
             "homepage": "https://symfony.com",
-            "time": "2020-03-27T16:54:36+00:00"
+            "time": "2020-04-12T14:39:55+00:00"
         },
         {
             "name": "vimeo/psalm",
