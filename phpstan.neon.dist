@@ -18,6 +18,13 @@ parameters:
 
     ignoreErrors:
         #- '##'
+
+        - '#Method App\\Entity\\User::getRoles\(\) return type has no value type specified in iterable type array.#'
+        - '#Method App\\Entity\\User::setRoles\(\) has parameter \$roles with no value type specified in iterable type array.#'
+        - '#Method App\\Entity\\User::getSalt\(\) has no return typehint specified.#'
+
+        - '#Call to an undefined method object::getId\(\).#'
+
         - '#Call to an undefined method App\\Entity\\PatientRepository\:\:findAll\(\).#'
 
         # tests/Support/Service/DoctrineDatabaseManager.php
@@ -42,7 +49,7 @@ parameters:
         - 'tests/Support/TestCase/DatabaseTestCase.php'
 
         # REMOVE  User class is FosUserBundle
-        - 'src/Entity/User.php'
+        #- 'src/Entity/User.php'
 
         # REMOVE  User class is FosUserBundle
-        - 'src/Entity/Image.php'
+        #- 'src/Entity/Image.php'

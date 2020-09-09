@@ -18,11 +18,13 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
+     * @var array<string>
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -34,6 +36,7 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @var UserProfile|null
      * @ORM\OneToOne(targetEntity="App\Entity\UserProfile", cascade={"persist", "remove"})
      */
     private $profile;
@@ -86,6 +89,7 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @retrun array<string>
      */
     public function getRoles(): array
     {
