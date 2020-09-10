@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec9416f2ea62694091a3b9cce0bbeda5",
+    "content-hash": "30e8c51a780c242c4aa11190a1ac0287",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -2015,23 +2015,23 @@
         },
         {
             "name": "php-translation/symfony-bundle",
-            "version": "0.10.0",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/symfony-bundle.git",
-                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887"
+                "reference": "7fbc991062d6cf7d862122d07428adfa972fce78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/e32091bd8bfd971b0f455b7489903e08b18b5887",
-                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887",
+                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/7fbc991062d6cf7d862122d07428adfa972fce78",
+                "reference": "7fbc991062d6cf7d862122d07428adfa972fce78",
                 "shasum": ""
             },
             "require": {
                 "nyholm/nsa": "^1.1",
                 "php": "^7.1",
                 "php-translation/extractor": "^2.0",
-                "php-translation/symfony-storage": "^2.0",
+                "php-translation/symfony-storage": "^2.1",
                 "symfony/finder": "^3.4 || ^4.3 || ^5.0",
                 "symfony/framework-bundle": "^3.4 || ^4.3 || ^5.0",
                 "symfony/intl": "^3.4 || ^4.3 || ^5.0",
@@ -2066,7 +2066,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10-dev"
+                    "dev-master": "0.12-dev"
                 }
             },
             "autoload": {
@@ -2087,7 +2087,7 @@
                     "email": "tobias.nyholm@gmail.com"
                 }
             ],
-            "time": "2019-12-26T15:54:38+00:00"
+            "time": "2020-02-25T16:44:05+00:00"
         },
         {
             "name": "php-translation/symfony-storage",
