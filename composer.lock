@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "042e4986ddeab3461d178df12ea2328e",
+    "content-hash": "dfd89d39c850c64a0a26b5365b1d6565",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -6078,28 +6078,30 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v5.0.11",
+            "version": "v5.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "8e8b20291be3b4f9aed4da706450dc355ee036ac"
+                "reference": "c761866b9aa13add16e6f7dec5f40ab85c2a3ad7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/8e8b20291be3b4f9aed4da706450dc355ee036ac",
-                "reference": "8e8b20291be3b4f9aed4da706450dc355ee036ac",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/c761866b9aa13add16e6f7dec5f40ab85c2a3ad7",
+                "reference": "c761866b9aa13add16e6f7dec5f40ab85c2a3ad7",
                 "shasum": ""
             },
             "require": {
                 "ext-xml": "*",
                 "php": ">=7.2.5",
                 "symfony/config": "^4.4|^5.0",
-                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/dependency-injection": "^5.1",
+                "symfony/event-dispatcher": "^5.1",
                 "symfony/http-kernel": "^5.0",
-                "symfony/security-core": "^4.4|^5.0",
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/security-core": "^5.1",
                 "symfony/security-csrf": "^4.4|^5.0",
-                "symfony/security-guard": "^4.4|^5.0",
-                "symfony/security-http": "^4.4.5|^5.0.5"
+                "symfony/security-guard": "^5.1",
+                "symfony/security-http": "^5.1,>=5.1.2"
             },
             "conflict": {
                 "symfony/browser-kit": "<4.4",
@@ -6130,7 +6132,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -6171,7 +6173,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-23T08:36:09+00:00"
+            "time": "2020-08-18T11:41:36+00:00"
         },
         {
             "name": "symfony/security-core",
