@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec9416f2ea62694091a3b9cce0bbeda5",
+    "content-hash": "30e8c51a780c242c4aa11190a1ac0287",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -1299,6 +1299,20 @@
                 "orm",
                 "persistence"
             ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-21T15:13:52+00:00"
         },
         {
@@ -1805,20 +1819,20 @@
         },
         {
             "name": "nyholm/nsa",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/NSA.git",
-                "reference": "213a70dee2dd04433d31a187e24e92c8b59d1655"
+                "reference": "2606ebf15fb24e15a8ca8d02977ad77082d391ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/NSA/zipball/213a70dee2dd04433d31a187e24e92c8b59d1655",
-                "reference": "213a70dee2dd04433d31a187e24e92c8b59d1655",
+                "url": "https://api.github.com/repos/Nyholm/NSA/zipball/2606ebf15fb24e15a8ca8d02977ad77082d391ef",
+                "reference": "2606ebf15fb24e15a8ca8d02977ad77082d391ef",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3 || ^7.0",
+                "php": "^7.1",
                 "webmozart/assert": "^1.1.0"
             },
             "require-dev": {
@@ -1848,7 +1862,13 @@
                 "reflection",
                 "test"
             ],
-            "time": "2017-04-13T17:21:01+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/nyholm",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-05T07:41:45+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -2015,23 +2035,23 @@
         },
         {
             "name": "php-translation/symfony-bundle",
-            "version": "0.10.0",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-translation/symfony-bundle.git",
-                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887"
+                "reference": "7fbc991062d6cf7d862122d07428adfa972fce78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/e32091bd8bfd971b0f455b7489903e08b18b5887",
-                "reference": "e32091bd8bfd971b0f455b7489903e08b18b5887",
+                "url": "https://api.github.com/repos/php-translation/symfony-bundle/zipball/7fbc991062d6cf7d862122d07428adfa972fce78",
+                "reference": "7fbc991062d6cf7d862122d07428adfa972fce78",
                 "shasum": ""
             },
             "require": {
                 "nyholm/nsa": "^1.1",
                 "php": "^7.1",
                 "php-translation/extractor": "^2.0",
-                "php-translation/symfony-storage": "^2.0",
+                "php-translation/symfony-storage": "^2.1",
                 "symfony/finder": "^3.4 || ^4.3 || ^5.0",
                 "symfony/framework-bundle": "^3.4 || ^4.3 || ^5.0",
                 "symfony/intl": "^3.4 || ^4.3 || ^5.0",
@@ -2066,7 +2086,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10-dev"
+                    "dev-master": "0.12-dev"
                 }
             },
             "autoload": {
@@ -2087,7 +2107,7 @@
                     "email": "tobias.nyholm@gmail.com"
                 }
             ],
-            "time": "2019-12-26T15:54:38+00:00"
+            "time": "2020-02-25T16:44:05+00:00"
         },
         {
             "name": "php-translation/symfony-storage",
@@ -6738,6 +6758,20 @@
                 "MIT"
             ],
             "description": "A pack for the Symfony serializer",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-28T16:26:24+00:00"
         },
         {
@@ -7904,26 +7938,26 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.0.3",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3b88ccd180a6b61ebb517aea3b1a8906762a1dc2"
+                "reference": "9b76b1535483cdf4edf01bb787b0217b62bd68a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3b88ccd180a6b61ebb517aea3b1a8906762a1dc2",
-                "reference": "3b88ccd180a6b61ebb517aea3b1a8906762a1dc2",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9b76b1535483cdf4edf01bb787b0217b62bd68a5",
+                "reference": "9b76b1535483cdf4edf01bb787b0217b62bd68a5",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.5",
+                "php": ">=7.2.5",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3"
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/phpunit-bridge": "^4.4|^5.0"
+                "symfony/phpunit-bridge": "^4.4.9|^5.0.9"
             },
             "type": "library",
             "extra": {
@@ -7962,28 +7996,39 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-02-11T15:33:47+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-05T15:13:19+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.6.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925"
+                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/573381c0a64f155a0d9a23f4b0c797194805b925",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0",
+                "php": "^5.3.3 || ^7.0 || ^8.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
-                "vimeo/psalm": "<3.6.0"
+                "phpstan/phpstan": "<0.12.20",
+                "vimeo/psalm": "<3.9.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8.36 || ^7.5.13"
@@ -8010,7 +8055,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2019-11-24T13:36:37+00:00"
+            "time": "2020-07-08T17:02:28+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -9207,6 +9252,20 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-04T09:21:25+00:00"
         },
         {
@@ -9806,6 +9865,20 @@
                 "MIT"
             ],
             "description": "A debug pack for Symfony projects",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-04-07T10:08:51+00:00"
         },
         {
