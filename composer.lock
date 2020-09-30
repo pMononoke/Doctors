@@ -1299,6 +1299,20 @@
                 "orm",
                 "persistence"
             ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-21T15:13:52+00:00"
         },
         {
@@ -6686,6 +6700,20 @@
                 "MIT"
             ],
             "description": "A pack for the Symfony serializer",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-28T16:26:24+00:00"
         },
         {
@@ -9180,20 +9208,34 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-04T09:21:25+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "0.12.11",
+            "version": "0.12.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "fb0350e215668d97d3d41af6c0f556eefbe07678"
+                "reference": "5fab376975c2f2d99865837cfe693dc258ca9e61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/fb0350e215668d97d3d41af6c0f556eefbe07678",
-                "reference": "fb0350e215668d97d3d41af6c0f556eefbe07678",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/5fab376975c2f2d99865837cfe693dc258ca9e61",
+                "reference": "5fab376975c2f2d99865837cfe693dc258ca9e61",
                 "shasum": ""
             },
             "require": {
@@ -9244,7 +9286,7 @@
                 "MIT"
             ],
             "description": "Doctrine extensions for PHPStan",
-            "time": "2020-05-04T08:09:44+00:00"
+            "time": "2020-05-13T17:45:51+00:00"
         },
         {
             "name": "prolic/fpp",
@@ -9779,6 +9821,20 @@
                 "MIT"
             ],
             "description": "A debug pack for Symfony projects",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-04-07T10:08:51+00:00"
         },
         {
